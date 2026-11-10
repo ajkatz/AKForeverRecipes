@@ -29,11 +29,11 @@ jobs:
             echo "== $zip"
             unzip -l "$zip"
             echo "== the TOC inside"
-            unzip -p "$zip" AKForeverCookbook/AKForeverCookbook.toc
+            unzip -p "$zip" AKForeverRecipes/AKForeverRecipes.toc
           done
       - uses: actions/upload-artifact@v7
         with:
-          name: AKForeverCookbook-package-check
+          name: AKForeverRecipes-package-check
           path: .release/*.zip
           include-hidden-files: true # (.release is a dot folder)
           if-no-files-found: ignore # (a tagged commit packages nothing here)

@@ -1,6 +1,6 @@
--- Diagnostics: '/acb diag' writes a report into the saved file - what the client offers (the trade skill
--- and spellbook APIs), what the last pass over the book found and by which of the two ways, what the
--- client says of a few sample recipes, every error. Nothing in it is a frame; every value is checked
+-- Diagnostics: '/akr diag' writes a report into the saved file - what the client offers (the trade skill
+-- and spellbook APIs), what the last pass found and by which of the two ways, what the client says of a
+-- few sample recipes, every error. Nothing in it is a frame; every value is checked
 -- before it is copied so that a secret cannot poison the file.
 local _, ns = ...
 
@@ -48,14 +48,16 @@ end
 -- character is known to have, so that a "learned" answer can be seen as the client gives it
 local function samples()
     local list = {}
-    local recipes = ns.Lookup.Recipes()
+    -- of the character's first profession - Cooking when none is known
+    local prof = ns.Known:ProfessionsOf(ns.cdb)[1] or "cooking"
+    local recipes = ns.Lookup.Recipes(prof)
     local picks = { recipes[1], recipes[math.floor(#recipes / 2)], recipes[#recipes] }
     for spell in pairs(ns.cdb and ns.cdb.learned or {}) do
         picks[#picks + 1] = ns.Lookup.BySpell(spell)
         break
     end
     for _, recipe in ipairs(picks) do
-        local entry = { spell = recipe.spell, name = recipe.name }
+        local entry = { spell = recipe.spell, name = recipe.name, prof = recipe.prof }
         local getInfo = C_TradeSkillUI and C_TradeSkillUI.GetRecipeInfo
         if has(getInfo) then
             local ok, info = pcall(getInfo, recipe.spell)
@@ -122,7 +124,7 @@ function Diagnostics:Collect()
     return sanitize(report)
 end
 
--- A report asked for with '/acb diag' is kept; the one taken at logout goes beside it.
+-- A report asked for with '/akr diag' is kept; the one taken at logout goes beside it.
 function Diagnostics:Save(asked)
     if not ns.db then
         return

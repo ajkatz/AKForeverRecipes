@@ -1,0 +1,2000 @@
+[
+ {
+  "prof": "alchemy",
+  "item": 2554,
+  "name": "Deprecated Recipe: Elixir of Fortitude",
+  "learn": 50,
+  "new": false,
+  "bind": "none",
+  "in_questie": false
+ },
+ {
+  "prof": "alchemy",
+  "item": 250370,
+  "name": "Recipe: Elixir of Fortitude",
+  "learn": 150,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 250385,
+  "name": "Recipe: Elixir of Strength",
+  "learn": 150,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 250991,
+  "name": "Recipe: Greater Mender's Potion",
+  "learn": 180,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": false
+ },
+ {
+  "prof": "alchemy",
+  "item": 250363,
+  "name": "Recipe: Potion of Predatory Senses",
+  "learn": 195,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 250992,
+  "name": "Recipe: Superior Mender's Potion",
+  "learn": 230,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 250980,
+  "name": "Recipe: Superior Spellblasting Potion",
+  "learn": 235,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 250986,
+  "name": "Recipe: Superior Frenzy Potion",
+  "learn": 240,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 236754,
+  "name": "Recipe: Distilled Firewater",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 284871,
+  "name": "Recipe: Transmute Legionite",
+  "learn": 275,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 273112,
+  "name": "Blueprint: Alchemy Laboratory",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 274277,
+  "name": "Recipe: Flask of Natural Accuracy",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 274278,
+  "name": "Recipe: Flask of Natural Aggression",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 274279,
+  "name": "Recipe: Flask of Natural Precision",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "alchemy",
+  "item": 274280,
+  "name": "Recipe: Flask of Natural Swiftness",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251332,
+  "name": "Plans: Gemmed Copper Boots",
+  "learn": 35,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251334,
+  "name": "Plans: Glowing Copper Boots",
+  "learn": 35,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251333,
+  "name": "Plans: Strange Copper Boots",
+  "learn": 35,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251462,
+  "name": "Plans: Mithril Claymore",
+  "learn": 195,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251393,
+  "name": "Plans: Shining Mithril Pauldrons",
+  "learn": 195,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251396,
+  "name": "Plans: Shining Mithril Pants",
+  "learn": 220,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251439,
+  "name": "Plans: Blessed Plate Boots",
+  "learn": 240,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251438,
+  "name": "Plans: Blessed Plate Pauldrons",
+  "learn": 240,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251440,
+  "name": "Plans: Blessed Plate Gauntlet",
+  "learn": 245,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251407,
+  "name": "Plans: Justicar's Gloves",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251403,
+  "name": "Plans: Officer's Gloves",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251406,
+  "name": "Plans: Prefect's Gloves",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251404,
+  "name": "Plans: Sentinel's Gloves",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251405,
+  "name": "Plans: Warder's Gloves",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251467,
+  "name": "Plans: Thorium Poleaxe",
+  "learn": 260,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251444,
+  "name": "Plans: Blessed Plate Belt",
+  "learn": 270,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251443,
+  "name": "Plans: Blessed Plate Leggings",
+  "learn": 270,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251445,
+  "name": "Plans: Blessed Plate Helm",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251446,
+  "name": "Plans: Blessed Plate Chest",
+  "learn": 280,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 273113,
+  "name": "Blueprint: Master Forge",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 279314,
+  "name": "Plans: Azerothium Legplates",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 279312,
+  "name": "Plans: Depleted Thorium Sabatons",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 279311,
+  "name": "Plans: Evergreen Shield",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 279309,
+  "name": "Plans: Forest Defender's Axe",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 279310,
+  "name": "Plans: Greenhammer",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 279313,
+  "name": "Plans: Heavy Thorium Gauntlets",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 279308,
+  "name": "Plans: Ironwood Blade",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251470,
+  "name": "Plans: Bagh Nakh",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251453,
+  "name": "Plans: Breastplate of Salvation",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251450,
+  "name": "Plans: Champion's Legplates",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 22705,
+  "name": "Plans: Icebane Bracers",
+  "learn": 300,
+  "new": false,
+  "bind": "pickup",
+  "in_questie": false
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 22703,
+  "name": "Plans: Icebane Breastplate",
+  "learn": 300,
+  "new": false,
+  "bind": "pickup",
+  "in_questie": false
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 22704,
+  "name": "Plans: Icebane Gauntlets",
+  "learn": 300,
+  "new": false,
+  "bind": "pickup",
+  "in_questie": false
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251452,
+  "name": "Plans: Martyr's Legplates",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251451,
+  "name": "Plans: Stalwart Helm",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "blacksmithing",
+  "item": 251469,
+  "name": "Plans: Stormcarver",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 6345,
+  "name": "Formula: Imbue Cloak - Protection",
+  "learn": 90,
+  "new": false,
+  "bind": "none",
+  "in_questie": false
+ },
+ {
+  "prof": "enchanting",
+  "item": 6376,
+  "name": "Formula: Enchant Boots - Minor Stamina",
+  "learn": 125,
+  "new": false,
+  "bind": "none",
+  "in_questie": false
+ },
+ {
+  "prof": "enchanting",
+  "item": 249488,
+  "name": "Formula: Enchant Bracer - Agility",
+  "learn": 190,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 249514,
+  "name": "Formula: Enchant Bracer - Greater Agility",
+  "learn": 240,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 249516,
+  "name": "Formula: Enchant Gloves - Advanced Skinning",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 249523,
+  "name": "Formula: Enchant 2H Weapon - Strength",
+  "learn": 290,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 249524,
+  "name": "Formula: Enchant Bracer - Superior Agility",
+  "learn": 295,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 249512,
+  "name": "Formula: Dreambough Wand",
+  "learn": 215,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 249515,
+  "name": "Formula: Lesser Eternal Wand",
+  "learn": 245,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 249521,
+  "name": "Formula: Dormant Heart of the Mountain",
+  "learn": 265,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": false
+ },
+ {
+  "prof": "enchanting",
+  "item": 249519,
+  "name": "Formula: Frozen Heart of the Mountain",
+  "learn": 265,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": false
+ },
+ {
+  "prof": "enchanting",
+  "item": 249520,
+  "name": "Formula: Molten Heart of the Mountain",
+  "learn": 265,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": false
+ },
+ {
+  "prof": "enchanting",
+  "item": 249522,
+  "name": "Formula: Greater Eternal Wand",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 273116,
+  "name": "Blueprint: Arcane Forge",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 279299,
+  "name": "Formula: Idol of Swiftness",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 279300,
+  "name": "Formula: Idol of the Ursine Twins",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 279297,
+  "name": "Formula: Libram of Infusion",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 279296,
+  "name": "Formula: Steadfast Libram",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 279295,
+  "name": "Formula: Torch of Light",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "enchanting",
+  "item": 279298,
+  "name": "Formula: Totem of Urgency",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286076,
+  "name": "Schematic: Small Purple Rocket",
+  "learn": 125,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286077,
+  "name": "Schematic: Small White Rocket",
+  "learn": 125,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286078,
+  "name": "Schematic: Small Yellow Rocket",
+  "learn": 125,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286079,
+  "name": "Schematic: Large Purple Rocket",
+  "learn": 175,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286080,
+  "name": "Schematic: Large White Rocket",
+  "learn": 175,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286081,
+  "name": "Schematic: Large Yellow Rocket",
+  "learn": 175,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264210,
+  "name": "Schematic: Shafety Sheep",
+  "learn": 175,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264212,
+  "name": "Schematic: EZ-Thro Bronze Mortar",
+  "learn": 190,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264213,
+  "name": "Schematic: EZ-Thro Grenade",
+  "learn": 200,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264214,
+  "name": "Schematic: SAF-T Casing",
+  "learn": 215,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286082,
+  "name": "Schematic: Purple Rocket Cluster",
+  "learn": 225,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286083,
+  "name": "Schematic: White Rocket Cluster",
+  "learn": 225,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286084,
+  "name": "Schematic: Yellow Rocket Cluster",
+  "learn": 225,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264218,
+  "name": "Schematic: EZ-Thro Tru-Trigger",
+  "learn": 240,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 284870,
+  "name": "Schematic: Unsanctified Grenade",
+  "learn": 260,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286085,
+  "name": "Schematic: Large Purple Rocket Cluster",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286086,
+  "name": "Schematic: Large White Rocket Cluster",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 286087,
+  "name": "Schematic: Large Yellow Rocket Cluster",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264224,
+  "name": "Schematic: SAF-T Clever Dynamite",
+  "learn": 275,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264223,
+  "name": "Schematic: SAF-T Tube",
+  "learn": 275,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264225,
+  "name": "Schematic: EZ-Thro Shell",
+  "learn": 285,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264226,
+  "name": "Schematic: EZ-Thro Thorium Grenade",
+  "learn": 285,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 273117,
+  "name": "Blueprint: Anarchist's Workbench",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 279322,
+  "name": "Schematic: Hyper Deluxe Sniper Rifle Mk XVII",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 279321,
+  "name": "Schematic: SAF-T Ultra Precision Scope",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 274389,
+  "name": "Schematic: Swiftfeather Arrow",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 274390,
+  "name": "Schematic: Swiftstrike Shot",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264231,
+  "name": "Schematic: EZ and SAF Field Transporter: Mt. Hyjal",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264227,
+  "name": "Schematic: EZ-Thro Dark Bomb",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264229,
+  "name": "Schematic: EZ-Thro Field Transporter: Gadgetzan",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264239,
+  "name": "Schematic: EZ-Thro Magnetic Displacer",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264228,
+  "name": "Schematic: EZ-Thro Mana Bomb",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 18235,
+  "name": "Schematic: Field Repair Bot 74A",
+  "learn": 300,
+  "new": false,
+  "bind": "none",
+  "in_questie": false
+ },
+ {
+  "prof": "engineering",
+  "item": 264236,
+  "name": "Schematic: Gnomish Weather Machine",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264230,
+  "name": "Schematic: SAF-T Emergency Ripper: Everlook",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264238,
+  "name": "Schematic: SAF-T Nitro Boosts",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "engineering",
+  "item": 264240,
+  "name": "Schematic: SAF-T Teleport",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 4295,
+  "name": "Pattern: Double-stitched Leather Gloves OLD",
+  "learn": 125,
+  "new": false,
+  "bind": "none",
+  "in_questie": false
+ },
+ {
+  "prof": "leatherworking",
+  "item": 8388,
+  "name": "Pattern: Nightscape Cloak",
+  "learn": 205,
+  "new": false,
+  "bind": "none",
+  "in_questie": false
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252909,
+  "name": "Pattern: Charged Scorpid Belt",
+  "learn": 230,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252908,
+  "name": "Pattern: Supple Scorpid Boots",
+  "learn": 230,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252858,
+  "name": "Pattern: Tooled Leather Belt",
+  "learn": 235,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252915,
+  "name": "Pattern: Charged Scorpid Helm",
+  "learn": 240,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252914,
+  "name": "Pattern: Supple Scorpid Leggings",
+  "learn": 240,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252921,
+  "name": "Pattern: Mender's Mail Gauntlets",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252867,
+  "name": "Pattern: Prowler's Leather Gauntlets",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252920,
+  "name": "Pattern: Skirmisher's Mail Gauntlets",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252868,
+  "name": "Pattern: Skulker's Leather Gauntlets",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252870,
+  "name": "Pattern: Skycaller's Leather Gauntlets",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252919,
+  "name": "Pattern: Skycaller's Mail Gauntlets",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252918,
+  "name": "Pattern: Stalker's Mail Gauntlets",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252869,
+  "name": "Pattern: Warden's Leather Gauntlets",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252917,
+  "name": "Pattern: Charged Scorpid Shoulders",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252916,
+  "name": "Pattern: Supple Scorpid Bracers",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252878,
+  "name": "Pattern: Blue Suede Pants",
+  "learn": 255,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252927,
+  "name": "Pattern: Charged Scorpid Bracers",
+  "learn": 255,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252930,
+  "name": "Pattern: Charged Scorpid Gauntlets",
+  "learn": 255,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252929,
+  "name": "Pattern: Supple Scorpid Belt",
+  "learn": 255,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252926,
+  "name": "Pattern: Supple Scorpid Shoulders",
+  "learn": 255,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252881,
+  "name": "Pattern: Blue Suede Shoulders",
+  "learn": 260,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252932,
+  "name": "Pattern: Charged Scorpid Vest",
+  "learn": 260,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252931,
+  "name": "Pattern: Supple Scorpid Helm",
+  "learn": 260,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252880,
+  "name": "Pattern: Tooled Leather Gauntlets",
+  "learn": 260,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252882,
+  "name": "Pattern: Tooled Leather Crown",
+  "learn": 265,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252886,
+  "name": "Pattern: Blue Suede Belt",
+  "learn": 270,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252934,
+  "name": "Pattern: Charged Scorpid Leggings",
+  "learn": 270,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252885,
+  "name": "Pattern: Tooled Leather Bracers",
+  "learn": 270,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252884,
+  "name": "Pattern: Wicked Leather Shoulders",
+  "learn": 270,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252888,
+  "name": "Pattern: Blue Suede Bracers",
+  "learn": 275,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252887,
+  "name": "Pattern: Tooled Leather Epaulets",
+  "learn": 275,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252890,
+  "name": "Pattern: Blue Suede Hat",
+  "learn": 280,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252936,
+  "name": "Pattern: Charged Scorpid Boots",
+  "learn": 280,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252935,
+  "name": "Pattern: Supple Scorpid Sabatons",
+  "learn": 280,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252889,
+  "name": "Pattern: Tooled Leather Pants",
+  "learn": 280,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275586,
+  "name": "Pattern: Bileblister Claws",
+  "learn": 285,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275595,
+  "name": "Pattern: Broodwatcher's Clenchers",
+  "learn": 285,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275589,
+  "name": "Pattern: Hivethrasher's Claws",
+  "learn": 285,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275592,
+  "name": "Pattern: Scalegut Clenchers",
+  "learn": 285,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275587,
+  "name": "Pattern: Bileblister Girdle",
+  "learn": 290,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275596,
+  "name": "Pattern: Broodwatcher's Belt",
+  "learn": 290,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275590,
+  "name": "Pattern: Hivethrasher's Girdle",
+  "learn": 290,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275593,
+  "name": "Pattern: Scalegut Belt",
+  "learn": 290,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275588,
+  "name": "Pattern: Bileblister Boots",
+  "learn": 295,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275597,
+  "name": "Pattern: Broodwatcher's Treaders",
+  "learn": 295,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275591,
+  "name": "Pattern: Hivethrasher's Boots",
+  "learn": 295,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 275594,
+  "name": "Pattern: Scalegut Treaders",
+  "learn": 295,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 273121,
+  "name": "Blueprint: Sewing Machine",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 279303,
+  "name": "Pattern: Elderwild Pants",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 279301,
+  "name": "Pattern: Elderwild Waistcord",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 279304,
+  "name": "Pattern: Eternity Pauldrons",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 279306,
+  "name": "Pattern: Mourning Handguards",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 279302,
+  "name": "Pattern: Outlaw's Collar",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 279305,
+  "name": "Pattern: Tranquil Wristguards",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 279307,
+  "name": "Pattern: Wild Leather Armor Kit",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252939,
+  "name": "Pattern: Black Dragonscale Helm",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252938,
+  "name": "Pattern: Blue Dragonscale Helm",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252892,
+  "name": "Pattern: Dawn Armor",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252895,
+  "name": "Pattern: Ironfeather Leggings",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252891,
+  "name": "Pattern: Living Crown",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252940,
+  "name": "Pattern: Pristine Scorpid Leggings",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252937,
+  "name": "Pattern: Red Dragonscale Leggings",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252893,
+  "name": "Pattern: Timbermaw Tunic",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "leatherworking",
+  "item": 252894,
+  "name": "Pattern: Warbear Helm",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 253886,
+  "name": "Pattern: Novice Arcanist's Sash",
+  "learn": 50,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 253888,
+  "name": "Pattern: Novice Ardent's Sash",
+  "learn": 50,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254014,
+  "name": "Pattern: Earthen Silk Slippers",
+  "learn": 145,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254681,
+  "name": "Pattern: Stormcloth Pants",
+  "learn": 185,
+  "new": false,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254683,
+  "name": "Pattern: Stormcloth Vest",
+  "learn": 190,
+  "new": false,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254684,
+  "name": "Pattern: Stormcloth Headband",
+  "learn": 200,
+  "new": false,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254685,
+  "name": "Pattern: Stormcloth Shoulders",
+  "learn": 200,
+  "new": false,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254076,
+  "name": "Pattern: Earthenweave Gloves",
+  "learn": 215,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254074,
+  "name": "Pattern: Ghostweave Cord",
+  "learn": 215,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254094,
+  "name": "Pattern: Earthenweave Boots",
+  "learn": 225,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254102,
+  "name": "Pattern: Black Gloves",
+  "learn": 235,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254100,
+  "name": "Pattern: Fiery Gloves",
+  "learn": 235,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254098,
+  "name": "Pattern: Frothing Gloves",
+  "learn": 235,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254096,
+  "name": "Pattern: Gilded Gloves",
+  "learn": 235,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254104,
+  "name": "Pattern: Golden Gloves",
+  "learn": 235,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254106,
+  "name": "Pattern: Radiant Gloves",
+  "learn": 235,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254120,
+  "name": "Pattern: Earthenweave Mantle",
+  "learn": 240,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254126,
+  "name": "Pattern: Earthenweave Leggings",
+  "learn": 245,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 34261,
+  "name": "Pattern: Green Winter Clothes",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 34319,
+  "name": "Pattern: Red Winter Clothes",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254128,
+  "name": "Pattern: Ghostweave Mantle",
+  "learn": 250,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254130,
+  "name": "Pattern: Ghostweave Boots",
+  "learn": 255,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254132,
+  "name": "Pattern: Earthenweave Cuffs",
+  "learn": 255,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254138,
+  "name": "Pattern: Earthenweave Crown",
+  "learn": 260,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254136,
+  "name": "Pattern: Ghostweave Hood",
+  "learn": 260,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 273124,
+  "name": "Blueprint: Loom",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 279319,
+  "name": "Pattern: Cloak of Earth and Sky",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 279318,
+  "name": "Pattern: Fel Cape",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 279320,
+  "name": "Pattern: Felblood Soul Bag",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 279316,
+  "name": "Pattern: Mana-infused Cord",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 279317,
+  "name": "Pattern: Rime-encrusted Boots",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 279315,
+  "name": "Pattern: Robes of Fiery Devastation",
+  "learn": 300,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "tailoring",
+  "item": 254140,
+  "name": "Pattern: Bottomless Reagent Bag",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 7678,
+  "name": "Recipe: Thistle Tea",
+  "learn": 60,
+  "new": false,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250181,
+  "name": "Recipe: Raging Raptor Ribs",
+  "learn": 180,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 249884,
+  "name": "Recipe: Sage's Tea",
+  "learn": 250,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250175,
+  "name": "Recipe: Bat Hachee",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250178,
+  "name": "Recipe: Bear Bruscitti",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250189,
+  "name": "Recipe: Clam Linguine",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250183,
+  "name": "Recipe: Prehistoric Pulled Raptor",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250176,
+  "name": "Recipe: Savory Turtle Stew",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250174,
+  "name": "Recipe: Soaring Pamplona",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250180,
+  "name": "Recipe: Swiftstrike Steak",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 250177,
+  "name": "Recipe: Flank au Poivre",
+  "learn": 275,
+  "new": true,
+  "bind": "pickup",
+  "in_questie": true
+ },
+ {
+  "prof": "cooking",
+  "item": 273115,
+  "name": "Blueprint: Iron Oven",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "firstaid",
+  "item": 255731,
+  "name": "Manual: Powerful Poultice",
+  "learn": 280,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "firstaid",
+  "item": 273118,
+  "name": "Blueprint: Plague Doctor's Laboratory",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ },
+ {
+  "prof": "mining",
+  "item": 273122,
+  "name": "Blueprint: Molten Foundry",
+  "learn": 300,
+  "new": true,
+  "bind": "none",
+  "in_questie": true
+ }
+]

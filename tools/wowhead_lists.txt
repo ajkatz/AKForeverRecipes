@@ -1,0 +1,126 @@
+# Wowhead's Forever recipe lists (wowhead.com/forever/items/recipes/<profession>), read 2026-11-10 in a
+# browser for the recipe items the other places had no source for, plus forty known ones for calibration.
+# One line per item:  item id | source codes (2 drop, 4 quest, 5 vendor) | the one named source, if any:
+#   type~id~zone area id~name   (type 1 = NPC, 5 = quest; no type = "somewhere in that zone")
+# A line with codes and no named source: Wowhead knows the kind but lists several sources (not read).
+13517|5|1~256629~616~Dala Fairmaw
+18257|2|~~2717~
+250368|2|1~3757~331~Xavian Hellcaller
+250981|5|
+12836|2|1~1844~28~Foreman Marcrid
+18264|2|~~2717~
+251350|2|
+251352|2|
+251353|2|
+251360|2,5|
+251362|2,5|
+251363|2,5|
+251364|2,5|
+251375|2,5|
+251380|2,5|
+251384|2,5|
+251387|2|1~4711~405~Slitherblade Naga
+251388|2|1~937~33~Kurzen Jungle Fighter
+251389|2|1~2906~3~Dustbelcher Warrior
+251390|4,5|5~92818~0~Big, No, MASSIVE Iron Axes;~~405~
+251392|2|
+251398|2|
+251399|2|
+251401|2|
+251402|2|
+251417|5|
+251420|5|
+251423|5|
+251441|2|1~6199~16~Blood Elf Reclaimer
+251442|2|1~7108~361~Jadefire Betrayer
+251454|2|1~11915~406~Gogger Rock Keeper
+251463|2|1~759~8~Lost One Hunter
+251464|2|1~5232~357~Gordunni Brute
+273986|5|1~264797~616~Aisarra Nightmeadow
+274013|5|1~264797~616~Aisarra Nightmeadow
+274018|5|1~264797~616~Aisarra Nightmeadow
+276929|5|1~254151~16593~Vayn Moongaze
+276953|5|1~254151~16593~Vayn Moongaze
+276985|5|1~32287~36~Archmage Alvareaux
+277673|4|
+285289|5|
+285290|5|
+285291|5|
+250173|5|1~11189~618~Qia
+250179|4|5~97119~0~Now We're Cooking
+250184|2|1~4357~15~Bloodfen Lashtail
+273101|2|1~258966~0~Slavecrusher Grox
+274415|5|1~256629~616~Dala Fairmaw
+18259|2|~~2717~
+18260|2|~~2717~
+20727|2|
+20728|2|
+20729|2|
+20730|2|
+20731|2|
+20734|2|
+20736|2|
+249487|2|1~2567~45~Boulderfist Magus
+249511|2|1~4329~15~Firemane Scout
+249513|2|1~5336~357~Hatecrest Sorceress
+274424|5|1~256629~616~Dala Fairmaw
+289560|5|
+18290|2|~~2717~
+18291|2|~~2717~
+18292|2|~~2717~
+264207|2|1~4281~85~Scarlet Scout
+264208|2|1~1054~11~Dark Iron Demolitionist
+264215|2|1~5616~440~Wastewander Thief
+264234|5|
+280323|5|
+285285|5|
+255730|2|1~6575~796~Scarlet Trainee
+18252|2|~~2717~
+252768|5|
+252815|2|
+252816|2|
+252817|2|
+252843|2|1~7357~722~Mordresh Fire Eye
+252844|2|
+252845|2|
+252846|2|
+252847|2|
+252850|5|
+252859|2|1~5846~51~Dark Iron Taskmaster
+252861|5|
+252865|2|1~7158~361~Deadwood Shaman
+252866|2|1~7153~361~Deadwood Warrior
+252871|2|1~8580~1477~Atal'alarion
+252879|2|1~9878~361~Entropic Beast
+252896|2|
+252897|2|
+252898|2|
+252899|2|
+252928|2|1~6004~4~Shadowsworn Cultist
+273968|5|1~264797~616~Aisarra Nightmeadow
+274000|5|1~264797~616~Aisarra Nightmeadow
+276943|5|1~254151~16593~Vayn Moongaze
+276960|5|1~254151~16593~Vayn Moongaze
+276961|5|1~254151~16593~Vayn Moongaze
+276980|5|1~264078~215~Sutara Plainstalker
+18265|2|~~2717~
+21371|2|
+253908|2|
+253910|2|
+253950|5|
+253958|5|
+253970|5|
+253978|2|
+254016|2|1~4719~405~Slitherblade Sea Witch
+254022|2|1~873~33~Saltscale Oracle
+254034|2|1~2907~3~Dustbelcher Mystic
+254038|2|
+254040|2|
+254042|2|
+254044|2|
+254046|2|
+254048|2|
+254078|2|1~4467~47~Vilebranch Soothsayer
+254122|2|1~7523~618~Suffering Highborne
+254134|5|1~256629~616~Dala Fairmaw
+254686|2|1~5333~357~Hatecrest Serpent Guard

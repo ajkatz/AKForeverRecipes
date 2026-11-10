@@ -1,7 +1,7 @@
 # A pushed tag (v0.1.0, v0.1.1-beta1 ...) is tested, packaged and uploaded to CurseForge, Wago and GitHub Releases.
 # Tags with "alpha" / "beta" in the name are uploaded as alpha / beta files.
 # Needs two repository secrets: CF_API_KEY (CurseForge API token) and WAGO_API_TOKEN (Wago developer token),
-# and the project ids in AKForeverCookbook.toc (## X-Curse-Project-ID, ## X-Wago-ID). A site without id or token is skipped.
+# and the project ids in AKForeverRecipes.toc (## X-Curse-Project-ID, ## X-Wago-ID). A site without id or token is skipped.
 name: Release
 
 on:

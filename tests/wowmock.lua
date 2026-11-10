@@ -1,9 +1,9 @@
--- Stand-in for the WoW client, enough to run AKForeverCookbook under a plain Lua interpreter. Same design
+-- Stand-in for the WoW client, enough to run AKForeverRecipes under a plain Lua interpreter. Same design
 -- as the other addons' mocks. What it models of Blizzard's side:
 --
 --  * widgets: frames, buttons, a scroll frame, an edit box, font strings - only the methods the addon uses;
 --  * the trade skill API's recipe info (answering, not answering, or answering with secrets), the
---    spellbook's "is this spell known", the Cooking skill line;
+--    spellbook's "is this spell known", the professions' skill lines;
 --  * the player (name, surname, faction), a merchant's window with item ids and prices;
 --  * events, the slash command table, saved variables, the clock, one-shot timers, secret values.
 --
@@ -13,8 +13,10 @@
 local Mock = {}
 
 local REAL_PRINT = print
-local ADDON = "AKForeverCookbook"
-local FILES = { "Core.lua", "Data.lua", "Lookup.lua", "Known.lua", "Window.lua", "Diagnostics.lua" }
+local ADDON = "AKForeverRecipes"
+local FILES = { "Core.lua", "Data.lua", "Data/Training.lua", "Data/Alchemy.lua", "Data/Blacksmithing.lua", "Data/Enchanting.lua", "Data/Engineering.lua",
+    "Data/Leatherworking.lua", "Data/Tailoring.lua", "Data/Cooking.lua", "Data/FirstAid.lua", "Data/Mining.lua",
+    "Lookup.lua", "Known.lua", "Window.lua", "Diagnostics.lua" }
 
 Mock.SECRET = setmetatable({}, { __tostring = function() return "<SECRET>" end })
 
@@ -61,6 +63,12 @@ function methods.SetAutoFocus(self) end
 function methods.ClearFocus(self) end
 function methods.SetJustifyH(self) end
 function methods.SetWordWrap(self) end
+function methods.SetJustifyV(self) end
+function methods.SetBackdropBorderColor(self, r, g, b) self.__border = { r, g, b } end
+function methods.SetTexture(self, t) self.__texture = t end
+function methods.SetTexCoord(self) end
+function methods.GetStringHeight(self) local _, n = tostring(self.__text or ""):gsub("\n", ""); return 12 * (n + 1) end
+function methods.CreateTexture(self, name) return newWidget("Texture", name, self) end
 function methods.SetScrollChild(self, child) self.__child = child end
 function methods.SetScript(self, name, fn) self.__scripts[name] = fn end
 function methods.GetScript(self, name) return self.__scripts[name] end
@@ -83,11 +91,19 @@ function methods.RegisterEvent(self, event)
     end
     self.__events[event] = true
 end
-function methods.Click(self)
+function methods.Click(self, mouseButton)
     if self.__scripts.OnClick then
-        self.__scripts.OnClick(self)
+        self.__scripts.OnClick(self, mouseButton or "LeftButton")
     end
 end
+function methods.RegisterForClicks(self, ...) self.__clicks = { ... } end
+-- a tooltip frame: what it was asked to show
+function methods.SetOwner(self, owner, anchor) self.__owner, self.__anchor, self.__tip = owner, anchor, nil end
+function methods.SetItemByID(self, id) self.__tip = "item:" .. tostring(id) end
+function methods.SetSpellByID(self, id) self.__tip = "spell:" .. tostring(id) end
+-- the mouse over a frame, and off it
+function methods.Enter(self) if self.__scripts.OnEnter then self.__scripts.OnEnter(self) end end
+function methods.Leave(self) if self.__scripts.OnLeave then self.__scripts.OnLeave(self) end end
 
 function newWidget(kind, name, parent)
     local w = setmetatable({
@@ -103,7 +119,7 @@ end
 
 ------------------------------------------------------------------------
 -- Install: a fresh client. options: db (the saved table from an earlier session), first / last (the
--- character's name), faction, version
+-- character's name), faction, version, noRecipeInfo / noSkillInfo (the client lacks that function)
 ------------------------------------------------------------------------
 function Mock.install(options)
     options = options or {}
@@ -119,8 +135,9 @@ function Mock.install(options)
         learned = {},      -- [spell] = true: what the character has
         infoMode = "ok",   -- GetRecipeInfo: "ok" | "nil" (no data yet) | "secret" (a secret table) | "secretField" | "error"; options.noRecipeInfo: no such function
         spellMode = "ok",  -- IsSpellKnown / IsPlayerSpell: "ok" | "false" (always false) | "secret"
-        skill = { level = 0, max = 0 },
-        merchant = {}, npc = nil,
+        skill = { level = 1, max = 75 }, -- Cooking (skill line 185); { secret = true }: every skill line answers with secrets
+        skills = {},                     -- [skill line id] = { level, max }: the other professions (164 Blacksmithing, 197 Tailoring ...)
+        merchant = {}, npc = nil, items = {},
         calls = { info = 0, spell = 0 },
     }
     local state = Mock.state
@@ -176,16 +193,16 @@ function Mock.install(options)
 
     -- the trade skill API
     local tradeSkill = {
-        GetProfessionInfoBySkillLineID = function(lineID)
-            if lineID ~= 185 then
-                return { professionID = lineID, skillLevel = 0, maxSkillLevel = 0, professionName = "" }
-            end
-            if state.skill.secret then
-                return { professionID = 185, skillLevel = Mock.SECRET, maxSkillLevel = Mock.SECRET, professionName = "Cooking" }
-            end
-            return { professionID = 185, skillLevel = state.skill.level, maxSkillLevel = state.skill.max, professionName = "Cooking" }
-        end,
     }
+    if not options.noSkillInfo then
+        tradeSkill.GetProfessionInfoBySkillLineID = function(lineID)
+            if state.skill.secret then
+                return { professionID = lineID, skillLevel = Mock.SECRET, maxSkillLevel = Mock.SECRET, professionName = Mock.SECRET }
+            end
+            local skill = lineID == 185 and state.skill or state.skills[lineID] or { level = 0, max = 0 }
+            return { professionID = lineID, skillLevel = skill.level, maxSkillLevel = skill.max, professionName = "line " .. lineID }
+        end
+    end
     if not options.noRecipeInfo then
         tradeSkill.GetRecipeInfo = function(spell)
             state.calls.info = state.calls.info + 1
@@ -219,9 +236,14 @@ function Mock.install(options)
         return item.name or "an item", 134400, item.price or 0, 1, -1, true, true, nil
     end)
 
+    -- the bags and bank: [item id] = how many
+    global("C_Item", { GetItemCount = function(itemID, includeBank)
+        if state.bagsSecret then return Mock.SECRET end
+        return state.items[itemID] or 0
+    end })
     global("C_Timer", { After = function(seconds, fn) Mock.timers[#Mock.timers + 1] = { at = state.now + seconds, fn = fn } end })
 
-    global("AKForeverCookbookDB", options.db)
+    global("AKForeverRecipesDB", options.db)
 
     -- the addon's files, in the TOC's order, in a 5.1-shaped environment
     local ns = {}
@@ -299,7 +321,7 @@ function Mock.merchant(items, npcName, zone)
 end
 
 function Mock.slash(text)
-    SlashCmdList.AKFOREVERCOOKBOOK(text)
+    SlashCmdList.AKFOREVERRECIPES(text)
 end
 
 local function plain(text)
@@ -307,22 +329,53 @@ local function plain(text)
 end
 Mock.plain = plain
 
--- the window's rows as plain text ("left | right"), colours and inline icons stripped
-function Mock.rows()
+-- the window's cards flattened to lines: a card is "name  skill | its source line", each line of an
+-- opened card "text | right", a note its words
+local function flat()
     local list = {}
     for _, entry in ipairs(Mock.ns.Window.lines or {}) do
+        if entry.card then
+            list[#list + 1] = { text = tostring(entry.text) .. "  " .. tostring(entry.skill) .. "  [" .. tostring(entry.tags or "") .. "]", right = entry.right, click = entry.click, entry = entry }
+            for _, detail in ipairs(entry.details or {}) do
+                list[#list + 1] = { text = detail.text, right = detail.right }
+            end
+        else
+            list[#list + 1] = { text = entry.note, right = "" }
+        end
+    end
+    return list
+end
+Mock.flat = flat
+
+-- as plain text, colours stripped
+function Mock.rows()
+    local list = {}
+    for _, entry in ipairs(flat()) do
         local left, right = plain(entry.text), plain(entry.right or "")
         list[#list + 1] = left .. (right ~= "" and (" | " .. right) or "")
     end
     return list
 end
 
--- the rows as the font strings get them, icons and colours included
+-- as the font strings get them, colours included
 function Mock.rawRows()
     local list = {}
-    for _, entry in ipairs(Mock.ns.Window.lines or {}) do
+    for _, entry in ipairs(flat()) do
         list[#list + 1] = tostring(entry.text) .. " | " .. tostring(entry.right or "")
     end
+    return list
+end
+
+-- the card frames now on screen, top to bottom: { frame, y (its top, downwards), height }
+function Mock.cards()
+    local list = {}
+    for _, frame in ipairs(Mock.frames) do
+        if frame.__kind == "Button" and frame.details and frame.__shown then
+            local _, _, _, _, y = frame:GetPoint(1)
+            list[#list + 1] = { frame = frame, y = -(y or 0), height = frame:GetHeight() }
+        end
+    end
+    table.sort(list, function(a, b) return a.y < b.y end)
     return list
 end
 
@@ -337,7 +390,7 @@ function Mock.rowIndex(text)
 end
 
 function Mock.clickRow(index)
-    local entry = Mock.ns.Window.lines and Mock.ns.Window.lines[index]
+    local entry = flat()[index]
     assert(entry and entry.click, "no clickable row " .. tostring(index))
     entry.click()
 end

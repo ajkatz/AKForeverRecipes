@@ -1,0 +1,9914 @@
+{
+ "10300": {
+  "bind": "none",
+  "name": "Pattern: Red Mageweave Vest",
+  "spell": 12056,
+  "unique": false
+ },
+ "10301": {
+  "bind": "none",
+  "name": "Pattern: White Bandit Mask",
+  "spell": 12059,
+  "unique": false
+ },
+ "10302": {
+  "bind": "none",
+  "name": "Pattern: Red Mageweave Pants",
+  "spell": 12060,
+  "unique": false
+ },
+ "10311": {
+  "bind": "none",
+  "name": "Pattern: Orange Martial Shirt",
+  "spell": 12064,
+  "unique": false
+ },
+ "10312": {
+  "bind": "none",
+  "name": "Pattern: Red Mageweave Gloves",
+  "spell": 12066,
+  "unique": false
+ },
+ "10314": {
+  "bind": "none",
+  "name": "Pattern: Lavender Mageweave Shirt",
+  "spell": 12075,
+  "unique": false
+ },
+ "10315": {
+  "bind": "none",
+  "name": "Pattern: Red Mageweave Shoulders",
+  "spell": 12078,
+  "unique": false
+ },
+ "10316": {
+  "bind": "none",
+  "name": "Pattern: Colorful Kilt",
+  "spell": 12047,
+  "unique": false
+ },
+ "10317": {
+  "bind": "none",
+  "name": "Pattern: Pink Mageweave Shirt",
+  "spell": 12080,
+  "unique": false
+ },
+ "10318": {
+  "bind": "none",
+  "name": "Pattern: Admiral's Hat",
+  "spell": 12081,
+  "unique": false
+ },
+ "10320": {
+  "bind": "none",
+  "name": "Pattern: Red Mageweave Headband",
+  "spell": 12084,
+  "unique": false
+ },
+ "10321": {
+  "bind": "none",
+  "name": "Pattern: Tuxedo Shirt",
+  "spell": 12085,
+  "unique": false
+ },
+ "10323": {
+  "bind": "none",
+  "name": "Pattern: Tuxedo Pants",
+  "spell": 12089,
+  "unique": false
+ },
+ "10325": {
+  "bind": "none",
+  "name": "Pattern: White Wedding Dress",
+  "spell": 12091,
+  "unique": false
+ },
+ "10326": {
+  "bind": "none",
+  "name": "Pattern: Tuxedo Jacket",
+  "spell": 12093,
+  "unique": false
+ },
+ "10424": {
+  "bind": "none",
+  "name": "Plans: Silvered Bronze Leggings",
+  "spell": 12259,
+  "unique": false
+ },
+ "10463": {
+  "bind": "none",
+  "name": "Pattern: Shadoweave Mask",
+  "spell": 12086,
+  "unique": false
+ },
+ "10601": {
+  "bind": "none",
+  "name": "Schematic: Bright-Eye Goggles",
+  "spell": 12587,
+  "unique": false
+ },
+ "10602": {
+  "bind": "pickup",
+  "name": "Schematic: Deadly Scope",
+  "spell": 12597,
+  "unique": false
+ },
+ "10603": {
+  "bind": "none",
+  "name": "Schematic: Catseye Ultra Goggles",
+  "spell": 12607,
+  "unique": false
+ },
+ "10604": {
+  "bind": "none",
+  "name": "Schematic: Mithril Heavy-bore Rifle",
+  "spell": 12614,
+  "unique": false
+ },
+ "10605": {
+  "bind": "none",
+  "name": "Schematic: Spellpower Goggles Xtreme",
+  "spell": 12615,
+  "unique": false
+ },
+ "10606": {
+  "bind": "none",
+  "name": "Schematic: Parachute Cloak",
+  "spell": 12616,
+  "unique": false
+ },
+ "10607": {
+  "bind": "pickup",
+  "name": "Schematic: Deepdive Helmet",
+  "spell": 12617,
+  "unique": false
+ },
+ "10608": {
+  "bind": "none",
+  "name": "Schematic: Sniper Scope",
+  "spell": 12620,
+  "unique": false
+ },
+ "10609": {
+  "bind": "none",
+  "name": "Schematic: Mithril Mechanical Dragonling",
+  "spell": 12624,
+  "unique": false
+ },
+ "10644": {
+  "bind": "none",
+  "name": "Recipe: Goblin Rocket Fuel",
+  "spell": 11456,
+  "unique": false
+ },
+ "10713": {
+  "bind": "none",
+  "name": "Plans: Inlaid Mithril Cylinder",
+  "spell": 11454,
+  "unique": false
+ },
+ "10728": {
+  "bind": "pickup",
+  "name": "Pattern: Black Swashbuckler's Shirt",
+  "spell": 3873,
+  "unique": false
+ },
+ "10858": {
+  "bind": "pickup",
+  "name": "Plans: Solid Iron Maul",
+  "spell": 3494,
+  "unique": false
+ },
+ "11038": {
+  "bind": "none",
+  "name": "Formula: Enchant 2H Weapon - Lesser Spirit",
+  "spell": 13380,
+  "unique": false
+ },
+ "11039": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Cloak - Minor Agility",
+  "spell": 13419,
+  "unique": false
+ },
+ "11081": {
+  "bind": "none",
+  "name": "Formula: Enchant Shield - Lesser Protection",
+  "spell": 13464,
+  "unique": false
+ },
+ "11098": {
+  "bind": "none",
+  "name": "Formula: Enchant Cloak - Lesser Shadow Resistance",
+  "spell": 13522,
+  "unique": false
+ },
+ "11101": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Lesser Strength",
+  "spell": 13536,
+  "unique": false
+ },
+ "11150": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Mining",
+  "spell": 13612,
+  "unique": false
+ },
+ "11151": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Herbalism",
+  "spell": 13617,
+  "unique": false
+ },
+ "11152": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Fishing",
+  "spell": 13620,
+  "unique": false
+ },
+ "11163": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Lesser Deflection",
+  "spell": 13646,
+  "unique": false
+ },
+ "11164": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Lesser Beastslayer",
+  "spell": 13653,
+  "unique": false
+ },
+ "11165": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Lesser Elemental Slayer",
+  "spell": 13655,
+  "unique": false
+ },
+ "11166": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Skinning",
+  "spell": 13698,
+  "unique": false
+ },
+ "11167": {
+  "bind": "none",
+  "name": "Formula: Enchant Boots - Lesser Spirit",
+  "spell": 13687,
+  "unique": false
+ },
+ "11168": {
+  "bind": "none",
+  "name": "Formula: Enchant Shield - Lesser Block",
+  "spell": 13689,
+  "unique": false
+ },
+ "11202": {
+  "bind": "none",
+  "name": "Formula: Enchant Shield - Stamina",
+  "spell": 13817,
+  "unique": false
+ },
+ "11203": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Advanced Mining",
+  "spell": 13841,
+  "unique": false
+ },
+ "11204": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Greater Spirit",
+  "spell": 13846,
+  "unique": false
+ },
+ "11205": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Advanced Herbalism",
+  "spell": 13868,
+  "unique": false
+ },
+ "11206": {
+  "bind": "none",
+  "name": "Formula: Enchant Cloak - Lesser Agility",
+  "spell": 13882,
+  "unique": false
+ },
+ "11207": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Fiery Weapon",
+  "spell": 13898,
+  "unique": false
+ },
+ "11208": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Demonslaying",
+  "spell": 13915,
+  "unique": false
+ },
+ "11223": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Deflection",
+  "spell": 13931,
+  "unique": false
+ },
+ "11224": {
+  "bind": "none",
+  "name": "Formula: Enchant Shield - Frost Resistance",
+  "spell": 13933,
+  "unique": false
+ },
+ "11225": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Greater Stamina",
+  "spell": 13945,
+  "unique": false
+ },
+ "11226": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Riding Skill",
+  "spell": 13947,
+  "unique": false
+ },
+ "11610": {
+  "bind": "none",
+  "name": "Plans: Dark Iron Pulverizer",
+  "spell": 15292,
+  "unique": false
+ },
+ "11611": {
+  "bind": "none",
+  "name": "Plans: Dark Iron Sunderer",
+  "spell": 15294,
+  "unique": false
+ },
+ "11612": {
+  "bind": "none",
+  "name": "Plans: Dark Iron Plate",
+  "spell": 15296,
+  "unique": false
+ },
+ "11614": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Mail",
+  "spell": 15293,
+  "unique": false
+ },
+ "11615": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Shoulders",
+  "spell": 15295,
+  "unique": false
+ },
+ "11813": {
+  "bind": "none",
+  "name": "Formula: Smoking Heart of the Mountain",
+  "spell": 15596,
+  "unique": false
+ },
+ "11827": {
+  "bind": "pickup",
+  "name": "Schematic: Lil' Smoky",
+  "spell": 15633,
+  "unique": false
+ },
+ "11828": {
+  "bind": "pickup",
+  "name": "Schematic: Pet Bombling",
+  "spell": 15628,
+  "unique": false
+ },
+ "12162": {
+  "bind": "none",
+  "name": "Plans: Hardened Iron Shortsword",
+  "spell": 3492,
+  "unique": false
+ },
+ "12163": {
+  "bind": "pickup",
+  "name": "Plans: Moonsteel Broadsword",
+  "spell": 3496,
+  "unique": false
+ },
+ "12164": {
+  "bind": "pickup",
+  "name": "Plans: Massive Iron Axe",
+  "spell": 3498,
+  "unique": false
+ },
+ "12226": {
+  "bind": "none",
+  "name": "Recipe: Crispy Bat Wing",
+  "spell": 15935,
+  "unique": false
+ },
+ "12227": {
+  "bind": "pickup",
+  "name": "Recipe: Lean Wolf Steak",
+  "spell": 15853,
+  "unique": false
+ },
+ "12228": {
+  "bind": "pickup",
+  "name": "Recipe: Roast Raptor",
+  "spell": 15855,
+  "unique": false
+ },
+ "12229": {
+  "bind": "pickup",
+  "name": "Recipe: Hot Wolf Ribs",
+  "spell": 15856,
+  "unique": false
+ },
+ "12231": {
+  "bind": "pickup",
+  "name": "Recipe: Jungle Stew",
+  "spell": 15861,
+  "unique": false
+ },
+ "12232": {
+  "bind": "pickup",
+  "name": "Recipe: Carrion Surprise",
+  "spell": 15863,
+  "unique": false
+ },
+ "12233": {
+  "bind": "pickup",
+  "name": "Recipe: Mystery Stew",
+  "spell": 15865,
+  "unique": false
+ },
+ "12239": {
+  "bind": "none",
+  "name": "Recipe: Dragonbreath Chili",
+  "spell": 15906,
+  "unique": false
+ },
+ "12240": {
+  "bind": "pickup",
+  "name": "Recipe: Heavy Kodo Stew",
+  "spell": 15910,
+  "unique": false
+ },
+ "12261": {
+  "bind": "none",
+  "name": "Plans: Searing Golden Blade",
+  "spell": 15973,
+  "unique": false
+ },
+ "12682": {
+  "bind": "none",
+  "name": "Plans: Thorium Armor",
+  "spell": 16642,
+  "unique": false
+ },
+ "12683": {
+  "bind": "none",
+  "name": "Plans: Thorium Belt",
+  "spell": 16643,
+  "unique": false
+ },
+ "12684": {
+  "bind": "none",
+  "name": "Plans: Thorium Bracers",
+  "spell": 16644,
+  "unique": false
+ },
+ "12685": {
+  "bind": "none",
+  "name": "Plans: Radiant Belt",
+  "spell": 16645,
+  "unique": false
+ },
+ "12687": {
+  "bind": "pickup",
+  "name": "Plans: Imperial Plate Shoulders",
+  "spell": 16646,
+  "unique": false
+ },
+ "12688": {
+  "bind": "pickup",
+  "name": "Plans: Imperial Plate Belt",
+  "spell": 16647,
+  "unique": false
+ },
+ "12689": {
+  "bind": "none",
+  "name": "Plans: Radiant Breastplate",
+  "spell": 16648,
+  "unique": false
+ },
+ "12690": {
+  "bind": "pickup",
+  "name": "Plans: Imperial Plate Bracers",
+  "spell": 16649,
+  "unique": false
+ },
+ "12691": {
+  "bind": "none",
+  "name": "Pattern: Wildthorn Mail",
+  "spell": 16650,
+  "unique": false
+ },
+ "12692": {
+  "bind": "none",
+  "name": "Plans: Thorium Shield Spike",
+  "spell": 16651,
+  "unique": false
+ },
+ "12693": {
+  "bind": "none",
+  "name": "Plans: Thorium Boots",
+  "spell": 16652,
+  "unique": false
+ },
+ "12694": {
+  "bind": "none",
+  "name": "Plans: Thorium Helm",
+  "spell": 16653,
+  "unique": false
+ },
+ "12695": {
+  "bind": "none",
+  "name": "Plans: Radiant Gloves",
+  "spell": 16654,
+  "unique": false
+ },
+ "12696": {
+  "bind": "pickup",
+  "name": "Plans: Demon Forged Breastplate",
+  "spell": 16667,
+  "unique": false
+ },
+ "12697": {
+  "bind": "none",
+  "name": "Plans: Radiant Boots",
+  "spell": 16656,
+  "unique": false
+ },
+ "12698": {
+  "bind": "none",
+  "name": "Plans: Dawnbringer Shoulders",
+  "spell": 16660,
+  "unique": false
+ },
+ "12699": {
+  "bind": "pickup",
+  "name": "Plans: Fiery Plate Gauntlets",
+  "spell": 16655,
+  "unique": false
+ },
+ "12700": {
+  "bind": "pickup",
+  "name": "Plans: Imperial Plate Boots",
+  "spell": 16657,
+  "unique": false
+ },
+ "12701": {
+  "bind": "pickup",
+  "name": "Plans: Imperial Plate Helm",
+  "spell": 16658,
+  "unique": false
+ },
+ "12702": {
+  "bind": "none",
+  "name": "Plans: Radiant Circlet",
+  "spell": 16659,
+  "unique": false
+ },
+ "12703": {
+  "bind": "none",
+  "name": "Pattern: Storm Gauntlets",
+  "spell": 16661,
+  "unique": false
+ },
+ "12704": {
+  "bind": "none",
+  "name": "Plans: Thorium Leggings",
+  "spell": 16662,
+  "unique": false
+ },
+ "12705": {
+  "bind": "pickup",
+  "name": "Plans: Imperial Plate Chest",
+  "spell": 16663,
+  "unique": false
+ },
+ "12706": {
+  "bind": "pickup",
+  "name": "Plans: Runic Plate Shoulders",
+  "spell": 16664,
+  "unique": false
+ },
+ "12707": {
+  "bind": "pickup",
+  "name": "Plans: Runic Plate Boots",
+  "spell": 16665,
+  "unique": false
+ },
+ "12711": {
+  "bind": "none",
+  "name": "Plans: Whitesoul Helm",
+  "spell": 16724,
+  "unique": false
+ },
+ "12713": {
+  "bind": "none",
+  "name": "Plans: Radiant Leggings",
+  "spell": 16725,
+  "unique": false
+ },
+ "12714": {
+  "bind": "pickup",
+  "name": "Plans: Runic Plate Helm",
+  "spell": 16726,
+  "unique": false
+ },
+ "12715": {
+  "bind": "pickup",
+  "name": "Plans: Imperial Plate Leggings",
+  "spell": 16730,
+  "unique": false
+ },
+ "12716": {
+  "bind": "none",
+  "name": "Pattern: Helm of the Great Chief",
+  "spell": 16728,
+  "unique": false
+ },
+ "12717": {
+  "bind": "none",
+  "name": "Plans: Lionheart Helm",
+  "spell": 16729,
+  "unique": false
+ },
+ "12718": {
+  "bind": "pickup",
+  "name": "Plans: Runic Breastplate",
+  "spell": 16731,
+  "unique": false
+ },
+ "12719": {
+  "bind": "pickup",
+  "name": "Plans: Runic Plate Leggings",
+  "spell": 16732,
+  "unique": false
+ },
+ "12720": {
+  "bind": "none",
+  "name": "Plans: Stronghold Gauntlets",
+  "spell": 16741,
+  "unique": false
+ },
+ "12725": {
+  "bind": "pickup",
+  "name": "Plans: Enchanted Thorium Helm",
+  "spell": 16742,
+  "unique": false
+ },
+ "12726": {
+  "bind": "pickup",
+  "name": "Plans: Enchanted Thorium Leggings",
+  "spell": 16744,
+  "unique": false
+ },
+ "12727": {
+  "bind": "pickup",
+  "name": "Plans: Enchanted Thorium Breastplate",
+  "spell": 16745,
+  "unique": false
+ },
+ "12728": {
+  "bind": "none",
+  "name": "Pattern: Invulnerable Mail",
+  "spell": 16746,
+  "unique": false
+ },
+ "12819": {
+  "bind": "pickup",
+  "name": "Plans: Ornate Thorium Handaxe",
+  "spell": 16969,
+  "unique": false
+ },
+ "12821": {
+  "bind": "none",
+  "name": "Plans: Dawn's Edge",
+  "spell": 16970,
+  "unique": false
+ },
+ "12823": {
+  "bind": "pickup",
+  "name": "Plans: Huge Thorium Battleaxe",
+  "spell": 16971,
+  "unique": false
+ },
+ "12824": {
+  "bind": "none",
+  "name": "Plans: Enchanted Battlehammer",
+  "spell": 16973,
+  "unique": false
+ },
+ "12825": {
+  "bind": "none",
+  "name": "Plans: Blazing Rapier",
+  "spell": 16978,
+  "unique": false
+ },
+ "12827": {
+  "bind": "none",
+  "name": "Plans: Serenity",
+  "spell": 16983,
+  "unique": false
+ },
+ "12828": {
+  "bind": "none",
+  "name": "Plans: Volcanic Hammer",
+  "spell": 16984,
+  "unique": false
+ },
+ "12830": {
+  "bind": "none",
+  "name": "Plans: Corruption",
+  "spell": 16985,
+  "unique": false
+ },
+ "12833": {
+  "bind": "none",
+  "name": "Plans: Hammer of the Titans",
+  "spell": 16988,
+  "unique": false
+ },
+ "12834": {
+  "bind": "none",
+  "name": "Plans: Arcanite Champion",
+  "spell": 16990,
+  "unique": false
+ },
+ "12835": {
+  "bind": "none",
+  "name": "Plans: Annihilator",
+  "spell": 16991,
+  "unique": false
+ },
+ "12836": {
+  "bind": "none",
+  "name": "Plans: Frostguard",
+  "spell": 16992,
+  "unique": false
+ },
+ "12837": {
+  "bind": "none",
+  "name": "Plans: Masterwork Stormhammer",
+  "spell": 16993,
+  "unique": false
+ },
+ "12838": {
+  "bind": "none",
+  "name": "Plans: Arcanite Reaper",
+  "spell": 16994,
+  "unique": false
+ },
+ "12839": {
+  "bind": "none",
+  "name": "Plans: Heartseeker",
+  "spell": 16995,
+  "unique": false
+ },
+ "12958": {
+  "bind": "none",
+  "name": "Recipe: Transmute Arcanite",
+  "spell": 17187,
+  "unique": false
+ },
+ "13287": {
+  "bind": "none",
+  "name": "Pattern: Raptor Hide Harness",
+  "spell": 4096,
+  "unique": false
+ },
+ "13288": {
+  "bind": "none",
+  "name": "Pattern: Raptor Hide Belt",
+  "spell": 4097,
+  "unique": false
+ },
+ "13308": {
+  "bind": "pickup",
+  "name": "Schematic: Ice Deflector",
+  "spell": 3957,
+  "unique": false
+ },
+ "13309": {
+  "bind": "pickup",
+  "name": "Schematic: Lovingly Crafted Boomstick",
+  "spell": 3939,
+  "unique": false
+ },
+ "13310": {
+  "bind": "pickup",
+  "name": "Schematic: Accurate Scope",
+  "spell": 3979,
+  "unique": false
+ },
+ "13311": {
+  "bind": "none",
+  "name": "Schematic: Mechanical Dragonling",
+  "spell": 3969,
+  "unique": false
+ },
+ "13476": {
+  "bind": "none",
+  "name": "Recipe: Mighty Rage Potion",
+  "spell": 17552,
+  "unique": false
+ },
+ "13477": {
+  "bind": "none",
+  "name": "Recipe: Superior Mana Potion",
+  "spell": 17553,
+  "unique": false
+ },
+ "13478": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Superior Defense",
+  "spell": 17554,
+  "unique": false
+ },
+ "13479": {
+  "bind": "none",
+  "name": "Recipe: Elixir of the Sages",
+  "spell": 17555,
+  "unique": false
+ },
+ "13481": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Brute Force",
+  "spell": 17557,
+  "unique": false
+ },
+ "13482": {
+  "bind": "pickup",
+  "name": "Recipe: Transmute Air to Fire",
+  "spell": 17559,
+  "unique": false
+ },
+ "13483": {
+  "bind": "pickup",
+  "name": "Recipe: Transmute Fire to Earth",
+  "spell": 17560,
+  "unique": false
+ },
+ "13484": {
+  "bind": "pickup",
+  "name": "Recipe: Transmute Earth to Water",
+  "spell": 17561,
+  "unique": false
+ },
+ "13485": {
+  "bind": "pickup",
+  "name": "Recipe: Transmute Water to Air",
+  "spell": 17562,
+  "unique": false
+ },
+ "13486": {
+  "bind": "none",
+  "name": "Recipe: Transmute Undeath to Water",
+  "spell": 17563,
+  "unique": false
+ },
+ "13487": {
+  "bind": "none",
+  "name": "Recipe: Transmute Water to Undeath",
+  "spell": 17564,
+  "unique": false
+ },
+ "13488": {
+  "bind": "none",
+  "name": "Recipe: Transmute Life to Earth",
+  "spell": 17565,
+  "unique": false
+ },
+ "13489": {
+  "bind": "none",
+  "name": "Recipe: Transmute Earth to Life",
+  "spell": 17566,
+  "unique": false
+ },
+ "13490": {
+  "bind": "none",
+  "name": "Recipe: Greater Stoneshield Potion",
+  "spell": 17570,
+  "unique": false
+ },
+ "13491": {
+  "bind": "none",
+  "name": "Recipe: Elixir of the Mongoose",
+  "spell": 17571,
+  "unique": false
+ },
+ "13492": {
+  "bind": "none",
+  "name": "Recipe: Purification Potion",
+  "spell": 17572,
+  "unique": false
+ },
+ "13493": {
+  "bind": "none",
+  "name": "Recipe: Greater Arcane Elixir",
+  "spell": 17573,
+  "unique": false
+ },
+ "13494": {
+  "bind": "none",
+  "name": "Recipe: Greater Fire Protection Potion",
+  "spell": 17574,
+  "unique": false
+ },
+ "13495": {
+  "bind": "none",
+  "name": "Recipe: Greater Frost Protection Potion",
+  "spell": 17575,
+  "unique": false
+ },
+ "13496": {
+  "bind": "none",
+  "name": "Recipe: Greater Nature Protection Potion",
+  "spell": 17576,
+  "unique": false
+ },
+ "13497": {
+  "bind": "none",
+  "name": "Recipe: Greater Arcane Protection Potion",
+  "spell": 17577,
+  "unique": false
+ },
+ "13499": {
+  "bind": "none",
+  "name": "Recipe: Greater Shadow Protection Potion",
+  "spell": 17578,
+  "unique": false
+ },
+ "13500": {
+  "bind": "none",
+  "name": "Recipe: Greater Holy Protection Potion",
+  "spell": 17579,
+  "unique": false
+ },
+ "13501": {
+  "bind": "pickup",
+  "name": "Recipe: Major Mana Potion",
+  "spell": 17580,
+  "unique": false
+ },
+ "13517": {
+  "bind": "pickup",
+  "name": "Recipe: Alchemist's Stone",
+  "spell": 17632,
+  "unique": false
+ },
+ "13518": {
+  "bind": "none",
+  "name": "Recipe: Flask of Petrification",
+  "spell": 17634,
+  "unique": false
+ },
+ "13519": {
+  "bind": "none",
+  "name": "Recipe: Flask of the Titans",
+  "spell": 17635,
+  "unique": false
+ },
+ "13520": {
+  "bind": "none",
+  "name": "Recipe: Flask of Distilled Wisdom",
+  "spell": 17636,
+  "unique": false
+ },
+ "13521": {
+  "bind": "none",
+  "name": "Recipe: Flask of Supreme Power",
+  "spell": 17637,
+  "unique": false
+ },
+ "13522": {
+  "bind": "none",
+  "name": "Recipe: Flask of Chromatic Resistance",
+  "spell": 17638,
+  "unique": false
+ },
+ "13939": {
+  "bind": "none",
+  "name": "Recipe: Spotted Yellowtail",
+  "spell": 18238,
+  "unique": false
+ },
+ "13940": {
+  "bind": "none",
+  "name": "Recipe: Cooked Glossy Mightfish",
+  "spell": 18239,
+  "unique": false
+ },
+ "13941": {
+  "bind": "none",
+  "name": "Recipe: Filet of Redgill",
+  "spell": 18241,
+  "unique": false
+ },
+ "13942": {
+  "bind": "none",
+  "name": "Recipe: Grilled Squid",
+  "spell": 18240,
+  "unique": false
+ },
+ "13943": {
+  "bind": "none",
+  "name": "Recipe: Hot Smoked Bass",
+  "spell": 18242,
+  "unique": false
+ },
+ "13945": {
+  "bind": "none",
+  "name": "Recipe: Nightfin Soup",
+  "spell": 18243,
+  "unique": false
+ },
+ "13946": {
+  "bind": "none",
+  "name": "Recipe: Poached Sunscale Salmon",
+  "spell": 18244,
+  "unique": false
+ },
+ "13947": {
+  "bind": "none",
+  "name": "Recipe: Lobster Stew",
+  "spell": 18245,
+  "unique": false
+ },
+ "13948": {
+  "bind": "none",
+  "name": "Recipe: Mightfish Steak",
+  "spell": 18246,
+  "unique": false
+ },
+ "13949": {
+  "bind": "none",
+  "name": "Recipe: Baked Salmon",
+  "spell": 18247,
+  "unique": false
+ },
+ "14466": {
+  "bind": "none",
+  "name": "Pattern: Frostweave Tunic",
+  "spell": 18403,
+  "unique": false
+ },
+ "14467": {
+  "bind": "none",
+  "name": "Pattern: Frostweave Robe",
+  "spell": 18404,
+  "unique": false
+ },
+ "14468": {
+  "bind": "none",
+  "name": "Pattern: Runecloth Bag",
+  "spell": 18405,
+  "unique": false
+ },
+ "14469": {
+  "bind": "pickup",
+  "name": "Pattern: Runecloth Robe",
+  "spell": 18406,
+  "unique": false
+ },
+ "14470": {
+  "bind": "none",
+  "name": "Pattern: Runecloth Tunic",
+  "spell": 18407,
+  "unique": false
+ },
+ "14471": {
+  "bind": "none",
+  "name": "Pattern: Cindercloth Vest",
+  "spell": 18408,
+  "unique": false
+ },
+ "14472": {
+  "bind": "pickup",
+  "name": "Pattern: Runecloth Cloak",
+  "spell": 18409,
+  "unique": false
+ },
+ "14473": {
+  "bind": "none",
+  "name": "Pattern: Ghostweave Belt",
+  "spell": 18410,
+  "unique": false
+ },
+ "14474": {
+  "bind": "none",
+  "name": "Pattern: Frostweave Gloves",
+  "spell": 18411,
+  "unique": false
+ },
+ "14476": {
+  "bind": "none",
+  "name": "Pattern: Cindercloth Gloves",
+  "spell": 18412,
+  "unique": false
+ },
+ "14477": {
+  "bind": "none",
+  "name": "Pattern: Ghostweave Gloves",
+  "spell": 18413,
+  "unique": false
+ },
+ "14478": {
+  "bind": "none",
+  "name": "Pattern: Brightcloth Robe",
+  "spell": 18414,
+  "unique": false
+ },
+ "14479": {
+  "bind": "none",
+  "name": "Pattern: Brightcloth Gloves",
+  "spell": 18415,
+  "unique": false
+ },
+ "14480": {
+  "bind": "none",
+  "name": "Pattern: Ghostweave Vest",
+  "spell": 18416,
+  "unique": false
+ },
+ "14481": {
+  "bind": "pickup",
+  "name": "Pattern: Runecloth Gloves",
+  "spell": 18417,
+  "unique": false
+ },
+ "14482": {
+  "bind": "none",
+  "name": "Pattern: Cindercloth Cloak",
+  "spell": 18418,
+  "unique": false
+ },
+ "14483": {
+  "bind": "pickup",
+  "name": "Pattern: Felcloth Pants",
+  "spell": 18419,
+  "unique": false
+ },
+ "14484": {
+  "bind": "none",
+  "name": "Pattern: Brightcloth Cloak",
+  "spell": 18420,
+  "unique": false
+ },
+ "14485": {
+  "bind": "none",
+  "name": "Pattern: Wizardweave Leggings",
+  "spell": 18421,
+  "unique": false
+ },
+ "14486": {
+  "bind": "pickup",
+  "name": "Pattern: Cloak of Fire",
+  "spell": 18422,
+  "unique": false
+ },
+ "14488": {
+  "bind": "pickup",
+  "name": "Pattern: Runecloth Boots",
+  "spell": 18423,
+  "unique": false
+ },
+ "14489": {
+  "bind": "none",
+  "name": "Pattern: Frostweave Pants",
+  "spell": 18424,
+  "unique": false
+ },
+ "14490": {
+  "bind": "none",
+  "name": "Pattern: Cindercloth Pants",
+  "spell": 18434,
+  "unique": false
+ },
+ "14491": {
+  "bind": "none",
+  "name": "Pattern: Runecloth Pants",
+  "spell": 18438,
+  "unique": false
+ },
+ "14492": {
+  "bind": "none",
+  "name": "Pattern: Felcloth Boots",
+  "spell": 18437,
+  "unique": false
+ },
+ "14493": {
+  "bind": "pickup",
+  "name": "Pattern: Robe of Winter Night",
+  "spell": 18436,
+  "unique": false
+ },
+ "14494": {
+  "bind": "none",
+  "name": "Pattern: Brightcloth Pants",
+  "spell": 18439,
+  "unique": false
+ },
+ "14495": {
+  "bind": "none",
+  "name": "Pattern: Ghostweave Pants",
+  "spell": 18441,
+  "unique": false
+ },
+ "14496": {
+  "bind": "none",
+  "name": "Pattern: Felcloth Hood",
+  "spell": 18442,
+  "unique": false
+ },
+ "14497": {
+  "bind": "none",
+  "name": "Pattern: Mooncloth Leggings",
+  "spell": 18440,
+  "unique": false
+ },
+ "14498": {
+  "bind": "none",
+  "name": "Pattern: Runecloth Headband",
+  "spell": 18444,
+  "unique": false
+ },
+ "14499": {
+  "bind": "none",
+  "name": "Pattern: Mooncloth Bag",
+  "spell": 18445,
+  "unique": false
+ },
+ "14500": {
+  "bind": "none",
+  "name": "Pattern: Wizardweave Robe",
+  "spell": 18446,
+  "unique": false
+ },
+ "14501": {
+  "bind": "none",
+  "name": "Pattern: Mooncloth Vest",
+  "spell": 18447,
+  "unique": false
+ },
+ "14504": {
+  "bind": "none",
+  "name": "Pattern: Runecloth Shoulders",
+  "spell": 18449,
+  "unique": false
+ },
+ "14505": {
+  "bind": "none",
+  "name": "Pattern: Wizardweave Turban",
+  "spell": 18450,
+  "unique": false
+ },
+ "14506": {
+  "bind": "none",
+  "name": "Pattern: Felcloth Robe",
+  "spell": 18451,
+  "unique": false
+ },
+ "14507": {
+  "bind": "none",
+  "name": "Pattern: Mooncloth Shoulders",
+  "spell": 18448,
+  "unique": false
+ },
+ "14508": {
+  "bind": "none",
+  "name": "Pattern: Felcloth Shoulders",
+  "spell": 18453,
+  "unique": false
+ },
+ "14509": {
+  "bind": "none",
+  "name": "Pattern: Mooncloth Circlet",
+  "spell": 18452,
+  "unique": false
+ },
+ "14510": {
+  "bind": "none",
+  "name": "Pattern: Bottomless Bag",
+  "spell": 18455,
+  "unique": false
+ },
+ "14511": {
+  "bind": "none",
+  "name": "Pattern: Gloves of Spell Mastery",
+  "spell": 18454,
+  "unique": false
+ },
+ "14512": {
+  "bind": "none",
+  "name": "Pattern: Truefaith Vestments",
+  "spell": 18456,
+  "unique": false
+ },
+ "14513": {
+  "bind": "none",
+  "name": "Pattern: Robe of the Archmage",
+  "spell": 18457,
+  "unique": false
+ },
+ "14514": {
+  "bind": "none",
+  "name": "Pattern: Robe of the Void",
+  "spell": 18458,
+  "unique": false
+ },
+ "14526": {
+  "bind": "pickup",
+  "name": "Pattern: Mooncloth",
+  "spell": 18560,
+  "unique": false
+ },
+ "14627": {
+  "bind": "pickup",
+  "name": "Pattern: Bright Yellow Shirt",
+  "spell": 3869,
+  "unique": false
+ },
+ "14630": {
+  "bind": "pickup",
+  "name": "Pattern: Enchanter's Cowl",
+  "spell": 3857,
+  "unique": false
+ },
+ "14634": {
+  "bind": "pickup",
+  "name": "Recipe: Frost Oil",
+  "spell": 3454,
+  "unique": false
+ },
+ "14635": {
+  "bind": "none",
+  "name": "Pattern: Gem-studded Leather Belt",
+  "spell": 3778,
+  "unique": false
+ },
+ "14639": {
+  "bind": "none",
+  "name": "Schematic: Minor Recombobulator",
+  "spell": 3952,
+  "unique": false
+ },
+ "15724": {
+  "bind": "pickup",
+  "name": "Pattern: Heavy Scorpid Bracers",
+  "spell": 19048,
+  "unique": false
+ },
+ "15725": {
+  "bind": "pickup",
+  "name": "Pattern: Wicked Leather Gauntlets",
+  "spell": 19049,
+  "unique": false
+ },
+ "15726": {
+  "bind": "none",
+  "name": "Pattern: Green Dragonscale Breastplate",
+  "spell": 19050,
+  "unique": false
+ },
+ "15727": {
+  "bind": "none",
+  "name": "Pattern: Heavy Scorpid Vest",
+  "spell": 19051,
+  "unique": false
+ },
+ "15728": {
+  "bind": "none",
+  "name": "Pattern: Wicked Leather Bracers",
+  "spell": 19052,
+  "unique": false
+ },
+ "15729": {
+  "bind": "pickup",
+  "name": "Pattern: Chimeric Gloves",
+  "spell": 19053,
+  "unique": false
+ },
+ "15730": {
+  "bind": "pickup",
+  "name": "Pattern: Red Dragonscale Breastplate",
+  "spell": 19054,
+  "unique": false
+ },
+ "15731": {
+  "bind": "none",
+  "name": "Pattern: Runic Leather Gauntlets",
+  "spell": 19055,
+  "unique": false
+ },
+ "15732": {
+  "bind": "none",
+  "name": "Pattern: Volcanic Leggings",
+  "spell": 19059,
+  "unique": false
+ },
+ "15733": {
+  "bind": "none",
+  "name": "Pattern: Green Dragonscale Leggings",
+  "spell": 19060,
+  "unique": false
+ },
+ "15734": {
+  "bind": "none",
+  "name": "Pattern: Living Shoulders",
+  "spell": 19061,
+  "unique": false
+ },
+ "15735": {
+  "bind": "none",
+  "name": "Pattern: Ironfeather Shoulders",
+  "spell": 19062,
+  "unique": false
+ },
+ "15737": {
+  "bind": "none",
+  "name": "Pattern: Chimeric Boots",
+  "spell": 19063,
+  "unique": false
+ },
+ "15738": {
+  "bind": "none",
+  "name": "Pattern: Heavy Scorpid Gauntlets",
+  "spell": 19064,
+  "unique": false
+ },
+ "15739": {
+  "bind": "none",
+  "name": "Pattern: Runic Leather Bracers",
+  "spell": 19065,
+  "unique": false
+ },
+ "15740": {
+  "bind": "pickup",
+  "name": "Pattern: Frostsaber Boots",
+  "spell": 19066,
+  "unique": false
+ },
+ "15741": {
+  "bind": "none",
+  "name": "Pattern: Stormshroud Pants",
+  "spell": 19067,
+  "unique": false
+ },
+ "15742": {
+  "bind": "none",
+  "name": "Pattern: Warbear Harness",
+  "spell": 19068,
+  "unique": false
+ },
+ "15743": {
+  "bind": "none",
+  "name": "Pattern: Heavy Scorpid Belt",
+  "spell": 19070,
+  "unique": false
+ },
+ "15744": {
+  "bind": "none",
+  "name": "Pattern: Wicked Leather Headband",
+  "spell": 19071,
+  "unique": false
+ },
+ "15745": {
+  "bind": "none",
+  "name": "Pattern: Runic Leather Belt",
+  "spell": 19072,
+  "unique": false
+ },
+ "15746": {
+  "bind": "none",
+  "name": "Pattern: Chimeric Leggings",
+  "spell": 19073,
+  "unique": false
+ },
+ "15747": {
+  "bind": "none",
+  "name": "Pattern: Frostsaber Leggings",
+  "spell": 19074,
+  "unique": false
+ },
+ "15748": {
+  "bind": "none",
+  "name": "Pattern: Heavy Scorpid Leggings",
+  "spell": 19075,
+  "unique": false
+ },
+ "15749": {
+  "bind": "none",
+  "name": "Pattern: Volcanic Breastplate",
+  "spell": 19076,
+  "unique": false
+ },
+ "15751": {
+  "bind": "none",
+  "name": "Pattern: Blue Dragonscale Breastplate",
+  "spell": 19077,
+  "unique": false
+ },
+ "15752": {
+  "bind": "none",
+  "name": "Pattern: Living Leggings",
+  "spell": 19078,
+  "unique": false
+ },
+ "15753": {
+  "bind": "none",
+  "name": "Pattern: Stormshroud Armor",
+  "spell": 19079,
+  "unique": false
+ },
+ "15755": {
+  "bind": "none",
+  "name": "Pattern: Chimeric Vest",
+  "spell": 19081,
+  "unique": false
+ },
+ "15756": {
+  "bind": "pickup",
+  "name": "Pattern: Runic Leather Headband",
+  "spell": 19082,
+  "unique": false
+ },
+ "15757": {
+  "bind": "none",
+  "name": "Pattern: Wicked Leather Pants",
+  "spell": 19083,
+  "unique": false
+ },
+ "15758": {
+  "bind": "none",
+  "name": "Pattern: Devilsaur Gauntlets",
+  "spell": 19084,
+  "unique": false
+ },
+ "15759": {
+  "bind": "none",
+  "name": "Pattern: Black Dragonscale Breastplate",
+  "spell": 19085,
+  "unique": false
+ },
+ "15760": {
+  "bind": "none",
+  "name": "Pattern: Ironfeather Breastplate",
+  "spell": 19086,
+  "unique": false
+ },
+ "15761": {
+  "bind": "none",
+  "name": "Pattern: Frostsaber Gloves",
+  "spell": 19087,
+  "unique": false
+ },
+ "15762": {
+  "bind": "pickup",
+  "name": "Pattern: Heavy Scorpid Helm",
+  "spell": 19088,
+  "unique": false
+ },
+ "15763": {
+  "bind": "none",
+  "name": "Pattern: Blue Dragonscale Shoulders",
+  "spell": 19089,
+  "unique": false
+ },
+ "15764": {
+  "bind": "none",
+  "name": "Pattern: Stormshroud Shoulders",
+  "spell": 19090,
+  "unique": false
+ },
+ "15765": {
+  "bind": "none",
+  "name": "Pattern: Runic Leather Pants",
+  "spell": 19091,
+  "unique": false
+ },
+ "15768": {
+  "bind": "none",
+  "name": "Pattern: Wicked Leather Belt",
+  "spell": 19092,
+  "unique": false
+ },
+ "15770": {
+  "bind": "none",
+  "name": "Pattern: Black Dragonscale Shoulders",
+  "spell": 19094,
+  "unique": false
+ },
+ "15771": {
+  "bind": "none",
+  "name": "Pattern: Living Breastplate",
+  "spell": 19095,
+  "unique": false
+ },
+ "15772": {
+  "bind": "none",
+  "name": "Pattern: Devilsaur Leggings",
+  "spell": 19097,
+  "unique": false
+ },
+ "15773": {
+  "bind": "none",
+  "name": "Pattern: Wicked Leather Armor",
+  "spell": 19098,
+  "unique": false
+ },
+ "15774": {
+  "bind": "none",
+  "name": "Pattern: Heavy Scorpid Shoulders",
+  "spell": 19100,
+  "unique": false
+ },
+ "15775": {
+  "bind": "none",
+  "name": "Pattern: Volcanic Shoulders",
+  "spell": 19101,
+  "unique": false
+ },
+ "15776": {
+  "bind": "none",
+  "name": "Pattern: Runic Leather Armor",
+  "spell": 19102,
+  "unique": false
+ },
+ "15777": {
+  "bind": "none",
+  "name": "Pattern: Runic Leather Shoulders",
+  "spell": 19103,
+  "unique": false
+ },
+ "15779": {
+  "bind": "none",
+  "name": "Pattern: Frostsaber Tunic",
+  "spell": 19104,
+  "unique": false
+ },
+ "15781": {
+  "bind": "none",
+  "name": "Pattern: Black Dragonscale Leggings",
+  "spell": 19107,
+  "unique": false
+ },
+ "16041": {
+  "bind": "none",
+  "name": "Schematic: Thorium Grenade",
+  "spell": 19790,
+  "unique": false
+ },
+ "16042": {
+  "bind": "none",
+  "name": "Schematic: Thorium Widget",
+  "spell": 19791,
+  "unique": false
+ },
+ "16043": {
+  "bind": "none",
+  "name": "Schematic: Thorium Rifle",
+  "spell": 19792,
+  "unique": false
+ },
+ "16044": {
+  "bind": "none",
+  "name": "Schematic: Lifelike Mechanical Toad",
+  "spell": 19793,
+  "unique": false
+ },
+ "16045": {
+  "bind": "none",
+  "name": "Schematic: Spellpower Goggles Xtreme Plus",
+  "spell": 19794,
+  "unique": false
+ },
+ "16046": {
+  "bind": "pickup",
+  "name": "Schematic: Masterwork Target Dummy",
+  "spell": 19814,
+  "unique": false
+ },
+ "16047": {
+  "bind": "pickup",
+  "name": "Schematic: Thorium Tube",
+  "spell": 19795,
+  "unique": false
+ },
+ "16048": {
+  "bind": "none",
+  "name": "Schematic: Dark Iron Rifle",
+  "spell": 19796,
+  "unique": false
+ },
+ "16049": {
+  "bind": "none",
+  "name": "Schematic: Dark Iron Bomb",
+  "spell": 19799,
+  "unique": false
+ },
+ "16050": {
+  "bind": "pickup",
+  "name": "Schematic: Delicate Arcanite Converter",
+  "spell": 19815,
+  "unique": false
+ },
+ "16051": {
+  "bind": "none",
+  "name": "Schematic: Thorium Shells",
+  "spell": 19800,
+  "unique": false
+ },
+ "16052": {
+  "bind": "none",
+  "name": "Schematic: Voice Amplification Modulator",
+  "spell": 19819,
+  "unique": false
+ },
+ "16053": {
+  "bind": "none",
+  "name": "Schematic: Master Engineer's Goggles",
+  "spell": 19825,
+  "unique": false
+ },
+ "16054": {
+  "bind": "none",
+  "name": "Schematic: Arcanite Dragonling",
+  "spell": 19830,
+  "unique": false
+ },
+ "16055": {
+  "bind": "none",
+  "name": "Schematic: Arcane Bomb",
+  "spell": 19831,
+  "unique": false
+ },
+ "16056": {
+  "bind": "none",
+  "name": "Schematic: Flawless Arcanite Rifle",
+  "spell": 19833,
+  "unique": false
+ },
+ "16110": {
+  "bind": "none",
+  "name": "Recipe: Monster Omelet",
+  "spell": 15933,
+  "unique": false
+ },
+ "16111": {
+  "bind": "none",
+  "name": "Recipe: Spiced Chili Crab",
+  "spell": 15915,
+  "unique": false
+ },
+ "16112": {
+  "bind": "none",
+  "name": "Manual: Heavy Silk Bandage",
+  "spell": 7929,
+  "unique": false
+ },
+ "16113": {
+  "bind": "none",
+  "name": "Manual: Mageweave Bandage",
+  "spell": 10840,
+  "unique": false
+ },
+ "16214": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Greater Intellect",
+  "spell": 20008,
+  "unique": false
+ },
+ "16215": {
+  "bind": "none",
+  "name": "Formula: Enchant Boots - Greater Stamina",
+  "spell": 20020,
+  "unique": false
+ },
+ "16216": {
+  "bind": "none",
+  "name": "Formula: Enchant Cloak - Greater Resistance",
+  "spell": 20014,
+  "unique": false
+ },
+ "16217": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Shield - Greater Stamina",
+  "spell": 20017,
+  "unique": false
+ },
+ "16218": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Superior Spirit",
+  "spell": 20009,
+  "unique": false
+ },
+ "16219": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Greater Agility",
+  "spell": 20012,
+  "unique": false
+ },
+ "16220": {
+  "bind": "none",
+  "name": "Formula: Enchant Boots - Spirit",
+  "spell": 20024,
+  "unique": false
+ },
+ "16221": {
+  "bind": "none",
+  "name": "Formula: Enchant Chest - Major Stamina",
+  "spell": 20026,
+  "unique": false
+ },
+ "16222": {
+  "bind": "none",
+  "name": "Formula: Enchant Shield - Superior Spirit",
+  "spell": 20016,
+  "unique": false
+ },
+ "16223": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Icy Chill",
+  "spell": 20029,
+  "unique": false
+ },
+ "16224": {
+  "bind": "none",
+  "name": "Formula: Enchant Cloak - Superior Defense",
+  "spell": 20015,
+  "unique": false
+ },
+ "16242": {
+  "bind": "none",
+  "name": "Formula: Enchant Chest - Major Intellect",
+  "spell": 20028,
+  "unique": false
+ },
+ "16243": {
+  "bind": "pickup",
+  "name": "Formula: Runed Arcanite Rod",
+  "spell": 20051,
+  "unique": false
+ },
+ "16244": {
+  "bind": "none",
+  "name": "Formula: Enchant Gloves - Greater Strength",
+  "spell": 20013,
+  "unique": false
+ },
+ "16245": {
+  "bind": "none",
+  "name": "Formula: Enchant Boots - Greater Agility",
+  "spell": 20023,
+  "unique": false
+ },
+ "16246": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Superior Strength",
+  "spell": 20010,
+  "unique": false
+ },
+ "16247": {
+  "bind": "none",
+  "name": "Formula: Enchant 2H Weapon - Superior Impact",
+  "spell": 20030,
+  "unique": false
+ },
+ "16248": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Unholy Weapon",
+  "spell": 20033,
+  "unique": false
+ },
+ "16249": {
+  "bind": "none",
+  "name": "Formula: Enchant 2H Weapon - Major Intellect",
+  "spell": 20036,
+  "unique": false
+ },
+ "16250": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Superior Striking",
+  "spell": 20031,
+  "unique": false
+ },
+ "16251": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Superior Stamina",
+  "spell": 20011,
+  "unique": false
+ },
+ "16252": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Crusader",
+  "spell": 20034,
+  "unique": false
+ },
+ "16253": {
+  "bind": "none",
+  "name": "Formula: Enchant Chest - Greater Stats",
+  "spell": 20025,
+  "unique": false
+ },
+ "16254": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Lifestealing",
+  "spell": 20032,
+  "unique": false
+ },
+ "16255": {
+  "bind": "none",
+  "name": "Formula: Enchant 2H Weapon - Major Spirit",
+  "spell": 20035,
+  "unique": false
+ },
+ "16767": {
+  "bind": "pickup",
+  "name": "Recipe: Undermine Clam Chowder",
+  "spell": 20626,
+  "unique": false
+ },
+ "17017": {
+  "bind": "pickup",
+  "name": "Pattern: Flarecore Mantle",
+  "spell": 20848,
+  "unique": false
+ },
+ "17018": {
+  "bind": "pickup",
+  "name": "Pattern: Flarecore Gloves",
+  "spell": 20849,
+  "unique": false
+ },
+ "17022": {
+  "bind": "pickup",
+  "name": "Pattern: Corehound Boots",
+  "spell": 20853,
+  "unique": false
+ },
+ "17023": {
+  "bind": "pickup",
+  "name": "Pattern: Molten Helm",
+  "spell": 20854,
+  "unique": false
+ },
+ "17025": {
+  "bind": "pickup",
+  "name": "Pattern: Black Dragonscale Boots",
+  "spell": 20855,
+  "unique": false
+ },
+ "17049": {
+  "bind": "pickup",
+  "name": "Plans: Fiery Chain Girdle",
+  "spell": 20872,
+  "unique": false
+ },
+ "17051": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Bracers",
+  "spell": 20874,
+  "unique": false
+ },
+ "17052": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Leggings",
+  "spell": 20876,
+  "unique": false
+ },
+ "17053": {
+  "bind": "pickup",
+  "name": "Plans: Fiery Chain Shoulders",
+  "spell": 20873,
+  "unique": false
+ },
+ "17059": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Reaver",
+  "spell": 20890,
+  "unique": false
+ },
+ "17060": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Destroyer",
+  "spell": 20897,
+  "unique": false
+ },
+ "17062": {
+  "bind": "none",
+  "name": "Recipe: Mithril Head Trout",
+  "spell": 20916,
+  "unique": false
+ },
+ "17200": {
+  "bind": "none",
+  "name": "Recipe: Gingerbread Cookie",
+  "spell": 21143,
+  "unique": false
+ },
+ "17201": {
+  "bind": "none",
+  "name": "Recipe: Egg Nog",
+  "spell": 21144,
+  "unique": false
+ },
+ "17706": {
+  "bind": "none",
+  "name": "Plans: Edge of Winter",
+  "spell": 21913,
+  "unique": false
+ },
+ "17709": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Frost Power",
+  "spell": 21923,
+  "unique": false
+ },
+ "17720": {
+  "bind": "none",
+  "name": "Schematic: Snowmaster 9000",
+  "spell": 21940,
+  "unique": false
+ },
+ "17722": {
+  "bind": "none",
+  "name": "Pattern: Gloves of the Greatfather",
+  "spell": 21943,
+  "unique": false
+ },
+ "17724": {
+  "bind": "none",
+  "name": "Pattern: Green Holiday Shirt",
+  "spell": 21945,
+  "unique": false
+ },
+ "17725": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Winter's Might",
+  "spell": 21931,
+  "unique": false
+ },
+ "18046": {
+  "bind": "none",
+  "name": "Recipe: Tender Wolf Steak",
+  "spell": 22480,
+  "unique": false
+ },
+ "18235": {
+  "bind": "none",
+  "name": "Schematic: Field Repair Bot 74A",
+  "spell": 22704,
+  "unique": false
+ },
+ "18239": {
+  "bind": "none",
+  "name": "Pattern: Shadowskin Gloves",
+  "spell": 22711,
+  "unique": false
+ },
+ "18252": {
+  "bind": "pickup",
+  "name": "Pattern: Core Armor Kit",
+  "spell": 22727,
+  "unique": false
+ },
+ "18257": {
+  "bind": "none",
+  "name": "Recipe: Major Rejuvenation Potion",
+  "spell": 22732,
+  "unique": false
+ },
+ "18259": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Spell Power",
+  "spell": 22749,
+  "unique": false
+ },
+ "18260": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Healing Power",
+  "spell": 22750,
+  "unique": false
+ },
+ "18264": {
+  "bind": "pickup",
+  "name": "Plans: Elemental Sharpening Stone",
+  "spell": 22757,
+  "unique": false
+ },
+ "18265": {
+  "bind": "none",
+  "name": "Pattern: Flarecore Wraps",
+  "spell": 22759,
+  "unique": false
+ },
+ "18267": {
+  "bind": "pickup",
+  "name": "Recipe: Runn Tum Tuber Surprise",
+  "spell": 22761,
+  "unique": false
+ },
+ "18290": {
+  "bind": "pickup",
+  "name": "Schematic: Biznicks 247x128 Accurascope",
+  "spell": 22793,
+  "unique": false
+ },
+ "18291": {
+  "bind": "pickup",
+  "name": "Schematic: Force Reactive Disk",
+  "spell": 22797,
+  "unique": false
+ },
+ "18292": {
+  "bind": "pickup",
+  "name": "Schematic: Core Marksman Rifle",
+  "spell": 22795,
+  "unique": false
+ },
+ "18414": {
+  "bind": "none",
+  "name": "Pattern: Belt of the Archmage",
+  "spell": 22866,
+  "unique": false
+ },
+ "18415": {
+  "bind": "pickup",
+  "name": "Pattern: Felcloth Gloves",
+  "spell": 22867,
+  "unique": false
+ },
+ "18416": {
+  "bind": "pickup",
+  "name": "Pattern: Inferno Gloves",
+  "spell": 22868,
+  "unique": false
+ },
+ "18417": {
+  "bind": "pickup",
+  "name": "Pattern: Mooncloth Gloves",
+  "spell": 22869,
+  "unique": false
+ },
+ "18418": {
+  "bind": "pickup",
+  "name": "Pattern: Cloak of Warding",
+  "spell": 22870,
+  "unique": false
+ },
+ "18487": {
+  "bind": "none",
+  "name": "Pattern: Mooncloth Robe",
+  "spell": 22902,
+  "unique": false
+ },
+ "18514": {
+  "bind": "pickup",
+  "name": "Pattern: Girdle of Insight",
+  "spell": 22921,
+  "unique": false
+ },
+ "18515": {
+  "bind": "pickup",
+  "name": "Pattern: Mongoose Boots",
+  "spell": 22922,
+  "unique": false
+ },
+ "18516": {
+  "bind": "pickup",
+  "name": "Pattern: Swift Flight Bracers",
+  "spell": 22923,
+  "unique": false
+ },
+ "18517": {
+  "bind": "none",
+  "name": "Pattern: Chromatic Cloak",
+  "spell": 22926,
+  "unique": false
+ },
+ "18518": {
+  "bind": "none",
+  "name": "Pattern: Hide of the Wild",
+  "spell": 22927,
+  "unique": false
+ },
+ "18519": {
+  "bind": "none",
+  "name": "Pattern: Shifting Cloak",
+  "spell": 22928,
+  "unique": false
+ },
+ "18592": {
+  "bind": "none",
+  "name": "Plans: Sulfuron Hammer",
+  "spell": 21161,
+  "unique": true
+ },
+ "18647": {
+  "bind": "none",
+  "name": "Schematic: Red Firework",
+  "spell": 23066,
+  "unique": false
+ },
+ "18648": {
+  "bind": "pickup",
+  "name": "Schematic: Green Firework",
+  "spell": 23068,
+  "unique": false
+ },
+ "18649": {
+  "bind": "none",
+  "name": "Schematic: Blue Firework",
+  "spell": 23067,
+  "unique": false
+ },
+ "18650": {
+  "bind": "pickup",
+  "name": "Schematic: EZ-Thro Dynamite II",
+  "spell": 23069,
+  "unique": false
+ },
+ "18651": {
+  "bind": "pickup",
+  "name": "Schematic: Truesilver Transformer",
+  "spell": 23071,
+  "unique": false
+ },
+ "18652": {
+  "bind": "none",
+  "name": "Schematic: Gyrofreeze Ice Reflector",
+  "spell": 23077,
+  "unique": false
+ },
+ "18653": {
+  "bind": "none",
+  "name": "Schematic: Goblin Jumper Cables XL",
+  "spell": 23078,
+  "unique": false
+ },
+ "18654": {
+  "bind": "none",
+  "name": "Schematic: Gnomish Alarm-O-Bot",
+  "spell": 23096,
+  "unique": false
+ },
+ "18655": {
+  "bind": "none",
+  "name": "Schematic: Major Recombobulator",
+  "spell": 23079,
+  "unique": false
+ },
+ "18656": {
+  "bind": "none",
+  "name": "Schematic: Powerful Seaforium Charge",
+  "spell": 23080,
+  "unique": false
+ },
+ "18657": {
+  "bind": "none",
+  "name": "Schematic: Hyper-Radiant Flame Reflector",
+  "spell": 23081,
+  "unique": false
+ },
+ "18658": {
+  "bind": "none",
+  "name": "Schematic: Ultra-Flash Shadow Reflector",
+  "spell": 23082,
+  "unique": false
+ },
+ "18661": {
+  "bind": "none",
+  "name": "Schematic: World Enlarger",
+  "spell": 23129,
+  "unique": false
+ },
+ "18731": {
+  "bind": "none",
+  "name": "Pattern: Heavy Leather Ball",
+  "spell": 23190,
+  "unique": false
+ },
+ "18949": {
+  "bind": "none",
+  "name": "Pattern: Barbaric Bracers",
+  "spell": 23399,
+  "unique": false
+ },
+ "19027": {
+  "bind": "pickup",
+  "name": "Schematic: Snake Burst Firework",
+  "spell": 23507,
+  "unique": false
+ },
+ "19202": {
+  "bind": "pickup",
+  "name": "Pattern: Heavy Timbermaw Belt",
+  "spell": 23628,
+  "unique": false
+ },
+ "19203": {
+  "bind": "pickup",
+  "name": "Plans: Girdle of the Dawn",
+  "spell": 23632,
+  "unique": false
+ },
+ "19204": {
+  "bind": "pickup",
+  "name": "Pattern: Heavy Timbermaw Boots",
+  "spell": 23629,
+  "unique": false
+ },
+ "19205": {
+  "bind": "pickup",
+  "name": "Plans: Gloves of the Dawn",
+  "spell": 23633,
+  "unique": false
+ },
+ "19206": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Helm",
+  "spell": 23636,
+  "unique": false
+ },
+ "19207": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Gauntlets",
+  "spell": 23637,
+  "unique": false
+ },
+ "19208": {
+  "bind": "pickup",
+  "name": "Plans: Black Amnesty",
+  "spell": 23638,
+  "unique": false
+ },
+ "19209": {
+  "bind": "pickup",
+  "name": "Plans: Blackfury",
+  "spell": 23639,
+  "unique": false
+ },
+ "19210": {
+  "bind": "pickup",
+  "name": "Plans: Ebon Hand",
+  "spell": 23650,
+  "unique": false
+ },
+ "19211": {
+  "bind": "pickup",
+  "name": "Plans: Blackguard",
+  "spell": 23652,
+  "unique": false
+ },
+ "19212": {
+  "bind": "pickup",
+  "name": "Plans: Nightfall",
+  "spell": 23653,
+  "unique": false
+ },
+ "19215": {
+  "bind": "pickup",
+  "name": "Pattern: Wisdom of the Timbermaw",
+  "spell": 23662,
+  "unique": false
+ },
+ "19216": {
+  "bind": "pickup",
+  "name": "Pattern: Argent Boots",
+  "spell": 23664,
+  "unique": false
+ },
+ "19217": {
+  "bind": "pickup",
+  "name": "Pattern: Argent Shoulders",
+  "spell": 23665,
+  "unique": false
+ },
+ "19218": {
+  "bind": "pickup",
+  "name": "Pattern: Mantle of the Timbermaw",
+  "spell": 23663,
+  "unique": false
+ },
+ "19219": {
+  "bind": "pickup",
+  "name": "Pattern: Flarecore Robe",
+  "spell": 23666,
+  "unique": false
+ },
+ "19220": {
+  "bind": "pickup",
+  "name": "Pattern: Flarecore Leggings",
+  "spell": 23667,
+  "unique": false
+ },
+ "19326": {
+  "bind": "pickup",
+  "name": "Pattern: Might of the Timbermaw",
+  "spell": 23703,
+  "unique": false
+ },
+ "19327": {
+  "bind": "pickup",
+  "name": "Pattern: Timbermaw Brawlers",
+  "spell": 23704,
+  "unique": false
+ },
+ "19328": {
+  "bind": "pickup",
+  "name": "Pattern: Dawn Treaders",
+  "spell": 23705,
+  "unique": false
+ },
+ "19329": {
+  "bind": "pickup",
+  "name": "Pattern: Golden Mantle of the Dawn",
+  "spell": 23706,
+  "unique": false
+ },
+ "19330": {
+  "bind": "pickup",
+  "name": "Pattern: Lava Belt",
+  "spell": 23707,
+  "unique": false
+ },
+ "19331": {
+  "bind": "pickup",
+  "name": "Pattern: Chromatic Gauntlets",
+  "spell": 23708,
+  "unique": false
+ },
+ "19332": {
+  "bind": "pickup",
+  "name": "Pattern: Corehound Belt",
+  "spell": 23709,
+  "unique": false
+ },
+ "19333": {
+  "bind": "pickup",
+  "name": "Pattern: Molten Belt",
+  "spell": 23710,
+  "unique": false
+ },
+ "19442": {
+  "bind": "pickup",
+  "name": "Formula: Powerful Anti-Venom",
+  "spell": 23787,
+  "unique": false
+ },
+ "19444": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Strength",
+  "spell": 23799,
+  "unique": false
+ },
+ "19445": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Agility",
+  "spell": 23800,
+  "unique": false
+ },
+ "19446": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Mana Regeneration",
+  "spell": 23801,
+  "unique": false
+ },
+ "19447": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Healing",
+  "spell": 23802,
+  "unique": false
+ },
+ "19448": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Mighty Spirit",
+  "spell": 23803,
+  "unique": false
+ },
+ "19449": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Mighty Intellect",
+  "spell": 23804,
+  "unique": false
+ },
+ "19764": {
+  "bind": "pickup",
+  "name": "Pattern: Bloodvine Vest",
+  "spell": 24091,
+  "unique": false
+ },
+ "19765": {
+  "bind": "pickup",
+  "name": "Pattern: Bloodvine Leggings",
+  "spell": 24092,
+  "unique": false
+ },
+ "19766": {
+  "bind": "pickup",
+  "name": "Pattern: Bloodvine Boots",
+  "spell": 24093,
+  "unique": false
+ },
+ "19769": {
+  "bind": "pickup",
+  "name": "Pattern: Primal Batskin Jerkin",
+  "spell": 24121,
+  "unique": false
+ },
+ "19770": {
+  "bind": "pickup",
+  "name": "Pattern: Primal Batskin Gloves",
+  "spell": 24122,
+  "unique": false
+ },
+ "19771": {
+  "bind": "pickup",
+  "name": "Pattern: Primal Batskin Bracers",
+  "spell": 24123,
+  "unique": false
+ },
+ "19772": {
+  "bind": "pickup",
+  "name": "Pattern: Blood Tiger Breastplate",
+  "spell": 24124,
+  "unique": false
+ },
+ "19773": {
+  "bind": "pickup",
+  "name": "Pattern: Blood Tiger Shoulders",
+  "spell": 24125,
+  "unique": false
+ },
+ "19776": {
+  "bind": "pickup",
+  "name": "Plans: Bloodsoul Breastplate",
+  "spell": 24136,
+  "unique": false
+ },
+ "19777": {
+  "bind": "pickup",
+  "name": "Plans: Bloodsoul Shoulders",
+  "spell": 24137,
+  "unique": false
+ },
+ "19778": {
+  "bind": "pickup",
+  "name": "Plans: Bloodsoul Gauntlets",
+  "spell": 24138,
+  "unique": false
+ },
+ "19779": {
+  "bind": "pickup",
+  "name": "Plans: Darksoul Breastplate",
+  "spell": 24139,
+  "unique": false
+ },
+ "19780": {
+  "bind": "pickup",
+  "name": "Plans: Darksoul Leggings",
+  "spell": 24140,
+  "unique": false
+ },
+ "19781": {
+  "bind": "pickup",
+  "name": "Plans: Darksoul Shoulders",
+  "spell": 24141,
+  "unique": false
+ },
+ "20000": {
+  "bind": "pickup",
+  "name": "Schematic: Bloodvine Goggles",
+  "spell": 24356,
+  "unique": false
+ },
+ "20001": {
+  "bind": "pickup",
+  "name": "Schematic: Bloodvine Lens",
+  "spell": 24357,
+  "unique": false
+ },
+ "20011": {
+  "bind": "pickup",
+  "name": "Recipe: Mageblood Elixir",
+  "spell": 24365,
+  "unique": false
+ },
+ "20012": {
+  "bind": "pickup",
+  "name": "Recipe: Greater Dreamless Sleep",
+  "spell": 24366,
+  "unique": false
+ },
+ "20013": {
+  "bind": "pickup",
+  "name": "Recipe: Living Action Potion",
+  "spell": 24367,
+  "unique": false
+ },
+ "20014": {
+  "bind": "pickup",
+  "name": "Recipe: Major Troll's Blood Elixir",
+  "spell": 24368,
+  "unique": false
+ },
+ "20040": {
+  "bind": "pickup",
+  "name": "Plans: Dark Iron Boots",
+  "spell": 24399,
+  "unique": false
+ },
+ "20075": {
+  "bind": "none",
+  "name": "Recipe: Heavy Crocolisk Stew",
+  "spell": 24418,
+  "unique": false
+ },
+ "20254": {
+  "bind": "pickup",
+  "name": "Pattern: Warbear Woolies",
+  "spell": 19080,
+  "unique": false
+ },
+ "20546": {
+  "bind": "none",
+  "name": "Pattern: Runed Stygian Leggings",
+  "spell": 24901,
+  "unique": false
+ },
+ "20547": {
+  "bind": "none",
+  "name": "Pattern: Runed Stygian Boots",
+  "spell": 24903,
+  "unique": false
+ },
+ "20548": {
+  "bind": "none",
+  "name": "Pattern: Runed Stygian Belt",
+  "spell": 24902,
+  "unique": false
+ },
+ "20553": {
+  "bind": "none",
+  "name": "Plans: Darkrune Gauntlets",
+  "spell": 24912,
+  "unique": false
+ },
+ "20554": {
+  "bind": "none",
+  "name": "Plans: Darkrune Breastplate",
+  "spell": 24914,
+  "unique": false
+ },
+ "20555": {
+  "bind": "none",
+  "name": "Plans: Darkrune Helm",
+  "spell": 24913,
+  "unique": false
+ },
+ "20576": {
+  "bind": "none",
+  "name": "Pattern: Black Whelp Tunic",
+  "spell": 24940,
+  "unique": false
+ },
+ "20726": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Threat",
+  "spell": 25072,
+  "unique": false
+ },
+ "20727": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Shadow Power",
+  "spell": 25073,
+  "unique": false
+ },
+ "20728": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Frost Power",
+  "spell": 25074,
+  "unique": false
+ },
+ "20729": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Fire Power",
+  "spell": 25078,
+  "unique": false
+ },
+ "20730": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Healing Power",
+  "spell": 25079,
+  "unique": false
+ },
+ "20731": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Superior Agility",
+  "spell": 25080,
+  "unique": false
+ },
+ "20732": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Cloak - Greater Fire Resistance",
+  "spell": 25081,
+  "unique": false
+ },
+ "20733": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Cloak - Greater Nature Resistance",
+  "spell": 25082,
+  "unique": false
+ },
+ "20734": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Cloak - Stealth",
+  "spell": 25083,
+  "unique": false
+ },
+ "20735": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Cloak - Subtlety",
+  "spell": 25084,
+  "unique": false
+ },
+ "20736": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Cloak - Dodge",
+  "spell": 25086,
+  "unique": false
+ },
+ "20752": {
+  "bind": "none",
+  "name": "Formula: Minor Mana Oil",
+  "spell": 25125,
+  "unique": false
+ },
+ "20753": {
+  "bind": "none",
+  "name": "Formula: Lesser Wizard Oil",
+  "spell": 25126,
+  "unique": false
+ },
+ "20754": {
+  "bind": "none",
+  "name": "Formula: Lesser Mana Oil",
+  "spell": 25127,
+  "unique": false
+ },
+ "20755": {
+  "bind": "none",
+  "name": "Formula: Wizard Oil",
+  "spell": 25128,
+  "unique": false
+ },
+ "20756": {
+  "bind": "pickup",
+  "name": "Formula: Brilliant Wizard Oil",
+  "spell": 25129,
+  "unique": false
+ },
+ "20757": {
+  "bind": "pickup",
+  "name": "Formula: Brilliant Mana Oil",
+  "spell": 25130,
+  "unique": false
+ },
+ "20758": {
+  "bind": "none",
+  "name": "Formula: Minor Wizard Oil",
+  "spell": 25124,
+  "unique": false
+ },
+ "20761": {
+  "bind": "pickup",
+  "name": "Recipe: Transmute Elemental Fire",
+  "spell": 25146,
+  "unique": false
+ },
+ "21025": {
+  "bind": "none",
+  "name": "Recipe: Dirge's Kickin' Chimaerok Chops",
+  "spell": 25659,
+  "unique": true
+ },
+ "21099": {
+  "bind": "none",
+  "name": "Recipe: Smoked Sagefish",
+  "spell": 25704,
+  "unique": false
+ },
+ "21219": {
+  "bind": "none",
+  "name": "Recipe: Sagefish Delight",
+  "spell": 25954,
+  "unique": false
+ },
+ "21358": {
+  "bind": "none",
+  "name": "Pattern: Soul Pouch",
+  "spell": 26085,
+  "unique": false
+ },
+ "21371": {
+  "bind": "none",
+  "name": "Pattern: Core Felcloth Bag",
+  "spell": 26087,
+  "unique": false
+ },
+ "21547": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Greater Firepower",
+  "spell": 26277,
+  "unique": false
+ },
+ "21548": {
+  "bind": "none",
+  "name": "Pattern: Stormshroud Gloves",
+  "spell": 26279,
+  "unique": false
+ },
+ "21722": {
+  "bind": "pickup",
+  "name": "Pattern: Festival Dress",
+  "spell": 26403,
+  "unique": false
+ },
+ "21723": {
+  "bind": "pickup",
+  "name": "Pattern: Festival Suit",
+  "spell": 26407,
+  "unique": false
+ },
+ "21724": {
+  "bind": "pickup",
+  "name": "Schematic: Small Blue Rocket",
+  "spell": 26416,
+  "unique": false
+ },
+ "21725": {
+  "bind": "pickup",
+  "name": "Schematic: Small Green Rocket",
+  "spell": 26417,
+  "unique": false
+ },
+ "21726": {
+  "bind": "pickup",
+  "name": "Schematic: Small Red Rocket",
+  "spell": 26418,
+  "unique": false
+ },
+ "21727": {
+  "bind": "pickup",
+  "name": "Schematic: Large Blue Rocket",
+  "spell": 26420,
+  "unique": false
+ },
+ "21728": {
+  "bind": "pickup",
+  "name": "Schematic: Large Green Rocket",
+  "spell": 26421,
+  "unique": false
+ },
+ "21729": {
+  "bind": "pickup",
+  "name": "Schematic: Large Red Rocket",
+  "spell": 26422,
+  "unique": false
+ },
+ "21730": {
+  "bind": "pickup",
+  "name": "Schematic: Blue Rocket Cluster",
+  "spell": 26423,
+  "unique": false
+ },
+ "21731": {
+  "bind": "pickup",
+  "name": "Schematic: Green Rocket Cluster",
+  "spell": 26424,
+  "unique": false
+ },
+ "21732": {
+  "bind": "pickup",
+  "name": "Schematic: Red Rocket Cluster",
+  "spell": 26425,
+  "unique": false
+ },
+ "21733": {
+  "bind": "pickup",
+  "name": "Schematic: Large Blue Rocket Cluster",
+  "spell": 26426,
+  "unique": false
+ },
+ "21734": {
+  "bind": "pickup",
+  "name": "Schematic: Large Green Rocket Cluster",
+  "spell": 26427,
+  "unique": false
+ },
+ "21735": {
+  "bind": "pickup",
+  "name": "Schematic: Large Red Rocket Cluster",
+  "spell": 26428,
+  "unique": false
+ },
+ "21737": {
+  "bind": "pickup",
+  "name": "Schematic: Cluster Launcher",
+  "spell": 26443,
+  "unique": false
+ },
+ "21738": {
+  "bind": "pickup",
+  "name": "Schematic: Firework Launcher",
+  "spell": 26442,
+  "unique": false
+ },
+ "22219": {
+  "bind": "pickup",
+  "name": "Plans: Jagged Obsidian Shield",
+  "spell": 27586,
+  "unique": false
+ },
+ "22220": {
+  "bind": "none",
+  "name": "Plans: Black Grasp of the Destroyer",
+  "spell": 27589,
+  "unique": false
+ },
+ "22221": {
+  "bind": "pickup",
+  "name": "Plans: Obsidian Mail Tunic",
+  "spell": 27590,
+  "unique": false
+ },
+ "22222": {
+  "bind": "none",
+  "name": "Plans: Thick Obsidian Breastplate",
+  "spell": 27587,
+  "unique": false
+ },
+ "22307": {
+  "bind": "none",
+  "name": "Pattern: Enchanted Mageweave Pouch",
+  "spell": 27658,
+  "unique": false
+ },
+ "22308": {
+  "bind": "none",
+  "name": "Pattern: Enchanted Runecloth Bag",
+  "spell": 27659,
+  "unique": false
+ },
+ "22309": {
+  "bind": "none",
+  "name": "Pattern: Big Bag of Enchantment",
+  "spell": 27660,
+  "unique": false
+ },
+ "22310": {
+  "bind": "pickup",
+  "name": "Pattern: Cenarion Herb Bag",
+  "spell": 27724,
+  "unique": false
+ },
+ "22312": {
+  "bind": "pickup",
+  "name": "Pattern: Satchel of Cenarius",
+  "spell": 27725,
+  "unique": false
+ },
+ "22388": {
+  "bind": "none",
+  "name": "Plans: Titanic Leggings",
+  "spell": 27829,
+  "unique": false
+ },
+ "22389": {
+  "bind": "none",
+  "name": "Plans: Sageblade",
+  "spell": 27832,
+  "unique": false
+ },
+ "22390": {
+  "bind": "none",
+  "name": "Plans: Persuader",
+  "spell": 27830,
+  "unique": false
+ },
+ "22392": {
+  "bind": "pickup",
+  "name": "Formula: Enchant 2H Weapon - Agility",
+  "spell": 27837,
+  "unique": false
+ },
+ "22683": {
+  "bind": "pickup",
+  "name": "Pattern: Gaea's Embrace",
+  "spell": 28210,
+  "unique": false
+ },
+ "22703": {
+  "bind": "pickup",
+  "name": "Plans: Icebane Breastplate",
+  "spell": 28242,
+  "unique": false
+ },
+ "22704": {
+  "bind": "pickup",
+  "name": "Plans: Icebane Gauntlets",
+  "spell": 28243,
+  "unique": false
+ },
+ "22705": {
+  "bind": "pickup",
+  "name": "Plans: Icebane Bracers",
+  "spell": 28244,
+  "unique": false
+ },
+ "22729": {
+  "bind": "pickup",
+  "name": "Schematic: Steam Tonk Controller",
+  "spell": 28327,
+  "unique": false
+ },
+ "22772": {
+  "bind": "pickup",
+  "name": "Pattern: Sylvan Shoulders",
+  "spell": 28482,
+  "unique": false
+ },
+ "22773": {
+  "bind": "pickup",
+  "name": "Pattern: Sylvan Crown",
+  "spell": 28481,
+  "unique": false
+ },
+ "22774": {
+  "bind": "pickup",
+  "name": "Pattern: Sylvan Vest",
+  "spell": 28480,
+  "unique": false
+ },
+ "236754": {
+  "bind": "pickup",
+  "name": "Recipe: Distilled Firewater",
+  "spell": 1244421,
+  "unique": false
+ },
+ "2406": {
+  "bind": "none",
+  "name": "Pattern: Fine Leather Boots",
+  "spell": 2158,
+  "unique": false
+ },
+ "2407": {
+  "bind": "none",
+  "name": "Pattern: White Leather Jerkin",
+  "spell": 2163,
+  "unique": false
+ },
+ "2408": {
+  "bind": "none",
+  "name": "Pattern: Fine Leather Gloves",
+  "spell": 2164,
+  "unique": false
+ },
+ "2409": {
+  "bind": "none",
+  "name": "Pattern: Dark Leather Tunic",
+  "spell": 2169,
+  "unique": false
+ },
+ "249474": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Minor Intellect",
+  "spell": 1248458,
+  "unique": false
+ },
+ "249475": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Minor Healing Power",
+  "spell": 1248459,
+  "unique": false
+ },
+ "249476": {
+  "bind": "pickup",
+  "name": "Formula: Mystic Mushroom",
+  "spell": 1248752,
+  "unique": false
+ },
+ "249477": {
+  "bind": "pickup",
+  "name": "Formula: Tenets of the Silver Hand",
+  "spell": 1248754,
+  "unique": false
+ },
+ "249478": {
+  "bind": "pickup",
+  "name": "Formula: Polished Driftwood Icon",
+  "spell": 1248755,
+  "unique": false
+ },
+ "249479": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Insight",
+  "spell": 1248757,
+  "unique": false
+ },
+ "249480": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Recovery",
+  "spell": 1248760,
+  "unique": false
+ },
+ "249481": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Weapon - Revelation",
+  "spell": 1248805,
+  "unique": false
+ },
+ "249482": {
+  "bind": "pickup",
+  "name": "Formula: Glimmering Staff",
+  "spell": 1248703,
+  "unique": false
+ },
+ "249483": {
+  "bind": "pickup",
+  "name": "Formula: Soulstaff",
+  "spell": 1248739,
+  "unique": false
+ },
+ "249484": {
+  "bind": "pickup",
+  "name": "Formula: Orb of Mystic Insight",
+  "spell": 1248745,
+  "unique": false
+ },
+ "249485": {
+  "bind": "pickup",
+  "name": "Formula: Orb of Souls",
+  "spell": 1248748,
+  "unique": false
+ },
+ "249486": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Lesser Agility",
+  "spell": 1248460,
+  "unique": false
+ },
+ "249487": {
+  "bind": "pickup",
+  "name": "Formula: Twisted Nether Wand",
+  "spell": 1248461,
+  "unique": false
+ },
+ "249488": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Agility",
+  "spell": 1248497,
+  "unique": false
+ },
+ "249489": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Lesser Healing Power",
+  "spell": 1248498,
+  "unique": false
+ },
+ "249493": {
+  "bind": "pickup",
+  "name": "Formula: Talons of Wrath",
+  "spell": 1248974,
+  "unique": false
+ },
+ "249494": {
+  "bind": "pickup",
+  "name": "Formula: Libram of Invocation",
+  "spell": 1249006,
+  "unique": false
+ },
+ "249495": {
+  "bind": "pickup",
+  "name": "Formula: Totem of Ancestral Protection",
+  "spell": 1249015,
+  "unique": false
+ },
+ "249496": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Necklace - Strength",
+  "spell": 1249019,
+  "unique": false
+ },
+ "249502": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Necklace - Spell Power",
+  "spell": 1249057,
+  "unique": false
+ },
+ "249503": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Necklace - Healing Power",
+  "spell": 1249058,
+  "unique": false
+ },
+ "249504": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Necklace - Agility",
+  "spell": 1249059,
+  "unique": false
+ },
+ "249505": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Necklace - Deflection",
+  "spell": 1249060,
+  "unique": false
+ },
+ "249506": {
+  "bind": "pickup",
+  "name": "Formula: Radiant Staff",
+  "spell": 1249061,
+  "unique": false
+ },
+ "249507": {
+  "bind": "pickup",
+  "name": "Formula: Dreamstaff",
+  "spell": 1249064,
+  "unique": false
+ },
+ "249508": {
+  "bind": "pickup",
+  "name": "Formula: Truesilver Conduit",
+  "spell": 1249069,
+  "unique": false
+ },
+ "249509": {
+  "bind": "pickup",
+  "name": "Formula: Twisting Essence Jar",
+  "spell": 1249070,
+  "unique": false
+ },
+ "249510": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Chest - Absorption",
+  "spell": 1249071,
+  "unique": false
+ },
+ "249511": {
+  "bind": "pickup",
+  "name": "Formula: Enchant 2H Weapon - Lesser Agility",
+  "spell": 1248510,
+  "unique": false
+ },
+ "249512": {
+  "bind": "pickup",
+  "name": "Formula: Dreambough Wand",
+  "spell": 1248509,
+  "unique": false
+ },
+ "249513": {
+  "bind": "pickup",
+  "name": "Formula: Enchant 2H Weapon - Lesser Strength",
+  "spell": 1248511,
+  "unique": false
+ },
+ "249514": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Greater Agility",
+  "spell": 1248500,
+  "unique": false
+ },
+ "249515": {
+  "bind": "pickup",
+  "name": "Formula: Lesser Eternal Wand",
+  "spell": 1248505,
+  "unique": false
+ },
+ "249516": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Advanced Skinning",
+  "spell": 1248528,
+  "unique": false
+ },
+ "249519": {
+  "bind": "pickup",
+  "name": "Formula: Frozen Heart of the Mountain",
+  "spell": 1249107,
+  "unique": false
+ },
+ "249520": {
+  "bind": "pickup",
+  "name": "Formula: Molten Heart of the Mountain",
+  "spell": 1249112,
+  "unique": false
+ },
+ "249521": {
+  "bind": "pickup",
+  "name": "Formula: Dormant Heart of the Mountain",
+  "spell": 1249114,
+  "unique": false
+ },
+ "249522": {
+  "bind": "pickup",
+  "name": "Formula: Greater Eternal Wand",
+  "spell": 1248515,
+  "unique": false
+ },
+ "249523": {
+  "bind": "pickup",
+  "name": "Formula: Enchant 2H Weapon - Strength",
+  "spell": 1248668,
+  "unique": false
+ },
+ "249524": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Superior Agility",
+  "spell": 1248599,
+  "unique": false
+ },
+ "249525": {
+  "bind": "pickup",
+  "name": "Formula: Enchant 2H Weapon - Mighty Spell Power",
+  "spell": 1248607,
+  "unique": false
+ },
+ "249526": {
+  "bind": "pickup",
+  "name": "Formula: Enchant 2H Weapon - Mighty Healing Power",
+  "spell": 1248636,
+  "unique": false
+ },
+ "249529": {
+  "bind": "pickup",
+  "name": "Formula: Idol of the Dream",
+  "spell": 1249128,
+  "unique": false
+ },
+ "249530": {
+  "bind": "pickup",
+  "name": "Formula: Libram of Holy Alacrity",
+  "spell": 1249152,
+  "unique": false
+ },
+ "249532": {
+  "bind": "pickup",
+  "name": "Formula: Totem of Thunder",
+  "spell": 1249154,
+  "unique": false
+ },
+ "249534": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Arcane Power",
+  "spell": 1213626,
+  "unique": false
+ },
+ "249535": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Natural Power",
+  "spell": 1248645,
+  "unique": false
+ },
+ "249536": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Holy Power",
+  "spell": 1213622,
+  "unique": false
+ },
+ "249537": {
+  "bind": "pickup",
+  "name": "Formula: Brilliant Wand",
+  "spell": 1248650,
+  "unique": false
+ },
+ "249538": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Superior Intellect",
+  "spell": 1248661,
+  "unique": false
+ },
+ "249539": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Superior Deflection",
+  "spell": 1248665,
+  "unique": false
+ },
+ "249879": {
+  "bind": "pickup",
+  "name": "Recipe: Peace Tea",
+  "spell": 1249957,
+  "unique": false
+ },
+ "249880": {
+  "bind": "pickup",
+  "name": "Recipe: Royal Tea",
+  "spell": 1249958,
+  "unique": false
+ },
+ "249881": {
+  "bind": "pickup",
+  "name": "Recipe: Root Tea",
+  "spell": 1249959,
+  "unique": false
+ },
+ "249882": {
+  "bind": "pickup",
+  "name": "Recipe: Triage Tea",
+  "spell": 1249960,
+  "unique": false
+ },
+ "249883": {
+  "bind": "pickup",
+  "name": "Recipe: Sunny Tea",
+  "spell": 1249961,
+  "unique": false
+ },
+ "249884": {
+  "bind": "pickup",
+  "name": "Recipe: Sage's Tea",
+  "spell": 1249962,
+  "unique": false
+ },
+ "249885": {
+  "bind": "pickup",
+  "name": "Recipe: Venomous Smoothie",
+  "spell": 1249963,
+  "unique": false
+ },
+ "249886": {
+  "bind": "pickup",
+  "name": "Recipe: Slimy Smoothie",
+  "spell": 1249964,
+  "unique": false
+ },
+ "249887": {
+  "bind": "pickup",
+  "name": "Recipe: Mrrggl Smrrthle",
+  "spell": 1249965,
+  "unique": false
+ },
+ "249888": {
+  "bind": "pickup",
+  "name": "Recipe: Calcified Smoothie",
+  "spell": 1249966,
+  "unique": false
+ },
+ "249889": {
+  "bind": "pickup",
+  "name": "Recipe: Spicy Smoothie",
+  "spell": 1249967,
+  "unique": false
+ },
+ "249890": {
+  "bind": "pickup",
+  "name": "Recipe: Wicked Smoothie",
+  "spell": 1249968,
+  "unique": false
+ },
+ "250173": {
+  "bind": "pickup",
+  "name": "Recipe: Savory Stag Sliders",
+  "spell": 1250142,
+  "unique": false
+ },
+ "250174": {
+  "bind": "pickup",
+  "name": "Recipe: Soaring Pamplona",
+  "spell": 1250143,
+  "unique": false
+ },
+ "250175": {
+  "bind": "pickup",
+  "name": "Recipe: Bat Hachee",
+  "spell": 1250144,
+  "unique": false
+ },
+ "250176": {
+  "bind": "pickup",
+  "name": "Recipe: Savory Turtle Stew",
+  "spell": 1250145,
+  "unique": false
+ },
+ "250177": {
+  "bind": "pickup",
+  "name": "Recipe: Flank au Poivre",
+  "spell": 1250146,
+  "unique": false
+ },
+ "250178": {
+  "bind": "pickup",
+  "name": "Recipe: Bear Bruscitti",
+  "spell": 1250147,
+  "unique": false
+ },
+ "250179": {
+  "bind": "pickup",
+  "name": "Recipe: Steaming Stag Steak",
+  "spell": 1250148,
+  "unique": false
+ },
+ "250180": {
+  "bind": "pickup",
+  "name": "Recipe: Swiftstrike Steak",
+  "spell": 1250149,
+  "unique": false
+ },
+ "250181": {
+  "bind": "pickup",
+  "name": "Recipe: Raging Raptor Ribs",
+  "spell": 1250150,
+  "unique": false
+ },
+ "250182": {
+  "bind": "pickup",
+  "name": "Recipe: Bear Brisket",
+  "spell": 1250151,
+  "unique": false
+ },
+ "250183": {
+  "bind": "pickup",
+  "name": "Recipe: Prehistoric Pulled Raptor",
+  "spell": 1250152,
+  "unique": false
+ },
+ "250184": {
+  "bind": "pickup",
+  "name": "Recipe: Raptor Rouladen",
+  "spell": 1250153,
+  "unique": false
+ },
+ "250185": {
+  "bind": "pickup",
+  "name": "Recipe: Twice-Spiced Raptor Slice",
+  "spell": 1250154,
+  "unique": false
+ },
+ "250186": {
+  "bind": "pickup",
+  "name": "Recipe: Giant Scrambled Eggs",
+  "spell": 1250155,
+  "unique": false
+ },
+ "250187": {
+  "bind": "pickup",
+  "name": "Recipe: Tasty Raptor Bites",
+  "spell": 1250156,
+  "unique": false
+ },
+ "250188": {
+  "bind": "pickup",
+  "name": "Recipe: Breakfast Omelette",
+  "spell": 1250157,
+  "unique": false
+ },
+ "250189": {
+  "bind": "pickup",
+  "name": "Recipe: Clam Linguine",
+  "spell": 1250158,
+  "unique": false
+ },
+ "250363": {
+  "bind": "none",
+  "name": "Recipe: Potion of Predatory Senses",
+  "spell": 1250776,
+  "unique": false
+ },
+ "250364": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Cunning",
+  "spell": 1250777,
+  "unique": false
+ },
+ "250365": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of the Phalanx",
+  "spell": 1250778,
+  "unique": false
+ },
+ "250366": {
+  "bind": "none",
+  "name": "Recipe: Minor Cleric's Elixir",
+  "spell": 1250779,
+  "unique": false
+ },
+ "250367": {
+  "bind": "pickup",
+  "name": "Recipe: Lesser Cleric's Elixir",
+  "spell": 1250780,
+  "unique": false
+ },
+ "250368": {
+  "bind": "none",
+  "name": "Recipe: Cleric's Elixir",
+  "spell": 1250781,
+  "unique": false
+ },
+ "250369": {
+  "bind": "pickup",
+  "name": "Recipe: Greater Cleric's Elixir",
+  "spell": 1250782,
+  "unique": false
+ },
+ "250370": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Fortitude",
+  "spell": 1250783,
+  "unique": false
+ },
+ "250371": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Greater Fortitude",
+  "spell": 1250784,
+  "unique": false
+ },
+ "250372": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Wicked Regeneration",
+  "spell": 1250785,
+  "unique": false
+ },
+ "250373": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of the Owl",
+  "spell": 1250786,
+  "unique": false
+ },
+ "250374": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Sages",
+  "spell": 1250787,
+  "unique": false
+ },
+ "250375": {
+  "bind": "none",
+  "name": "Recipe: Minor Mageblood Elixir",
+  "spell": 1250788,
+  "unique": false
+ },
+ "250376": {
+  "bind": "pickup",
+  "name": "Recipe: Lesser Mageblood Elixir",
+  "spell": 1250789,
+  "unique": false
+ },
+ "250377": {
+  "bind": "pickup",
+  "name": "Recipe: Greater Mageblood Elixir",
+  "spell": 1250790,
+  "unique": false
+ },
+ "250378": {
+  "bind": "pickup",
+  "name": "Recipe: Lesser Arcane Elixir",
+  "spell": 1250791,
+  "unique": false
+ },
+ "250379": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Nature Power",
+  "spell": 1250792,
+  "unique": false
+ },
+ "250380": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Minor Spirit",
+  "spell": 1250793,
+  "unique": false
+ },
+ "250381": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Lesser Spirit",
+  "spell": 1250794,
+  "unique": false
+ },
+ "250382": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Spirit",
+  "spell": 1250795,
+  "unique": false
+ },
+ "250383": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Greater Spirit",
+  "spell": 1250796,
+  "unique": false
+ },
+ "250384": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of the Whale",
+  "spell": 1250797,
+  "unique": false
+ },
+ "250385": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Strength",
+  "spell": 1250798,
+  "unique": false
+ },
+ "250386": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Ferocity",
+  "spell": 1250799,
+  "unique": false
+ },
+ "250387": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of the Grizzly",
+  "spell": 1250800,
+  "unique": false
+ },
+ "250388": {
+  "bind": "pickup",
+  "name": "Recipe: Elixir of Lesser Intellect",
+  "spell": 1250801,
+  "unique": false
+ },
+ "250389": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Intellect",
+  "spell": 1250802,
+  "unique": false
+ },
+ "250976": {
+  "bind": "none",
+  "name": "Recipe: Minor Spellblasting Potion",
+  "spell": 1251729,
+  "unique": false
+ },
+ "250977": {
+  "bind": "none",
+  "name": "Recipe: Lesser Spellblasting Potion",
+  "spell": 1251730,
+  "unique": false
+ },
+ "250978": {
+  "bind": "pickup",
+  "name": "Recipe: Spellblasting Potion",
+  "spell": 1251731,
+  "unique": false
+ },
+ "250979": {
+  "bind": "pickup",
+  "name": "Recipe: Greater Spellblasting Potion",
+  "spell": 1251732,
+  "unique": false
+ },
+ "250980": {
+  "bind": "none",
+  "name": "Recipe: Superior Spellblasting Potion",
+  "spell": 1251733,
+  "unique": false
+ },
+ "250981": {
+  "bind": "pickup",
+  "name": "Recipe: Major Spellblasting Potion",
+  "spell": 1251734,
+  "unique": false
+ },
+ "250982": {
+  "bind": "none",
+  "name": "Recipe: Minor Frenzy Potion",
+  "spell": 1251735,
+  "unique": false
+ },
+ "250983": {
+  "bind": "none",
+  "name": "Recipe: Lesser Frenzy Potion",
+  "spell": 1251736,
+  "unique": false
+ },
+ "250984": {
+  "bind": "pickup",
+  "name": "Recipe: Frenzy Potion",
+  "spell": 1251737,
+  "unique": false
+ },
+ "250985": {
+  "bind": "pickup",
+  "name": "Recipe: Greater Frenzy Potion",
+  "spell": 1251738,
+  "unique": false
+ },
+ "250986": {
+  "bind": "none",
+  "name": "Recipe: Superior Frenzy Potion",
+  "spell": 1251739,
+  "unique": false
+ },
+ "250987": {
+  "bind": "pickup",
+  "name": "Recipe: Major Frenzy Potion",
+  "spell": 1251740,
+  "unique": false
+ },
+ "250988": {
+  "bind": "none",
+  "name": "Recipe: Minor Mender's Potion",
+  "spell": 1251741,
+  "unique": false
+ },
+ "250989": {
+  "bind": "none",
+  "name": "Recipe: Lesser Mender's Potion",
+  "spell": 1251742,
+  "unique": false
+ },
+ "250990": {
+  "bind": "pickup",
+  "name": "Recipe: Mender's Potion",
+  "spell": 1251743,
+  "unique": false
+ },
+ "250991": {
+  "bind": "pickup",
+  "name": "Recipe: Greater Mender's Potion",
+  "spell": 1251744,
+  "unique": false
+ },
+ "250992": {
+  "bind": "none",
+  "name": "Recipe: Superior Mender's Potion",
+  "spell": 1251745,
+  "unique": false
+ },
+ "250993": {
+  "bind": "pickup",
+  "name": "Recipe: Major Mender's Potion",
+  "spell": 1251747,
+  "unique": false
+ },
+ "250994": {
+  "bind": "pickup",
+  "name": "Recipe: Potion of Venomous Blood",
+  "spell": 1251748,
+  "unique": false
+ },
+ "250995": {
+  "bind": "pickup",
+  "name": "Recipe: Caustic Smog Potion",
+  "spell": 1251749,
+  "unique": false
+ },
+ "250997": {
+  "bind": "pickup",
+  "name": "Recipe: Dragonfire Potion",
+  "spell": 1251751,
+  "unique": false
+ },
+ "250998": {
+  "bind": "pickup",
+  "name": "Recipe: Potion of Elemental Purging",
+  "spell": 1251752,
+  "unique": false
+ },
+ "250999": {
+  "bind": "pickup",
+  "name": "Recipe: Potion of Beast Slaying",
+  "spell": 1251753,
+  "unique": false
+ },
+ "251332": {
+  "bind": "pickup",
+  "name": "Plans: Gemmed Copper Boots",
+  "spell": 1252229,
+  "unique": false
+ },
+ "251333": {
+  "bind": "pickup",
+  "name": "Plans: Strange Copper Boots",
+  "spell": 1252230,
+  "unique": false
+ },
+ "251334": {
+  "bind": "pickup",
+  "name": "Plans: Glowing Copper Boots",
+  "spell": 1252231,
+  "unique": false
+ },
+ "251335": {
+  "bind": "pickup",
+  "name": "Plans: Sterling Silver Boots",
+  "spell": 1252232,
+  "unique": false
+ },
+ "251336": {
+  "bind": "pickup",
+  "name": "Plans: Sterling Silver Leggings",
+  "spell": 1252233,
+  "unique": false
+ },
+ "251337": {
+  "bind": "pickup",
+  "name": "Plans: Sterling Silver Gauntlet",
+  "spell": 1252234,
+  "unique": false
+ },
+ "251338": {
+  "bind": "pickup",
+  "name": "Plans: Sterling Silver Shoulders",
+  "spell": 1252235,
+  "unique": false
+ },
+ "251339": {
+  "bind": "pickup",
+  "name": "Plans: Sterling Silver Breastplate",
+  "spell": 1252236,
+  "unique": false
+ },
+ "251340": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Chain Shirt",
+  "spell": 1252237,
+  "unique": false
+ },
+ "251341": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Chain Shirt",
+  "spell": 1252238,
+  "unique": false
+ },
+ "251342": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Chain Shirt",
+  "spell": 1252239,
+  "unique": false
+ },
+ "251343": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Chain Shirt",
+  "spell": 1252240,
+  "unique": false
+ },
+ "251344": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Chain Shirt",
+  "spell": 1252241,
+  "unique": false
+ },
+ "251345": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Chain Leggings",
+  "spell": 1252242,
+  "unique": false
+ },
+ "251346": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Chain Leggings",
+  "spell": 1252243,
+  "unique": false
+ },
+ "251347": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Chain Leggings",
+  "spell": 1252244,
+  "unique": false
+ },
+ "251348": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Chain Leggings",
+  "spell": 1252245,
+  "unique": false
+ },
+ "251349": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Chain Leggings",
+  "spell": 1252246,
+  "unique": false
+ },
+ "251350": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Chain Helm",
+  "spell": 1252247,
+  "unique": false
+ },
+ "251351": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Chain Helm",
+  "spell": 1252248,
+  "unique": false
+ },
+ "251352": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Chain Helm",
+  "spell": 1252249,
+  "unique": false
+ },
+ "251353": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Chain Helm",
+  "spell": 1252250,
+  "unique": false
+ },
+ "251354": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Chain Helm",
+  "spell": 1252251,
+  "unique": false
+ },
+ "251355": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Boots",
+  "spell": 1252252,
+  "unique": false
+ },
+ "251356": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Boots",
+  "spell": 1252253,
+  "unique": false
+ },
+ "251357": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Boots",
+  "spell": 1252254,
+  "unique": false
+ },
+ "251358": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Boots",
+  "spell": 1252255,
+  "unique": false
+ },
+ "251359": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Boots",
+  "spell": 1252256,
+  "unique": false
+ },
+ "251360": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Gloves",
+  "spell": 1252257,
+  "unique": false
+ },
+ "251361": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Gloves",
+  "spell": 1252258,
+  "unique": false
+ },
+ "251362": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Gloves",
+  "spell": 1252259,
+  "unique": false
+ },
+ "251363": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Gloves",
+  "spell": 1252260,
+  "unique": false
+ },
+ "251364": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Gloves",
+  "spell": 1252261,
+  "unique": false
+ },
+ "251365": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Chain Belt",
+  "spell": 1252262,
+  "unique": false
+ },
+ "251366": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Chain Belt",
+  "spell": 1252263,
+  "unique": false
+ },
+ "251367": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Chain Belt",
+  "spell": 1252264,
+  "unique": false
+ },
+ "251368": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Chain Belt",
+  "spell": 1252265,
+  "unique": false
+ },
+ "251369": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Chain Belt",
+  "spell": 1252266,
+  "unique": false
+ },
+ "251370": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Silvered Chain Shirt",
+  "spell": 1252267,
+  "unique": false
+ },
+ "251371": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Silvered Chain Shirt",
+  "spell": 1252268,
+  "unique": false
+ },
+ "251372": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Silvered Chain Shirt",
+  "spell": 1252269,
+  "unique": false
+ },
+ "251373": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Silvered Chain Shirt",
+  "spell": 1252270,
+  "unique": false
+ },
+ "251374": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Silvered Chain Shirt",
+  "spell": 1252271,
+  "unique": false
+ },
+ "251375": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Silvered Chain Leggings",
+  "spell": 1252272,
+  "unique": false
+ },
+ "251376": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Silvered Chain Leggings",
+  "spell": 1252273,
+  "unique": false
+ },
+ "251377": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Silvered Chain Leggings",
+  "spell": 1252274,
+  "unique": false
+ },
+ "251378": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Silvered Chain Leggings",
+  "spell": 1252275,
+  "unique": false
+ },
+ "251379": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Silvered Chain Leggings",
+  "spell": 1252276,
+  "unique": false
+ },
+ "251380": {
+  "bind": "pickup",
+  "name": "Plans: Veteran's Silvered Chain Helm",
+  "spell": 1252277,
+  "unique": false
+ },
+ "251381": {
+  "bind": "pickup",
+  "name": "Plans: Guard's Silvered Chain Helm",
+  "spell": 1252278,
+  "unique": false
+ },
+ "251382": {
+  "bind": "pickup",
+  "name": "Plans: Protector's Silvered Chain Helm",
+  "spell": 1252279,
+  "unique": false
+ },
+ "251383": {
+  "bind": "pickup",
+  "name": "Plans: Acolyte's Silvered Chain Helm",
+  "spell": 1252280,
+  "unique": false
+ },
+ "251384": {
+  "bind": "pickup",
+  "name": "Plans: Crusader's Silvered Chain Helm",
+  "spell": 1252281,
+  "unique": false
+ },
+ "251385": {
+  "bind": "pickup",
+  "name": "Plans: Hard Gold Cuirass",
+  "spell": 1252282,
+  "unique": false
+ },
+ "251386": {
+  "bind": "pickup",
+  "name": "Plans: Hard Gold Boots",
+  "spell": 1252283,
+  "unique": false
+ },
+ "251387": {
+  "bind": "pickup",
+  "name": "Plans: Hard Gold Bracers",
+  "spell": 1252284,
+  "unique": false
+ },
+ "251388": {
+  "bind": "pickup",
+  "name": "Plans: Hard Gold Leggings",
+  "spell": 1252285,
+  "unique": false
+ },
+ "251389": {
+  "bind": "pickup",
+  "name": "Plans: Hard Gold Coif",
+  "spell": 1252286,
+  "unique": false
+ },
+ "251390": {
+  "bind": "pickup",
+  "name": "Plans: Hard Gold Gauntlet",
+  "spell": 1252287,
+  "unique": false
+ },
+ "251391": {
+  "bind": "pickup",
+  "name": "Plans: Hard Gold Pauldrons",
+  "spell": 1252288,
+  "unique": false
+ },
+ "251392": {
+  "bind": "pickup",
+  "name": "Plans: Shining Mithril Breastplate",
+  "spell": 1252289,
+  "unique": false
+ },
+ "251393": {
+  "bind": "pickup",
+  "name": "Plans: Shining Mithril Pauldrons",
+  "spell": 1252290,
+  "unique": false
+ },
+ "251394": {
+  "bind": "pickup",
+  "name": "Plans: Shining Mithril Boots",
+  "spell": 1252291,
+  "unique": false
+ },
+ "251395": {
+  "bind": "pickup",
+  "name": "Plans: Shining Mithril Helm",
+  "spell": 1252292,
+  "unique": false
+ },
+ "251396": {
+  "bind": "pickup",
+  "name": "Plans: Shining Mithril Pants",
+  "spell": 1252293,
+  "unique": false
+ },
+ "251397": {
+  "bind": "pickup",
+  "name": "Plans: Shining Mithril Gauntlet",
+  "spell": 1252294,
+  "unique": false
+ },
+ "251398": {
+  "bind": "pickup",
+  "name": "Plans: Officer's Boots",
+  "spell": 1252295,
+  "unique": false
+ },
+ "251399": {
+  "bind": "pickup",
+  "name": "Plans: Sentinel's Boots",
+  "spell": 1252296,
+  "unique": false
+ },
+ "251400": {
+  "bind": "pickup",
+  "name": "Plans: Warder's Boots",
+  "spell": 1252297,
+  "unique": false
+ },
+ "251401": {
+  "bind": "pickup",
+  "name": "Plans: Prefect's Boots",
+  "spell": 1252298,
+  "unique": false
+ },
+ "251402": {
+  "bind": "pickup",
+  "name": "Plans: Justicar's Boots",
+  "spell": 1252299,
+  "unique": false
+ },
+ "251403": {
+  "bind": "pickup",
+  "name": "Plans: Officer's Gloves",
+  "spell": 1252300,
+  "unique": false
+ },
+ "251404": {
+  "bind": "pickup",
+  "name": "Plans: Sentinel's Gloves",
+  "spell": 1252301,
+  "unique": false
+ },
+ "251405": {
+  "bind": "pickup",
+  "name": "Plans: Warder's Gloves",
+  "spell": 1252302,
+  "unique": false
+ },
+ "251406": {
+  "bind": "pickup",
+  "name": "Plans: Prefect's Gloves",
+  "spell": 1252303,
+  "unique": false
+ },
+ "251407": {
+  "bind": "pickup",
+  "name": "Plans: Justicar's Gloves",
+  "spell": 1252304,
+  "unique": false
+ },
+ "251408": {
+  "bind": "pickup",
+  "name": "Plans: Officer's Belt",
+  "spell": 1252305,
+  "unique": false
+ },
+ "251409": {
+  "bind": "pickup",
+  "name": "Plans: Sentinel's Belt",
+  "spell": 1252306,
+  "unique": false
+ },
+ "251410": {
+  "bind": "pickup",
+  "name": "Plans: Warder's Belt",
+  "spell": 1252307,
+  "unique": false
+ },
+ "251411": {
+  "bind": "pickup",
+  "name": "Plans: Prefect's Belt",
+  "spell": 1252308,
+  "unique": false
+ },
+ "251412": {
+  "bind": "pickup",
+  "name": "Plans: Justicar's Belt",
+  "spell": 1252309,
+  "unique": false
+ },
+ "251413": {
+  "bind": "pickup",
+  "name": "Plans: Officer's Sabatons",
+  "spell": 1252310,
+  "unique": false
+ },
+ "251414": {
+  "bind": "pickup",
+  "name": "Plans: Sentinel's Sabatons",
+  "spell": 1252311,
+  "unique": false
+ },
+ "251415": {
+  "bind": "pickup",
+  "name": "Plans: Warder's Sabatons",
+  "spell": 1252312,
+  "unique": false
+ },
+ "251416": {
+  "bind": "pickup",
+  "name": "Plans: Prefect's Sabatons",
+  "spell": 1252313,
+  "unique": false
+ },
+ "251417": {
+  "bind": "pickup",
+  "name": "Plans: Justicar's Sabatons",
+  "spell": 1252314,
+  "unique": false
+ },
+ "251418": {
+  "bind": "pickup",
+  "name": "Plans: Officer's Gauntlet",
+  "spell": 1252315,
+  "unique": false
+ },
+ "251419": {
+  "bind": "pickup",
+  "name": "Plans: Sentinel's Gauntlet",
+  "spell": 1252316,
+  "unique": false
+ },
+ "251420": {
+  "bind": "pickup",
+  "name": "Plans: Warder's Gauntlet",
+  "spell": 1252317,
+  "unique": false
+ },
+ "251421": {
+  "bind": "pickup",
+  "name": "Plans: Prefect's Gauntlet",
+  "spell": 1252318,
+  "unique": false
+ },
+ "251422": {
+  "bind": "pickup",
+  "name": "Plans: Justicar's Gauntlet",
+  "spell": 1252319,
+  "unique": false
+ },
+ "251423": {
+  "bind": "pickup",
+  "name": "Plans: Officer's Waistguard",
+  "spell": 1252320,
+  "unique": false
+ },
+ "251424": {
+  "bind": "pickup",
+  "name": "Plans: Sentinel's Waistguard",
+  "spell": 1252321,
+  "unique": false
+ },
+ "251425": {
+  "bind": "pickup",
+  "name": "Plans: Warder's Waistguard",
+  "spell": 1252322,
+  "unique": false
+ },
+ "251426": {
+  "bind": "pickup",
+  "name": "Plans: Prefect's Waistguard",
+  "spell": 1252323,
+  "unique": false
+ },
+ "251427": {
+  "bind": "pickup",
+  "name": "Plans: Justicar's Waistguard",
+  "spell": 1252324,
+  "unique": false
+ },
+ "251428": {
+  "bind": "pickup",
+  "name": "Plans: Officer's Pauldrons",
+  "spell": 1252325,
+  "unique": false
+ },
+ "251429": {
+  "bind": "pickup",
+  "name": "Plans: Sentinel's Pauldrons",
+  "spell": 1252326,
+  "unique": false
+ },
+ "251430": {
+  "bind": "pickup",
+  "name": "Plans: Warder's Pauldrons",
+  "spell": 1252327,
+  "unique": false
+ },
+ "251431": {
+  "bind": "pickup",
+  "name": "Plans: Prefect's Pauldrons",
+  "spell": 1252328,
+  "unique": false
+ },
+ "251432": {
+  "bind": "pickup",
+  "name": "Plans: Justicar's Pauldrons",
+  "spell": 1252329,
+  "unique": false
+ },
+ "251433": {
+  "bind": "pickup",
+  "name": "Plans: Officer's Wristguard",
+  "spell": 1252330,
+  "unique": false
+ },
+ "251434": {
+  "bind": "pickup",
+  "name": "Plans: Sentinel's Wristguard",
+  "spell": 1252331,
+  "unique": false
+ },
+ "251435": {
+  "bind": "pickup",
+  "name": "Plans: Warder's Wristguard",
+  "spell": 1252332,
+  "unique": false
+ },
+ "251436": {
+  "bind": "pickup",
+  "name": "Plans: Prefect's Wristguard",
+  "spell": 1252333,
+  "unique": false
+ },
+ "251437": {
+  "bind": "pickup",
+  "name": "Plans: Justicar's Wristguards",
+  "spell": 1252334,
+  "unique": false
+ },
+ "251438": {
+  "bind": "pickup",
+  "name": "Plans: Blessed Plate Pauldrons",
+  "spell": 1252335,
+  "unique": false
+ },
+ "251439": {
+  "bind": "pickup",
+  "name": "Plans: Blessed Plate Boots",
+  "spell": 1252336,
+  "unique": false
+ },
+ "251440": {
+  "bind": "pickup",
+  "name": "Plans: Blessed Plate Gauntlet",
+  "spell": 1252337,
+  "unique": false
+ },
+ "251441": {
+  "bind": "pickup",
+  "name": "Plans: Imperial Plate Gauntlets",
+  "spell": 1252338,
+  "unique": false
+ },
+ "251442": {
+  "bind": "pickup",
+  "name": "Plans: Blessed Plate Bracers",
+  "spell": 1252339,
+  "unique": false
+ },
+ "251443": {
+  "bind": "pickup",
+  "name": "Plans: Blessed Plate Leggings",
+  "spell": 1252340,
+  "unique": false
+ },
+ "251444": {
+  "bind": "pickup",
+  "name": "Plans: Blessed Plate Belt",
+  "spell": 1252341,
+  "unique": false
+ },
+ "251445": {
+  "bind": "pickup",
+  "name": "Plans: Blessed Plate Helm",
+  "spell": 1252342,
+  "unique": false
+ },
+ "251446": {
+  "bind": "pickup",
+  "name": "Plans: Blessed Plate Chest",
+  "spell": 1252343,
+  "unique": false
+ },
+ "251447": {
+  "bind": "pickup",
+  "name": "Plans: Enriched Thorium Breastplate",
+  "spell": 1252344,
+  "unique": false
+ },
+ "251448": {
+  "bind": "pickup",
+  "name": "Plans: Enriched Thorium Leggings",
+  "spell": 1252345,
+  "unique": false
+ },
+ "251449": {
+  "bind": "pickup",
+  "name": "Plans: Enriched Thorium Helm",
+  "spell": 1252346,
+  "unique": false
+ },
+ "251450": {
+  "bind": "pickup",
+  "name": "Plans: Champion's Legplates",
+  "spell": 1252347,
+  "unique": false
+ },
+ "251451": {
+  "bind": "pickup",
+  "name": "Plans: Stalwart Helm",
+  "spell": 1252348,
+  "unique": false
+ },
+ "251452": {
+  "bind": "pickup",
+  "name": "Plans: Martyr's Legplates",
+  "spell": 1252349,
+  "unique": false
+ },
+ "251453": {
+  "bind": "pickup",
+  "name": "Plans: Breastplate of Salvation",
+  "spell": 1252350,
+  "unique": false
+ },
+ "251454": {
+  "bind": "pickup",
+  "name": "Plans: Brass Knuckles",
+  "spell": 1252351,
+  "unique": false
+ },
+ "251455": {
+  "bind": "pickup",
+  "name": "Plans: Bronze Dory",
+  "spell": 1252352,
+  "unique": false
+ },
+ "251456": {
+  "bind": "pickup",
+  "name": "Plans: Iron Fists",
+  "spell": 1252353,
+  "unique": false
+ },
+ "251457": {
+  "bind": "pickup",
+  "name": "Plans: Steel Spear",
+  "spell": 1252354,
+  "unique": false
+ },
+ "251458": {
+  "bind": "pickup",
+  "name": "Plans: Iron Morningstar",
+  "spell": 1252355,
+  "unique": false
+ },
+ "251459": {
+  "bind": "pickup",
+  "name": "Plans: Mithril Shortsword",
+  "spell": 1252356,
+  "unique": false
+ },
+ "251460": {
+  "bind": "pickup",
+  "name": "Plans: Mithril Warhammer",
+  "spell": 1252357,
+  "unique": false
+ },
+ "251461": {
+  "bind": "pickup",
+  "name": "Plans: Mithril Claws",
+  "spell": 1252358,
+  "unique": false
+ },
+ "251462": {
+  "bind": "pickup",
+  "name": "Plans: Mithril Claymore",
+  "spell": 1252359,
+  "unique": false
+ },
+ "251463": {
+  "bind": "pickup",
+  "name": "Plans: Mithril Stiletto",
+  "spell": 1252360,
+  "unique": false
+ },
+ "251464": {
+  "bind": "pickup",
+  "name": "Plans: Charged Mithril Battleaxe",
+  "spell": 1252361,
+  "unique": false
+ },
+ "251465": {
+  "bind": "pickup",
+  "name": "Plans: Thorium Greatmace",
+  "spell": 1252362,
+  "unique": false
+ },
+ "251466": {
+  "bind": "pickup",
+  "name": "Plans: Thorium Cestus",
+  "spell": 1252363,
+  "unique": false
+ },
+ "251467": {
+  "bind": "pickup",
+  "name": "Plans: Thorium Poleaxe",
+  "spell": 1252364,
+  "unique": false
+ },
+ "251468": {
+  "bind": "pickup",
+  "name": "Plans: Bold Dirk",
+  "spell": 1252365,
+  "unique": false
+ },
+ "251469": {
+  "bind": "pickup",
+  "name": "Plans: Stormcarver",
+  "spell": 1252366,
+  "unique": false
+ },
+ "251470": {
+  "bind": "pickup",
+  "name": "Plans: Bagh Nakh",
+  "spell": 1252367,
+  "unique": false
+ },
+ "251471": {
+  "bind": "pickup",
+  "name": "Plans: Legionite Glaive",
+  "spell": 1252368,
+  "unique": false
+ },
+ "251526": {
+  "bind": "none",
+  "name": "Recipe: Savory Whimsyfin Delight",
+  "spell": 1252566,
+  "unique": false
+ },
+ "252761": {
+  "bind": "none",
+  "name": "Pattern: Black Whelp Slippers",
+  "spell": 1255146,
+  "unique": false
+ },
+ "252762": {
+  "bind": "none",
+  "name": "Pattern: Dark Leather Boots",
+  "spell": 1255145,
+  "unique": false
+ },
+ "252763": {
+  "bind": "none",
+  "name": "Pattern: Murloc Scale Shoes",
+  "spell": 1255144,
+  "unique": false
+ },
+ "252764": {
+  "bind": "none",
+  "name": "Pattern: Moonglow Boots",
+  "spell": 1255143,
+  "unique": false
+ },
+ "252765": {
+  "bind": "pickup",
+  "name": "Pattern: Brawler's Leather Belt",
+  "spell": 1255142,
+  "unique": false
+ },
+ "252766": {
+  "bind": "pickup",
+  "name": "Pattern: Trapper's Leather Belt",
+  "spell": 1255141,
+  "unique": false
+ },
+ "252767": {
+  "bind": "pickup",
+  "name": "Pattern: Defender's Leather Belt",
+  "spell": 1255140,
+  "unique": false
+ },
+ "252768": {
+  "bind": "pickup",
+  "name": "Pattern: Totemic Leather Belt",
+  "spell": 1255139,
+  "unique": false
+ },
+ "252769": {
+  "bind": "pickup",
+  "name": "Pattern: Stormrider's Leather Belt",
+  "spell": 1255138,
+  "unique": false
+ },
+ "252770": {
+  "bind": "pickup",
+  "name": "Pattern: Wisdom's Leather Belt",
+  "spell": 1255137,
+  "unique": false
+ },
+ "252771": {
+  "bind": "none",
+  "name": "Pattern: Brawler's Leather Armor",
+  "spell": 1255136,
+  "unique": false
+ },
+ "252772": {
+  "bind": "none",
+  "name": "Pattern: Trapper's Leather Armor",
+  "spell": 1255135,
+  "unique": false
+ },
+ "252773": {
+  "bind": "none",
+  "name": "Pattern: Defender's Leather Armor",
+  "spell": 1255134,
+  "unique": false
+ },
+ "252774": {
+  "bind": "none",
+  "name": "Pattern: Totemic Leather Armor",
+  "spell": 1255133,
+  "unique": false
+ },
+ "252775": {
+  "bind": "none",
+  "name": "Pattern: Stormrider's Leather Armor",
+  "spell": 1255132,
+  "unique": false
+ },
+ "252776": {
+  "bind": "none",
+  "name": "Pattern: Wisdom's Leather Armor",
+  "spell": 1255131,
+  "unique": false
+ },
+ "252777": {
+  "bind": "pickup",
+  "name": "Pattern: Brawler's Leather Gloves",
+  "spell": 1255130,
+  "unique": false
+ },
+ "252778": {
+  "bind": "pickup",
+  "name": "Pattern: Trapper's Leather Gloves",
+  "spell": 1255129,
+  "unique": false
+ },
+ "252779": {
+  "bind": "pickup",
+  "name": "Pattern: Defender's Leather Gloves",
+  "spell": 1255128,
+  "unique": false
+ },
+ "252780": {
+  "bind": "pickup",
+  "name": "Pattern: Totemic Leather Gloves",
+  "spell": 1255127,
+  "unique": false
+ },
+ "252781": {
+  "bind": "pickup",
+  "name": "Pattern: Stormrider's Leather Gloves",
+  "spell": 1255126,
+  "unique": false
+ },
+ "252782": {
+  "bind": "pickup",
+  "name": "Pattern: Wisdom's Leather Gloves",
+  "spell": 1255125,
+  "unique": false
+ },
+ "252783": {
+  "bind": "none",
+  "name": "Pattern: Mystic Medium Armor Kit",
+  "spell": 1255124,
+  "unique": false
+ },
+ "252784": {
+  "bind": "none",
+  "name": "Pattern: Forceful Medium Armor Kit",
+  "spell": 1255123,
+  "unique": false
+ },
+ "252786": {
+  "bind": "pickup",
+  "name": "Pattern: Brawler's Leather Boots",
+  "spell": 1255121,
+  "unique": false
+ },
+ "252787": {
+  "bind": "pickup",
+  "name": "Pattern: Trapper's Leather Boots",
+  "spell": 1255120,
+  "unique": false
+ },
+ "252788": {
+  "bind": "pickup",
+  "name": "Pattern: Defender's Leather Boots",
+  "spell": 1255119,
+  "unique": false
+ },
+ "252789": {
+  "bind": "pickup",
+  "name": "Pattern: Totemic Leather Boots",
+  "spell": 1255118,
+  "unique": false
+ },
+ "252790": {
+  "bind": "pickup",
+  "name": "Pattern: Stormrider's Leather Boots",
+  "spell": 1255117,
+  "unique": false
+ },
+ "252791": {
+  "bind": "pickup",
+  "name": "Pattern: Wisdom's Leather Boots",
+  "spell": 1255116,
+  "unique": false
+ },
+ "252792": {
+  "bind": "none",
+  "name": "Pattern: Brawler's Leather Pants",
+  "spell": 1255115,
+  "unique": false
+ },
+ "252793": {
+  "bind": "none",
+  "name": "Pattern: Trapper's Leather Pants",
+  "spell": 1255114,
+  "unique": false
+ },
+ "252794": {
+  "bind": "none",
+  "name": "Pattern: Defender's Leather Pants",
+  "spell": 1255113,
+  "unique": false
+ },
+ "252795": {
+  "bind": "none",
+  "name": "Pattern: Totemic Leather Pants",
+  "spell": 1255112,
+  "unique": false
+ },
+ "252796": {
+  "bind": "none",
+  "name": "Pattern: Stormrider's Leather Pants",
+  "spell": 1255111,
+  "unique": false
+ },
+ "252797": {
+  "bind": "none",
+  "name": "Pattern: Wisdom's Leather Pants",
+  "spell": 1255110,
+  "unique": false
+ },
+ "252798": {
+  "bind": "pickup",
+  "name": "Pattern: Brawler's Leather Hood",
+  "spell": 1255109,
+  "unique": false
+ },
+ "252799": {
+  "bind": "pickup",
+  "name": "Pattern: Trapper's Leather Hood",
+  "spell": 1255108,
+  "unique": false
+ },
+ "252800": {
+  "bind": "pickup",
+  "name": "Pattern: Defender's Leather Hood",
+  "spell": 1255107,
+  "unique": false
+ },
+ "252801": {
+  "bind": "pickup",
+  "name": "Pattern: Totemic Leather Hood",
+  "spell": 1255106,
+  "unique": false
+ },
+ "252802": {
+  "bind": "pickup",
+  "name": "Pattern: Stormrider's Leather Hood",
+  "spell": 1255105,
+  "unique": false
+ },
+ "252803": {
+  "bind": "pickup",
+  "name": "Pattern: Wisdom's Leather Hood",
+  "spell": 1255104,
+  "unique": false
+ },
+ "252804": {
+  "bind": "none",
+  "name": "Pattern: Hillman's Leather Boots",
+  "spell": 1255103,
+  "unique": false
+ },
+ "252805": {
+  "bind": "pickup",
+  "name": "Pattern: Brawler's Leather Tunic",
+  "spell": 1255102,
+  "unique": false
+ },
+ "252806": {
+  "bind": "pickup",
+  "name": "Pattern: Trapper's Leather Tunic",
+  "spell": 1255101,
+  "unique": false
+ },
+ "252807": {
+  "bind": "pickup",
+  "name": "Pattern: Defender's Leather Tunic",
+  "spell": 1255100,
+  "unique": false
+ },
+ "252808": {
+  "bind": "pickup",
+  "name": "Pattern: Totemic Leather Tunic",
+  "spell": 1255099,
+  "unique": false
+ },
+ "252809": {
+  "bind": "pickup",
+  "name": "Pattern: Stormrider's Leather Tunic",
+  "spell": 1255098,
+  "unique": false
+ },
+ "252810": {
+  "bind": "pickup",
+  "name": "Pattern: Wisdom's Leather Tunic",
+  "spell": 1255097,
+  "unique": false
+ },
+ "252811": {
+  "bind": "none",
+  "name": "Pattern: Mystic Heavy Armor Kit",
+  "spell": 1255096,
+  "unique": false
+ },
+ "252812": {
+  "bind": "none",
+  "name": "Pattern: Forceful Heavy Armor Kit",
+  "spell": 1255095,
+  "unique": false
+ },
+ "252814": {
+  "bind": "none",
+  "name": "Pattern: Brawler's Leather Helm",
+  "spell": 1255093,
+  "unique": false
+ },
+ "252815": {
+  "bind": "none",
+  "name": "Pattern: Trapper's Leather Helm",
+  "spell": 1255092,
+  "unique": false
+ },
+ "252816": {
+  "bind": "none",
+  "name": "Pattern: Defender's Leather Helm",
+  "spell": 1255091,
+  "unique": false
+ },
+ "252817": {
+  "bind": "none",
+  "name": "Pattern: Totemic Leather Helm",
+  "spell": 1255090,
+  "unique": false
+ },
+ "252818": {
+  "bind": "none",
+  "name": "Pattern: Stormrider's Leather Helm",
+  "spell": 1255089,
+  "unique": false
+ },
+ "252819": {
+  "bind": "none",
+  "name": "Pattern: Wisdom's Leather Helm",
+  "spell": 1255088,
+  "unique": false
+ },
+ "252820": {
+  "bind": "pickup",
+  "name": "Pattern: Brawler's Leather Legguards",
+  "spell": 1255087,
+  "unique": false
+ },
+ "252821": {
+  "bind": "pickup",
+  "name": "Pattern: Trapper's Leather Legguards",
+  "spell": 1255086,
+  "unique": false
+ },
+ "252822": {
+  "bind": "pickup",
+  "name": "Pattern: Defender's Leather Kilt",
+  "spell": 1255085,
+  "unique": false
+ },
+ "252823": {
+  "bind": "pickup",
+  "name": "Pattern: Totemic Leather Leggings",
+  "spell": 1255084,
+  "unique": false
+ },
+ "252824": {
+  "bind": "pickup",
+  "name": "Pattern: Stormrider's Leather Kilt",
+  "spell": 1255083,
+  "unique": false
+ },
+ "252825": {
+  "bind": "pickup",
+  "name": "Pattern: Wisdom's Leather Leggings",
+  "spell": 1255082,
+  "unique": false
+ },
+ "252826": {
+  "bind": "none",
+  "name": "Pattern: Prowler's Leather Belt",
+  "spell": 1255081,
+  "unique": false
+ },
+ "252827": {
+  "bind": "none",
+  "name": "Pattern: Skulker's Leather Belt",
+  "spell": 1255080,
+  "unique": false
+ },
+ "252828": {
+  "bind": "none",
+  "name": "Pattern: Stalker's Leather Belt",
+  "spell": 1255079,
+  "unique": false
+ },
+ "252829": {
+  "bind": "none",
+  "name": "Pattern: Warden's Leather Belt",
+  "spell": 1255078,
+  "unique": false
+ },
+ "252830": {
+  "bind": "none",
+  "name": "Pattern: Skirmisher's Leather Belt",
+  "spell": 1255077,
+  "unique": false
+ },
+ "252831": {
+  "bind": "none",
+  "name": "Pattern: Skycaller's Leather Belt",
+  "spell": 1255076,
+  "unique": false
+ },
+ "252832": {
+  "bind": "none",
+  "name": "Pattern: Mender's Leather Belt",
+  "spell": 1255075,
+  "unique": false
+ },
+ "252833": {
+  "bind": "pickup",
+  "name": "Pattern: Mystic Thick Armor Kit",
+  "spell": 1255074,
+  "unique": false
+ },
+ "252834": {
+  "bind": "pickup",
+  "name": "Pattern: Forceful Thick Armor Kit",
+  "spell": 1255073,
+  "unique": false
+ },
+ "252836": {
+  "bind": "pickup",
+  "name": "Pattern: Prowler's Leather Gloves",
+  "spell": 1255071,
+  "unique": false
+ },
+ "252837": {
+  "bind": "pickup",
+  "name": "Pattern: Skulker's Leather Gloves",
+  "spell": 1255070,
+  "unique": false
+ },
+ "252838": {
+  "bind": "pickup",
+  "name": "Pattern: Stalker's Leather Gloves",
+  "spell": 1255069,
+  "unique": false
+ },
+ "252839": {
+  "bind": "pickup",
+  "name": "Pattern: Warden's Leather Gloves",
+  "spell": 1255068,
+  "unique": false
+ },
+ "252840": {
+  "bind": "pickup",
+  "name": "Pattern: Skirmisher's Leather Gloves",
+  "spell": 1255067,
+  "unique": false
+ },
+ "252841": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Leather Gloves",
+  "spell": 1255066,
+  "unique": false
+ },
+ "252842": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Leather Gloves",
+  "spell": 1255065,
+  "unique": false
+ },
+ "252843": {
+  "bind": "none",
+  "name": "Pattern: Prowler's Leather Shoes",
+  "spell": 1255064,
+  "unique": false
+ },
+ "252844": {
+  "bind": "none",
+  "name": "Pattern: Skulker's Leather Shoes",
+  "spell": 1255063,
+  "unique": false
+ },
+ "252845": {
+  "bind": "none",
+  "name": "Pattern: Warden's Leather Shoes",
+  "spell": 1255062,
+  "unique": false
+ },
+ "252846": {
+  "bind": "none",
+  "name": "Pattern: Skycaller's Leather Shoes",
+  "spell": 1255061,
+  "unique": false
+ },
+ "252847": {
+  "bind": "none",
+  "name": "Pattern: Mender's Leather Shoes",
+  "spell": 1255060,
+  "unique": false
+ },
+ "252848": {
+  "bind": "pickup",
+  "name": "Pattern: Prowler's Leather Shoulders",
+  "spell": 1255059,
+  "unique": false
+ },
+ "252849": {
+  "bind": "pickup",
+  "name": "Pattern: Skulker's Leather Shoulder",
+  "spell": 1255058,
+  "unique": false
+ },
+ "252850": {
+  "bind": "pickup",
+  "name": "Pattern: Warden's Leather Shoulders",
+  "spell": 1255057,
+  "unique": false
+ },
+ "252851": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Leather Shoulders",
+  "spell": 1255056,
+  "unique": false
+ },
+ "252852": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Leather Shoulders",
+  "spell": 1255055,
+  "unique": false
+ },
+ "252853": {
+  "bind": "pickup",
+  "name": "Pattern: Prowler's Leather Bracers",
+  "spell": 1255054,
+  "unique": false
+ },
+ "252854": {
+  "bind": "pickup",
+  "name": "Pattern: Skulker's Leather Bracers",
+  "spell": 1255053,
+  "unique": false
+ },
+ "252855": {
+  "bind": "pickup",
+  "name": "Pattern: Warden's Leather Bracers",
+  "spell": 1255052,
+  "unique": false
+ },
+ "252856": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Leather Bracers",
+  "spell": 1255051,
+  "unique": false
+ },
+ "252857": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Leather Bracers",
+  "spell": 1255050,
+  "unique": false
+ },
+ "252858": {
+  "bind": "none",
+  "name": "Pattern: Tooled Leather Belt",
+  "spell": 1255049,
+  "unique": false
+ },
+ "252859": {
+  "bind": "none",
+  "name": "Pattern: Blue Suede Shoes",
+  "spell": 1255048,
+  "unique": false
+ },
+ "252860": {
+  "bind": "pickup",
+  "name": "Pattern: Prowler's Leather Boots",
+  "spell": 1255047,
+  "unique": false
+ },
+ "252861": {
+  "bind": "pickup",
+  "name": "Pattern: Skulker's Leather Boots",
+  "spell": 1255046,
+  "unique": false
+ },
+ "252862": {
+  "bind": "pickup",
+  "name": "Pattern: Warden's Leather Boots",
+  "spell": 1255045,
+  "unique": false
+ },
+ "252863": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Leather Boots",
+  "spell": 1255044,
+  "unique": false
+ },
+ "252864": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Leather Boots",
+  "spell": 1255043,
+  "unique": false
+ },
+ "252865": {
+  "bind": "none",
+  "name": "Pattern: Tooled Leather Boots",
+  "spell": 1255042,
+  "unique": false
+ },
+ "252866": {
+  "bind": "none",
+  "name": "Pattern: Blue Suede Gloves",
+  "spell": 1255041,
+  "unique": false
+ },
+ "252867": {
+  "bind": "none",
+  "name": "Pattern: Prowler's Leather Gauntlets",
+  "spell": 1255040,
+  "unique": false
+ },
+ "252868": {
+  "bind": "none",
+  "name": "Pattern: Skulker's Leather Gauntlets",
+  "spell": 1255039,
+  "unique": false
+ },
+ "252869": {
+  "bind": "none",
+  "name": "Pattern: Warden's Leather Gauntlets",
+  "spell": 1255038,
+  "unique": false
+ },
+ "252870": {
+  "bind": "none",
+  "name": "Pattern: Skycaller's Leather Gauntlets",
+  "spell": 1255037,
+  "unique": false
+ },
+ "252871": {
+  "bind": "none",
+  "name": "Pattern: Mender's Leather Gauntlets",
+  "spell": 1255036,
+  "unique": false
+ },
+ "252872": {
+  "bind": "pickup",
+  "name": "Pattern: Prowler's Leather Waistguard",
+  "spell": 1255035,
+  "unique": false
+ },
+ "252873": {
+  "bind": "pickup",
+  "name": "Pattern: Skulker's Leather Waistguard",
+  "spell": 1255034,
+  "unique": false
+ },
+ "252874": {
+  "bind": "pickup",
+  "name": "Pattern: Warden's Leather Waistguard",
+  "spell": 1255033,
+  "unique": false
+ },
+ "252875": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Leather Waistguard",
+  "spell": 1255032,
+  "unique": false
+ },
+ "252876": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Leather Waistguard",
+  "spell": 1255031,
+  "unique": false
+ },
+ "252877": {
+  "bind": "pickup",
+  "name": "Pattern: Tooled Leather Armor",
+  "spell": 1255030,
+  "unique": false
+ },
+ "252878": {
+  "bind": "none",
+  "name": "Pattern: Blue Suede Pants",
+  "spell": 1255029,
+  "unique": false
+ },
+ "252879": {
+  "bind": "none",
+  "name": "Pattern: Wicked Leather Boots",
+  "spell": 1255028,
+  "unique": false
+ },
+ "252880": {
+  "bind": "none",
+  "name": "Pattern: Tooled Leather Gauntlets",
+  "spell": 1255027,
+  "unique": false
+ },
+ "252881": {
+  "bind": "none",
+  "name": "Pattern: Blue Suede Shoulders",
+  "spell": 1255026,
+  "unique": false
+ },
+ "252882": {
+  "bind": "none",
+  "name": "Pattern: Tooled Leather Crown",
+  "spell": 1255025,
+  "unique": false
+ },
+ "252883": {
+  "bind": "pickup",
+  "name": "Pattern: Blue Suede Armor",
+  "spell": 1255024,
+  "unique": false
+ },
+ "252884": {
+  "bind": "none",
+  "name": "Pattern: Wicked Leather Shoulders",
+  "spell": 1255023,
+  "unique": false
+ },
+ "252885": {
+  "bind": "none",
+  "name": "Pattern: Tooled Leather Bracers",
+  "spell": 1255022,
+  "unique": false
+ },
+ "252886": {
+  "bind": "none",
+  "name": "Pattern: Blue Suede Belt",
+  "spell": 1255021,
+  "unique": false
+ },
+ "252887": {
+  "bind": "none",
+  "name": "Pattern: Tooled Leather Epaulets",
+  "spell": 1255020,
+  "unique": false
+ },
+ "252888": {
+  "bind": "none",
+  "name": "Pattern: Blue Suede Bracers",
+  "spell": 1255019,
+  "unique": false
+ },
+ "252889": {
+  "bind": "none",
+  "name": "Pattern: Tooled Leather Pants",
+  "spell": 1255018,
+  "unique": false
+ },
+ "252890": {
+  "bind": "none",
+  "name": "Pattern: Blue Suede Hat",
+  "spell": 1255017,
+  "unique": false
+ },
+ "252891": {
+  "bind": "none",
+  "name": "Pattern: Living Crown",
+  "spell": 1255016,
+  "unique": false
+ },
+ "252892": {
+  "bind": "none",
+  "name": "Pattern: Dawn Armor",
+  "spell": 1255015,
+  "unique": false
+ },
+ "252893": {
+  "bind": "none",
+  "name": "Pattern: Timbermaw Tunic",
+  "spell": 1255014,
+  "unique": false
+ },
+ "252894": {
+  "bind": "none",
+  "name": "Pattern: Warbear Helm",
+  "spell": 1255013,
+  "unique": false
+ },
+ "252895": {
+  "bind": "none",
+  "name": "Pattern: Ironfeather Leggings",
+  "spell": 1255012,
+  "unique": false
+ },
+ "252896": {
+  "bind": "none",
+  "name": "Pattern: Stalker's Mail Boots",
+  "spell": 1255011,
+  "unique": false
+ },
+ "252897": {
+  "bind": "none",
+  "name": "Pattern: Skycaller's Mail Boots",
+  "spell": 1255010,
+  "unique": false
+ },
+ "252898": {
+  "bind": "none",
+  "name": "Pattern: Skirmisher's Mail Boots",
+  "spell": 1255009,
+  "unique": false
+ },
+ "252899": {
+  "bind": "none",
+  "name": "Pattern: Mender's Mail Boots",
+  "spell": 1255008,
+  "unique": false
+ },
+ "252900": {
+  "bind": "pickup",
+  "name": "Pattern: Stalker's Mail Shoulders",
+  "spell": 1255007,
+  "unique": false
+ },
+ "252901": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Mail Shoulders",
+  "spell": 1255006,
+  "unique": false
+ },
+ "252902": {
+  "bind": "pickup",
+  "name": "Pattern: Skirmisher's Mail Shoulders",
+  "spell": 1255005,
+  "unique": false
+ },
+ "252903": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Mail Shoulders",
+  "spell": 1255004,
+  "unique": false
+ },
+ "252904": {
+  "bind": "pickup",
+  "name": "Pattern: Stalker's Mail Bracers",
+  "spell": 1255003,
+  "unique": false
+ },
+ "252905": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Mail Bracers",
+  "spell": 1255002,
+  "unique": false
+ },
+ "252906": {
+  "bind": "pickup",
+  "name": "Pattern: Skirmisher's Mail Bracers",
+  "spell": 1255001,
+  "unique": false
+ },
+ "252907": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Mail Bracers",
+  "spell": 1255000,
+  "unique": false
+ },
+ "252908": {
+  "bind": "none",
+  "name": "Pattern: Supple Scorpid Boots",
+  "spell": 1254999,
+  "unique": false
+ },
+ "252909": {
+  "bind": "none",
+  "name": "Pattern: Charged Scorpid Belt",
+  "spell": 1254998,
+  "unique": false
+ },
+ "252910": {
+  "bind": "pickup",
+  "name": "Pattern: Stalker's Mail Sabatons",
+  "spell": 1254997,
+  "unique": false
+ },
+ "252911": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Mail Sabatons",
+  "spell": 1254996,
+  "unique": false
+ },
+ "252912": {
+  "bind": "pickup",
+  "name": "Pattern: Skirmisher's Mail Sabatons",
+  "spell": 1254995,
+  "unique": false
+ },
+ "252913": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Mail Sabatons",
+  "spell": 1254994,
+  "unique": false
+ },
+ "252914": {
+  "bind": "none",
+  "name": "Pattern: Supple Scorpid Leggings",
+  "spell": 1254993,
+  "unique": false
+ },
+ "252915": {
+  "bind": "none",
+  "name": "Pattern: Charged Scorpid Helm",
+  "spell": 1254992,
+  "unique": false
+ },
+ "252916": {
+  "bind": "none",
+  "name": "Pattern: Supple Scorpid Bracers",
+  "spell": 1254991,
+  "unique": false
+ },
+ "252917": {
+  "bind": "none",
+  "name": "Pattern: Charged Scorpid Shoulders",
+  "spell": 1254990,
+  "unique": false
+ },
+ "252918": {
+  "bind": "none",
+  "name": "Pattern: Stalker's Mail Gauntlets",
+  "spell": 1254989,
+  "unique": false
+ },
+ "252919": {
+  "bind": "none",
+  "name": "Pattern: Skycaller's Mail Gauntlets",
+  "spell": 1254988,
+  "unique": false
+ },
+ "252920": {
+  "bind": "none",
+  "name": "Pattern: Skirmisher's Mail Gauntlets",
+  "spell": 1254987,
+  "unique": false
+ },
+ "252921": {
+  "bind": "none",
+  "name": "Pattern: Mender's Mail Gauntlets",
+  "spell": 1254986,
+  "unique": false
+ },
+ "252922": {
+  "bind": "pickup",
+  "name": "Pattern: Stalker's Mail Belt",
+  "spell": 1254985,
+  "unique": false
+ },
+ "252923": {
+  "bind": "pickup",
+  "name": "Pattern: Skycaller's Mail Belt",
+  "spell": 1254984,
+  "unique": false
+ },
+ "252924": {
+  "bind": "pickup",
+  "name": "Pattern: Skirmisher's Mail Belt",
+  "spell": 1254983,
+  "unique": false
+ },
+ "252925": {
+  "bind": "pickup",
+  "name": "Pattern: Mender's Mail Belt",
+  "spell": 1254982,
+  "unique": false
+ },
+ "252926": {
+  "bind": "none",
+  "name": "Pattern: Supple Scorpid Shoulders",
+  "spell": 1254981,
+  "unique": false
+ },
+ "252927": {
+  "bind": "none",
+  "name": "Pattern: Charged Scorpid Bracers",
+  "spell": 1254980,
+  "unique": false
+ },
+ "252928": {
+  "bind": "none",
+  "name": "Pattern: Heavy Scorpid Boots",
+  "spell": 1254979,
+  "unique": false
+ },
+ "252929": {
+  "bind": "none",
+  "name": "Pattern: Supple Scorpid Belt",
+  "spell": 1254978,
+  "unique": false
+ },
+ "252930": {
+  "bind": "none",
+  "name": "Pattern: Charged Scorpid Gauntlets",
+  "spell": 1254977,
+  "unique": false
+ },
+ "252931": {
+  "bind": "none",
+  "name": "Pattern: Supple Scorpid Helm",
+  "spell": 1254976,
+  "unique": false
+ },
+ "252932": {
+  "bind": "none",
+  "name": "Pattern: Charged Scorpid Vest",
+  "spell": 1254975,
+  "unique": false
+ },
+ "252933": {
+  "bind": "pickup",
+  "name": "Pattern: Supple Scorpid Vest",
+  "spell": 1254974,
+  "unique": false
+ },
+ "252934": {
+  "bind": "none",
+  "name": "Pattern: Charged Scorpid Leggings",
+  "spell": 1254973,
+  "unique": false
+ },
+ "252935": {
+  "bind": "none",
+  "name": "Pattern: Supple Scorpid Sabatons",
+  "spell": 1254972,
+  "unique": false
+ },
+ "252936": {
+  "bind": "none",
+  "name": "Pattern: Charged Scorpid Boots",
+  "spell": 1254971,
+  "unique": false
+ },
+ "252937": {
+  "bind": "none",
+  "name": "Pattern: Red Dragonscale Leggings",
+  "spell": 1254970,
+  "unique": false
+ },
+ "252938": {
+  "bind": "none",
+  "name": "Pattern: Blue Dragonscale Helm",
+  "spell": 1254969,
+  "unique": false
+ },
+ "252939": {
+  "bind": "none",
+  "name": "Pattern: Black Dragonscale Helm",
+  "spell": 1254968,
+  "unique": false
+ },
+ "252940": {
+  "bind": "none",
+  "name": "Pattern: Pristine Scorpid Leggings",
+  "spell": 1254967,
+  "unique": false
+ },
+ "252941": {
+  "bind": "pickup",
+  "name": "Pattern: Mystic Rugged Armor Kit",
+  "spell": 1254966,
+  "unique": false
+ },
+ "252942": {
+  "bind": "none",
+  "name": "Pattern: Forceful Rugged Armor Kit",
+  "spell": 1254965,
+  "unique": false
+ },
+ "253665": {
+  "bind": "none",
+  "name": "Pattern: Linen Reagent Bag",
+  "spell": 1257013,
+  "unique": false
+ },
+ "253668": {
+  "bind": "none",
+  "name": "Pattern: Woolen Reagent Bag",
+  "spell": 1257017,
+  "unique": false
+ },
+ "253886": {
+  "bind": "none",
+  "name": "Pattern: Novice Arcanist's Sash",
+  "spell": 1257368,
+  "unique": false
+ },
+ "253888": {
+  "bind": "none",
+  "name": "Pattern: Novice Ardent's Sash",
+  "spell": 1257369,
+  "unique": false
+ },
+ "253890": {
+  "bind": "pickup",
+  "name": "Pattern: Pristine Boots",
+  "spell": 1257370,
+  "unique": false
+ },
+ "253892": {
+  "bind": "pickup",
+  "name": "Pattern: Silky Boots",
+  "spell": 1257371,
+  "unique": false
+ },
+ "253894": {
+  "bind": "pickup",
+  "name": "Pattern: Flame Boots",
+  "spell": 1257372,
+  "unique": false
+ },
+ "253896": {
+  "bind": "pickup",
+  "name": "Pattern: Shadow Boots",
+  "spell": 1257373,
+  "unique": false
+ },
+ "253898": {
+  "bind": "pickup",
+  "name": "Pattern: Pearly Boots",
+  "spell": 1257374,
+  "unique": false
+ },
+ "253900": {
+  "bind": "pickup",
+  "name": "Pattern: Shining Boots",
+  "spell": 1257375,
+  "unique": false
+ },
+ "253902": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Pristine Gown",
+  "spell": 1257376,
+  "unique": false
+ },
+ "253904": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Silky Gown",
+  "spell": 1257377,
+  "unique": false
+ },
+ "253906": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Flame Gown",
+  "spell": 1257378,
+  "unique": false
+ },
+ "253908": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Shadow Gown",
+  "spell": 1257379,
+  "unique": false
+ },
+ "253910": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Pearly Gown",
+  "spell": 1257380,
+  "unique": false
+ },
+ "253912": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Shining Gown",
+  "spell": 1257381,
+  "unique": false
+ },
+ "253914": {
+  "bind": "pickup",
+  "name": "Pattern: Pristine Gloves",
+  "spell": 1257382,
+  "unique": false
+ },
+ "253916": {
+  "bind": "pickup",
+  "name": "Pattern: Silky Gloves",
+  "spell": 1257383,
+  "unique": false
+ },
+ "253918": {
+  "bind": "pickup",
+  "name": "Pattern: Flame Gloves",
+  "spell": 1257384,
+  "unique": false
+ },
+ "253920": {
+  "bind": "pickup",
+  "name": "Pattern: Shadow Gloves",
+  "spell": 1257385,
+  "unique": false
+ },
+ "253922": {
+  "bind": "pickup",
+  "name": "Pattern: Pearly Gloves",
+  "spell": 1257386,
+  "unique": false
+ },
+ "253924": {
+  "bind": "pickup",
+  "name": "Pattern: Shining Gloves",
+  "spell": 1257387,
+  "unique": false
+ },
+ "253926": {
+  "bind": "pickup",
+  "name": "Pattern: Pristine Sash",
+  "spell": 1257388,
+  "unique": false
+ },
+ "253928": {
+  "bind": "pickup",
+  "name": "Pattern: Silky Sash",
+  "spell": 1257389,
+  "unique": false
+ },
+ "253930": {
+  "bind": "pickup",
+  "name": "Pattern: Flame Sash",
+  "spell": 1257390,
+  "unique": false
+ },
+ "253932": {
+  "bind": "pickup",
+  "name": "Pattern: Shadow Sash",
+  "spell": 1257391,
+  "unique": false
+ },
+ "253934": {
+  "bind": "pickup",
+  "name": "Pattern: Pearly Sash",
+  "spell": 1257392,
+  "unique": false
+ },
+ "253936": {
+  "bind": "pickup",
+  "name": "Pattern: Shining Sash",
+  "spell": 1257393,
+  "unique": false
+ },
+ "253938": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Pristine Leggings",
+  "spell": 1257394,
+  "unique": false
+ },
+ "253940": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Silky Leggings",
+  "spell": 1257395,
+  "unique": false
+ },
+ "253942": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Flame Leggings",
+  "spell": 1257396,
+  "unique": false
+ },
+ "253944": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Shadow Leggings",
+  "spell": 1257397,
+  "unique": false
+ },
+ "253946": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Pearly Leggings",
+  "spell": 1257398,
+  "unique": false
+ },
+ "253948": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Shining Leggings",
+  "spell": 1257399,
+  "unique": false
+ },
+ "253950": {
+  "bind": "pickup",
+  "name": "Pattern: Pristine Circlet",
+  "spell": 1257400,
+  "unique": false
+ },
+ "253952": {
+  "bind": "pickup",
+  "name": "Pattern: Silky Circlet",
+  "spell": 1257401,
+  "unique": false
+ },
+ "253954": {
+  "bind": "pickup",
+  "name": "Pattern: Flame Circlet",
+  "spell": 1257402,
+  "unique": false
+ },
+ "253956": {
+  "bind": "pickup",
+  "name": "Pattern: Shadow Circlet",
+  "spell": 1257403,
+  "unique": false
+ },
+ "253958": {
+  "bind": "pickup",
+  "name": "Pattern: Pearly Circlet",
+  "spell": 1257404,
+  "unique": false
+ },
+ "253960": {
+  "bind": "pickup",
+  "name": "Pattern: Shining Circlet",
+  "spell": 1257405,
+  "unique": false
+ },
+ "253962": {
+  "bind": "pickup",
+  "name": "Pattern: Pristine Gown",
+  "spell": 1257406,
+  "unique": false
+ },
+ "253964": {
+  "bind": "pickup",
+  "name": "Pattern: Silky Gown",
+  "spell": 1257407,
+  "unique": false
+ },
+ "253966": {
+  "bind": "pickup",
+  "name": "Pattern: Flame Gown",
+  "spell": 1257408,
+  "unique": false
+ },
+ "253968": {
+  "bind": "pickup",
+  "name": "Pattern: Shadow Gown",
+  "spell": 1257409,
+  "unique": false
+ },
+ "253970": {
+  "bind": "pickup",
+  "name": "Pattern: Pearly Gown",
+  "spell": 1257410,
+  "unique": false
+ },
+ "253972": {
+  "bind": "pickup",
+  "name": "Pattern: Shining Gown",
+  "spell": 1257411,
+  "unique": false
+ },
+ "253974": {
+  "bind": "pickup",
+  "name": "Pattern: Silk Reagent Bag",
+  "spell": 1257412,
+  "unique": false
+ },
+ "253976": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Pristine Circlet",
+  "spell": 1257413,
+  "unique": false
+ },
+ "253978": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Silky Circlet",
+  "spell": 1257414,
+  "unique": false
+ },
+ "253980": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Flame Circlet",
+  "spell": 1257415,
+  "unique": false
+ },
+ "253982": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Shadow Circlet",
+  "spell": 1257416,
+  "unique": false
+ },
+ "253984": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Pearly Circlet",
+  "spell": 1257417,
+  "unique": false
+ },
+ "253986": {
+  "bind": "none",
+  "name": "Pattern: Filigreed Shining Circlet",
+  "spell": 1257418,
+  "unique": false
+ },
+ "253988": {
+  "bind": "pickup",
+  "name": "Pattern: Pristine Leggings",
+  "spell": 1257419,
+  "unique": false
+ },
+ "253990": {
+  "bind": "pickup",
+  "name": "Pattern: Silky Leggings",
+  "spell": 1257420,
+  "unique": false
+ },
+ "253992": {
+  "bind": "pickup",
+  "name": "Pattern: Flame Leggings",
+  "spell": 1257421,
+  "unique": false
+ },
+ "253994": {
+  "bind": "pickup",
+  "name": "Pattern: Shadow Leggings",
+  "spell": 1257422,
+  "unique": false
+ },
+ "253996": {
+  "bind": "pickup",
+  "name": "Pattern: Pearly Leggings",
+  "spell": 1257423,
+  "unique": false
+ },
+ "253998": {
+  "bind": "pickup",
+  "name": "Pattern: Shining Leggings",
+  "spell": 1257424,
+  "unique": false
+ },
+ "254000": {
+  "bind": "none",
+  "name": "Pattern: Earthen Leggings",
+  "spell": 1257425,
+  "unique": false
+ },
+ "254002": {
+  "bind": "none",
+  "name": "Pattern: Gilded Slippers",
+  "spell": 1257426,
+  "unique": false
+ },
+ "254004": {
+  "bind": "none",
+  "name": "Pattern: Frothing Slippers",
+  "spell": 1257427,
+  "unique": false
+ },
+ "254006": {
+  "bind": "none",
+  "name": "Pattern: Fiery Slippers",
+  "spell": 1257428,
+  "unique": false
+ },
+ "254008": {
+  "bind": "none",
+  "name": "Pattern: Black Slippers",
+  "spell": 1257429,
+  "unique": false
+ },
+ "254010": {
+  "bind": "none",
+  "name": "Pattern: Golden Slippers",
+  "spell": 1257430,
+  "unique": false
+ },
+ "254012": {
+  "bind": "none",
+  "name": "Pattern: Radiant Slippers",
+  "spell": 1257431,
+  "unique": false
+ },
+ "254014": {
+  "bind": "none",
+  "name": "Pattern: Earthen Silk Slippers",
+  "spell": 1257432,
+  "unique": false
+ },
+ "254016": {
+  "bind": "none",
+  "name": "Pattern: Earthen Silk Hood",
+  "spell": 1257433,
+  "unique": false
+ },
+ "254018": {
+  "bind": "none",
+  "name": "Pattern: Earthen Silk Gloves",
+  "spell": 1257434,
+  "unique": false
+ },
+ "254020": {
+  "bind": "none",
+  "name": "Pattern: Earthen Silk Cuffs",
+  "spell": 1257435,
+  "unique": false
+ },
+ "254022": {
+  "bind": "none",
+  "name": "Pattern: Gilded Handwraps",
+  "spell": 1257436,
+  "unique": false
+ },
+ "254024": {
+  "bind": "pickup",
+  "name": "Pattern: Frothing Handwraps",
+  "spell": 1257437,
+  "unique": false
+ },
+ "254026": {
+  "bind": "pickup",
+  "name": "Pattern: Fiery Handwraps",
+  "spell": 1257438,
+  "unique": false
+ },
+ "254028": {
+  "bind": "pickup",
+  "name": "Pattern: Black Handwraps",
+  "spell": 1257439,
+  "unique": false
+ },
+ "254030": {
+  "bind": "pickup",
+  "name": "Pattern: Golden Handwraps",
+  "spell": 1257440,
+  "unique": false
+ },
+ "254032": {
+  "bind": "pickup",
+  "name": "Pattern: Radiant Handwraps",
+  "spell": 1257441,
+  "unique": false
+ },
+ "254034": {
+  "bind": "none",
+  "name": "Pattern: Earthen Silk Shoulders",
+  "spell": 1257442,
+  "unique": false
+ },
+ "254036": {
+  "bind": "pickup",
+  "name": "Pattern: Mageweave Reagent Bag",
+  "spell": 1257443,
+  "unique": false
+ },
+ "254038": {
+  "bind": "none",
+  "name": "Pattern: Gilded Cord",
+  "spell": 1257444,
+  "unique": false
+ },
+ "254040": {
+  "bind": "none",
+  "name": "Pattern: Frothing Cord",
+  "spell": 1257445,
+  "unique": false
+ },
+ "254042": {
+  "bind": "none",
+  "name": "Pattern: Fiery Cord",
+  "spell": 1257446,
+  "unique": false
+ },
+ "254044": {
+  "bind": "none",
+  "name": "Pattern: Black Cord",
+  "spell": 1257447,
+  "unique": false
+ },
+ "254046": {
+  "bind": "none",
+  "name": "Pattern: Golden Cord",
+  "spell": 1257448,
+  "unique": false
+ },
+ "254048": {
+  "bind": "none",
+  "name": "Pattern: Radiant Cord",
+  "spell": 1257449,
+  "unique": false
+ },
+ "254050": {
+  "bind": "pickup",
+  "name": "Pattern: Nethergeld Shoulders",
+  "spell": 1257450,
+  "unique": false
+ },
+ "254052": {
+  "bind": "pickup",
+  "name": "Pattern: Netherfroth Shoulders",
+  "spell": 1257451,
+  "unique": false
+ },
+ "254054": {
+  "bind": "pickup",
+  "name": "Pattern: Netherflame Shoulders",
+  "spell": 1257452,
+  "unique": false
+ },
+ "254056": {
+  "bind": "pickup",
+  "name": "Pattern: Netherpearl Shoulders",
+  "spell": 1257453,
+  "unique": false
+ },
+ "254058": {
+  "bind": "pickup",
+  "name": "Pattern: Nethershine Shoulders",
+  "spell": 1257454,
+  "unique": false
+ },
+ "254060": {
+  "bind": "pickup",
+  "name": "Pattern: Netherlight Shoulders",
+  "spell": 1257455,
+  "unique": false
+ },
+ "254062": {
+  "bind": "pickup",
+  "name": "Pattern: Nethergeld Cuffs",
+  "spell": 1257456,
+  "unique": false
+ },
+ "254064": {
+  "bind": "pickup",
+  "name": "Pattern: Netherfroth Cuffs",
+  "spell": 1257457,
+  "unique": false
+ },
+ "254066": {
+  "bind": "pickup",
+  "name": "Pattern: Netherflame Cuffs",
+  "spell": 1257458,
+  "unique": false
+ },
+ "254068": {
+  "bind": "pickup",
+  "name": "Pattern: Netherpearl Cuffs",
+  "spell": 1257459,
+  "unique": false
+ },
+ "254070": {
+  "bind": "pickup",
+  "name": "Pattern: Nethershine Cuffs",
+  "spell": 1257460,
+  "unique": false
+ },
+ "254072": {
+  "bind": "pickup",
+  "name": "Pattern: Netherlight Cuffs",
+  "spell": 1257461,
+  "unique": false
+ },
+ "254074": {
+  "bind": "none",
+  "name": "Pattern: Ghostweave Cord",
+  "spell": 1257462,
+  "unique": false
+ },
+ "254076": {
+  "bind": "none",
+  "name": "Pattern: Earthenweave Gloves",
+  "spell": 1257463,
+  "unique": false
+ },
+ "254078": {
+  "bind": "none",
+  "name": "Pattern: Earthenweave Cord",
+  "spell": 1257464,
+  "unique": false
+ },
+ "254080": {
+  "bind": "pickup",
+  "name": "Pattern: Runecloth Reagent Bag",
+  "spell": 1257465,
+  "unique": false
+ },
+ "254082": {
+  "bind": "pickup",
+  "name": "Pattern: Gilded Waistcord",
+  "spell": 1257466,
+  "unique": false
+ },
+ "254084": {
+  "bind": "pickup",
+  "name": "Pattern: Frothing Waistcord",
+  "spell": 1257467,
+  "unique": false
+ },
+ "254086": {
+  "bind": "pickup",
+  "name": "Pattern: Fiery Waistcord",
+  "spell": 1257468,
+  "unique": false
+ },
+ "254088": {
+  "bind": "pickup",
+  "name": "Pattern: Black Waistcord",
+  "spell": 1257469,
+  "unique": false
+ },
+ "254090": {
+  "bind": "pickup",
+  "name": "Pattern: Golden Waistcord",
+  "spell": 1257470,
+  "unique": false
+ },
+ "254092": {
+  "bind": "pickup",
+  "name": "Pattern: Radiant Waistcord",
+  "spell": 1257471,
+  "unique": false
+ },
+ "254094": {
+  "bind": "none",
+  "name": "Pattern: Earthenweave Boots",
+  "spell": 1257472,
+  "unique": false
+ },
+ "254096": {
+  "bind": "none",
+  "name": "Pattern: Gilded Gloves",
+  "spell": 1257473,
+  "unique": false
+ },
+ "254098": {
+  "bind": "none",
+  "name": "Pattern: Frothing Gloves",
+  "spell": 1257474,
+  "unique": false
+ },
+ "254100": {
+  "bind": "none",
+  "name": "Pattern: Fiery Gloves",
+  "spell": 1257475,
+  "unique": false
+ },
+ "254102": {
+  "bind": "none",
+  "name": "Pattern: Black Gloves",
+  "spell": 1257476,
+  "unique": false
+ },
+ "254104": {
+  "bind": "none",
+  "name": "Pattern: Golden Gloves",
+  "spell": 1257477,
+  "unique": false
+ },
+ "254106": {
+  "bind": "none",
+  "name": "Pattern: Radiant Gloves",
+  "spell": 1257478,
+  "unique": false
+ },
+ "254108": {
+  "bind": "pickup",
+  "name": "Pattern: Gilded Sandals",
+  "spell": 1257479,
+  "unique": false
+ },
+ "254110": {
+  "bind": "pickup",
+  "name": "Pattern: Frothing Sandals",
+  "spell": 1257480,
+  "unique": false
+ },
+ "254112": {
+  "bind": "pickup",
+  "name": "Pattern: Fiery Sandals",
+  "spell": 1257481,
+  "unique": false
+ },
+ "254114": {
+  "bind": "pickup",
+  "name": "Pattern: Black Sandals",
+  "spell": 1257482,
+  "unique": false
+ },
+ "254116": {
+  "bind": "pickup",
+  "name": "Pattern: Golden Sandals",
+  "spell": 1257483,
+  "unique": false
+ },
+ "254118": {
+  "bind": "pickup",
+  "name": "Pattern: Radiant Sandals",
+  "spell": 1257484,
+  "unique": false
+ },
+ "254120": {
+  "bind": "none",
+  "name": "Pattern: Earthenweave Mantle",
+  "spell": 1257485,
+  "unique": false
+ },
+ "254122": {
+  "bind": "none",
+  "name": "Pattern: Earthenweave Vest",
+  "spell": 1257486,
+  "unique": false
+ },
+ "254124": {
+  "bind": "pickup",
+  "name": "Pattern: Runecloth Cuffs",
+  "spell": 1257487,
+  "unique": false
+ },
+ "254126": {
+  "bind": "none",
+  "name": "Pattern: Earthenweave Leggings",
+  "spell": 1257488,
+  "unique": false
+ },
+ "254128": {
+  "bind": "none",
+  "name": "Pattern: Ghostweave Mantle",
+  "spell": 1257489,
+  "unique": false
+ },
+ "254130": {
+  "bind": "none",
+  "name": "Pattern: Ghostweave Boots",
+  "spell": 1257490,
+  "unique": false
+ },
+ "254132": {
+  "bind": "none",
+  "name": "Pattern: Earthenweave Cuffs",
+  "spell": 1257491,
+  "unique": false
+ },
+ "254134": {
+  "bind": "pickup",
+  "name": "Pattern: Mooncloth Reagent Bag",
+  "spell": 1257492,
+  "unique": false
+ },
+ "254136": {
+  "bind": "none",
+  "name": "Pattern: Ghostweave Hood",
+  "spell": 1257493,
+  "unique": false
+ },
+ "254138": {
+  "bind": "none",
+  "name": "Pattern: Earthenweave Crown",
+  "spell": 1257494,
+  "unique": false
+ },
+ "254140": {
+  "bind": "none",
+  "name": "Pattern: Bottomless Reagent Bag",
+  "spell": 1257495,
+  "unique": false
+ },
+ "254681": {
+  "bind": "none",
+  "name": "Pattern: Stormcloth Pants",
+  "spell": 12062,
+  "unique": false
+ },
+ "254682": {
+  "bind": "pickup",
+  "name": "Pattern: Stormcloth Gloves",
+  "spell": 12063,
+  "unique": false
+ },
+ "254683": {
+  "bind": "none",
+  "name": "Pattern: Stormcloth Vest",
+  "spell": 12068,
+  "unique": false
+ },
+ "254684": {
+  "bind": "none",
+  "name": "Pattern: Stormcloth Headband",
+  "spell": 12083,
+  "unique": false
+ },
+ "254685": {
+  "bind": "none",
+  "name": "Pattern: Stormcloth Shoulders",
+  "spell": 12087,
+  "unique": false
+ },
+ "254686": {
+  "bind": "none",
+  "name": "Pattern: Stormcloth Boots",
+  "spell": 12090,
+  "unique": false
+ },
+ "2553": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Minor Agility",
+  "spell": 3230,
+  "unique": false
+ },
+ "2554": {
+  "bind": "none",
+  "name": "Deprecated Recipe: Elixir of Fortitude",
+  "spell": 2334,
+  "unique": false
+ },
+ "2555": {
+  "bind": "none",
+  "name": "Recipe: Swiftness Potion",
+  "spell": 2335,
+  "unique": false
+ },
+ "255723": {
+  "bind": "none",
+  "name": "Manual: Greater Healing Potion",
+  "spell": 1244434,
+  "unique": false
+ },
+ "255724": {
+  "bind": "none",
+  "name": "Manual: Clever Poultice",
+  "spell": 1259343,
+  "unique": false
+ },
+ "255725": {
+  "bind": "none",
+  "name": "Manual: Superior Healing Potion",
+  "spell": 1244435,
+  "unique": false
+ },
+ "255726": {
+  "bind": "none",
+  "name": "Manual: Leather Tourniquet",
+  "spell": 1259348,
+  "unique": false
+ },
+ "255727": {
+  "bind": "none",
+  "name": "Manual: Superior Poultice",
+  "spell": 1259344,
+  "unique": false
+ },
+ "255728": {
+  "bind": "none",
+  "name": "Manual: Potent Anti-Venom",
+  "spell": 1259341,
+  "unique": false
+ },
+ "255729": {
+  "bind": "none",
+  "name": "Manual: Major Healing Potion",
+  "spell": 1244436,
+  "unique": false
+ },
+ "255730": {
+  "bind": "none",
+  "name": "Manual: Surgical Tourniquet",
+  "spell": 1259349,
+  "unique": false
+ },
+ "255731": {
+  "bind": "none",
+  "name": "Manual: Powerful Poultice",
+  "spell": 1259345,
+  "unique": false
+ },
+ "2598": {
+  "bind": "none",
+  "name": "Pattern: Red Linen Robe",
+  "spell": 2389,
+  "unique": false
+ },
+ "2601": {
+  "bind": "none",
+  "name": "Pattern: Gray Woolen Robe",
+  "spell": 2403,
+  "unique": false
+ },
+ "263511": {
+  "bind": "none",
+  "name": "Recipe: Skywall Souffle",
+  "spell": 1270633,
+  "unique": false
+ },
+ "263513": {
+  "bind": "none",
+  "name": "Recipe: Pincer Bites",
+  "spell": 1270635,
+  "unique": false
+ },
+ "264201": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Tabs",
+  "spell": 1266893,
+  "unique": false
+ },
+ "264202": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Dynamite",
+  "spell": 1266905,
+  "unique": false
+ },
+ "264203": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Copper Bomb",
+  "spell": 1266906,
+  "unique": false
+ },
+ "264204": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Wrap",
+  "spell": 1266907,
+  "unique": false
+ },
+ "264205": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Copper Bomb XL",
+  "spell": 1266908,
+  "unique": false
+ },
+ "264206": {
+  "bind": "none",
+  "name": "Schematic: No Slip SAF-T Padding",
+  "spell": 1266909,
+  "unique": false
+ },
+ "264207": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Bronze Bomb",
+  "spell": 1266910,
+  "unique": false
+ },
+ "264208": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Jumbo Dynamite",
+  "spell": 1266911,
+  "unique": false
+ },
+ "264209": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Bell",
+  "spell": 1266912,
+  "unique": false
+ },
+ "264210": {
+  "bind": "none",
+  "name": "Schematic: Shafety Sheep",
+  "spell": 1266913,
+  "unique": false
+ },
+ "264211": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Fireproof Fuse",
+  "spell": 1266914,
+  "unique": false
+ },
+ "264212": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Bronze Mortar",
+  "spell": 1266915,
+  "unique": false
+ },
+ "264213": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Grenade",
+  "spell": 1266916,
+  "unique": false
+ },
+ "264214": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Casing",
+  "spell": 1266917,
+  "unique": false
+ },
+ "264215": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Bomb",
+  "spell": 1266918,
+  "unique": false
+ },
+ "264216": {
+  "bind": "pickup",
+  "name": "Schematic: Emergency Field Cloak",
+  "spell": 1266919,
+  "unique": false
+ },
+ "264217": {
+  "bind": "pickup",
+  "name": "Schematic: Compact Critter Carrier",
+  "spell": 1266920,
+  "unique": false
+ },
+ "264218": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Tru-Trigger",
+  "spell": 1266921,
+  "unique": false
+ },
+ "264219": {
+  "bind": "none",
+  "name": "Schematic: Tru-Trigger Frag Bomb",
+  "spell": 1266922,
+  "unique": false
+ },
+ "264220": {
+  "bind": "pickup",
+  "name": "Schematic: SAF-T Disposable Parachute",
+  "spell": 1266923,
+  "unique": false
+ },
+ "264221": {
+  "bind": "pickup",
+  "name": "Schematic: Gnomish Army Knife",
+  "spell": 1266924,
+  "unique": false
+ },
+ "264222": {
+  "bind": "pickup",
+  "name": "Schematic: Loot-A-Rang",
+  "spell": 1266925,
+  "unique": false
+ },
+ "264223": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Tube",
+  "spell": 1266926,
+  "unique": false
+ },
+ "264224": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Clever Dynamite",
+  "spell": 1266927,
+  "unique": false
+ },
+ "264225": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Shell",
+  "spell": 1266928,
+  "unique": false
+ },
+ "264226": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Thorium Grenade",
+  "spell": 1266929,
+  "unique": false
+ },
+ "264227": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Dark Bomb",
+  "spell": 1266930,
+  "unique": false
+ },
+ "264228": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Mana Bomb",
+  "spell": 1266931,
+  "unique": false
+ },
+ "264229": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Field Transporter: Gadgetzan",
+  "spell": 1266932,
+  "unique": false
+ },
+ "264230": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Emergency Ripper: Everlook",
+  "spell": 1266933,
+  "unique": false
+ },
+ "264231": {
+  "bind": "none",
+  "name": "Schematic: EZ and SAF Field Transporter: Mt. Hyjal",
+  "spell": 1266934,
+  "unique": false
+ },
+ "264232": {
+  "bind": "pickup",
+  "name": "Schematic: Ultrasafe Rechargeable Battery",
+  "spell": 1266935,
+  "unique": false
+ },
+ "264233": {
+  "bind": "pickup",
+  "name": "Schematic: Dimensional Transporter: Mt. Hyjal",
+  "spell": 1266936,
+  "unique": false
+ },
+ "264234": {
+  "bind": "pickup",
+  "name": "Schematic: Gnomish Poultryizer",
+  "spell": 1266937,
+  "unique": false
+ },
+ "264235": {
+  "bind": "pickup",
+  "name": "Schematic: Ultralight Goblin Glider",
+  "spell": 1266938,
+  "unique": false
+ },
+ "264236": {
+  "bind": "pickup",
+  "name": "Schematic: Gnomish Weather Machine",
+  "spell": 1266939,
+  "unique": false
+ },
+ "264237": {
+  "bind": "pickup",
+  "name": "Schematic: Stealthman 52",
+  "spell": 1266940,
+  "unique": false
+ },
+ "264238": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Nitro Boosts",
+  "spell": 1266941,
+  "unique": false
+ },
+ "264239": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Magnetic Displacer",
+  "spell": 1266942,
+  "unique": false
+ },
+ "264240": {
+  "bind": "none",
+  "name": "Schematic: SAF-T Teleport",
+  "spell": 1266943,
+  "unique": false
+ },
+ "2697": {
+  "bind": "none",
+  "name": "Recipe: Goretusk Liver Pie",
+  "spell": 2542,
+  "unique": false
+ },
+ "2698": {
+  "bind": "none",
+  "name": "Recipe: Cooked Crab Claw",
+  "spell": 2545,
+  "unique": false
+ },
+ "2699": {
+  "bind": "none",
+  "name": "Recipe: Redridge Goulash",
+  "spell": 2547,
+  "unique": false
+ },
+ "269901": {
+  "bind": "pickup",
+  "name": "Schematic: Centaur Banner Deployment Device",
+  "spell": 1286792,
+  "unique": false
+ },
+ "269903": {
+  "bind": "pickup",
+  "name": "Schematic: Hoof-Shaped Foot Pedal",
+  "spell": 1286796,
+  "unique": false
+ },
+ "2700": {
+  "bind": "none",
+  "name": "Recipe: Succulent Pork Ribs",
+  "spell": 2548,
+  "unique": false
+ },
+ "2701": {
+  "bind": "none",
+  "name": "Recipe: Seasoned Wolf Kabob",
+  "spell": 2549,
+  "unique": false
+ },
+ "273085": {
+  "bind": "none",
+  "name": "Blueprint: Fermenter",
+  "spell": 1263005,
+  "unique": false
+ },
+ "273086": {
+  "bind": "none",
+  "name": "Blueprint: Anvil",
+  "spell": 1263041,
+  "unique": false
+ },
+ "273087": {
+  "bind": "none",
+  "name": "Blueprint: Journeyman Campfire",
+  "spell": 1283400,
+  "unique": false
+ },
+ "273092": {
+  "bind": "none",
+  "name": "Blueprint: Repair Bot",
+  "spell": 1263034,
+  "unique": false
+ },
+ "273096": {
+  "bind": "none",
+  "name": "Blueprint: Tanning Rack",
+  "spell": 1263031,
+  "unique": false
+ },
+ "273097": {
+  "bind": "none",
+  "name": "Blueprint: Rock Garden",
+  "spell": 1262975,
+  "unique": false
+ },
+ "273099": {
+  "bind": "none",
+  "name": "Blueprint: Spinning Wheel",
+  "spell": 1263032,
+  "unique": false
+ },
+ "273101": {
+  "bind": "none",
+  "name": "Blueprint: Expert Campfire",
+  "spell": 1291341,
+  "unique": false
+ },
+ "273102": {
+  "bind": "none",
+  "name": "Blueprint: Cookie's Feast",
+  "spell": 1262978,
+  "unique": false
+ },
+ "273103": {
+  "bind": "none",
+  "name": "Blueprint: Arcane Salvager",
+  "spell": 1263056,
+  "unique": false
+ },
+ "273105": {
+  "bind": "none",
+  "name": "Blueprint: Toxin Study",
+  "spell": 1262996,
+  "unique": false
+ },
+ "273112": {
+  "bind": "none",
+  "name": "Blueprint: Alchemy Laboratory",
+  "spell": 1263078,
+  "unique": false
+ },
+ "273113": {
+  "bind": "none",
+  "name": "Blueprint: Master Forge",
+  "spell": 1263073,
+  "unique": false
+ },
+ "273115": {
+  "bind": "none",
+  "name": "Blueprint: Iron Oven",
+  "spell": 1263067,
+  "unique": false
+ },
+ "273116": {
+  "bind": "none",
+  "name": "Blueprint: Arcane Forge",
+  "spell": 1263082,
+  "unique": false
+ },
+ "273117": {
+  "bind": "none",
+  "name": "Blueprint: Anarchist's Workbench",
+  "spell": 1263083,
+  "unique": false
+ },
+ "273118": {
+  "bind": "none",
+  "name": "Blueprint: Plague Doctor's Laboratory",
+  "spell": 1263001,
+  "unique": false
+ },
+ "273121": {
+  "bind": "none",
+  "name": "Blueprint: Sewing Machine",
+  "spell": 1263079,
+  "unique": false
+ },
+ "273122": {
+  "bind": "none",
+  "name": "Blueprint: Molten Foundry",
+  "spell": 1263071,
+  "unique": false
+ },
+ "273124": {
+  "bind": "none",
+  "name": "Blueprint: Loom",
+  "spell": 1263080,
+  "unique": false
+ },
+ "273952": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Trousers",
+  "spell": 1292920,
+  "unique": false
+ },
+ "273953": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Grips",
+  "spell": 1292921,
+  "unique": false
+ },
+ "273954": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Shoulderpads",
+  "spell": 1292923,
+  "unique": false
+ },
+ "273955": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Stompers",
+  "spell": 1292924,
+  "unique": false
+ },
+ "273956": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Kilt",
+  "spell": 1292925,
+  "unique": false
+ },
+ "273957": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Mitts",
+  "spell": 1292926,
+  "unique": false
+ },
+ "273958": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Mantle",
+  "spell": 1292927,
+  "unique": false
+ },
+ "273959": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Sandals",
+  "spell": 1292928,
+  "unique": false
+ },
+ "273960": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Legguards",
+  "spell": 1292929,
+  "unique": false
+ },
+ "273961": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Handguards",
+  "spell": 1292930,
+  "unique": false
+ },
+ "273962": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Pauldrons",
+  "spell": 1292931,
+  "unique": false
+ },
+ "273963": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Boots",
+  "spell": 1292932,
+  "unique": false
+ },
+ "273964": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Leggings",
+  "spell": 1292933,
+  "unique": false
+ },
+ "273965": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Gauntlets",
+  "spell": 1292934,
+  "unique": false
+ },
+ "273966": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Spaulders",
+  "spell": 1292935,
+  "unique": false
+ },
+ "273967": {
+  "bind": "pickup",
+  "name": "Pattern: Grovekeeper Treads",
+  "spell": 1292936,
+  "unique": false
+ },
+ "273968": {
+  "bind": "pickup",
+  "name": "Pattern: Wildstalker's Legguards",
+  "spell": 1292937,
+  "unique": false
+ },
+ "273969": {
+  "bind": "pickup",
+  "name": "Pattern: Wildstalker's Gauntlets",
+  "spell": 1292938,
+  "unique": false
+ },
+ "273970": {
+  "bind": "pickup",
+  "name": "Pattern: Wildstalker's Spaulders",
+  "spell": 1292939,
+  "unique": false
+ },
+ "273971": {
+  "bind": "pickup",
+  "name": "Pattern: Wildstalker's Greaves",
+  "spell": 1292940,
+  "unique": false
+ },
+ "273972": {
+  "bind": "pickup",
+  "name": "Pattern: Manaflare Pants",
+  "spell": 1292941,
+  "unique": false
+ },
+ "273973": {
+  "bind": "pickup",
+  "name": "Pattern: Manaflare Gloves",
+  "spell": 1292942,
+  "unique": false
+ },
+ "273974": {
+  "bind": "pickup",
+  "name": "Pattern: Manaflare Mantle",
+  "spell": 1292943,
+  "unique": false
+ },
+ "273975": {
+  "bind": "pickup",
+  "name": "Pattern: Manaflare Boots",
+  "spell": 1292944,
+  "unique": false
+ },
+ "273976": {
+  "bind": "pickup",
+  "name": "Plans: Justice Leggings",
+  "spell": 1292945,
+  "unique": false
+ },
+ "273977": {
+  "bind": "pickup",
+  "name": "Plans: Justice Gauntlets",
+  "spell": 1292946,
+  "unique": false
+ },
+ "273978": {
+  "bind": "pickup",
+  "name": "Plans: Justice Spaulders",
+  "spell": 1292947,
+  "unique": false
+ },
+ "273979": {
+  "bind": "pickup",
+  "name": "Plans: Justice Greaves",
+  "spell": 1292948,
+  "unique": false
+ },
+ "273980": {
+  "bind": "pickup",
+  "name": "Plans: Justice Legplates",
+  "spell": 1292949,
+  "unique": false
+ },
+ "273981": {
+  "bind": "pickup",
+  "name": "Plans: Justice Gloves",
+  "spell": 1292950,
+  "unique": false
+ },
+ "273982": {
+  "bind": "pickup",
+  "name": "Plans: Justice Epaulets",
+  "spell": 1292951,
+  "unique": false
+ },
+ "273983": {
+  "bind": "pickup",
+  "name": "Plans: Justice Treads",
+  "spell": 1292952,
+  "unique": false
+ },
+ "273984": {
+  "bind": "pickup",
+  "name": "Plans: Justice Legguards",
+  "spell": 1292953,
+  "unique": false
+ },
+ "273985": {
+  "bind": "pickup",
+  "name": "Plans: Justice Handguards",
+  "spell": 1292954,
+  "unique": false
+ },
+ "273986": {
+  "bind": "pickup",
+  "name": "Plans: Justice Pauldrons",
+  "spell": 1292955,
+  "unique": false
+ },
+ "273987": {
+  "bind": "pickup",
+  "name": "Plans: Justice Sabatons",
+  "spell": 1292956,
+  "unique": false
+ },
+ "273988": {
+  "bind": "pickup",
+  "name": "Pattern: Pants of Conviction",
+  "spell": 1292957,
+  "unique": false
+ },
+ "273989": {
+  "bind": "pickup",
+  "name": "Pattern: Gloves of Conviction",
+  "spell": 1292958,
+  "unique": false
+ },
+ "273990": {
+  "bind": "pickup",
+  "name": "Pattern: Mantle of Conviction",
+  "spell": 1292959,
+  "unique": false
+ },
+ "273991": {
+  "bind": "pickup",
+  "name": "Pattern: Treads of Conviction",
+  "spell": 1292960,
+  "unique": false
+ },
+ "273992": {
+  "bind": "pickup",
+  "name": "Pattern: Leggings of Conviction",
+  "spell": 1292961,
+  "unique": false
+ },
+ "273993": {
+  "bind": "pickup",
+  "name": "Pattern: Handguards of Conviction",
+  "spell": 1292962,
+  "unique": false
+ },
+ "273994": {
+  "bind": "pickup",
+  "name": "Pattern: Pauldrons of Conviction",
+  "spell": 1292963,
+  "unique": false
+ },
+ "273995": {
+  "bind": "pickup",
+  "name": "Pattern: Boots of Conviction",
+  "spell": 1292964,
+  "unique": false
+ },
+ "273996": {
+  "bind": "pickup",
+  "name": "Pattern: Grimstitch Pants",
+  "spell": 1292965,
+  "unique": false
+ },
+ "273997": {
+  "bind": "pickup",
+  "name": "Pattern: Grimstitch Gloves",
+  "spell": 1292966,
+  "unique": false
+ },
+ "273998": {
+  "bind": "pickup",
+  "name": "Pattern: Grimstitch Spaulders",
+  "spell": 1292967,
+  "unique": false
+ },
+ "273999": {
+  "bind": "pickup",
+  "name": "Pattern: Grimstitch Boots",
+  "spell": 1292968,
+  "unique": false
+ },
+ "274000": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Leggings",
+  "spell": 1292969,
+  "unique": false
+ },
+ "274001": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Grips",
+  "spell": 1292970,
+  "unique": false
+ },
+ "274002": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Spaulders",
+  "spell": 1292971,
+  "unique": false
+ },
+ "274003": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Treads",
+  "spell": 1292972,
+  "unique": false
+ },
+ "274004": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Pants",
+  "spell": 1292973,
+  "unique": false
+ },
+ "274005": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Gauntlets",
+  "spell": 1292974,
+  "unique": false
+ },
+ "274006": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Epaulets",
+  "spell": 1292975,
+  "unique": false
+ },
+ "274007": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Greaves",
+  "spell": 1292976,
+  "unique": false
+ },
+ "274008": {
+  "bind": "pickup",
+  "name": "Pattern: Demonheart Leggings",
+  "spell": 1292977,
+  "unique": false
+ },
+ "274009": {
+  "bind": "pickup",
+  "name": "Pattern: Demonheart Gloves",
+  "spell": 1292978,
+  "unique": false
+ },
+ "274010": {
+  "bind": "pickup",
+  "name": "Pattern: Demonheart Spaulders",
+  "spell": 1292979,
+  "unique": false
+ },
+ "274011": {
+  "bind": "pickup",
+  "name": "Pattern: Demonheart Boots",
+  "spell": 1292980,
+  "unique": false
+ },
+ "274012": {
+  "bind": "pickup",
+  "name": "Plans: Legplates of Glory",
+  "spell": 1292981,
+  "unique": false
+ },
+ "274013": {
+  "bind": "pickup",
+  "name": "Plans: Gauntlets of Glory",
+  "spell": 1292982,
+  "unique": false
+ },
+ "274014": {
+  "bind": "pickup",
+  "name": "Plans: Shoulders of Glory",
+  "spell": 1292983,
+  "unique": false
+ },
+ "274015": {
+  "bind": "pickup",
+  "name": "Plans: Greaves of Glory",
+  "spell": 1292984,
+  "unique": false
+ },
+ "274016": {
+  "bind": "pickup",
+  "name": "Plans: Legguards of Glory",
+  "spell": 1292985,
+  "unique": false
+ },
+ "274017": {
+  "bind": "pickup",
+  "name": "Plans: Handguards of Glory",
+  "spell": 1292986,
+  "unique": false
+ },
+ "274018": {
+  "bind": "pickup",
+  "name": "Plans: Pauldrons of Glory",
+  "spell": 1292987,
+  "unique": false
+ },
+ "274019": {
+  "bind": "pickup",
+  "name": "Plans: Sabatons of Glory",
+  "spell": 1292988,
+  "unique": false
+ },
+ "274049": {
+  "bind": "pickup",
+  "name": "Schematic: 9-60 Battery Pack",
+  "spell": 1293088,
+  "unique": false
+ },
+ "274277": {
+  "bind": "pickup",
+  "name": "Recipe: Flask of Natural Accuracy",
+  "spell": 1293559,
+  "unique": false
+ },
+ "274278": {
+  "bind": "pickup",
+  "name": "Recipe: Flask of Natural Aggression",
+  "spell": 1293560,
+  "unique": false
+ },
+ "274279": {
+  "bind": "pickup",
+  "name": "Recipe: Flask of Natural Precision",
+  "spell": 1293561,
+  "unique": false
+ },
+ "274280": {
+  "bind": "pickup",
+  "name": "Recipe: Flask of Natural Swiftness",
+  "spell": 1293562,
+  "unique": false
+ },
+ "274389": {
+  "bind": "pickup",
+  "name": "Schematic: Swiftfeather Arrow",
+  "spell": 1293849,
+  "unique": false
+ },
+ "274390": {
+  "bind": "pickup",
+  "name": "Schematic: Swiftstrike Shot",
+  "spell": 1293850,
+  "unique": false
+ },
+ "274393": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Off Hand - Wisdom",
+  "spell": 1219579,
+  "unique": false
+ },
+ "274394": {
+  "bind": "pickup",
+  "name": "Formula: Enchant 2H Weapon - Spellblasting",
+  "spell": 1219580,
+  "unique": false
+ },
+ "274398": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Superior Strength",
+  "spell": 1248640,
+  "unique": false
+ },
+ "274399": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Cloak - Agility",
+  "spell": 1219587,
+  "unique": false
+ },
+ "274401": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Bracer - Greater Spellpower",
+  "spell": 1220624,
+  "unique": false
+ },
+ "274415": {
+  "bind": "pickup",
+  "name": "Recipe: Sweetpaw Jam",
+  "spell": 1294014,
+  "unique": false
+ },
+ "274424": {
+  "bind": "pickup",
+  "name": "Formula: Enchant Gloves - Lotus Claw",
+  "spell": 1294054,
+  "unique": false
+ },
+ "274972": {
+  "bind": "pickup",
+  "name": "Recipe: Briny Seafood Stew",
+  "spell": 1295805,
+  "unique": false
+ },
+ "274977": {
+  "bind": "pickup",
+  "name": "Recipe: Plain Ol' Paletusk",
+  "spell": 1295834,
+  "unique": false
+ },
+ "275580": {
+  "bind": "pickup",
+  "name": "Pattern: Venomspew Gloves",
+  "spell": 1297120,
+  "unique": false
+ },
+ "275581": {
+  "bind": "pickup",
+  "name": "Pattern: Venomspew Cord",
+  "spell": 1297121,
+  "unique": false
+ },
+ "275582": {
+  "bind": "pickup",
+  "name": "Pattern: Venomspew Footpads",
+  "spell": 1297122,
+  "unique": false
+ },
+ "275583": {
+  "bind": "pickup",
+  "name": "Pattern: Swarmtender's Gloves",
+  "spell": 1297123,
+  "unique": false
+ },
+ "275584": {
+  "bind": "pickup",
+  "name": "Pattern: Swarmtender's Cord",
+  "spell": 1297124,
+  "unique": false
+ },
+ "275585": {
+  "bind": "pickup",
+  "name": "Pattern: Swarmtender's Footpads",
+  "spell": 1297125,
+  "unique": false
+ },
+ "275586": {
+  "bind": "pickup",
+  "name": "Pattern: Bileblister Claws",
+  "spell": 1297126,
+  "unique": false
+ },
+ "275587": {
+  "bind": "pickup",
+  "name": "Pattern: Bileblister Girdle",
+  "spell": 1297127,
+  "unique": false
+ },
+ "275588": {
+  "bind": "pickup",
+  "name": "Pattern: Bileblister Boots",
+  "spell": 1297128,
+  "unique": false
+ },
+ "275589": {
+  "bind": "pickup",
+  "name": "Pattern: Hivethrasher's Claws",
+  "spell": 1297129,
+  "unique": false
+ },
+ "275590": {
+  "bind": "pickup",
+  "name": "Pattern: Hivethrasher's Girdle",
+  "spell": 1297130,
+  "unique": false
+ },
+ "275591": {
+  "bind": "pickup",
+  "name": "Pattern: Hivethrasher's Boots",
+  "spell": 1297131,
+  "unique": false
+ },
+ "275592": {
+  "bind": "pickup",
+  "name": "Pattern: Scalegut Clenchers",
+  "spell": 1297132,
+  "unique": false
+ },
+ "275593": {
+  "bind": "pickup",
+  "name": "Pattern: Scalegut Belt",
+  "spell": 1297133,
+  "unique": false
+ },
+ "275594": {
+  "bind": "pickup",
+  "name": "Pattern: Scalegut Treaders",
+  "spell": 1297134,
+  "unique": false
+ },
+ "275595": {
+  "bind": "pickup",
+  "name": "Pattern: Broodwatcher's Clenchers",
+  "spell": 1297135,
+  "unique": false
+ },
+ "275596": {
+  "bind": "pickup",
+  "name": "Pattern: Broodwatcher's Belt",
+  "spell": 1297136,
+  "unique": false
+ },
+ "275597": {
+  "bind": "pickup",
+  "name": "Pattern: Broodwatcher's Treaders",
+  "spell": 1297137,
+  "unique": false
+ },
+ "275598": {
+  "bind": "pickup",
+  "name": "Plans: Goregasher Grips",
+  "spell": 1297138,
+  "unique": false
+ },
+ "275599": {
+  "bind": "pickup",
+  "name": "Plans: Goregasher Support",
+  "spell": 1297139,
+  "unique": false
+ },
+ "275600": {
+  "bind": "pickup",
+  "name": "Plans: Goregasher Stompers",
+  "spell": 1297140,
+  "unique": false
+ },
+ "275601": {
+  "bind": "pickup",
+  "name": "Plans: Clutchlord's Grips",
+  "spell": 1297141,
+  "unique": false
+ },
+ "275602": {
+  "bind": "pickup",
+  "name": "Plans: Clutchlord's Support",
+  "spell": 1297142,
+  "unique": false
+ },
+ "275603": {
+  "bind": "pickup",
+  "name": "Plans: Clutchlord's Stompers",
+  "spell": 1297143,
+  "unique": false
+ },
+ "276542": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Kilt",
+  "spell": 1299914,
+  "unique": false
+ },
+ "276543": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Gloves",
+  "spell": 1299915,
+  "unique": false
+ },
+ "276544": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Mantle",
+  "spell": 1299916,
+  "unique": false
+ },
+ "276545": {
+  "bind": "pickup",
+  "name": "Pattern: Spiritcaller Boots",
+  "spell": 1299917,
+  "unique": false
+ },
+ "276928": {
+  "bind": "pickup",
+  "name": "Plans: Cloudy Skyforged Chainmail",
+  "spell": 1301421,
+  "unique": false
+ },
+ "276929": {
+  "bind": "pickup",
+  "name": "Plans: Cloudy Skyforged Wristguards",
+  "spell": 1301422,
+  "unique": false
+ },
+ "276930": {
+  "bind": "pickup",
+  "name": "Plans: Cloudy Skyforged Gauntlets",
+  "spell": 1301423,
+  "unique": false
+ },
+ "276931": {
+  "bind": "pickup",
+  "name": "Plans: Cloudy Skyforged Chain",
+  "spell": 1301424,
+  "unique": false
+ },
+ "276932": {
+  "bind": "pickup",
+  "name": "Plans: Cloudy Skyforged Legguards",
+  "spell": 1301425,
+  "unique": false
+ },
+ "276933": {
+  "bind": "pickup",
+  "name": "Plans: Cloudy Skyforged Greaves",
+  "spell": 1301426,
+  "unique": false
+ },
+ "276934": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Gustwoven Harness",
+  "spell": 1301427,
+  "unique": false
+ },
+ "276935": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Gustwoven Bracers",
+  "spell": 1301428,
+  "unique": false
+ },
+ "276936": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Gustwoven Gloves",
+  "spell": 1301429,
+  "unique": false
+ },
+ "276937": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Gustwoven Belt",
+  "spell": 1301430,
+  "unique": false
+ },
+ "276938": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Gustwoven Trousers",
+  "spell": 1301431,
+  "unique": false
+ },
+ "276939": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Gustwoven Boots",
+  "spell": 1301432,
+  "unique": false
+ },
+ "276940": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Windraveled Jerkin",
+  "spell": 1301433,
+  "unique": false
+ },
+ "276941": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Windraveled Armguards",
+  "spell": 1301434,
+  "unique": false
+ },
+ "276942": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Windraveled Mitts",
+  "spell": 1301435,
+  "unique": false
+ },
+ "276943": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Windraveled Strap",
+  "spell": 1301436,
+  "unique": false
+ },
+ "276944": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Windraveled Pants",
+  "spell": 1301437,
+  "unique": false
+ },
+ "276945": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Windraveled Footwraps",
+  "spell": 1301438,
+  "unique": false
+ },
+ "276946": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Stormsewn Vest",
+  "spell": 1301439,
+  "unique": false
+ },
+ "276947": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Stormsewn Cuffs",
+  "spell": 1301440,
+  "unique": false
+ },
+ "276948": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Stormsewn Handwraps",
+  "spell": 1301441,
+  "unique": false
+ },
+ "276949": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Stormsewn Cord",
+  "spell": 1301442,
+  "unique": false
+ },
+ "276950": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Stormsewn Leggings",
+  "spell": 1301443,
+  "unique": false
+ },
+ "276951": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Stormsewn Shoes",
+  "spell": 1301444,
+  "unique": false
+ },
+ "276952": {
+  "bind": "pickup",
+  "name": "Plans: Azure Skyforged Chainmail",
+  "spell": 1301445,
+  "unique": false
+ },
+ "276953": {
+  "bind": "pickup",
+  "name": "Plans: Azure Skyforged Wristguards",
+  "spell": 1301446,
+  "unique": false
+ },
+ "276954": {
+  "bind": "pickup",
+  "name": "Plans: Azure Skyforged Gauntlets",
+  "spell": 1301447,
+  "unique": false
+ },
+ "276955": {
+  "bind": "pickup",
+  "name": "Plans: Azure Skyforged Chain",
+  "spell": 1301448,
+  "unique": false
+ },
+ "276956": {
+  "bind": "pickup",
+  "name": "Plans: Azure Skyforged Legguards",
+  "spell": 1301449,
+  "unique": false
+ },
+ "276957": {
+  "bind": "pickup",
+  "name": "Plans: Azure Skyforged Greaves",
+  "spell": 1301450,
+  "unique": false
+ },
+ "276958": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Gustwoven Harness",
+  "spell": 1301451,
+  "unique": false
+ },
+ "276959": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Gustwoven Bracers",
+  "spell": 1301452,
+  "unique": false
+ },
+ "276960": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Gustwoven Gloves",
+  "spell": 1301453,
+  "unique": false
+ },
+ "276961": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Gustwoven Belt",
+  "spell": 1301454,
+  "unique": false
+ },
+ "276962": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Gustwoven Trousers",
+  "spell": 1301455,
+  "unique": false
+ },
+ "276963": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Gustwoven Boots",
+  "spell": 1301456,
+  "unique": false
+ },
+ "276964": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Windraveled Jerkin",
+  "spell": 1301457,
+  "unique": false
+ },
+ "276965": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Windraveled Armguards",
+  "spell": 1301458,
+  "unique": false
+ },
+ "276966": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Windraveled Mitts",
+  "spell": 1301459,
+  "unique": false
+ },
+ "276967": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Windraveled Strap",
+  "spell": 1301460,
+  "unique": false
+ },
+ "276968": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Windraveled Pants",
+  "spell": 1301461,
+  "unique": false
+ },
+ "276969": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Windraveled Footwraps",
+  "spell": 1301462,
+  "unique": false
+ },
+ "276970": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Stormsewn Vest",
+  "spell": 1301463,
+  "unique": false
+ },
+ "276971": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Stormsewn Cuffs",
+  "spell": 1301464,
+  "unique": false
+ },
+ "276972": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Stormsewn Handwraps",
+  "spell": 1301465,
+  "unique": false
+ },
+ "276973": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Stormsewn Cord",
+  "spell": 1301466,
+  "unique": false
+ },
+ "276974": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Stormsewn Leggings",
+  "spell": 1301468,
+  "unique": false
+ },
+ "276975": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Stormsewn Shoes",
+  "spell": 1301469,
+  "unique": false
+ },
+ "276976": {
+  "bind": "pickup",
+  "name": "Plans: Cloudy Skyforged Helm",
+  "spell": 1301526,
+  "unique": false
+ },
+ "276977": {
+  "bind": "pickup",
+  "name": "Plans: Cloudy Skyforged Pauldrons",
+  "spell": 1301527,
+  "unique": false
+ },
+ "276978": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Gustwoven Hood",
+  "spell": 1301528,
+  "unique": false
+ },
+ "276979": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Gustwoven Spaulders",
+  "spell": 1301529,
+  "unique": false
+ },
+ "276980": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Windraveled Cover",
+  "spell": 1301530,
+  "unique": false
+ },
+ "276981": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Windraveled Drapes",
+  "spell": 1301531,
+  "unique": false
+ },
+ "276982": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Stormsewn Cowl",
+  "spell": 1301532,
+  "unique": false
+ },
+ "276983": {
+  "bind": "pickup",
+  "name": "Pattern: Cloudy Stormsewn Epaulets",
+  "spell": 1301533,
+  "unique": false
+ },
+ "276984": {
+  "bind": "pickup",
+  "name": "Plans: Azure Skyforged Helm",
+  "spell": 1301534,
+  "unique": false
+ },
+ "276985": {
+  "bind": "pickup",
+  "name": "Plans: Azure Skyforged Pauldrons",
+  "spell": 1301535,
+  "unique": false
+ },
+ "276986": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Gustwoven Hood",
+  "spell": 1301536,
+  "unique": false
+ },
+ "276987": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Gustwoven Spaulders",
+  "spell": 1301537,
+  "unique": false
+ },
+ "276988": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Windraveled Cover",
+  "spell": 1301538,
+  "unique": false
+ },
+ "276989": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Windraveled Drapes",
+  "spell": 1301539,
+  "unique": false
+ },
+ "276990": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Stormsewn Cowl",
+  "spell": 1301540,
+  "unique": false
+ },
+ "276991": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Stormsewn Epaulets",
+  "spell": 1301541,
+  "unique": false
+ },
+ "277470": {
+  "bind": "pickup",
+  "name": "Schematic: Harvester Override Signalcaster",
+  "spell": 1302161,
+  "unique": false
+ },
+ "277673": {
+  "bind": "pickup",
+  "name": "Plans: Rough Copper Chain Boots",
+  "spell": 1302598,
+  "unique": false
+ },
+ "277716": {
+  "bind": "pickup",
+  "name": "Pattern: Light Leather Reagent Bag",
+  "spell": 1302604,
+  "unique": false
+ },
+ "279295": {
+  "bind": "pickup",
+  "name": "Formula: Torch of Light",
+  "spell": 1306520,
+  "unique": false
+ },
+ "279296": {
+  "bind": "pickup",
+  "name": "Formula: Steadfast Libram",
+  "spell": 1306521,
+  "unique": false
+ },
+ "279297": {
+  "bind": "pickup",
+  "name": "Formula: Libram of Infusion",
+  "spell": 1306522,
+  "unique": false
+ },
+ "279298": {
+  "bind": "pickup",
+  "name": "Formula: Totem of Urgency",
+  "spell": 1306523,
+  "unique": false
+ },
+ "279299": {
+  "bind": "pickup",
+  "name": "Formula: Idol of Swiftness",
+  "spell": 1306524,
+  "unique": false
+ },
+ "279300": {
+  "bind": "pickup",
+  "name": "Formula: Idol of the Ursine Twins",
+  "spell": 1306525,
+  "unique": false
+ },
+ "279301": {
+  "bind": "pickup",
+  "name": "Pattern: Elderwild Waistcord",
+  "spell": 1306526,
+  "unique": false
+ },
+ "279302": {
+  "bind": "pickup",
+  "name": "Pattern: Outlaw's Collar",
+  "spell": 1306527,
+  "unique": false
+ },
+ "279303": {
+  "bind": "pickup",
+  "name": "Pattern: Elderwild Pants",
+  "spell": 1306528,
+  "unique": false
+ },
+ "279304": {
+  "bind": "pickup",
+  "name": "Pattern: Eternity Pauldrons",
+  "spell": 1306529,
+  "unique": false
+ },
+ "279305": {
+  "bind": "pickup",
+  "name": "Pattern: Tranquil Wristguards",
+  "spell": 1306530,
+  "unique": false
+ },
+ "279306": {
+  "bind": "pickup",
+  "name": "Pattern: Mourning Handguards",
+  "spell": 1306531,
+  "unique": false
+ },
+ "279307": {
+  "bind": "pickup",
+  "name": "Pattern: Wild Leather Armor Kit",
+  "spell": 1306532,
+  "unique": false
+ },
+ "279308": {
+  "bind": "pickup",
+  "name": "Plans: Ironwood Blade",
+  "spell": 1306533,
+  "unique": false
+ },
+ "279309": {
+  "bind": "pickup",
+  "name": "Plans: Forest Defender's Axe",
+  "spell": 1306534,
+  "unique": false
+ },
+ "279310": {
+  "bind": "pickup",
+  "name": "Plans: Greenhammer",
+  "spell": 1306535,
+  "unique": false
+ },
+ "279311": {
+  "bind": "pickup",
+  "name": "Plans: Evergreen Shield",
+  "spell": 1306536,
+  "unique": false
+ },
+ "279312": {
+  "bind": "pickup",
+  "name": "Plans: Depleted Thorium Sabatons",
+  "spell": 1306537,
+  "unique": false
+ },
+ "279313": {
+  "bind": "pickup",
+  "name": "Plans: Heavy Thorium Gauntlets",
+  "spell": 1306538,
+  "unique": false
+ },
+ "279314": {
+  "bind": "pickup",
+  "name": "Plans: Azerothium Legplates",
+  "spell": 1306539,
+  "unique": false
+ },
+ "279315": {
+  "bind": "pickup",
+  "name": "Pattern: Robes of Fiery Devastation",
+  "spell": 1306540,
+  "unique": false
+ },
+ "279316": {
+  "bind": "pickup",
+  "name": "Pattern: Mana-infused Cord",
+  "spell": 1306541,
+  "unique": false
+ },
+ "279317": {
+  "bind": "pickup",
+  "name": "Pattern: Rime-encrusted Boots",
+  "spell": 1306542,
+  "unique": false
+ },
+ "279318": {
+  "bind": "pickup",
+  "name": "Pattern: Fel Cape",
+  "spell": 1306543,
+  "unique": false
+ },
+ "279319": {
+  "bind": "pickup",
+  "name": "Pattern: Cloak of Earth and Sky",
+  "spell": 1306544,
+  "unique": false
+ },
+ "279320": {
+  "bind": "pickup",
+  "name": "Pattern: Felblood Soul Bag",
+  "spell": 1306545,
+  "unique": false
+ },
+ "279321": {
+  "bind": "pickup",
+  "name": "Schematic: SAF-T Ultra Precision Scope",
+  "spell": 1306546,
+  "unique": false
+ },
+ "279322": {
+  "bind": "pickup",
+  "name": "Schematic: Hyper Deluxe Sniper Rifle Mk XVII",
+  "spell": 1306547,
+  "unique": false
+ },
+ "280321": {
+  "bind": "pickup",
+  "name": "Schematic: Whimsical Waistwrap",
+  "spell": 1308178,
+  "unique": false
+ },
+ "280322": {
+  "bind": "pickup",
+  "name": "Schematic: Gizmo Girdle",
+  "spell": 1308179,
+  "unique": false
+ },
+ "280323": {
+  "bind": "pickup",
+  "name": "Schematic: Clanking Cord",
+  "spell": 1308180,
+  "unique": false
+ },
+ "280325": {
+  "bind": "pickup",
+  "name": "Schematic: Floppy Goggles",
+  "spell": 1308183,
+  "unique": false
+ },
+ "280326": {
+  "bind": "pickup",
+  "name": "Schematic: Bent Goggles",
+  "spell": 1308184,
+  "unique": false
+ },
+ "280327": {
+  "bind": "pickup",
+  "name": "Schematic: Stuckbutton Goggles",
+  "spell": 1308185,
+  "unique": false
+ },
+ "280328": {
+  "bind": "pickup",
+  "name": "Schematic: Dented Goggles",
+  "spell": 1308186,
+  "unique": false
+ },
+ "284870": {
+  "bind": "none",
+  "name": "Schematic: Unsanctified Grenade",
+  "spell": 1317270,
+  "unique": false
+ },
+ "284871": {
+  "bind": "none",
+  "name": "Recipe: Transmute Legionite",
+  "spell": 1317279,
+  "unique": false
+ },
+ "285285": {
+  "bind": "pickup",
+  "name": "Schematic: Satchel of Copper Bombs",
+  "spell": 1317958,
+  "unique": false
+ },
+ "285286": {
+  "bind": "pickup",
+  "name": "Schematic: Satchel of Bronze Bombs",
+  "spell": 1317959,
+  "unique": false
+ },
+ "285287": {
+  "bind": "pickup",
+  "name": "Schematic: Satchel of Iron Bombs",
+  "spell": 1317960,
+  "unique": false
+ },
+ "285288": {
+  "bind": "pickup",
+  "name": "Schematic: Satchel of Dark Iron Bombs",
+  "spell": 1317961,
+  "unique": false
+ },
+ "285289": {
+  "bind": "pickup",
+  "name": "Plans: Cracked Blacksmith Hammer",
+  "spell": 1317962,
+  "unique": false
+ },
+ "285290": {
+  "bind": "pickup",
+  "name": "Plans: Mithril Blacksmith Hammer",
+  "spell": 1317963,
+  "unique": false
+ },
+ "285291": {
+  "bind": "pickup",
+  "name": "Plans: Arcanite Blacksmith Hammer",
+  "spell": 1317964,
+  "unique": false
+ },
+ "286076": {
+  "bind": "pickup",
+  "name": "Schematic: Small Purple Rocket",
+  "spell": 1319154,
+  "unique": false
+ },
+ "286077": {
+  "bind": "pickup",
+  "name": "Schematic: Small White Rocket",
+  "spell": 1319155,
+  "unique": false
+ },
+ "286078": {
+  "bind": "pickup",
+  "name": "Schematic: Small Yellow Rocket",
+  "spell": 1319156,
+  "unique": false
+ },
+ "286079": {
+  "bind": "pickup",
+  "name": "Schematic: Large Purple Rocket",
+  "spell": 1319157,
+  "unique": false
+ },
+ "286080": {
+  "bind": "pickup",
+  "name": "Schematic: Large White Rocket",
+  "spell": 1319158,
+  "unique": false
+ },
+ "286081": {
+  "bind": "pickup",
+  "name": "Schematic: Large Yellow Rocket",
+  "spell": 1319159,
+  "unique": false
+ },
+ "286082": {
+  "bind": "pickup",
+  "name": "Schematic: Purple Rocket Cluster",
+  "spell": 1319160,
+  "unique": false
+ },
+ "286083": {
+  "bind": "pickup",
+  "name": "Schematic: White Rocket Cluster",
+  "spell": 1319161,
+  "unique": false
+ },
+ "286084": {
+  "bind": "pickup",
+  "name": "Schematic: Yellow Rocket Cluster",
+  "spell": 1319162,
+  "unique": false
+ },
+ "286085": {
+  "bind": "pickup",
+  "name": "Schematic: Large Purple Rocket Cluster",
+  "spell": 1319163,
+  "unique": false
+ },
+ "286086": {
+  "bind": "pickup",
+  "name": "Schematic: Large White Rocket Cluster",
+  "spell": 1319164,
+  "unique": false
+ },
+ "286087": {
+  "bind": "pickup",
+  "name": "Schematic: Large Yellow Rocket Cluster",
+  "spell": 1319165,
+  "unique": false
+ },
+ "286153": {
+  "bind": "pickup",
+  "name": "Recipe: Plated Armorfish",
+  "spell": 1319313,
+  "unique": false
+ },
+ "2881": {
+  "bind": "none",
+  "name": "Plans: Runed Copper Breastplate",
+  "spell": 2667,
+  "unique": false
+ },
+ "2882": {
+  "bind": "none",
+  "name": "Plans: Silvered Bronze Shoulders",
+  "spell": 3330,
+  "unique": false
+ },
+ "2883": {
+  "bind": "none",
+  "name": "Plans: Deadly Bronze Poniard",
+  "spell": 3295,
+  "unique": false
+ },
+ "2889": {
+  "bind": "none",
+  "name": "Recipe: Beer Basted Boar Ribs",
+  "spell": 2795,
+  "unique": false
+ },
+ "289560": {
+  "bind": "none",
+  "name": "Formula: Enchant Boots - Speed",
+  "spell": 1328948,
+  "unique": false
+ },
+ "3393": {
+  "bind": "none",
+  "name": "Recipe: Minor Magic Resistance Potion",
+  "spell": 3172,
+  "unique": false
+ },
+ "3394": {
+  "bind": "none",
+  "name": "Recipe: Potion of Poison Cleansing",
+  "spell": 3174,
+  "unique": false
+ },
+ "3395": {
+  "bind": "none",
+  "name": "Recipe: Limited Invulnerability Potion",
+  "spell": 3175,
+  "unique": false
+ },
+ "3396": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Lesser Agility",
+  "spell": 2333,
+  "unique": false
+ },
+ "34261": {
+  "bind": "pickup",
+  "name": "Pattern: Green Winter Clothes",
+  "spell": 44950,
+  "unique": false
+ },
+ "34319": {
+  "bind": "pickup",
+  "name": "Pattern: Red Winter Clothes",
+  "spell": 44958,
+  "unique": false
+ },
+ "3608": {
+  "bind": "none",
+  "name": "Plans: Mighty Iron Hammer",
+  "spell": 3297,
+  "unique": false
+ },
+ "3609": {
+  "bind": "none",
+  "name": "Plans: Copper Chain Vest",
+  "spell": 3321,
+  "unique": false
+ },
+ "3610": {
+  "bind": "none",
+  "name": "Plans: Gemmed Copper Gauntlets",
+  "spell": 3325,
+  "unique": false
+ },
+ "3611": {
+  "bind": "none",
+  "name": "Plans: Green Iron Boots",
+  "spell": 3334,
+  "unique": false
+ },
+ "3612": {
+  "bind": "none",
+  "name": "Plans: Green Iron Gauntlets",
+  "spell": 3336,
+  "unique": false
+ },
+ "3678": {
+  "bind": "none",
+  "name": "Recipe: Crocolisk Steak",
+  "spell": 3370,
+  "unique": false
+ },
+ "3679": {
+  "bind": "none",
+  "name": "Recipe: Blood Sausage",
+  "spell": 3371,
+  "unique": false
+ },
+ "3680": {
+  "bind": "none",
+  "name": "Recipe: Murloc Fin Soup",
+  "spell": 3372,
+  "unique": false
+ },
+ "3681": {
+  "bind": "none",
+  "name": "Recipe: Crocolisk Gumbo",
+  "spell": 3373,
+  "unique": false
+ },
+ "3682": {
+  "bind": "none",
+  "name": "Recipe: Curiously Tasty Omelet",
+  "spell": 3376,
+  "unique": false
+ },
+ "3683": {
+  "bind": "none",
+  "name": "Recipe: Gooey Spider Cake",
+  "spell": 3377,
+  "unique": false
+ },
+ "3734": {
+  "bind": "pickup",
+  "name": "Recipe: Big Bear Steak",
+  "spell": 3397,
+  "unique": false
+ },
+ "3735": {
+  "bind": "pickup",
+  "name": "Recipe: Hot Lion Chops",
+  "spell": 3398,
+  "unique": false
+ },
+ "3736": {
+  "bind": "none",
+  "name": "Recipe: Tasty Lion Steak",
+  "spell": 3399,
+  "unique": false
+ },
+ "3737": {
+  "bind": "none",
+  "name": "Recipe: Soothing Turtle Bisque",
+  "spell": 3400,
+  "unique": false
+ },
+ "3830": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Lesser Fortitude",
+  "spell": 3450,
+  "unique": false
+ },
+ "3831": {
+  "bind": "none",
+  "name": "Recipe: Troll's Blood Elixir",
+  "spell": 3451,
+  "unique": false
+ },
+ "3832": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Detect Lesser Invisibility",
+  "spell": 3453,
+  "unique": false
+ },
+ "3866": {
+  "bind": "none",
+  "name": "Plans: Jade Serpentblade",
+  "spell": 3493,
+  "unique": false
+ },
+ "3867": {
+  "bind": "none",
+  "name": "Plans: Golden Iron Destroyer",
+  "spell": 3495,
+  "unique": false
+ },
+ "3868": {
+  "bind": "none",
+  "name": "Plans: Frost Tiger Blade",
+  "spell": 3497,
+  "unique": false
+ },
+ "3869": {
+  "bind": "none",
+  "name": "Plans: Shadow Crescent Axe",
+  "spell": 3500,
+  "unique": false
+ },
+ "3870": {
+  "bind": "none",
+  "name": "Plans: Green Iron Shoulders",
+  "spell": 3504,
+  "unique": false
+ },
+ "3871": {
+  "bind": "none",
+  "name": "Plans: Golden Scale Shoulders",
+  "spell": 3505,
+  "unique": false
+ },
+ "3872": {
+  "bind": "none",
+  "name": "Plans: Golden Scale Leggings",
+  "spell": 3507,
+  "unique": false
+ },
+ "3873": {
+  "bind": "none",
+  "name": "Plans: Golden Scale Cuirass",
+  "spell": 3511,
+  "unique": false
+ },
+ "3874": {
+  "bind": "none",
+  "name": "Plans: Polished Steel Boots",
+  "spell": 3513,
+  "unique": false
+ },
+ "3875": {
+  "bind": "none",
+  "name": "Plans: Golden Scale Boots",
+  "spell": 3515,
+  "unique": false
+ },
+ "4292": {
+  "bind": "none",
+  "name": "Pattern: Green Woolen Bag",
+  "spell": 3758,
+  "unique": false
+ },
+ "4293": {
+  "bind": "none",
+  "name": "Pattern: Hillman's Leather Vest",
+  "spell": 3762,
+  "unique": false
+ },
+ "4294": {
+  "bind": "none",
+  "name": "Pattern: Hillman's Belt",
+  "spell": 3767,
+  "unique": false
+ },
+ "4295": {
+  "bind": "none",
+  "name": "Pattern: Double-stitched Leather Gloves OLD",
+  "spell": 7153,
+  "unique": false
+ },
+ "4296": {
+  "bind": "none",
+  "name": "Pattern: Dark Leather Shoulders",
+  "spell": 3769,
+  "unique": false
+ },
+ "4297": {
+  "bind": "none",
+  "name": "Pattern: Barbaric Gloves",
+  "spell": 3771,
+  "unique": false
+ },
+ "4298": {
+  "bind": "none",
+  "name": "Pattern: Guardian Belt",
+  "spell": 3775,
+  "unique": false
+ },
+ "4299": {
+  "bind": "none",
+  "name": "Pattern: Guardian Armor",
+  "spell": 3773,
+  "unique": false
+ },
+ "4300": {
+  "bind": "none",
+  "name": "Pattern: Guardian Leather Bracers",
+  "spell": 3777,
+  "unique": false
+ },
+ "4301": {
+  "bind": "none",
+  "name": "Pattern: Barbaric Belt",
+  "spell": 3779,
+  "unique": false
+ },
+ "4345": {
+  "bind": "none",
+  "name": "Pattern: Red Woolen Boots",
+  "spell": 3847,
+  "unique": false
+ },
+ "4346": {
+  "bind": "none",
+  "name": "Pattern: Heavy Woolen Cloak",
+  "spell": 3844,
+  "unique": false
+ },
+ "4347": {
+  "bind": "none",
+  "name": "Pattern: Reinforced Woolen Shoulders",
+  "spell": 3849,
+  "unique": false
+ },
+ "4348": {
+  "bind": "none",
+  "name": "Pattern: Phoenix Gloves",
+  "spell": 3868,
+  "unique": false
+ },
+ "4349": {
+  "bind": "none",
+  "name": "Pattern: Phoenix Pants",
+  "spell": 3851,
+  "unique": false
+ },
+ "4350": {
+  "bind": "none",
+  "name": "Pattern: Spider Silk Slippers",
+  "spell": 3856,
+  "unique": false
+ },
+ "4351": {
+  "bind": "none",
+  "name": "Pattern: Shadow Hood",
+  "spell": 3858,
+  "unique": false
+ },
+ "4352": {
+  "bind": "none",
+  "name": "Pattern: Boots of the Enchanter",
+  "spell": 3860,
+  "unique": false
+ },
+ "4353": {
+  "bind": "none",
+  "name": "Pattern: Spider Belt",
+  "spell": 3863,
+  "unique": false
+ },
+ "4354": {
+  "bind": "none",
+  "name": "Pattern: Rich Purple Silk Shirt",
+  "spell": 3872,
+  "unique": false
+ },
+ "4355": {
+  "bind": "none",
+  "name": "Pattern: Icy Cloak",
+  "spell": 3862,
+  "unique": false
+ },
+ "4356": {
+  "bind": "none",
+  "name": "Pattern: Star Belt",
+  "spell": 3864,
+  "unique": false
+ },
+ "4408": {
+  "bind": "none",
+  "name": "Schematic: Mechanical Squirrel",
+  "spell": 3928,
+  "unique": false
+ },
+ "4409": {
+  "bind": "none",
+  "name": "Schematic: Small Seaforium Charge",
+  "spell": 3933,
+  "unique": false
+ },
+ "4410": {
+  "bind": "none",
+  "name": "Schematic: Shadow Goggles",
+  "spell": 3940,
+  "unique": false
+ },
+ "4411": {
+  "bind": "none",
+  "name": "Schematic: Flame Deflector",
+  "spell": 3944,
+  "unique": false
+ },
+ "4412": {
+  "bind": "none",
+  "name": "Schematic: Moonsight Rifle",
+  "spell": 3954,
+  "unique": false
+ },
+ "4413": {
+  "bind": "none",
+  "name": "Schematic: Discombobulator Ray",
+  "spell": 3959,
+  "unique": false
+ },
+ "4414": {
+  "bind": "none",
+  "name": "Schematic: Portable Bronze Mortar",
+  "spell": 3960,
+  "unique": false
+ },
+ "4415": {
+  "bind": "none",
+  "name": "Schematic: Craftsman's Monocle",
+  "spell": 3966,
+  "unique": false
+ },
+ "4416": {
+  "bind": "none",
+  "name": "Schematic: Goblin Land Mine",
+  "spell": 3968,
+  "unique": false
+ },
+ "4417": {
+  "bind": "none",
+  "name": "Schematic: Large Seaforium Charge",
+  "spell": 3972,
+  "unique": false
+ },
+ "4597": {
+  "bind": "pickup",
+  "name": "Recipe: Minor Discolored Healing Potion",
+  "spell": 4508,
+  "unique": false
+ },
+ "4609": {
+  "bind": "pickup",
+  "name": "Recipe: Barbecued Buzzard Wing",
+  "spell": 4094,
+  "unique": false
+ },
+ "4624": {
+  "bind": "none",
+  "name": "Recipe: Lesser Stoneshield Potion",
+  "spell": 4942,
+  "unique": false
+ },
+ "5083": {
+  "bind": "none",
+  "name": "Pattern: Kodo Hide Bag",
+  "spell": 5244,
+  "unique": false
+ },
+ "5482": {
+  "bind": "none",
+  "name": "Recipe: Kaldorei Spider Kabob",
+  "spell": 6412,
+  "unique": false
+ },
+ "5483": {
+  "bind": "none",
+  "name": "Recipe: Scorpid Surprise",
+  "spell": 6413,
+  "unique": false
+ },
+ "5484": {
+  "bind": "none",
+  "name": "Recipe: Roasted Kodo Meat",
+  "spell": 6414,
+  "unique": false
+ },
+ "5485": {
+  "bind": "none",
+  "name": "Recipe: Fillet of Frenzy",
+  "spell": 6415,
+  "unique": false
+ },
+ "5486": {
+  "bind": "none",
+  "name": "Recipe: Strider Stew",
+  "spell": 6416,
+  "unique": false
+ },
+ "5487": {
+  "bind": "none",
+  "name": "Recipe: Dig Rat Stew",
+  "spell": 6417,
+  "unique": false
+ },
+ "5488": {
+  "bind": "none",
+  "name": "Recipe: Crispy Lizard Tail",
+  "spell": 6418,
+  "unique": false
+ },
+ "5489": {
+  "bind": "pickup",
+  "name": "Recipe: Lean Venison",
+  "spell": 6419,
+  "unique": false
+ },
+ "5528": {
+  "bind": "none",
+  "name": "Recipe: Clam Chowder",
+  "spell": 6501,
+  "unique": false
+ },
+ "5543": {
+  "bind": "none",
+  "name": "Plans: Iridescent Hammer",
+  "spell": 6518,
+  "unique": false
+ },
+ "5578": {
+  "bind": "none",
+  "name": "Plans: Silvered Bronze Breastplate",
+  "spell": 2673,
+  "unique": false
+ },
+ "5640": {
+  "bind": "none",
+  "name": "Recipe: Rage Potion",
+  "spell": 6617,
+  "unique": false
+ },
+ "5642": {
+  "bind": "none",
+  "name": "Recipe: Free Action Potion",
+  "spell": 6624,
+  "unique": false
+ },
+ "5643": {
+  "bind": "none",
+  "name": "Recipe: Great Rage Potion",
+  "spell": 6618,
+  "unique": false
+ },
+ "5771": {
+  "bind": "none",
+  "name": "Pattern: Red Linen Bag",
+  "spell": 6686,
+  "unique": false
+ },
+ "5772": {
+  "bind": "none",
+  "name": "Pattern: Red Woolen Bag",
+  "spell": 6688,
+  "unique": false
+ },
+ "5773": {
+  "bind": "none",
+  "name": "Pattern: Robes of Arcana",
+  "spell": 6692,
+  "unique": false
+ },
+ "5774": {
+  "bind": "none",
+  "name": "Pattern: Green Silk Pack",
+  "spell": 6693,
+  "unique": false
+ },
+ "5775": {
+  "bind": "none",
+  "name": "Pattern: Black Silk Pack",
+  "spell": 6695,
+  "unique": false
+ },
+ "5786": {
+  "bind": "pickup",
+  "name": "Pattern: Murloc Scale Belt",
+  "spell": 6702,
+  "unique": false
+ },
+ "5787": {
+  "bind": "pickup",
+  "name": "Pattern: Murloc Scale Breastplate",
+  "spell": 6703,
+  "unique": false
+ },
+ "5788": {
+  "bind": "pickup",
+  "name": "Pattern: Thick Murloc Armor",
+  "spell": 6704,
+  "unique": false
+ },
+ "5789": {
+  "bind": "pickup",
+  "name": "Pattern: Murloc Scale Bracers",
+  "spell": 6705,
+  "unique": false
+ },
+ "5972": {
+  "bind": "none",
+  "name": "Pattern: Fine Leather Pants",
+  "spell": 7133,
+  "unique": false
+ },
+ "5973": {
+  "bind": "pickup",
+  "name": "Pattern: Barbaric Leggings",
+  "spell": 7149,
+  "unique": false
+ },
+ "6039": {
+  "bind": "none",
+  "name": "Recipe: Giant Clam Scorcho",
+  "spell": 7213,
+  "unique": false
+ },
+ "6044": {
+  "bind": "none",
+  "name": "Plans: Iron Shield Spike",
+  "spell": 7221,
+  "unique": false
+ },
+ "6045": {
+  "bind": "none",
+  "name": "Plans: Iron Counterweight",
+  "spell": 7222,
+  "unique": false
+ },
+ "6046": {
+  "bind": "none",
+  "name": "Plans: Steel Weapon Chain",
+  "spell": 7224,
+  "unique": false
+ },
+ "6047": {
+  "bind": "pickup",
+  "name": "Plans: Golden Scale Coif",
+  "spell": 3503,
+  "unique": false
+ },
+ "6053": {
+  "bind": "pickup",
+  "name": "Recipe: Holy Protection Potion",
+  "spell": 7255,
+  "unique": false
+ },
+ "6054": {
+  "bind": "pickup",
+  "name": "Recipe: Shadow Protection Potion",
+  "spell": 7256,
+  "unique": false
+ },
+ "6055": {
+  "bind": "pickup",
+  "name": "Recipe: Fire Protection Potion",
+  "spell": 7257,
+  "unique": false
+ },
+ "6056": {
+  "bind": "pickup",
+  "name": "Recipe: Frost Protection Potion",
+  "spell": 7258,
+  "unique": false
+ },
+ "6057": {
+  "bind": "pickup",
+  "name": "Recipe: Nature Protection Potion",
+  "spell": 7259,
+  "unique": false
+ },
+ "6068": {
+  "bind": "pickup",
+  "name": "Recipe: Shadow Oil",
+  "spell": 3449,
+  "unique": false
+ },
+ "6211": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Ogre's Strength",
+  "spell": 3188,
+  "unique": false
+ },
+ "6270": {
+  "bind": "none",
+  "name": "Pattern: Blue Linen Vest",
+  "spell": 7630,
+  "unique": false
+ },
+ "6271": {
+  "bind": "none",
+  "name": "Pattern: Red Linen Vest",
+  "spell": 7629,
+  "unique": false
+ },
+ "6272": {
+  "bind": "none",
+  "name": "Pattern: Blue Linen Robe",
+  "spell": 7633,
+  "unique": false
+ },
+ "6274": {
+  "bind": "none",
+  "name": "Pattern: Blue Overalls",
+  "spell": 7639,
+  "unique": false
+ },
+ "6275": {
+  "bind": "none",
+  "name": "Pattern: Greater Adept's Robe",
+  "spell": 7643,
+  "unique": false
+ },
+ "6325": {
+  "bind": "none",
+  "name": "Recipe: Brilliant Smallfish",
+  "spell": 7751,
+  "unique": false
+ },
+ "6326": {
+  "bind": "none",
+  "name": "Recipe: Slitherskin Mackerel",
+  "spell": 7752,
+  "unique": false
+ },
+ "6328": {
+  "bind": "none",
+  "name": "Recipe: Longjaw Mud Snapper",
+  "spell": 7753,
+  "unique": false
+ },
+ "6329": {
+  "bind": "none",
+  "name": "Recipe: Loch Frenzy Delight",
+  "spell": 7754,
+  "unique": false
+ },
+ "6330": {
+  "bind": "none",
+  "name": "Recipe: Bristle Whisker Catfish",
+  "spell": 7755,
+  "unique": false
+ },
+ "6342": {
+  "bind": "none",
+  "name": "Formula: Enchant Chest - Minor Intellect",
+  "spell": 7443,
+  "unique": false
+ },
+ "6344": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Minor Spirit",
+  "spell": 7766,
+  "unique": false
+ },
+ "6345": {
+  "bind": "none",
+  "name": "Formula: Imbue Cloak - Protection",
+  "spell": 7771,
+  "unique": false
+ },
+ "6346": {
+  "bind": "none",
+  "name": "Formula: Enchant Chest - Lesser Intellect",
+  "spell": 7776,
+  "unique": false
+ },
+ "6347": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Minor Strength",
+  "spell": 7782,
+  "unique": false
+ },
+ "6348": {
+  "bind": "none",
+  "name": "Formula: Enchant Weapon - Minor Beastslayer",
+  "spell": 7786,
+  "unique": false
+ },
+ "6349": {
+  "bind": "none",
+  "name": "Formula: Enchant 2H Weapon - Lesser Intellect",
+  "spell": 7793,
+  "unique": false
+ },
+ "6368": {
+  "bind": "none",
+  "name": "Recipe: Rainbow Fin Albacore",
+  "spell": 7827,
+  "unique": false
+ },
+ "6369": {
+  "bind": "none",
+  "name": "Recipe: Rockscale Cod",
+  "spell": 7828,
+  "unique": false
+ },
+ "6375": {
+  "bind": "none",
+  "name": "Formula: Enchant Bracer - Lesser Spirit",
+  "spell": 7859,
+  "unique": false
+ },
+ "6376": {
+  "bind": "none",
+  "name": "Formula: Enchant Boots - Minor Stamina",
+  "spell": 7863,
+  "unique": false
+ },
+ "6377": {
+  "bind": "none",
+  "name": "Formula: Enchant Boots - Minor Agility",
+  "spell": 7867,
+  "unique": false
+ },
+ "6390": {
+  "bind": "none",
+  "name": "Pattern: Stylish Blue Shirt",
+  "spell": 7892,
+  "unique": false
+ },
+ "6391": {
+  "bind": "none",
+  "name": "Pattern: Stylish Green Shirt",
+  "spell": 7893,
+  "unique": false
+ },
+ "6401": {
+  "bind": "pickup",
+  "name": "Pattern: Dark Silk Shirt",
+  "spell": 3870,
+  "unique": false
+ },
+ "6454": {
+  "bind": "none",
+  "name": "Manual: Strong Anti-Venom",
+  "spell": 7935,
+  "unique": false
+ },
+ "6474": {
+  "bind": "none",
+  "name": "Pattern: Deviate Scale Cloak",
+  "spell": 7953,
+  "unique": false
+ },
+ "6475": {
+  "bind": "none",
+  "name": "Pattern: Deviate Scale Gloves",
+  "spell": 7954,
+  "unique": false
+ },
+ "6476": {
+  "bind": "none",
+  "name": "Pattern: Deviate Scale Belt",
+  "spell": 7955,
+  "unique": false
+ },
+ "6661": {
+  "bind": "none",
+  "name": "Recipe: Savory Deviate Delight",
+  "spell": 8238,
+  "unique": false
+ },
+ "6663": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Giant Growth",
+  "spell": 8240,
+  "unique": false
+ },
+ "6672": {
+  "bind": "none",
+  "name": "Schematic: Flash Bomb",
+  "spell": 8243,
+  "unique": false
+ },
+ "6710": {
+  "bind": "none",
+  "name": "Pattern: Moonglow Vest",
+  "spell": 8322,
+  "unique": false
+ },
+ "6716": {
+  "bind": "none",
+  "name": "Schematic: EZ-Thro Dynamite",
+  "spell": 8339,
+  "unique": false
+ },
+ "6735": {
+  "bind": "none",
+  "name": "Plans: Ironforge Breastplate",
+  "spell": 8367,
+  "unique": false
+ },
+ "6892": {
+  "bind": "none",
+  "name": "Recipe: Smoked Bear Meat",
+  "spell": 8607,
+  "unique": false
+ },
+ "7084": {
+  "bind": "none",
+  "name": "Pattern: Crimson Silk Shoulders",
+  "spell": 8793,
+  "unique": false
+ },
+ "7085": {
+  "bind": "none",
+  "name": "Pattern: Azure Shoulders",
+  "spell": 8795,
+  "unique": false
+ },
+ "7086": {
+  "bind": "none",
+  "name": "Pattern: Earthen Silk Belt",
+  "spell": 8797,
+  "unique": false
+ },
+ "7087": {
+  "bind": "pickup",
+  "name": "Pattern: Crimson Silk Cloak",
+  "spell": 8789,
+  "unique": false
+ },
+ "7088": {
+  "bind": "pickup",
+  "name": "Pattern: Crimson Silk Robe",
+  "spell": 8802,
+  "unique": false
+ },
+ "7089": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Silk Cloak",
+  "spell": 8786,
+  "unique": false
+ },
+ "7090": {
+  "bind": "none",
+  "name": "Pattern: Green Silk Armor",
+  "spell": 8784,
+  "unique": false
+ },
+ "7091": {
+  "bind": "none",
+  "name": "Pattern: Truefaith Gloves",
+  "spell": 8782,
+  "unique": false
+ },
+ "7092": {
+  "bind": "none",
+  "name": "Pattern: Hands of Darkness",
+  "spell": 8780,
+  "unique": false
+ },
+ "7114": {
+  "bind": "pickup",
+  "name": "Pattern: Azure Silk Gloves",
+  "spell": 3854,
+  "unique": false
+ },
+ "7192": {
+  "bind": "none",
+  "name": "Schematic: Goblin Rocket Boots",
+  "spell": 8895,
+  "unique": false
+ },
+ "728": {
+  "bind": "none",
+  "name": "Recipe: Westfall Stew",
+  "spell": 2543,
+  "unique": false
+ },
+ "7288": {
+  "bind": "none",
+  "name": "Pattern: Rugged Leather Pants",
+  "spell": 9064,
+  "unique": false
+ },
+ "7289": {
+  "bind": "none",
+  "name": "Pattern: Black Whelp Cloak",
+  "spell": 9070,
+  "unique": false
+ },
+ "7290": {
+  "bind": "none",
+  "name": "Pattern: Red Whelp Gloves",
+  "spell": 9072,
+  "unique": false
+ },
+ "7360": {
+  "bind": "none",
+  "name": "Pattern: Dark Leather Gloves",
+  "spell": 3765,
+  "unique": false
+ },
+ "7361": {
+  "bind": "none",
+  "name": "Pattern: Herbalist's Gloves",
+  "spell": 9146,
+  "unique": false
+ },
+ "7362": {
+  "bind": "pickup",
+  "name": "Pattern: Earthen Leather Shoulders",
+  "spell": 9147,
+  "unique": false
+ },
+ "7363": {
+  "bind": "none",
+  "name": "Pattern: Pilferer's Gloves",
+  "spell": 9148,
+  "unique": false
+ },
+ "7364": {
+  "bind": "none",
+  "name": "Pattern: Heavy Earthen Gloves",
+  "spell": 9149,
+  "unique": false
+ },
+ "7449": {
+  "bind": "none",
+  "name": "Pattern: Dusky Leather Leggings",
+  "spell": 9195,
+  "unique": false
+ },
+ "7450": {
+  "bind": "none",
+  "name": "Pattern: Green Whelp Armor",
+  "spell": 9197,
+  "unique": false
+ },
+ "7451": {
+  "bind": "pickup",
+  "name": "Pattern: Green Whelp Bracers",
+  "spell": 9202,
+  "unique": false
+ },
+ "7452": {
+  "bind": "none",
+  "name": "Pattern: Dusky Boots",
+  "spell": 9207,
+  "unique": false
+ },
+ "7453": {
+  "bind": "none",
+  "name": "Pattern: Swift Boots",
+  "spell": 9208,
+  "unique": false
+ },
+ "7560": {
+  "bind": "pickup",
+  "name": "Schematic: Gnomish Universal Remote",
+  "spell": 9269,
+  "unique": false
+ },
+ "7561": {
+  "bind": "pickup",
+  "name": "Schematic: Goblin Jumper Cables",
+  "spell": 9273,
+  "unique": false
+ },
+ "7613": {
+  "bind": "pickup",
+  "name": "Pattern: Green Leather Armor",
+  "spell": 3772,
+  "unique": false
+ },
+ "7678": {
+  "bind": "none",
+  "name": "Recipe: Thistle Tea",
+  "spell": 9513,
+  "unique": false
+ },
+ "7742": {
+  "bind": "pickup",
+  "name": "Schematic: Gnomish Cloaking Device",
+  "spell": 3971,
+  "unique": false
+ },
+ "7975": {
+  "bind": "none",
+  "name": "Plans: Heavy Mithril Pants",
+  "spell": 9933,
+  "unique": false
+ },
+ "7976": {
+  "bind": "none",
+  "name": "Plans: Mithril Shield Spike",
+  "spell": 9939,
+  "unique": false
+ },
+ "7978": {
+  "bind": "none",
+  "name": "Plans: Barbaric Iron Shoulders",
+  "spell": 9811,
+  "unique": false
+ },
+ "7979": {
+  "bind": "none",
+  "name": "Plans: Barbaric Iron Breastplate",
+  "spell": 9813,
+  "unique": false
+ },
+ "7980": {
+  "bind": "none",
+  "name": "Plans: Barbaric Iron Helm",
+  "spell": 9814,
+  "unique": false
+ },
+ "7981": {
+  "bind": "none",
+  "name": "Plans: Barbaric Iron Boots",
+  "spell": 9818,
+  "unique": false
+ },
+ "7982": {
+  "bind": "none",
+  "name": "Plans: Barbaric Iron Gloves",
+  "spell": 9820,
+  "unique": false
+ },
+ "7983": {
+  "bind": "pickup",
+  "name": "Plans: Ornate Mithril Pants",
+  "spell": 9945,
+  "unique": false
+ },
+ "7984": {
+  "bind": "pickup",
+  "name": "Plans: Ornate Mithril Gloves",
+  "spell": 9950,
+  "unique": false
+ },
+ "7985": {
+  "bind": "pickup",
+  "name": "Plans: Ornate Mithril Shoulders",
+  "spell": 9952,
+  "unique": false
+ },
+ "7989": {
+  "bind": "none",
+  "name": "Plans: Mithril Spurs",
+  "spell": 9964,
+  "unique": false
+ },
+ "7990": {
+  "bind": "none",
+  "name": "Plans: Heavy Mithril Helm",
+  "spell": 9970,
+  "unique": false
+ },
+ "7991": {
+  "bind": "none",
+  "name": "Plans: Mithril Plate Shoulders",
+  "spell": 9966,
+  "unique": false
+ },
+ "7992": {
+  "bind": "none",
+  "name": "Plans: Blue Glittering Axe",
+  "spell": 9995,
+  "unique": false
+ },
+ "7993": {
+  "bind": "none",
+  "name": "Plans: Dazzling Mithril Rapier",
+  "spell": 10005,
+  "unique": false
+ },
+ "7995": {
+  "bind": "pickup",
+  "name": "Plans: Mithril Plate Bracers",
+  "spell": 9937,
+  "unique": false
+ },
+ "8028": {
+  "bind": "none",
+  "name": "Plans: Runed Mithril Hammer",
+  "spell": 10009,
+  "unique": false
+ },
+ "8029": {
+  "bind": "pickup",
+  "name": "Plans: Wicked Mithril Blade",
+  "spell": 9997,
+  "unique": false
+ },
+ "8030": {
+  "bind": "pickup",
+  "name": "Plans: Ebon Shiv",
+  "spell": 10013,
+  "unique": false
+ },
+ "8384": {
+  "bind": "none",
+  "name": "Pattern: Comfortable Leather Hat",
+  "spell": 10490,
+  "unique": false
+ },
+ "8385": {
+  "bind": "pickup",
+  "name": "Pattern: Turtle Scale Gloves",
+  "spell": 10509,
+  "unique": false
+ },
+ "8386": {
+  "bind": "none",
+  "name": "Pattern: Big Voodoo Robe",
+  "spell": 10520,
+  "unique": false
+ },
+ "8387": {
+  "bind": "none",
+  "name": "Pattern: Big Voodoo Mask",
+  "spell": 10531,
+  "unique": false
+ },
+ "8388": {
+  "bind": "none",
+  "name": "Pattern: Nightscape Cloak",
+  "spell": 10550,
+  "unique": false
+ },
+ "8389": {
+  "bind": "none",
+  "name": "Pattern: Big Voodoo Pants",
+  "spell": 10560,
+  "unique": false
+ },
+ "8390": {
+  "bind": "none",
+  "name": "Pattern: Big Voodoo Cloak",
+  "spell": 10562,
+  "unique": false
+ },
+ "8395": {
+  "bind": "none",
+  "name": "Pattern: Tough Scorpid Breastplate",
+  "spell": 10525,
+  "unique": false
+ },
+ "8397": {
+  "bind": "none",
+  "name": "Pattern: Tough Scorpid Bracers",
+  "spell": 10533,
+  "unique": false
+ },
+ "8398": {
+  "bind": "none",
+  "name": "Pattern: Tough Scorpid Gloves",
+  "spell": 10542,
+  "unique": false
+ },
+ "8399": {
+  "bind": "none",
+  "name": "Pattern: Tough Scorpid Boots",
+  "spell": 10554,
+  "unique": false
+ },
+ "8400": {
+  "bind": "none",
+  "name": "Pattern: Tough Scorpid Shoulders",
+  "spell": 10564,
+  "unique": false
+ },
+ "8401": {
+  "bind": "none",
+  "name": "Pattern: Tough Scorpid Leggings",
+  "spell": 10568,
+  "unique": false
+ },
+ "8402": {
+  "bind": "none",
+  "name": "Pattern: Tough Scorpid Helm",
+  "spell": 10570,
+  "unique": false
+ },
+ "8403": {
+  "bind": "pickup",
+  "name": "Pattern: Wild Leather Shoulders",
+  "spell": 10529,
+  "unique": false
+ },
+ "8404": {
+  "bind": "pickup",
+  "name": "Pattern: Wild Leather Vest",
+  "spell": 10544,
+  "unique": false
+ },
+ "8405": {
+  "bind": "pickup",
+  "name": "Pattern: Wild Leather Helmet",
+  "spell": 10546,
+  "unique": false
+ },
+ "8406": {
+  "bind": "pickup",
+  "name": "Pattern: Wild Leather Boots",
+  "spell": 10566,
+  "unique": false
+ },
+ "8407": {
+  "bind": "pickup",
+  "name": "Pattern: Wild Leather Leggings",
+  "spell": 10572,
+  "unique": false
+ },
+ "8408": {
+  "bind": "pickup",
+  "name": "Pattern: Wild Leather Cloak",
+  "spell": 10574,
+  "unique": false
+ },
+ "8409": {
+  "bind": "pickup",
+  "name": "Pattern: Nightscape Shoulders",
+  "spell": 10516,
+  "unique": false
+ },
+ "9293": {
+  "bind": "none",
+  "name": "Recipe: Magic Resistance Potion",
+  "spell": 11453,
+  "unique": false
+ },
+ "9294": {
+  "bind": "none",
+  "name": "Recipe: Wildvine Potion",
+  "spell": 11458,
+  "unique": false
+ },
+ "9295": {
+  "bind": "none",
+  "name": "Recipe: Invisibility Potion",
+  "spell": 11464,
+  "unique": false
+ },
+ "9296": {
+  "bind": "none",
+  "name": "Recipe: Gift of Arthas",
+  "spell": 11466,
+  "unique": false
+ },
+ "9297": {
+  "bind": "none",
+  "name": "Recipe: Draught of Dream Vision",
+  "spell": 11468,
+  "unique": false
+ },
+ "9298": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Giants",
+  "spell": 11472,
+  "unique": false
+ },
+ "9300": {
+  "bind": "pickup",
+  "name": "Recipe: Potion of Demon Slaying",
+  "spell": 11477,
+  "unique": false
+ },
+ "9301": {
+  "bind": "none",
+  "name": "Recipe: Elixir of Shadow Power",
+  "spell": 11476,
+  "unique": false
+ },
+ "9302": {
+  "bind": "pickup",
+  "name": "Recipe: Ghost Dye",
+  "spell": 11473,
+  "unique": false
+ },
+ "9303": {
+  "bind": "none",
+  "name": "Recipe: Philosopher's Stone",
+  "spell": 11459,
+  "unique": false
+ },
+ "9304": {
+  "bind": "none",
+  "name": "Recipe: Transmute Iron to Gold",
+  "spell": 11479,
+  "unique": false
+ },
+ "9305": {
+  "bind": "pickup",
+  "name": "Recipe: Transmute Mithril to Truesilver",
+  "spell": 11480,
+  "unique": false
+ },
+ "9367": {
+  "bind": "none",
+  "name": "Plans: Golden Scale Gauntlets",
+  "spell": 11643,
+  "unique": false
+ }
+}

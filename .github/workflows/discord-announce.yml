@@ -1,0 +1,23 @@
+# Copied from ajkatz/discord-hub templates/discord-announce.yml.
+# Secrets in this repo: DISCORD_WEBHOOK_URL (required),
+# ANTHROPIC_API_KEY (optional; without it the post is a plain commit list).
+name: Announce pushes to Discord
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discord-announce-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  announce:
+    uses: ajkatz/discord-hub/.github/workflows/announce.yml@main
+    with:
+      project_name: "Forever Recipes"
+      project_description: "WoW: Forever - every recipe of every crafting profession: which ones each of your characters has, where the rest come from, and where to train"
+    secrets: inherit

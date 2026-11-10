@@ -1,15 +1,16 @@
--- AKForeverCookbook core: namespace, safe calls, event dispatch, message bus, saved variables, session
+-- AKForeverRecipes core: namespace, safe calls, event dispatch, message bus, saved variables, session
 -- log and slash commands.
 --
 -- The mission of this addon family, built for the WoW: Forever game mode: minimalistic UI additions that
 -- bring out the utility Blizzard's UI does not give - minimal in nature, no Lua errors, always smooth. So:
 -- nothing runs on a timer of its own, every entry point goes through ns.SafeCall, and every error is kept
--- for /acb diag.
+-- for /akr diag.
 --
--- What this addon is for: Blizzard's Cooking window lists the recipes you have. This addon knows every
--- cooking recipe of the game, which of them each of your characters has, and where the rest come from.
+-- What this addon is for: Blizzard's profession windows list the recipes you have. This addon knows every
+-- recipe of every crafting profession, which of them each of your characters has, and where the rest come
+-- from.
 --
--- House rules: it only READS - the client's answer to "is this recipe learned", the Cooking skill, a
+-- House rules: it only READS - the client's answer to "is this recipe learned", the profession skills, a
 -- merchant's wares while their window is open. Nothing of Blizzard's is hooked, re-parented or hidden; the
 -- window is ours alone; whatever the client hands over may be a secret value and is checked before it is
 -- looked at.
@@ -24,7 +25,7 @@ if string.find(ns.version, "@", 1, true) then
 end
 ns.version = (string.gsub(ns.version, "^v", ""))
 
-local PRINT_PREFIX = "|cffffb347AKForeverCookbook|r: "
+local PRINT_PREFIX = "|cffffb347AKForeverRecipes|r: "
 
 function ns:Print(...)
     local parts = {}
@@ -85,7 +86,7 @@ function ns.ReadableNumber(value)
 end
 
 ------------------------------------------------------------------------
--- Safe calls: every distinct error is kept for /acb diag.
+-- Safe calls: every distinct error is kept for /akr diag.
 ------------------------------------------------------------------------
 ns.errors = {}
 
@@ -107,7 +108,7 @@ function ns.SafeCall(fn, ...)
 end
 
 ------------------------------------------------------------------------
--- Session log (ring buffer), saved with /acb diag and on logout
+-- Session log (ring buffer), saved with /akr diag and on logout
 ------------------------------------------------------------------------
 local LOG_MAX = 80
 ns.sessionLog = {}
@@ -192,7 +193,7 @@ end
 
 ------------------------------------------------------------------------
 -- Saved variables: ONE account-wide table. What a character has learned lives under
--- db.chars["First Last - Realm"], so that any character's cookbook can be read from any other; what
+-- db.chars["First Last - Realm"], so that any character's recipes can be read from any other; what
 -- merchants were seen to sell is account-wide. The account-wide part is bound at ADDON_LOADED, the
 -- character's profile at PLAYER_LOGIN, when the client knows the name (bindProfile).
 ------------------------------------------------------------------------
@@ -269,25 +270,42 @@ local function bindProfile()
     end
     cdb.options = cdb.options or {}
     cdb.learned = cdb.learned or {} -- [recipe spell id] = when the client first said it is learned
+    cdb.skills = cdb.skills or {}   -- [profession key] = { skill, max }
+    cdb.profs = cdb.profs or {}     -- [profession key] = true: the professions this character has
     ns.characterKey, ns.cdb = key, cdb
 end
 
 local function initDB()
-    if type(AKForeverCookbookDB) ~= "table" then
-        AKForeverCookbookDB = {}
+    if type(AKForeverRecipesDB) ~= "table" then
+        AKForeverRecipesDB = {}
         ns.savedStateSource = "none (first run, or the client did not load it)"
     else
         ns.savedStateSource = "client"
     end
-    local db = AKForeverCookbookDB
+    local db = AKForeverRecipesDB
 
-    db.schema = db.schema or 1
+    -- schema 1 was the cooking-only build: one skill per character, every learned recipe a cooking recipe
+    if (db.schema or 2) < 2 then
+        for _, cdb in pairs(type(db.chars) == "table" and db.chars or {}) do
+            if type(cdb) == "table" then
+                cdb.skills, cdb.profs = cdb.skills or {}, cdb.profs or {}
+                if type(cdb.skill) == "number" then
+                    cdb.skills.cooking = cdb.skills.cooking or { skill = cdb.skill, max = cdb.skillMax }
+                end
+                if type(cdb.skill) == "number" or (type(cdb.learned) == "table" and next(cdb.learned) ~= nil) then
+                    cdb.profs.cooking = true
+                end
+                cdb.skill, cdb.skillMax = nil, nil
+            end
+        end
+    end
+    db.schema = 2
     db.loads = (db.loads or 0) + 1
     db.chars = db.chars or {}
     db.vendors = db.vendors or {} -- [recipe item id] = { [npc name] = { zone, price, side, at } }: recipes seen in a merchant's window
 
     ns.db = db
-    ns.cdb = { options = {}, learned = {} } -- a stand-in until bindProfile, at PLAYER_LOGIN
+    ns.cdb = { options = {}, learned = {}, skills = {}, profs = {} } -- a stand-in until bindProfile, at PLAYER_LOGIN
 end
 
 function ns:GetOption(key)
@@ -305,7 +323,7 @@ function ns:SetOption(key, value)
 end
 
 ------------------------------------------------------------------------
--- Slash commands: modules register their own sub-commands; '/acb' alone opens the window
+-- Slash commands: modules register their own sub-commands; '/akr' alone opens the window
 ------------------------------------------------------------------------
 local commands, commandOrder = {}, {}
 
@@ -314,10 +332,10 @@ function ns:RegisterCommand(name, help, fn)
     commandOrder[#commandOrder + 1] = name
 end
 
-SLASH_AKFOREVERCOOKBOOK1 = "/akforevercookbook"
-SLASH_AKFOREVERCOOKBOOK2 = "/acb"
-SLASH_AKFOREVERCOOKBOOK3 = "/cookbook"
-SlashCmdList["AKFOREVERCOOKBOOK"] = function(message)
+SLASH_AKFOREVERRECIPES1 = "/akforeverrecipes"
+SLASH_AKFOREVERRECIPES2 = "/akr"
+SLASH_AKFOREVERRECIPES3 = "/recipes"
+SlashCmdList["AKFOREVERRECIPES"] = function(message)
     local name, rest = string.match(message or "", "^%s*(%S*)%s*(.-)%s*$")
     local command = commands[string.lower(name or "")]
     if command then
@@ -330,7 +348,7 @@ SlashCmdList["AKFOREVERCOOKBOOK"] = function(message)
     end
     ns:Print("v" .. ns.version .. " commands:")
     for _, commandName in ipairs(commandOrder) do
-        print("   |cffffd100/acb " .. commandName .. "|r - " .. commands[commandName].help)
+        print("   |cffffd100/akr " .. commandName .. "|r - " .. commands[commandName].help)
     end
 end
 

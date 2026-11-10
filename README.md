@@ -1,12 +1,10 @@
-# AKForeverCookbook
+# AKForeverRecipes
 
-For **World of Warcraft: Forever** (1.60.1, Interface 16001). Every cooking recipe in the game: which ones
-each of your characters has, and where the rest come from - the trainer, the vendor and their price, the
-quest, the creature that drops it.
+For **World of Warcraft: Forever** (1.60.1, Interface 16001). Every recipe of every crafting profession:
+which ones each of your characters has, and where the rest come from - the trainer, the vendor and their
+price, the quest, the creature that drops it - and whether the recipe is BoP or BoE.
 
-Status: **0.1.0-dev (2026-11-10)** - built against the client's API documentation and a mock of the client;
-**not yet run in the game**. `/acb diag` after the first login says which of the client's two answers
-("recipe info" or "spell known") works there.
+Install: CurseForge, Wago, or the zip from the GitHub release into `Interface\AddOns\AKForeverRecipes`.
 
 *Part of a small family of addons built for the WoW: Forever game mode, with one mission: minimalistic UI
 additions that bring out the utility Blizzard's UI does not give - minimal in nature, no Lua errors, always
@@ -14,43 +12,69 @@ smooth.*
 
 ## What it does
 
-Blizzard's Cooking window lists the recipes you already have. This is the rest of the book.
+Blizzard's profession windows list the recipes you already have. This is the rest.
 
-**`/acb`** (or `/cookbook`) opens the window:
+**`/akr`** (or `/recipes`) opens the window:
 
-- every recipe your faction can get, in the order of the Cooking skill it needs - 123 in the table, 42 of
-  them new in Forever;
-- **Missing / All / Known** choose what is listed; the box searches dishes, zones, NPCs and quests
-  (type `stormwind` to see what a trip to Stormwind is worth);
-- the right-hand column: **known**, or where it comes from - yellow when your skill is enough to learn it
-  now, grey when it is not yet, red when nobody has written down a source;
-- a click opens a recipe: what the food gives, the skill it needs and until when it gives skill, then every
-  way to get it - "Any Cooking trainer", each vendor with zone and price (or Merchant's Favor), the quest,
-  the creatures that drop it with their chance;
-- the name button at the bottom walks through **your other characters**: every character's book is kept
-  when you log it in, and an opened recipe says who else has it and who is still missing it.
+- a **tab for every profession** - Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking,
+  Tailoring, Cooking, First Aid, Mining (smelting): about 2,170 recipes in all - the character's own first,
+  the ones it does not have dimmed;
+- each recipe is a **card**, like an achievement: icon, name, what it is or does, the first way to get it,
+  and the skill it needs as a large number - green when you have it, gold-rimmed when your skill can learn
+  it now, grey when not yet, red when nobody has written down a source;
+- **tags** at the right of each name: **Trainer / Vendor / Quest / Drop / Crafted** for the kind of source,
+  and **BoP** (the recipe binds when picked up - the crafter has to get it) or **BoE** (it does not bind -
+  mail it to an alt, buy it at auction);
+- a click opens a card downwards, in place of its two summary lines: what the made thing gives, a line
+  per stat; the skill it needs and until when it gives skill; then every way to get it - each vendor with
+  zone and price (or Merchant's Favor), the quest, the creatures that drop it with their chance;
+- the opened card also lists the **reagents**, with how many of each you have (bank included) and how
+  many crafts that is enough for; the search finds recipes by reagent too (`linen cloth`);
+- hovering a card shows the made item's own tooltip;
+- the **first card of every profession is its training**: the next rank - Journeyman, Expert, Artisan - and
+  where your faction learns it (trainers, the book and who sells it, the quest), and the specializations of
+  Blacksmithing, Engineering and Leatherworking;
+- a **right-click** (or the Hide button of an opened card) hides a recipe you do not care about from that
+  character's lists and counts; the **Hidden** list brings it back;
+- **Missing / All / Known / Hidden** choose what is listed; the box searches names, zones, NPCs and quests, and the
+  tags' own words (`bop`, `boe`, `quest`, `vendor`, `drop`, `trainer`);
+- the name button at the bottom walks through **your other characters**: every character's recipes are
+  kept when you log it in, and an opened card says which of your characters with that profession have the
+  recipe and which still miss it.
 
 Recipes only the other faction can get are left out, so "missing" is a real to-do list.
 
-`/acb find <dish, place or NPC>` prints the same to chat. `/acb diag` saves a report into the settings file.
+`/akr find <recipe, place or NPC>` searches every profession and prints to chat. `/akr diag` saves a report
+into the settings file.
 
 ## Recipes without a source
 
-23 of Forever's new recipes have no published source yet. When any of your characters opens a merchant's
-window that sells one of them, the merchant, the zone and the price are written down and shown from then
-on, for every character of that faction.
+About 220 of Forever's new recipes have no source anywhere we could look (see "The data"). When any of
+your characters opens a merchant's window that sells a recipe of a profession somebody on your account has, the merchant, the zone
+and the price are written down and shown from then on, for every character of that faction.
 
 ## How it knows what you have
 
-It asks the client, recipe by recipe, at login and whenever a trade skill window opens or changes; a
-recipe learned while you play is heard at once. It only reads: nothing of Blizzard's is hooked, moved or
-hidden. If a character's book looks empty, open its Cooking window once and press Refresh.
+It asks the client, recipe by recipe, about the professions the character has - at login and whenever a
+trade skill window opens or changes; a recipe learned while you play is heard at once. Refresh asks about
+every profession. It only reads: nothing of Blizzard's is hooked, moved or hidden. The recipe tables of a
+profession are only built in memory when a character of yours has it.
 
 ## The data
 
-`Data.lua` is generated by `tools/gen_data.py` from
-[foreverchanges.pro/professions/cooking](https://foreverchanges.pro/professions/cooking) (read 2026-11-10).
-A few sources are Classic's and marked "not confirmed for Forever yet" in the window.
+The files under `Data\` are generated by `tools/gen_data.py` from the profession pages of
+[foreverchanges.pro](https://foreverchanges.pro/professions) (read 2026-11-10); how each recipe item binds
+comes from Wowhead's Forever tooltips (`tools/fetch_binds.py`). A few sources are Classic's and marked "not
+confirmed for Forever yet" in the window. Recipes with no recipe item that Forever added are shown as
+"Probably any trainer".
+
+For the recipes those pages give no source for, `tools/research.py` asks five more places and keeps what it
+finds, with where it found it, in `tools/found_sources.json`: ForeverChanges' quest pages (quest rewards) and
+dungeon pages (boss loot), its Merchant's Favor lists, the installed QuestieDB Forever database (drops,
+vendors, chests), Wowhead's Forever recipe lists, and the client's own skill tables through wago.tools (the
+spell ids of 43 enchants, and the recipes that come by themselves with a skill). Each place is first
+measured against the recipes whose source is known; all agreed 97% of the time or better. Of 422 recipes
+without a source, 200 got one; a card opened on such a recipe says "Source found in Questie" or "in Wowhead".
 
 ## Development
 

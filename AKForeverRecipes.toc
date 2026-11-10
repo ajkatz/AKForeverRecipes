@@ -1,0 +1,25 @@
+## Interface: 16001
+## Version: @project-version@
+## Title: AKForeverRecipes
+## Notes: Every recipe of every crafting profession: which ones each of your characters has, and where the rest come from - trainer, vendor and price, quest or drop, BoP or BoE. '/akr'
+## Author: Purrdee
+## X-License: MIT
+## IconTexture: Interface\AddOns\AKForeverRecipes\icon
+## SavedVariables: AKForeverRecipesDB
+
+Core.lua
+Data.lua
+Data\Training.lua
+Data\Alchemy.lua
+Data\Blacksmithing.lua
+Data\Enchanting.lua
+Data\Engineering.lua
+Data\Leatherworking.lua
+Data\Tailoring.lua
+Data\Cooking.lua
+Data\FirstAid.lua
+Data\Mining.lua
+Lookup.lua
+Known.lua
+Window.lua
+Diagnostics.lua
