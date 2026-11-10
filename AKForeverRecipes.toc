@@ -4,6 +4,8 @@
 ## Notes: Every recipe of every crafting profession: which ones each of your characters has, and where the rest come from - trainer, vendor and price, quest or drop, BoP or BoE. '/akr'
 ## Author: Purrdee
 ## X-License: MIT
+## X-Curse-Project-ID: 1797274
+## X-Wago-ID: b6XyDoKp
 ## IconTexture: Interface\AddOns\AKForeverRecipes\icon
 ## SavedVariables: AKForeverRecipesDB
 
