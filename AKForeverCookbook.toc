@@ -1,0 +1,15 @@
+## Interface: 16001
+## Version: @project-version@
+## Title: AKForeverCookbook
+## Notes: Every cooking recipe in the game: which ones each of your characters has, and where the rest come from - trainer, vendor and price, quest or drop. '/acb'
+## Author: Purrdee
+## X-License: MIT
+## IconTexture: Interface\Icons\INV_Misc_Food_15
+## SavedVariables: AKForeverCookbookDB
+
+Core.lua
+Data.lua
+Lookup.lua
+Known.lua
+Window.lua
+Diagnostics.lua
