@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 - 2026-11-11
 
 - **Your guild's recipes.** Everyone in your guild who has AKForeverRecipes shares what their characters know
   - all of them, alts too. A card says who in the guild can make it (their names, or how many when more
