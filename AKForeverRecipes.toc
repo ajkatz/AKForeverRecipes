@@ -23,5 +23,6 @@ Data\FirstAid.lua
 Data\Mining.lua
 Lookup.lua
 Known.lua
+Guild.lua
 Window.lua
 Diagnostics.lua

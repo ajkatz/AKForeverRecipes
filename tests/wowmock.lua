@@ -16,7 +16,7 @@ local REAL_PRINT = print
 local ADDON = "AKForeverRecipes"
 local FILES = { "Core.lua", "Data.lua", "Data/Training.lua", "Data/Alchemy.lua", "Data/Blacksmithing.lua", "Data/Enchanting.lua", "Data/Engineering.lua",
     "Data/Leatherworking.lua", "Data/Tailoring.lua", "Data/Cooking.lua", "Data/FirstAid.lua", "Data/Mining.lua",
-    "Lookup.lua", "Known.lua", "Window.lua", "Diagnostics.lua" }
+    "Lookup.lua", "Known.lua", "Guild.lua", "Window.lua", "Diagnostics.lua" }
 
 Mock.SECRET = setmetatable({}, { __tostring = function() return "<SECRET>" end })
 
@@ -243,6 +243,39 @@ function Mock.install(options)
     end })
     global("C_Timer", { After = function(seconds, fn) Mock.timers[#Mock.timers + 1] = { at = state.now + seconds, fn = fn } end })
 
+    -- the guild: options.guild = its name (nil: no guild); state.roster = { { name, online } }
+    state.guild, state.roster = options.guild, options.roster or {}
+    Mock.sent, Mock.sendResults = {}, {} -- what went out over GUILD; results to hand back first (3 = throttled)
+    global("GetGuildInfo", function(token)
+        if token ~= "player" then return nil end
+        return state.guild, "Member", 3
+    end)
+    global("GetNumGuildMembers", function() return state.guild and #state.roster or 0 end)
+    global("GetGuildRosterInfo", function(index)
+        local member = state.roster[index]
+        if not member then return nil end
+        return member.name, "Member", 3, 30, "Mage", "Stormwind City", "", "", member.online
+    end)
+    global("C_GuildInfo", { GuildRoster = function()
+        state.rosterAsked = (state.rosterAsked or 0) + 1
+        Mock.fire("GUILD_ROSTER_UPDATE")
+    end })
+    global("C_ChatInfo", {
+        RegisterAddonMessagePrefix = function(prefix) state.prefix = prefix; return true end,
+        SendAddonMessage = function(prefix, text, channel)
+            assert(#text <= 255, "an addon message over 255 characters: " .. #text)
+            local result = table.remove(Mock.sendResults, 1)
+            if result and result ~= 0 then
+                return result
+            end
+            if not state.guild then
+                return 10
+            end
+            Mock.sent[#Mock.sent + 1] = { prefix = prefix, text = text, channel = channel, at = state.now }
+            return 0
+        end,
+    })
+
     global("AKForeverRecipesDB", options.db)
 
     -- the addon's files, in the TOC's order, in a 5.1-shaped environment
@@ -299,8 +332,13 @@ function Mock.runTimers()
 end
 
 function Mock.advance(seconds)
-    Mock.state.now = Mock.state.now + seconds
-    Mock.runTimers()
+    local left = seconds
+    while left > 0 do
+        local step = math.min(1, left)
+        Mock.state.now = Mock.state.now + step
+        left = left - step
+        Mock.runTimers()
+    end
 end
 
 -- the character learns a recipe: the client names it in NEW_RECIPE_LEARNED
@@ -318,6 +356,22 @@ function Mock.merchant(items, npcName, zone)
     state.npc = npcName or "Kendor Kabonka"
     state.zone = zone or state.zone
     Mock.fire("MERCHANT_SHOW")
+end
+
+-- an addon message heard over GUILD from somebody
+function Mock.hear(text, sender, prefix)
+    Mock.fire("CHAT_MSG_ADDON", prefix or "AKFR", text, "GUILD", sender)
+end
+
+-- what we sent, as texts; kind: only those starting with "H;" etc.
+function Mock.sentTexts(kind)
+    local list = {}
+    for _, message in ipairs(Mock.sent) do
+        if not kind or message.text:sub(1, #kind + 1) == kind .. ";" then
+            list[#list + 1] = message.text
+        end
+    end
+    return list
 end
 
 function Mock.slash(text)

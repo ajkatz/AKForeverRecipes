@@ -44,6 +44,16 @@ Blizzard's profession windows list the recipes you already have. This is the res
 
 Recipes only the other faction can get are left out, so "missing" is a real to-do list.
 
+## Your guild
+
+Everyone in your guild who has AKForeverRecipes shares the recipes of all their characters. A card says who
+in the guild can make it - up to three names, or how many when more do - a recipe you are missing that the
+guild knows is tagged **Guild**, and an opened card lists everyone with their skill and whether they are
+online (or when they were last seen). Guildmates' recipes are remembered while they are offline; somebody
+who leaves the guild is dropped. It talks over hidden addon messages to your guild, a message a second at
+most, and only sends a character when a guildmate's copy is out of date. `/akr guild` lists who shares;
+`/akr share off` stops both sharing and seeing (`/akr share on` turns it back on).
+
 `/akr find <recipe, place or NPC>` searches every profession and prints to chat. `/akr diag` saves a report
 into the settings file.
 

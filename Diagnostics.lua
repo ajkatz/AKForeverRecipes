@@ -108,6 +108,7 @@ function Diagnostics:Collect()
         dataReadOn = ns.Data.readOn,
         known = ns.Known:Describe(),
         window = ns.Window:Describe(),
+        guild = ns.Guild and ns.Guild:Describe() or nil,
         vendorsSeen = db.vendors,
         errors = {},
         blockedActions = ns.blockedActions,

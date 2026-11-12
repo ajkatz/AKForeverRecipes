@@ -1166,6 +1166,220 @@ scenario("one profile per character; the version is the packager's stamp, a work
 end)
 
 ------------------------------------------------------------------------
+------------------------------------------------------------------------
+-- The guild
+------------------------------------------------------------------------
+local GUILD = "Forever Friends"
+local ME_A, ME_B = "Purr Gola - ClassicBetaPvE", "Thrall Smith - ClassicBetaPvE"
+
+-- Purr Gola's client: a cook (Westfall Stew, Charred Wolf Meat) with a blacksmith alt; everything it says at
+-- login and when asked for both characters. Gives back the texts it sent.
+local function guildmateA(extra)
+    local db = { schema = 2, chars = { ["Purr Smith - ClassicBetaPvE"] = {
+        learned = { [SHARPENING_STONE] = 1 }, skills = { blacksmithing = { skill = 90, max = 150 } }, profs = { blacksmithing = true }, side = "A", options = {} } } }
+    local ns = start({ guild = GUILD, db = db, roster = { { name = "Purr Gola", online = true } } }, function(state)
+        state.learned[WESTFALL_STEW] = true
+        state.learned[CHARRED_WOLF] = true
+        for _, spell in ipairs(extra or {}) do state.learned[spell] = true end
+        state.skill = { level = 120, max = 150 }
+    end)
+    Mock.advance(10)
+    local hellos = Mock.sentTexts("H")
+    for _, hello in ipairs(hellos) do
+        local fp, key = hello:match("^H;1;([^;]+);(.+)$")
+        Mock.hear("Q;" .. fp .. ";" .. key, "Thrall Smith")
+    end
+    Mock.advance(30)
+    return Mock.sentTexts(), ns
+end
+
+local function guildmateB(roster)
+    return start({ first = "Thrall", last = "Smith", guild = GUILD, roster = roster or {
+        { name = "Thrall Smith", online = true }, { name = "Purr Gola", online = true } } })
+end
+
+scenario("guild: at login a roll call and a hello for each of your characters; asked, a character goes out to the guild in parts, each under 255 characters", function()
+    local sent = guildmateA()
+    equal(sent[1], "R;1", "a roll call first")
+    local hellos, dumps = Mock.sentTexts("H"), Mock.sentTexts("D")
+    equal(#hellos, 2, "the cook and the blacksmith alt")
+    check(has(hellos, ";" .. ME_A) and has(hellos, ";Purr Smith - ClassicBetaPvE"))
+    equal(#dumps, 4, "each character: its professions, then its recipes")
+    check(has(dumps, ";1;2;" .. ME_A .. ";A,cooking:120:150"), table.concat(dumps, "\n"))
+    -- paced: never two messages in the same second
+    for index = 2, #Mock.sent do
+        check(Mock.sent[index].at - Mock.sent[index - 1].at >= 1, "one message a second")
+    end
+    equal(Mock.state.prefix, "AKFR")
+end)
+
+scenario("guild: a guildmate's characters arrive - the card says who knows it, missing recipes are tagged Guild, the opened card lists them with skill and online", function()
+    local sentA = guildmateA()
+    local ns = guildmateB()
+    Mock.advance(10)
+    Mock.sent = {}
+    for _, text in ipairs(sentA) do
+        if text:sub(1, 2) == "H;" then Mock.hear(text, "Purr Gola") end
+    end
+    Mock.advance(5)
+    equal(#Mock.sentTexts("Q"), 2, "both characters asked for")
+    for _, text in ipairs(sentA) do
+        if text:sub(1, 2) == "D;" then Mock.hear(text, "Purr Gola") end
+    end
+    equal(ns.Guild.stats.taken, 2); equal(ns.Guild.stats.badFingerprint, 0)
+    ns.Window:Show()
+    local stew = cardNamed(ns, "Westfall Stew")
+    check(Mock.plain(stew.tags):find("^Guild"), "missing here, known in the guild: tagged Guild - " .. Mock.plain(stew.tags))
+    equal(Mock.plain(stew.guild), "Guild: Purr Gola")
+    stew.click()
+    stew = cardNamed(ns, "Westfall Stew")
+    local rows = Mock.rows()
+    check(has(rows, "In your guild (1):"), table.concat(rows, "\n"))
+    check(has(rows, "Purr Gola  Cooking 120 | online"), table.concat(rows, "\n"))
+    -- the blacksmith alt, offline, on Purr Gola's account (nobody here smiths: its table is built on demand)
+    ns.Lookup.BuildAll()
+    local stone = ns.Guild:Who(ns.Lookup.BySpell(SHARPENING_STONE))
+    equal(#stone, 1); equal(stone[1].name, "Purr Smith"); equal(ns.Guild.When(stone[1]), "online as Purr Gola")
+    equal(stone[1].skill, 90)
+    -- the same hello again: nothing asked
+    Mock.sent = {}
+    for _, text in ipairs(sentA) do
+        if text:sub(1, 2) == "H;" then Mock.hear(text, "Purr Gola") end
+    end
+    Mock.advance(5)
+    equal(#Mock.sentTexts("Q"), 0, "an unchanged character is not asked for again")
+    -- remembered: a fresh login with the saved table still knows it, offline
+    local saved = AKForeverRecipesDB
+    ns = start({ first = "Thrall", last = "Smith", guild = GUILD, db = saved, roster = { { name = "Thrall Smith", online = true }, { name = "Purr Gola", online = false } } })
+    Mock.fire("GUILD_ROSTER_UPDATE")
+    local who = ns.Guild:Who(ns.Lookup.BySpell(WESTFALL_STEW))
+    equal(#who, 1); check(ns.Guild.When(who[1]):find("^seen"), ns.Guild.When(who[1]))
+    equal(#Mock.errors, 0)
+end)
+
+scenario("guild: more than three who know it - the card says how many, the opened card names them all", function()
+    local sentA = guildmateA()
+    local names = { "Aa Bee", "Cc Dee", "Ee Eff", "Gg Hh" }
+    local roster = { { name = "Thrall Smith", online = true } }
+    for _, name in ipairs(names) do roster[#roster + 1] = { name = name, online = false } end
+    local ns = guildmateB(roster)
+    for _, name in ipairs(names) do
+        for _, text in ipairs(sentA) do
+            if text:sub(1, 2) == "D;" and text:find(ME_A, 1, true) then
+                Mock.hear((text:gsub(ME_A:gsub("%-", "%%-"), name .. " - ClassicBetaPvE")), name)
+            end
+        end
+    end
+    ns.Window:Show()
+    local stew = cardNamed(ns, "Westfall Stew")
+    equal(Mock.plain(stew.guild), "Guild: 4 can make this - open the card for who")
+    stew.click()
+    local rows = Mock.rows()
+    check(has(rows, "In your guild (4):"))
+    for _, name in ipairs(names) do
+        check(has(rows, "   " .. name), name .. " listed")
+    end
+    -- three: names
+    ns.Guild:Store()["Gg Hh - ClassicBetaPvE"] = nil
+    ns:Fire("GUILD_CHANGED")
+    ns.Window.open = {}
+    ns.Window:Render()
+    check(Mock.plain(cardNamed(ns, "Westfall Stew").guild):find("^Guild: %a+ %a+, %a+ %a+, %a+ %a+$"), Mock.plain(cardNamed(ns, "Westfall Stew").guild))
+end)
+
+scenario("guild: one request is enough - a request heard first is not sent again; a tampered or partial dump is not kept", function()
+    local sentA = guildmateA()
+    local ns = guildmateB()
+    Mock.advance(10)
+    Mock.sent = {}
+    local hello = sentA[2]
+    local fp, key = hello:match("^H;1;([^;]+);(.+)$")
+    Mock.hear(hello, "Purr Gola")
+    Mock.hear("Q;" .. fp .. ";" .. key, "Somebody Else") -- another guildmate asked before our wait was up
+    Mock.advance(5)
+    equal(#Mock.sentTexts("Q"), 0, "somebody asked already")
+    -- the answer, with one recipe changed on the way: refused
+    local dumps = {}
+    for _, text in ipairs(sentA) do
+        if text:sub(1, 2) == "D;" and text:find(";" .. key .. ";", 1, true) then dumps[#dumps + 1] = text end
+    end
+    local last = dumps[#dumps]
+    Mock.hear(dumps[1], "Purr Gola")
+    Mock.hear(last:sub(1, -2) .. (last:sub(-1) == "A" and "B" or "A"), "Purr Gola")
+    equal(ns.Guild.stats.taken, 0); equal(ns.Guild.stats.badFingerprint, 1)
+    -- only some parts: nothing kept yet
+    Mock.hear(dumps[1], "Purr Gola")
+    equal(ns.Guild.stats.taken, 0)
+    Mock.hear(last, "Purr Gola")
+    equal(ns.Guild.stats.taken, 1, "the right parts: kept")
+end)
+
+scenario("guild: a throttled message goes again later; our own echo and other prefixes are ignored; asked for an old copy we say what it is now", function()
+    local ns = start({ guild = GUILD, roster = { { name = "Purr Gola", online = true } } }, function(state)
+        state.learned[WESTFALL_STEW] = true
+    end)
+    Mock.sendResults = { 3 } -- the roll call is throttled once
+    Mock.advance(9)
+    equal(#Mock.sent, 0); equal(ns.Guild.stats.retried, 1)
+    Mock.advance(6)
+    equal(Mock.sent[1].text, "R;1", "sent again a moment later")
+    Mock.advance(5)
+    local heard = ns.Guild.stats.heard
+    Mock.hear("R;1", "Purr Gola")
+    Mock.hear("H;1;AAAAAAAA;Zz Top - ClassicBetaPvE", "Zz Top", "OTHER")
+    equal(ns.Guild.stats.heard, heard, "our own words and another addon's are not ours to hear")
+    Mock.sent = {}
+    Mock.hear("Q;AAAAAAAA;" .. ME_A, "Thrall Smith")
+    Mock.advance(3)
+    equal(#Mock.sentTexts("D"), 0, "an old copy is not sent")
+    equal(#Mock.sentTexts("H"), 1, "a hello with what it is now instead")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("guild: someone who left is dropped - but only when the roster is plainly ours; '/akr share off' sends nothing and shows nothing", function()
+    local sentA = guildmateA()
+    local ns, state = guildmateB({ { name = "Thrall Smith", online = true }, { name = "Purr Gola", online = true } })
+    for _, text in ipairs(sentA) do
+        if text:sub(1, 2) == "D;" then Mock.hear(text, "Purr Gola") end
+    end
+    equal(ns.Guild:Describe().characters, 2)
+    -- a roster written in a way we do not recognise (our own name not in it): nothing dropped
+    state.roster = { { name = "Somebody", online = true } }
+    Mock.fire("GUILD_ROSTER_UPDATE")
+    equal(ns.Guild:Describe().characters, 2, "not our roster's spelling: nothing dropped")
+    -- Purr Gola left: both their characters go
+    state.roster = { { name = "Thrall Smith-ClassicBetaPvE", online = true } }
+    Mock.fire("GUILD_ROSTER_UPDATE")
+    equal(ns.Guild:Describe().characters, 0, "left the guild: dropped")
+    equal(ns.Guild.stats.pruned, 2)
+    -- back in the guild; then share off
+    state.roster = { { name = "Thrall Smith", online = true }, { name = "Purr Gola", online = true } }
+    Mock.fire("GUILD_ROSTER_UPDATE")
+    for _, text in ipairs(sentA) do
+        if text:sub(1, 2) == "D;" then Mock.hear(text, "Purr Gola") end
+    end
+    Mock.slash("share off")
+    equal(#ns.Guild:Who(ns.Lookup.BySpell(WESTFALL_STEW)), 0, "off: nothing shown")
+    Mock.sent = {}
+    Mock.hear("R;1", "Purr Gola")
+    Mock.advance(20)
+    equal(#Mock.sent, 0, "off: nothing sent")
+    Mock.slash("share on")
+    equal(#ns.Guild:Who(ns.Lookup.BySpell(WESTFALL_STEW)), 1, "on again: shown")
+    Mock.slash("guild")
+    check(printed("Purr Gola"), "'/akr guild' lists them")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("guild: no guild - nothing is sent, nothing breaks, the cards look as before", function()
+    local ns = start(nil, function(state) state.learned[WESTFALL_STEW] = true end)
+    Mock.advance(20)
+    equal(#Mock.sent, 0)
+    ns.Window:Show()
+    equal(cardNamed(ns, "Charred Wolf Meat").guild, nil)
+    equal(#Mock.errors, 0)
+end)
+
 Mock.realPrint("")
 Mock.realPrint(passed .. " passed, " .. #failures .. " failed")
 if #failures > 0 then

@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- **Your guild's recipes.** Everyone in your guild who has AKForeverRecipes shares what their characters know
+  - all of them, alts too. A card says who in the guild can make it (their names, or how many when more
+  than three), a recipe you are missing that the guild knows is tagged **Guild**, and an opened card lists
+  everyone with their skill and whether they are online or when they were last seen. What a guildmate shared
+  is remembered while they are offline; somebody who leaves the guild is dropped. `/akr guild` lists who
+  shares; `/akr share off` stops sharing and showing.
+
 ## 0.1.0 - 2026-11-10
 
 The first release.

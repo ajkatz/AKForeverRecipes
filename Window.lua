@@ -40,6 +40,7 @@ local TAG = {
     quest = "|cffffff00Quest|r", drop = "|cffc79cffDrop|r", made = "|cffff9d5cCrafted|r",
     bop = "|cffff6060BoP|r", boe = "|cff40e0d0BoE|r",
     Gnomish = "|cffd0a0ffGnomish|r", Goblin = "|cffd0a0ffGoblin|r",
+    guild = "|cff40ff40Guild|r", -- a recipe you are missing that somebody in your guild knows
 }
 local BIND_WORDS = {
     bop = "binds when picked up - the character that gets it has to be the cook",
@@ -272,6 +273,10 @@ local function row(index)
     r.source = text(r, "GameFontHighlightSmall")
     r.source:SetPoint("TOPLEFT", r, "TOPLEFT", TEXT_X, -40)
     r.source:SetPoint("RIGHT", r, "RIGHT", -(SKILL_W + 12), 0)
+    -- who in the guild knows it (only when somebody does): the card grows a line
+    r.guild = text(r, "GameFontHighlightSmall")
+    r.guild:SetPoint("TOPLEFT", r, "TOPLEFT", TEXT_X, -54)
+    r.guild:SetPoint("RIGHT", r, "RIGHT", -(SKILL_W + 12), 0)
     -- the skill it needs, where an achievement has its points
     r.skill = text(r, "GameFontNormalLarge", "CENTER")
     r.skill:SetPoint("TOPRIGHT", r, "TOPRIGHT", -10, -12)
@@ -350,6 +355,11 @@ local function fillCard(r, entry)
     -- an opened card says everything in full below its name: the two summary lines would only repeat it
     r.effect:SetShown(entry.details == nil)
     r.source:SetShown(entry.details == nil)
+    r.guild:SetText(entry.guild or "")
+    r.guild:SetShown(entry.details == nil and entry.guild ~= nil)
+    if entry.details == nil and entry.guild ~= nil then
+        height = CARD_H + 14
+    end
     r.hideButton:SetShown(entry.details ~= nil and entry.hide ~= nil)
     if entry.details then
         local y = 26
@@ -504,6 +514,21 @@ local function sourceLine(sources, profName)
     return first
 end
 
+-- "Guild: Thrall, Jaina" - or "Guild: 7 can make this" when more than three do; online names bright
+local function guildLine(people)
+    if #people == 0 then
+        return nil
+    end
+    if #people > ns.Guild.SHOW_NAMES then
+        return COLOUR.dim .. "Guild: |r" .. COLOUR.known .. #people .. " can make this|r" .. COLOUR.dim .. " - open the card for who|r"
+    end
+    local names = {}
+    for _, person in ipairs(people) do
+        names[#names + 1] = ((person.online or person.viaOnline) and COLOUR.known or COLOUR.plain) .. person.name .. "|r"
+    end
+    return COLOUR.dim .. "Guild: |r" .. table.concat(names, COLOUR.dim .. ", |r")
+end
+
 -- the lines a card opens onto: the skill, every way to get it, your other characters
 local function detailLines(recipe, sources, profile, viewedKey, learned)
     local details = {}
@@ -626,6 +651,17 @@ local function detailLines(recipe, sources, profile, viewedKey, learned)
     end
     if #lacks > 0 then
         detail(details, COLOUR.dim .. "Also missing on: |r" .. table.concat(lacks, ", "), nil, true)
+    end
+    -- everyone in the guild who knows it, a line each: name and skill, online or when last seen
+    local people = ns.Guild:Who(recipe)
+    if #people > 0 then
+        detail(details, COLOUR.head .. "In your guild (" .. #people .. "):|r")
+        for _, person in ipairs(people) do
+            local on = person.online or person.viaOnline
+            detail(details, "   " .. (on and COLOUR.known or COLOUR.plain) .. person.name .. "|r"
+                .. (person.skill and (COLOUR.dim .. "  " .. profName .. " " .. person.skill .. "|r") or ""),
+                (on and COLOUR.known or COLOUR.dim) .. ns.Guild.When(person) .. "|r")
+        end
     end
     return details
 end
@@ -839,13 +875,18 @@ function Window:Lines()
                 end
                 local colour = CARD_LOOK[state][7]
                 local spell = recipe.spell
+                local people = ns.Guild:Who(recipe)
+                local tags = tagsText(recipe, sources)
+                if #people > 0 and not learned then
+                    tags = TAG.guild .. (tags ~= "" and "   " or "") .. tags
+                end
                 local entry = {
                     card = true, icon = recipe.icon, skill = recipe.learn, state = state, skillLabel = profName,
                     item = recipe.item, spell = spell, hidden = isHidden,
                     hide = function()
                         Window:SetHidden(key, spell, not isHidden)
                     end,
-                    tags = tagsText(recipe, sources),
+                    tags = tags, guild = guildLine(people),
                     text = (learned and COLOUR.known or COLOUR.head) .. recipe.name .. "|r" .. (recipe.new and (COLOUR.note .. "  new in Forever|r") or ""),
                     desc = recipe.desc and (COLOUR.dim .. recipe.desc .. "|r") or "",
                     right = colour .. (learned and "Known" or sourceLine(sources, profName)) .. "|r",
@@ -972,6 +1013,7 @@ end
 -- Opening, closing, the buttons
 ------------------------------------------------------------------------
 function Window:Show()
+    ns.Guild:AskRoster() -- who in the guild is online now
     build()
     window:Show()
     self:Render()
@@ -1084,11 +1126,13 @@ function Window:Describe()
         char = Window.char or false, prof = Window.prof or false, totals = Window.totals, filter = ns:GetOption("filter") }
 end
 
-ns:Listen("KNOWN_CHANGED", function()
-    if window and window:IsShown() then
-        Window:Render()
-    end
-end)
+for _, message in ipairs({ "KNOWN_CHANGED", "GUILD_CHANGED" }) do
+    ns:Listen(message, function()
+        if window and window:IsShown() then
+            Window:Render()
+        end
+    end)
+end
 
 ------------------------------------------------------------------------
 -- Commands
