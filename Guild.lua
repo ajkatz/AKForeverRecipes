@@ -24,6 +24,9 @@
 --                               recipe spell ids, 4 characters each
 -- Nothing goes out faster than one message a second; a throttled or locked-down message waits and goes again.
 -- The receiver checks the fingerprint of what it put together before keeping it.
+--
+-- FRIENDS (Friends.lua) speak the same words one to one; their messages go through this file's queue too, so
+-- that the one-a-second pace holds for everything AKForeverRecipes sends.
 local _, ns = ...
 
 local Guild = {}
@@ -214,32 +217,66 @@ local function spread(range)
     return range[1] + math.random() * (range[2] - range[1])
 end
 
+-- drops the waiting messages that go to this channel
+local function dropChannel(channel)
+    local kept = {}
+    for _, message in ipairs(queue) do
+        if message.channel ~= channel then
+            kept[#kept + 1] = message
+        end
+    end
+    queue = kept
+end
+
+-- one message out: the client's result (0 = sent), or "raised" / "missing"
+local function sendOne(message)
+    if message.channel == "BN" then
+        -- a Battle.net friend: no result comes back from this one
+        if type(BNSendGameData) ~= "function" then
+            return "missing"
+        end
+        local ok = pcall(BNSendGameData, message.target, PREFIX, message.text)
+        return ok and 0 or "raised"
+    end
+    local send = C_ChatInfo and C_ChatInfo.SendAddonMessage
+    if type(send) ~= "function" then
+        return "missing"
+    end
+    local ok, result = pcall(send, PREFIX, message.text, message.channel, message.target)
+    return ok and result or "raised"
+end
+
 local function pump()
     local message = queue[1]
     if not message then
         pumping = false
         return
     end
-    local send = C_ChatInfo and C_ChatInfo.SendAddonMessage
-    if type(send) ~= "function" then
-        queue = {}
-        pumping = false
-        Guild.stats.lastResult = "this client has no C_ChatInfo.SendAddonMessage"
+    local result = sendOne(message)
+    Guild.stats.lastResult = tostring(result)
+    if result == "missing" then
+        table.remove(queue, 1)
+        after(0, pump)
         return
     end
-    local ok, result = pcall(send, PREFIX, message, "GUILD")
-    result = ok and result or "raised"
-    Guild.stats.lastResult = tostring(result)
     if result == RESULT.throttle or result == RESULT.channelThrottle or result == RESULT.lockdown or result == "raised" then
         Guild.stats.retried = Guild.stats.retried + 1
+        message.tries = (message.tries or 0) + 1
+        if message.tries > 6 then
+            table.remove(queue, 1) -- (a friend who went offline meanwhile: let it go)
+        end
         after(RETRY_AFTER, pump)
         return
     end
     table.remove(queue, 1)
-    if result == RESULT.notInGuild then
-        queue = {}
+    if result == RESULT.notInGuild and message.channel == "GUILD" then
+        dropChannel("GUILD")
         Guild.stats.refused = Guild.stats.refused + 1
-        pumping = false
+        if #queue == 0 then
+            pumping = false
+        else
+            after(SEND_GAP, pump)
+        end
         return
     end
     Guild.stats.sent = Guild.stats.sent + 1
@@ -251,10 +288,7 @@ local function pump()
     end
 end
 
-local function enqueue(message)
-    if not Guild:Sharing() or not Guild:Key() then
-        return
-    end
+local function push(message)
     queue[#queue + 1] = message
     if not pumping then
         pumping = true
@@ -265,6 +299,22 @@ local function enqueue(message)
             pump()
         end
     end
+end
+
+local function enqueue(text)
+    if not Guild:Sharing() or not Guild:Key() then
+        return
+    end
+    push({ text = text, channel = "GUILD" })
+end
+
+-- for Friends.lua: a message to one person - channel "WHISPER" (target: a name) or "BN" (target: a Battle.net
+-- game account id)
+function Guild:SendTo(text, channel, target)
+    if not self:Sharing() or target == nil then
+        return
+    end
+    push({ text = text, channel = channel, target = target })
 end
 
 ------------------------------------------------------------------------
@@ -604,6 +654,11 @@ end
 
 Guild.SHOW_NAMES = SHOW_NAMES
 
+-- the wire, for Friends.lua
+Guild.wire = { PREFIX = PREFIX, WIRE = WIRE, MAX_MESSAGE = MAX_MESSAGE, SEND_GAP = SEND_GAP, describeOwn = describeOwn,
+    readMeta = readMeta, fingerprint = fingerprint, split = split, short = short, myName = myName, after = after,
+    spread = spread }
+
 -- "online", "online as Name", "seen 3 d ago"
 function Guild.When(person)
     if person.online then
@@ -643,6 +698,10 @@ function Guild:Describe()
     return { guild = self:Key() or false, sharing = self:Sharing(), characters = count, players = playerCount,
         rosterSize = rosterSize, meInRoster = Guild.roster and myName() and Guild.roster[myName()] ~= nil or false,
         queue = #queue, stats = Guild.stats }
+end
+
+function Guild:QueueLength()
+    return #queue
 end
 
 ------------------------------------------------------------------------
@@ -691,6 +750,9 @@ end)
 
 ns:On("CHAT_MSG_ADDON", function(_, prefix, text, channel, sender)
     Guild:Hear(prefix, text, channel, sender)
+    if ns.Friends then
+        ns.Friends:Hear(prefix, text, channel, sender)
+    end
 end)
 
 -- something of ours changed: told once things have settled
@@ -711,20 +773,23 @@ end)
 ------------------------------------------------------------------------
 -- Commands
 ------------------------------------------------------------------------
-ns:RegisterCommand("share", "'/akr share on | off': share your characters' recipes with your guild and see theirs (on by default)", function(rest)
+ns:RegisterCommand("share", "'/akr share on | off': share your characters' recipes with your guild and friends and see theirs (on by default)", function(rest)
     local word = string.lower(rest or "")
     if word == "off" then
         ns.db.share = false
         queue = {}
         changed()
-        ns:Print("guild sharing is off: your recipes are not sent and the guild's are not shown.")
+        ns:Print("sharing is off: your recipes are not sent, and your guild's and friends' are not shown.")
     elseif word == "on" then
         ns.db.share = nil
         changed()
         start()
-        ns:Print("guild sharing is on.")
+        if ns.Friends then
+            ns.Friends:Start()
+        end
+        ns:Print("sharing is on (guild and friends).")
     else
-        ns:Print("guild sharing is " .. (Guild:Sharing() and "on" or "off") .. ". '/akr share on' or '/akr share off'.")
+        ns:Print("sharing is " .. (Guild:Sharing() and "on" or "off") .. ". '/akr share on' or '/akr share off'.")
     end
 end)
 

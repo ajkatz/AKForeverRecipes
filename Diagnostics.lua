@@ -109,6 +109,8 @@ function Diagnostics:Collect()
         known = ns.Known:Describe(),
         window = ns.Window:Describe(),
         guild = ns.Guild and ns.Guild:Describe() or nil,
+        friends = ns.Friends and ns.Friends:Describe() or nil,
+        locks = ns.Locks and ns.Locks:Describe() or nil,
         vendorsSeen = db.vendors,
         errors = {},
         blockedActions = ns.blockedActions,

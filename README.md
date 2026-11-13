@@ -54,6 +54,21 @@ who leaves the guild is dropped. It talks over hidden addon messages to your gui
 most, and only sends a character when a guildmate's copy is out of date. `/akr guild` lists who shares;
 `/akr share off` stops both sharing and seeing (`/akr share on` turns it back on).
 
+## Lockpicking
+
+A rogue gets a **Lockpicking** tab next to its professions: every lockbox, junkbox, fished chest, footlocker,
+dungeon chest and door, in the order of the skill it needs, with where to find it, the key that opens a door
+instead, and whether this rogue can open it now. The skills are Classic's (Forever has published none) unless
+the game's own tooltip names one - the card says which.
+
+## Your friends
+
+Friends who have AKForeverRecipes share the same way - your in-game friends list (hidden whispers, while they
+are online) and Battle.net friends in the game. Only people on your friends list get yours, and only theirs
+are taken. An opened card lists them under **Your friends**, a recipe you are missing that a friend knows is
+tagged **Friend**, and somebody who is both a friend and in your guild shows under the guild. `/akr friends`
+lists who shares; `/akr share off` covers friends too.
+
 `/akr find <recipe, place or NPC>` searches every profession and prints to chat. `/akr diag` saves a report
 into the settings file.
 

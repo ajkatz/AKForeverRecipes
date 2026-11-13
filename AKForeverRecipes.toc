@@ -24,5 +24,7 @@ Data\Mining.lua
 Lookup.lua
 Known.lua
 Guild.lua
+Friends.lua
+Locks.lua
 Window.lua
 Diagnostics.lua

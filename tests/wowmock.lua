@@ -16,7 +16,7 @@ local REAL_PRINT = print
 local ADDON = "AKForeverRecipes"
 local FILES = { "Core.lua", "Data.lua", "Data/Training.lua", "Data/Alchemy.lua", "Data/Blacksmithing.lua", "Data/Enchanting.lua", "Data/Engineering.lua",
     "Data/Leatherworking.lua", "Data/Tailoring.lua", "Data/Cooking.lua", "Data/FirstAid.lua", "Data/Mining.lua",
-    "Lookup.lua", "Known.lua", "Guild.lua", "Window.lua", "Diagnostics.lua" }
+    "Lookup.lua", "Known.lua", "Guild.lua", "Friends.lua", "Locks.lua", "Window.lua", "Diagnostics.lua" }
 
 Mock.SECRET = setmetatable({}, { __tostring = function() return "<SECRET>" end })
 
@@ -191,6 +191,18 @@ function Mock.install(options)
         return state.faction, state.faction
     end)
 
+    -- the class (options.class, a token like "ROGUE"); the game's item tooltips (options.tooltips =
+    -- { [item id] = { "line", ... } })
+    state.class, state.tooltips = options.class or "MAGE", options.tooltips or {}
+    global("UnitClass", function(unit) return "Class", state.class, 1 end)
+    state.level = options.level or 30
+    global("UnitLevel", function(unit) return state.level end)
+    global("C_TooltipInfo", { GetItemByID = function(id)
+        local lines = {}
+        for _, text in ipairs(state.tooltips[id] or { "Locked" }) do lines[#lines + 1] = { leftText = text } end
+        return { lines = lines }
+    end })
+
     -- the trade skill API
     local tradeSkill = {
     }
@@ -262,19 +274,44 @@ function Mock.install(options)
     end })
     global("C_ChatInfo", {
         RegisterAddonMessagePrefix = function(prefix) state.prefix = prefix; return true end,
-        SendAddonMessage = function(prefix, text, channel)
+        SendAddonMessage = function(prefix, text, channel, target)
             assert(#text <= 255, "an addon message over 255 characters: " .. #text)
             local result = table.remove(Mock.sendResults, 1)
             if result and result ~= 0 then
                 return result
             end
-            if not state.guild then
+            if channel == "GUILD" and not state.guild then
                 return 10
             end
-            Mock.sent[#Mock.sent + 1] = { prefix = prefix, text = text, channel = channel, at = state.now }
+            Mock.sent[#Mock.sent + 1] = { prefix = prefix, text = text, channel = channel, target = target, at = state.now }
             return 0
         end,
     })
+
+    -- friends: options.friends = { { name, online } } (the character list); options.bnFriends =
+    -- { { tag, id, character, online } } (Battle.net friends; id = the game account, character = who they play)
+    state.friends, state.bnFriends = options.friends or {}, options.bnFriends or {}
+    global("C_FriendList", {
+        GetNumFriends = function() return #state.friends end,
+        GetFriendInfoByIndex = function(i)
+            local friend = state.friends[i]
+            return friend and { name = friend.name, connected = friend.online } or nil
+        end,
+        ShowFriends = function() state.friendsAsked = (state.friendsAsked or 0) + 1 end,
+    })
+    global("BNGetNumFriends", function() return #state.bnFriends end)
+    global("BNConnected", function() return true end)
+    global("BNET_CLIENT_WOW", "WoW")
+    global("C_BattleNet", { GetFriendAccountInfo = function(i)
+        local friend = state.bnFriends[i]
+        if not friend then return nil end
+        return { battleTag = friend.tag, gameAccountInfo = friend.online and { gameAccountID = friend.id,
+            isOnline = true, clientProgram = "WoW", characterName = friend.character } or {} }
+    end })
+    global("BNSendGameData", function(id, prefix, text)
+        assert(#text <= 255, "game data over 255 characters: " .. #text)
+        Mock.sent[#Mock.sent + 1] = { prefix = prefix, text = text, channel = "BN", target = id, at = state.now }
+    end)
 
     global("AKForeverRecipesDB", options.db)
 
@@ -361,6 +398,25 @@ end
 -- an addon message heard over GUILD from somebody
 function Mock.hear(text, sender, prefix)
     Mock.fire("CHAT_MSG_ADDON", prefix or "AKFR", text, "GUILD", sender)
+end
+
+-- an addon whisper from somebody; Battle.net game data from a game account
+function Mock.whisper(text, sender, prefix)
+    Mock.fire("CHAT_MSG_ADDON", prefix or "AKFR", text, "WHISPER", sender)
+end
+function Mock.bnHear(text, account, prefix)
+    Mock.fire("BN_CHAT_MSG_ADDON", prefix or "AKFR", text, "WHISPER", account)
+end
+
+-- what went to one target (a name or a game account), as texts
+function Mock.sentTo(target, kind)
+    local list = {}
+    for _, message in ipairs(Mock.sent) do
+        if message.target == target and (not kind or message.text:sub(1, #kind + 1) == kind .. ";") then
+            list[#list + 1] = message.text
+        end
+    end
+    return list
 end
 
 -- what we sent, as texts; kind: only those starting with "H;" etc.

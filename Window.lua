@@ -41,6 +41,7 @@ local TAG = {
     bop = "|cffff6060BoP|r", boe = "|cff40e0d0BoE|r",
     Gnomish = "|cffd0a0ffGnomish|r", Goblin = "|cffd0a0ffGoblin|r",
     guild = "|cff40ff40Guild|r", -- a recipe you are missing that somebody in your guild knows
+    friend = "|cff66ccffFriend|r", -- ... that a friend of yours knows
 }
 local BIND_WORDS = {
     bop = "binds when picked up - the character that gets it has to be the cook",
@@ -158,6 +159,11 @@ local function build()
         end)
         w.tabs[key]:Hide()
     end
+    -- Lockpicking (Locks.lua): a tab of its own, offered to rogues
+    w.tabs[ns.Locks.KEY] = button(window, ns.Locks.meta.name, 100, function()
+        Window:SetProfession(ns.Locks.KEY)
+    end)
+    w.tabs[ns.Locks.KEY]:Hide()
 
     w.scroll:SetPoint("TOPLEFT", window, "TOPLEFT", PAD, -74)
     w.scroll:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -PAD - 20, 44)
@@ -514,19 +520,33 @@ local function sourceLine(sources, profName)
     return first
 end
 
--- "Guild: Thrall, Jaina" - or "Guild: 7 can make this" when more than three do; online names bright
-local function guildLine(people)
+-- "Guild: Thrall, Jaina" - or "Guild: 7 can make this" when more than three do; online names bright. Friends
+-- the same after it on the one line: "Guild: Thrall   Friends: Jaina".
+local function peoplePart(word, people)
     if #people == 0 then
-        return nil
+        return nil, false
     end
     if #people > ns.Guild.SHOW_NAMES then
-        return COLOUR.dim .. "Guild: |r" .. COLOUR.known .. #people .. " can make this|r" .. COLOUR.dim .. " - open the card for who|r"
+        return COLOUR.dim .. word .. ": |r" .. COLOUR.known .. #people .. " can make this|r", true
     end
     local names = {}
     for _, person in ipairs(people) do
         names[#names + 1] = ((person.online or person.viaOnline) and COLOUR.known or COLOUR.plain) .. person.name .. "|r"
     end
-    return COLOUR.dim .. "Guild: |r" .. table.concat(names, COLOUR.dim .. ", |r")
+    return COLOUR.dim .. word .. ": |r" .. table.concat(names, COLOUR.dim .. ", |r"), false
+end
+
+local function guildLine(people, friends)
+    local guildPart, guildCounted = peoplePart("Guild", people)
+    local friendPart, friendCounted = peoplePart("Friends", friends or {})
+    if not guildPart and not friendPart then
+        return nil
+    end
+    local line = guildPart and friendPart and (guildPart .. "   " .. friendPart) or guildPart or friendPart
+    if guildCounted or friendCounted then
+        line = line .. COLOUR.dim .. " - open the card for who|r"
+    end
+    return line
 end
 
 -- the lines a card opens onto: the skill, every way to get it, your other characters
@@ -663,6 +683,17 @@ local function detailLines(recipe, sources, profile, viewedKey, learned)
                 (on and COLOUR.known or COLOUR.dim) .. ns.Guild.When(person) .. "|r")
         end
     end
+    -- and every friend who knows it, the same way
+    local friends = ns.Friends and ns.Friends:Who(recipe) or {}
+    if #friends > 0 then
+        detail(details, COLOUR.head .. "Your friends (" .. #friends .. "):|r")
+        for _, person in ipairs(friends) do
+            local on = person.online or person.viaOnline
+            detail(details, "   " .. (on and COLOUR.known or COLOUR.plain) .. person.name .. "|r"
+                .. (person.skill and (COLOUR.dim .. "  " .. profName .. " " .. person.skill .. "|r") or ""),
+                (on and COLOUR.known or COLOUR.dim) .. ns.Guild.When(person) .. "|r")
+        end
+    end
     return details
 end
 
@@ -686,6 +717,10 @@ function Window:ViewedProfession(profile)
     local own = {}
     for _, key in ipairs(offered) do
         own[key] = true
+    end
+    if ns.Locks.Offered(profile) then
+        offered[#offered + 1] = ns.Locks.KEY -- a rogue's Lockpicking, after its professions
+        own[ns.Locks.KEY] = true
     end
     for _, key in ipairs(Lookup.Professions()) do
         if not own[key] then
@@ -736,6 +771,9 @@ local function rankWays(rank, side, profName)
     return ways
 end
 
+-- the character level a rank asks for, by the cap it gives - Classic's (Forever's are not written down)
+local RANK_LEVEL = { [150] = 10, [225] = 20, [300] = 35 }
+
 local function trainingCard(prof, profile, side)
     local training = Lookup.Training(prof)
     if not training then
@@ -763,9 +801,14 @@ local function trainingCard(prof, profile, side)
         state = "plain"
     elseif nextRank then
         title = COLOUR.head .. nextRank.name .. " " .. profName .. "|r" .. COLOUR.dim .. "  raises your skill cap to " .. nextRank.cap .. "|r"
-        local ready = skill and nextRank.needs and skill >= nextRank.needs
+        local level = type(profile.level) == "number" and profile.level or nil
+        local needsLevel = RANK_LEVEL[nextRank.cap]
+        local levelOK = not needsLevel or not level or level >= needsLevel
+        local ready = skill and nextRank.needs and skill >= nextRank.needs and levelOK
         desc = COLOUR.dim .. "Your cap is " .. max .. (reached and (" (" .. reached.name .. ")") or "") .. "."
-            .. (nextRank.needs and ("  It can be learned at " .. profName .. " " .. nextRank.needs .. ".") or "") .. "|r"
+            .. (nextRank.needs and ("  It can be learned at " .. profName .. " " .. nextRank.needs
+                .. (needsLevel and (" and level " .. needsLevel) or "") .. ".") or "") .. "|r"
+            .. ((needsLevel and level and not levelOK) and (COLOUR.unknown .. "  You are level " .. level .. ".|r") or "")
         state = ready and "now" or "later"
     elseif max then
         title = COLOUR.known .. profName .. " training|r"
@@ -799,8 +842,17 @@ local function trainingCard(prof, profile, side)
             if max and max >= rank.cap then
                 done[#done + 1] = rank.name
             else
+                local needsLevel = RANK_LEVEL[rank.cap]
                 detail(details, COLOUR.head .. rank.name .. "|r" .. COLOUR.dim .. "  skill cap " .. rank.cap .. "|r",
                     rank.needs and (COLOUR.dim .. "at " .. profName .. " " .. rank.needs .. "|r") or "")
+                -- the level it asks for, a line of its own (the user, 2026-11-12: not seen in an opened card
+                -- when it rode on the rank's line)
+                if needsLevel then
+                    local level = type(profile.level) == "number" and profile.level or nil
+                    local short = level and level < needsLevel
+                    detail(details, (short and COLOUR.unknown or COLOUR.dim) .. "Needs character level " .. needsLevel
+                        .. (short and (" - you are level " .. level) or "") .. "|r" .. COLOUR.dim .. "  (as in Classic)|r")
+                end
                 local ways = rankWays(rank, side, profName)
                 for _, way in ipairs(ways) do
                     detail(details, way[1], way[2])
@@ -832,6 +884,21 @@ function Window:Lines()
     local key = self:ViewedKey()
     local profile = Known:Profile(key)
     local prof, offered = self:ViewedProfession(profile)
+    if prof == ns.Locks.KEY then
+        local filter = ns:GetOption("filter")
+        Window.lockOpen = Window.lockOpen or {}
+        local locks, totals = ns.Locks:Lines(profile, filter, Window.query, Window.lockOpen, COLOUR, function()
+            Window:Render()
+        end)
+        Window.totals = { total = totals.total, known = totals.known, shown = totals.shown, hidden = 0, filter = filter,
+            key = key, prof = prof, offered = offered, skill = totals.skill }
+        if totals.shown == 0 then
+            locks[#locks + 1] = { note = COLOUR.dim .. ((Window.query or "") ~= "" and ("Nothing matches \"" .. Window.query .. "\".")
+                or filter == "missing" and "Every lock here opens for you." or filter == "known" and "No lock opens for you yet."
+                or "Nothing is hidden here.") .. "|r" }
+        end
+        return locks
+    end
     local profName = Lookup.ProfessionName(prof)
     local side, skill = profile.side, (Known:Skill(profile, prof))
     local filter = ns:GetOption("filter")
@@ -876,7 +943,11 @@ function Window:Lines()
                 local colour = CARD_LOOK[state][7]
                 local spell = recipe.spell
                 local people = ns.Guild:Who(recipe)
+                local friends = ns.Friends and ns.Friends:Who(recipe) or {}
                 local tags = tagsText(recipe, sources)
+                if #friends > 0 and not learned then
+                    tags = TAG.friend .. (tags ~= "" and "   " or "") .. tags
+                end
                 if #people > 0 and not learned then
                     tags = TAG.guild .. (tags ~= "" and "   " or "") .. tags
                 end
@@ -886,7 +957,7 @@ function Window:Lines()
                     hide = function()
                         Window:SetHidden(key, spell, not isHidden)
                     end,
-                    tags = tags, guild = guildLine(people),
+                    tags = tags, guild = guildLine(people, friends),
                     text = (learned and COLOUR.known or COLOUR.head) .. recipe.name .. "|r" .. (recipe.new and (COLOUR.note .. "  new in Forever|r") or ""),
                     desc = recipe.desc and (COLOUR.dim .. recipe.desc .. "|r") or "",
                     right = colour .. (learned and "Known" or sourceLine(sources, profName)) .. "|r",
@@ -922,6 +993,10 @@ local function infoText()
     local totals = Window.totals or { total = 0, known = 0, shown = 0 }
     local key = totals.key
     local profile = Known:Profile(key)
+    if totals.prof == ns.Locks.KEY then
+        return COLOUR.head .. Known.ShortName(key) .. "|r: opens " .. COLOUR.known .. totals.known .. "|r of " .. totals.total .. " locks   "
+            .. (totals.skill and ("Lockpicking " .. totals.skill) or (COLOUR.dim .. "Lockpicking skill not read yet|r"))
+    end
     local profName = Lookup.ProfessionName(totals.prof)
     local parts = { COLOUR.head .. Known.ShortName(key) .. "|r: " .. COLOUR.known .. totals.known .. "|r of " .. totals.total .. " " .. profName .. " recipes known" }
     local skill, max = Known:Skill(profile, totals.prof)
@@ -982,10 +1057,12 @@ function Window:Render()
     for _, key in ipairs(offered) do
         offeredSet[key] = true
         local tab = widgets.tabs[key]
-        local meta = Lookup.Profession(key)
+        local meta = Lookup.Profession(key) or ns.Locks.meta
         tab:SetWidth(tabWidth)
         local label = tabWidth < 96 and meta.short or meta.name
-        tab:SetText(Known:Has(Known:Profile(Window.totals.key), key) and label or (COLOUR.dim .. label .. "|r"))
+        local viewed = Known:Profile(Window.totals.key)
+        local has = key == ns.Locks.KEY or Known:Has(viewed, key)
+        tab:SetText(has and label or (COLOUR.dim .. label .. "|r"))
         tab:ClearAllPoints()
         if previous then
             tab:SetPoint("LEFT", previous, "RIGHT", 2, 0)
@@ -1014,6 +1091,9 @@ end
 ------------------------------------------------------------------------
 function Window:Show()
     ns.Guild:AskRoster() -- who in the guild is online now
+    if ns.Friends then
+        ns.Friends:ReadList() -- and which friends
+    end
     build()
     window:Show()
     self:Render()
@@ -1089,7 +1169,7 @@ function Window:HideTooltip()
 end
 
 function Window:SetProfession(key)
-    if Lookup.Profession(key) then
+    if Lookup.Profession(key) or key == ns.Locks.KEY then
         Window.prof = key
         if self:ViewedKey() == ns.characterKey then
             ns:SetOption("prof", key) -- where your own character's window opens next time
@@ -1126,7 +1206,7 @@ function Window:Describe()
         char = Window.char or false, prof = Window.prof or false, totals = Window.totals, filter = ns:GetOption("filter") }
 end
 
-for _, message in ipairs({ "KNOWN_CHANGED", "GUILD_CHANGED" }) do
+for _, message in ipairs({ "KNOWN_CHANGED", "GUILD_CHANGED", "FRIENDS_CHANGED" }) do
     ns:Listen(message, function()
         if window and window:IsShown() then
             Window:Render()

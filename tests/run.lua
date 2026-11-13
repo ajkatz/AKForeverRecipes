@@ -333,7 +333,7 @@ scenario("the first card of a profession is its training: where the next rank is
     local card = ns.Window.lines[1]
     check(card.training, "the training card is not first")
     equal(Mock.plain(card.text), "Expert Cooking  raises your skill cap to 225")
-    equal(Mock.plain(card.desc), "Your cap is 150 (Journeyman).  It can be learned at Cooking 125.")
+    equal(Mock.plain(card.desc), "Your cap is 150 (Journeyman).  It can be learned at Cooking 125 and level 20.")
     equal(Mock.plain(card.right), "Book: Expert Cookbook - Shandrina, Ashenvale")
     equal(card.state, "now", "skill 130 is enough for a rank that asks for 125"); equal(card.skill, 150); equal(card.skillLabel, "skill cap")
     local frame = Mock.cards()[1].frame
@@ -1377,6 +1377,234 @@ scenario("guild: no guild - nothing is sent, nothing breaks, the cards look as b
     equal(#Mock.sent, 0)
     ns.Window:Show()
     equal(cardNamed(ns, "Charred Wolf Meat").guild, nil)
+    equal(#Mock.errors, 0)
+end)
+
+------------------------------------------------------------------------
+-- Friends
+------------------------------------------------------------------------
+-- Purr Gola's client, no guild, Thrall Smith on its friends list: what it says to Thrall when Thrall says R
+-- and then asks for both characters. Gives back those texts.
+local function friendA(how)
+    local db = { schema = 2, chars = { ["Purr Smith - ClassicBetaPvE"] = {
+        learned = { [SHARPENING_STONE] = 1 }, skills = { blacksmithing = { skill = 90, max = 150 } }, profs = { blacksmithing = true }, side = "A", options = {} } } }
+    local ns = start({ db = db, friends = { { name = "Thrall Smith", online = true } } }, function(state)
+        state.learned[WESTFALL_STEW] = true
+        state.learned[CHARRED_WOLF] = true
+        state.skill = { level = 120, max = 150 }
+    end)
+    Mock.advance(12)
+    Mock.whisper("R;1", "Thrall Smith")
+    Mock.advance(6)
+    for _, hello in ipairs(Mock.sentTo("Thrall Smith", "H")) do
+        local fp, key = hello:match("^H;1;([^;]+);(.+)$")
+        Mock.whisper("Q;" .. fp .. ";" .. key, "Thrall Smith")
+    end
+    Mock.advance(30)
+    return Mock.sentTo("Thrall Smith"), ns
+end
+
+scenario("friends: at login one 'R' to each friend online who is not in the guild - by hidden whisper, never to an offline friend; a stranger's whisper is ignored", function()
+    local ns = start({ guild = GUILD, roster = { { name = "Thrall Smith", online = true }, { name = "Guild Mate", online = true } },
+        friends = { { name = "Jaina Proud", online = true }, { name = "Sleepy Head", online = false }, { name = "Guild Mate", online = true } } })
+    Mock.advance(12)
+    equal(table.concat(Mock.sentTo("Jaina Proud"), "|"), "R;1", "the friend online")
+    equal(#Mock.sentTo("Sleepy Head"), 0, "offline: no whisper (the client would complain in chat)")
+    equal(#Mock.sentTo("Guild Mate"), 0, "in the guild: hears it there")
+    for _, message in ipairs(Mock.sent) do
+        if message.target == "Jaina Proud" then equal(message.channel, "WHISPER") end
+    end
+    Mock.whisper("H;1;AAAAAAAA;Evil Guy - ClassicBetaPvE", "Evil Guy")
+    Mock.advance(5)
+    equal(ns.Friends.stats.strangers, 1)
+    equal(#Mock.sentTo("Evil Guy"), 0, "nothing back to a stranger")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("friends: a friend's characters arrive by whisper - tagged Friend, 'Friends: Purr Gola' on the card, 'Your friends (1)' in the opened card; both sides know each other after one R", function()
+    local sentA = friendA()
+    local hellosA = {}
+    for _, text in ipairs(sentA) do if text:sub(1, 2) == "H;" then hellosA[#hellosA + 1] = text end end
+    equal(#hellosA, 2, "Purr Gola's cook and blacksmith")
+    local ns = start({ first = "Thrall", last = "Smith", friends = { { name = "Purr Gola", online = true } } })
+    Mock.advance(12)
+    Mock.sent = {}
+    for _, text in ipairs(hellosA) do Mock.whisper(text, "Purr Gola") end
+    Mock.advance(5)
+    equal(#Mock.sentTo("Purr Gola", "Q"), 2, "both asked for, straight back")
+    check(#Mock.sentTo("Purr Gola", "H") >= 1, "their first hello: ours go back to them")
+    for _, text in ipairs(sentA) do if text:sub(1, 2) == "D;" then Mock.whisper(text, "Purr Gola") end end
+    equal(ns.Friends.stats.taken, 2); equal(ns.Friends.stats.badFingerprint, 0)
+    ns.Window:Show()
+    local stew = cardNamed(ns, "Westfall Stew")
+    check(Mock.plain(stew.tags):find("^Friend"), Mock.plain(stew.tags))
+    equal(Mock.plain(stew.guild), "Friends: Purr Gola")
+    stew.click()
+    local rows = Mock.rows()
+    check(has(rows, "Your friends (1):"), table.concat(rows, "\n"))
+    check(has(rows, "Purr Gola  Cooking 120 | online"), table.concat(rows, "\n"))
+    check(not has(rows, "In your guild"), "no guild section")
+    -- off the friends list: dropped
+    Mock.state.friends = {}
+    Mock.fire("FRIENDLIST_UPDATE")
+    equal(#ns.Friends:Who(ns.Lookup.BySpell(WESTFALL_STEW)), 1, "an empty list may be one not loaded yet: kept")
+    Mock.state.friends = { { name = "Someone Else", online = false } }
+    Mock.fire("FRIENDLIST_UPDATE")
+    equal(#ns.Friends:Who(ns.Lookup.BySpell(WESTFALL_STEW)), 0, "no longer a friend: dropped")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("friends: a Battle.net friend - R and the answers go as game data to their game account; data from an account that is no friend is ignored", function()
+    local sentA = friendA()
+    local ns = start({ first = "Thrall", last = "Smith", bnFriends = { { tag = "Purr#1234", id = 77, character = "Purr Gola", online = true },
+        { tag = "Away#1", id = 78, character = "Gone", online = false } } })
+    Mock.advance(12)
+    equal(table.concat(Mock.sentTo(77), "|"), "R;1", "to the game account")
+    equal(#Mock.sentTo(78), 0, "not in the game: nothing")
+    for _, message in ipairs(Mock.sent) do
+        if message.target == 77 then equal(message.channel, "BN") end
+    end
+    Mock.sent = {}
+    for _, text in ipairs(sentA) do if text:sub(1, 2) == "H;" then Mock.bnHear(text, 77) end end
+    Mock.advance(5)
+    equal(#Mock.sentTo(77, "Q"), 2)
+    for _, text in ipairs(sentA) do if text:sub(1, 2) == "D;" then Mock.bnHear(text, 77) end end
+    equal(ns.Friends.stats.taken, 2)
+    equal(ns.Friends:Store()["Purr Gola - ClassicBetaPvE"].tag, "Purr#1234", "remembered by BattleTag")
+    Mock.bnHear("R;1", 99)
+    equal(ns.Friends.stats.strangers, 1)
+    -- a friend who is in the guild too shows under the guild only
+    equal(#ns.Friends:Who(ns.Lookup.BySpell(WESTFALL_STEW)), 1)
+    equal(#Mock.errors, 0)
+end)
+
+scenario("friends: '/akr share off' sends nothing to friends and shows nothing; on again, the R goes out", function()
+    local ns = start({ friends = { { name = "Jaina Proud", online = true } } }, function() end)
+    Mock.slash("share off")
+    Mock.advance(12)
+    equal(#Mock.sentTo("Jaina Proud"), 0)
+    Mock.whisper("R;1", "Jaina Proud")
+    Mock.advance(6)
+    equal(#Mock.sentTo("Jaina Proud"), 0, "off: no answer either")
+    Mock.slash("share on")
+    Mock.advance(2)
+    equal(table.concat(Mock.sentTo("Jaina Proud"), "|"), "R;1")
+    Mock.slash("friends")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("friends: a tampered dump from a friend is not kept", function()
+    local sentA = friendA()
+    local ns = start({ first = "Thrall", last = "Smith", friends = { { name = "Purr Gola", online = true } } })
+    Mock.advance(12)
+    for _, text in ipairs(sentA) do
+        if text:sub(1, 2) == "D;" then
+            Mock.whisper((text:gsub("cooking:120:150", "cooking:300:300")), "Purr Gola")
+        end
+    end
+    equal(ns.Friends.stats.taken, 1, "only the untouched blacksmith")
+    equal(ns.Friends.stats.badFingerprint, 1)
+end)
+
+------------------------------------------------------------------------
+-- Lockpicking
+------------------------------------------------------------------------
+local function lockCard(ns, name)
+    for _, entry in ipairs(ns.Window:Lines()) do
+        if entry.card and Mock.plain(entry.text) == name then return entry end
+    end
+end
+
+scenario("lockpicking: a rogue gets a Lockpicking tab - every lock by the skill it needs, which open now, how much more the others need; the other faction's quest chests left out", function()
+    local ns = start({ class = "ROGUE" }, function(state) state.skills[633] = { level = 130, max = 150 } end)
+    equal(ns.db.chars[ns.characterKey].lockpick.skill, 130, "the skill read and kept")
+    ns.Window:Show()
+    check(has(ns.Window.totals.offered, "lockpicking"), "the tab is offered")
+    ns.Window:SetProfession("lockpicking")
+    ns:SetOption("filter", "all")
+    local iron, steel = lockCard(ns, "Iron Lockbox"), lockCard(ns, "Steel Lockbox")
+    equal(Mock.plain(iron.right), "You can open it"); equal(iron.state, "known"); equal(iron.skill, 70)
+    equal(Mock.plain(steel.right), "45 more skill"); equal(steel.state, "later")
+    check(Mock.plain(steel.tags):find("as in Classic"), "Classic's number: said so")
+    check(lockCard(ns, "Lucius's Lockbox") ~= nil, "an Alliance rogue's quest chest")
+    check(lockCard(ns, "Gallywix's Lockbox") == nil, "the Horde one left out")
+    local first, last = nil, nil
+    for _, entry in ipairs(ns.Window:Lines()) do
+        if entry.card then first = first or entry.skill; check(entry.skill >= (last or 0), "in skill order"); last = entry.skill end
+    end
+    equal(first, 1)
+    -- opened: where, the key, the skill
+    iron.click()
+    iron = lockCard(ns, "Scarlet Monastery Armory Door")
+    iron.click()
+    local door = lockCard(ns, "Scarlet Monastery Armory Door")
+    local text = {}
+    for _, d in ipairs(door.details) do text[#text + 1] = Mock.plain(d.text) end
+    check(has(text, "Or open it with: The Scarlet Key"), table.concat(text, "\n"))
+    check(has(text, "Your skill: 130"))
+    -- the filter: missing ones only
+    ns:SetOption("filter", "missing")
+    check(lockCard(ns, "Iron Lockbox") == nil and lockCard(ns, "Steel Lockbox") ~= nil, "missing: the ones it cannot open yet")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("lockpicking: the game's tooltip naming the skill wins over Classic's number; somebody who is no rogue gets no tab", function()
+    local ns = start({ class = "ROGUE", tooltips = { [4634] = { "Iron Lockbox", "Locked", "Requires Lockpicking (80)" } } },
+        function(state) state.skills[633] = { level = 75, max = 150 } end)
+    ns.Window:Show()
+    ns.Window:SetProfession("lockpicking")
+    local iron = lockCard(ns, "Iron Lockbox")
+    equal(iron.skill, 80, "read from the game")
+    equal(Mock.plain(iron.right), "5 more skill")
+    check(not Mock.plain(iron.tags):find("as in Classic"), Mock.plain(iron.tags))
+    local mage = start({ class = "MAGE" })
+    mage.Window:Show()
+    check(not has(mage.Window.totals.offered, "lockpicking"), "no tab for a mage")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("training: a rank the character's level is too low for is not ready - 'and level 20', 'You are level 13'", function()
+    local ns = start({ faction = "Alliance", level = 13 }, function(state)
+        state.skill = { level = 130, max = 150 }
+    end)
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.cooking:Click()
+    local card = ns.Window.lines[1]
+    equal(Mock.plain(card.desc), "Your cap is 150 (Journeyman).  It can be learned at Cooking 125 and level 20.  You are level 13.")
+    equal(card.state, "later", "skill enough, level not")
+    card.click()
+    local rows = {}
+    for _, d in ipairs(ns.Window.lines[1].details) do rows[#rows + 1] = Mock.plain(d.text) end
+    check(has(rows, "Needs character level 20 - you are level 13"), table.concat(rows, "\n"))
+    check(has(rows, "Needs character level 35"), "Artisan too")
+    Mock.state.level = 20
+    Mock.fire("PLAYER_LEVEL_UP", 20)
+    ns.Window:Render()
+    equal(ns.Window.lines[1].state, "now", "level 20: ready")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("one faction's recipe: a Horde tailor who knows the Horde Faction Banner is not shown the Alliance one as missing", function()
+    local HORDE_BANNER, ALLIANCE_BANNER = 1229504, 1263425
+    local ns = start({ faction = "Horde" }, function(state)
+        state.skills[197] = { level = 60, max = 75 }
+        state.learned[HORDE_BANNER] = true
+    end)
+    ns.Lookup.BuildAll()
+    check(ns.Lookup.Sources(ns.Lookup.BySpell(ALLIANCE_BANNER), "H").otherSide, "the Alliance banner is the other side's")
+    check(not ns.Lookup.Sources(ns.Lookup.BySpell(HORDE_BANNER), "H").otherSide)
+    check(ns.Lookup.Sources(ns.Lookup.BySpell(HORDE_BANNER), "A").otherSide, "and the other way round")
+    Mock.slash("show all")
+    ns.Window:SetProfession("tailoring")
+    ns:SetOption("filter", "all")
+    local banners = 0
+    for _, entry in ipairs(ns.Window:Lines()) do
+        if entry.card and Mock.plain(entry.text):find("^Faction Banner") then
+            banners = banners + 1
+            check(Mock.plain(entry.right) == "Known", "the one listed is the known one: " .. Mock.plain(entry.right))
+        end
+    end
+    equal(banners, 1)
     equal(#Mock.errors, 0)
 end)
 

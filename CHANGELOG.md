@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.3.0 - 2026-11-12
+
+- **Your friends' recipes.** Friends who have AKForeverRecipes share theirs with you and you with them - both
+  your in-game friends list and Battle.net friends in the game. Mutual only: it goes to people on your friends
+  list and is taken only from them. Opened cards list them under **Your friends**, missing recipes a friend
+  knows are tagged **Friend**, and the card line adds "Friends: ...". Friends in your guild show under the
+  guild. `/akr friends` lists who shares; `/akr share off` covers friends too.
+- **Lockpicking.** Rogues get a Lockpicking tab: every lockbox, junkbox, fished chest, footlocker, dungeon chest
+  and door, the skill it needs, where it is (and the key that opens a door instead), and whether your rogue can
+  open it now or how much more skill it needs. The numbers are Classic's until the game's own tooltip names
+  one; a card says which.
+- **Skill cap ranks say the level they need** (Journeyman 10, Expert 20, Artisan 35 - Classic's; Forever's are
+  not written down): a rank your character is too low for is no longer shown as ready, and the card says
+  your level.
+- **Fixed: the other faction's Faction Banner showed as missing.** A recipe whose text says it is for one
+  faction's members is now that faction's only.
+
 ## 0.2.0 - 2026-11-11
 
 - **Your guild's recipes.** Everyone in your guild who has AKForeverRecipes shares what their characters know

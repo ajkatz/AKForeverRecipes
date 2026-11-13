@@ -352,7 +352,22 @@ end
 ------------------------------------------------------------------------
 -- Events
 ------------------------------------------------------------------------
+local function readLevel(level)
+    if level == nil and type(UnitLevel) == "function" then
+        level = UnitLevel("player")
+    end
+    level = ns.ReadableNumber(level)
+    if level and level > 0 and ns.cdb then
+        ns.cdb.level = level
+    end
+end
+
+ns:On("PLAYER_LEVEL_UP", function(_, level)
+    readLevel(level)
+end)
+
 ns:Listen("LOGIN", function()
+    readLevel()
     Known:BuildAccount()
     Known:Scan("auto")
     -- a cold login: the client may not have the trade skill data yet; once more, a little later

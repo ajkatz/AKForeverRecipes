@@ -170,6 +170,10 @@ function Lookup.Sources(recipe, side)
     local listed = (recipe.vendors and #recipe.vendors > 0) or (recipe.quests and #recipe.quests > 0)
     sources.unknown = not sources.any and not listed
     sources.otherSide = not sources.any and listed and true or false
+    if recipe.side and side and recipe.side ~= side then
+        -- the other faction's own recipe (Data.lua: its text says so)
+        sources.any, sources.unknown, sources.otherSide = false, false, true
+    end
     return sources
 end
 

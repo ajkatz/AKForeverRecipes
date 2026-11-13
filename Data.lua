@@ -62,6 +62,14 @@ function Data.Recipes(key)
         loader(function(recipe)
             recipe.prof = key
             local stats = recipe.stats and table.concat(recipe.stats, ", ") or nil
+            -- for one faction only, by its own words ("... other members of the Horde ...")
+            if not recipe.side and stats then
+                if string.find(stats, "members of the Horde", 1, true) then
+                    recipe.side = "H"
+                elseif string.find(stats, "members of the Alliance", 1, true) then
+                    recipe.side = "A"
+                end
+            end
             if recipe.kind and stats then
                 recipe.desc = recipe.kind .. " - " .. stats
             else
