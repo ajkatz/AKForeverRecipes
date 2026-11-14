@@ -16,7 +16,7 @@ local REAL_PRINT = print
 local ADDON = "AKForeverRecipes"
 local FILES = { "Core.lua", "Data.lua", "Data/Training.lua", "Data/Alchemy.lua", "Data/Blacksmithing.lua", "Data/Enchanting.lua", "Data/Engineering.lua",
     "Data/Leatherworking.lua", "Data/Tailoring.lua", "Data/Cooking.lua", "Data/FirstAid.lua", "Data/Mining.lua",
-    "Lookup.lua", "Known.lua", "Guild.lua", "Friends.lua", "Locks.lua", "Window.lua", "Diagnostics.lua" }
+    "Lookup.lua", "Known.lua", "Guild.lua", "Friends.lua", "Locks.lua", "Tooltip.lua", "Window.lua", "Diagnostics.lua" }
 
 Mock.SECRET = setmetatable({}, { __tostring = function() return "<SECRET>" end })
 
@@ -173,6 +173,31 @@ function Mock.install(options)
     global("GetZoneText", function() return state.zone end)
     global("GetRealZoneText", function() return state.zone end)
     global("GetNormalizedRealmName", function() return state.realm end)
+    -- item tooltips: TooltipDataProcessor's post-calls, run by Mock.showItem(id[, tooltip])
+    local postCalls = {}
+    global("Enum", setmetatable({ TooltipDataType = { Item = 0, Spell = 1 } }, { __index = rawget(_G, "Enum") or {} }))
+    global("TooltipDataProcessor", { AddTooltipPostCall = function(kind, fn)
+        postCalls[kind] = postCalls[kind] or {}
+        table.insert(postCalls[kind], fn)
+    end })
+    local function tooltip(name)
+        local t = { __lines = {}, name = name }
+        function t:AddLine(text, r, g, b) self.__lines[#self.__lines + 1] = { text = text, r = r, g = g, b = b } end
+        return t
+    end
+    if options.tooltips then -- (by default the test client has no GameTooltip: the window needs none of Blizzard's)
+        global("GameTooltip", tooltip("GameTooltip"))
+        global("ItemRefTooltip", tooltip("ItemRefTooltip"))
+        global("ShoppingTooltip1", tooltip("ShoppingTooltip1"))
+    end
+    function Mock.showItem(id, which)
+        which = which or _G.GameTooltip
+        which.__lines = {}
+        for _, fn in ipairs(postCalls[0] or {}) do fn(which, { id = id, type = 0 }) end
+        local texts = {}
+        for _, line in ipairs(which.__lines) do texts[#texts + 1] = line.text end
+        return table.concat(texts, " | "), which.__lines
+    end
     global("GetRealmName", function() return "Classic Beta PvE" end)
     global("InCombatLockdown", function() return false end)
 

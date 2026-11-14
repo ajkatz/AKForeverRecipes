@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- **Who can use a recipe that drops.** A recipe item's tooltip - in the loot window or a roll, your bags, a
+  merchant, a chat link - lists your characters on the realm who have the profession: "can learn it
+  (Tailoring 120)" in green, "Tailoring 20, needs 25" in orange, "knows it" in grey. Characters without the
+  profession, on another realm or of the other faction (for one faction's recipes) are left out.
+  `/akr tooltip off` turns it off.
+
 ## 0.3.0 - 2026-11-12
 
 - **Your friends' recipes.** Friends who have AKForeverRecipes share theirs with you and you with them - both

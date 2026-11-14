@@ -199,6 +199,7 @@ end
 ------------------------------------------------------------------------
 local OPTION_DEFAULTS = {
     filter = "missing", -- what the window lists: "missing" | "all" | "known"
+    tooltip = true,     -- a recipe item's tooltip: which of your characters can use it
 }
 
 local function squeezeRealm(realm)

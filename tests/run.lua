@@ -1584,6 +1584,60 @@ scenario("training: a rank the character's level is too low for is not ready - '
     equal(#Mock.errors, 0)
 end)
 
+scenario("a recipe item's tooltip: which of your characters on the realm with the profession can learn it, need more skill, or know it", function()
+    local RED_ROBE_PATTERN, RED_ROBE = 2598, 2389         -- Pattern: Red Linen Robe, learned at Tailoring 25
+    local BLUE_VEST_PATTERN, BLUE_VEST = 6270, 7630       -- Pattern: Blue Linen Vest, 35
+    local ELIXIR_RECIPE = 250380                          -- an Alchemy recipe: nobody here has Alchemy
+    local db = { schema = 2, chars = {
+        ["Purr Smith - ClassicBetaPvE"] = { learned = {}, skills = { tailoring = { skill = 20, max = 75 } }, profs = { tailoring = true }, side = "A", options = {} },
+        ["Purr Know - ClassicBetaPvE"] = { learned = { [RED_ROBE] = 1 }, skills = { tailoring = { skill = 200, max = 225 } }, profs = { tailoring = true }, side = "A", options = {} },
+        ["Purr Cook - ClassicBetaPvE"] = { learned = {}, skills = { cooking = { skill = 150, max = 225 } }, profs = { cooking = true }, side = "A", options = {} },
+        ["Far Away - OtherRealm"] = { learned = {}, skills = { tailoring = { skill = 300, max = 300 } }, profs = { tailoring = true }, side = "A", options = {} },
+    } }
+    local ns = start({ db = db, tooltips = true }, function(state)
+        state.skills[TAILORING] = { level = 120, max = 150 } -- Purr Gola, the one logged in
+        state.learned[BLUE_VEST] = true
+    end)
+    equal(ns.Tip.hooked, true)
+    local text, lines = Mock.showItem(RED_ROBE_PATTERN)
+    equal(text, "Your characters: |   Purr Gola: can learn it (Tailoring 120) |   Purr Smith: Tailoring 20, needs 25 |   Purr Know: knows it")
+    equal(string.format("%.2f %.2f %.2f", lines[2].r, lines[2].g, lines[2].b), "0.25 1.00 0.25", "can learn: green")
+    equal(string.format("%.2f %.2f %.2f", lines[3].r, lines[3].g, lines[3].b), "1.00 0.50 0.25", "too low: orange")
+    check(not text:find("Cook", 1, true) and not text:find("Far", 1, true), "no Tailoring / another realm: left out")
+    -- known by the one logged in (the client said so at login)
+    text = Mock.showItem(BLUE_VEST_PATTERN)
+    equal(text, "Your characters: |   Purr Know: can learn it (Tailoring 200) |   Purr Smith: Tailoring 20, needs 35 |   Purr Gola: knows it")
+    -- a chat link's tooltip too; a comparison tooltip and other frames not
+    text = Mock.showItem(RED_ROBE_PATTERN, ItemRefTooltip)
+    check(text:find("Purr Gola: can learn it", 1, true), text)
+    equal(Mock.showItem(RED_ROBE_PATTERN, ShoppingTooltip1), "")
+    -- nobody with the profession, or not a recipe at all: nothing
+    equal(Mock.showItem(ELIXIR_RECIPE), "")
+    equal(Mock.showItem(2589), "")
+    -- a specialization's recipe says so
+    local robe = ns.Lookup.ByRecipeItem(RED_ROBE_PATTERN)
+    robe.spec = "Gnomish"
+    check(Mock.showItem(RED_ROBE_PATTERN):find("Your characters - Gnomish Tailoring only:", 1, true))
+    robe.spec = nil
+    robe.side = "H" -- every tailor here is Alliance: nobody, so not even the heading
+    equal(Mock.showItem(RED_ROBE_PATTERN), "")
+    robe.side = nil
+    -- one faction's recipe: the other faction's characters are left out
+    local who = ns.Tip.Who({ prof = "tailoring", spell = 1, learn = 1, side = "H" })
+    equal(#who, 0, "a Horde recipe, Alliance characters")
+    who = ns.Tip.Who({ prof = "tailoring", spell = 1, learn = 1, side = "A" })
+    equal(#who, 3)
+    -- no skill saved for a character: what it needs
+    db.chars["Purr Smith - ClassicBetaPvE"].skills = {}
+    check(Mock.showItem(RED_ROBE_PATTERN):find("Purr Smith: needs Tailoring 25", 1, true))
+    -- /akr tooltip off
+    Mock.slash("tooltip off")
+    equal(Mock.showItem(RED_ROBE_PATTERN), "")
+    Mock.slash("tooltip on")
+    check(Mock.showItem(RED_ROBE_PATTERN) ~= "")
+    equal(#Mock.errors, 0, Mock.errors[1])
+end)
+
 scenario("one faction's recipe: a Horde tailor who knows the Horde Faction Banner is not shown the Alliance one as missing", function()
     local HORDE_BANNER, ALLIANCE_BANNER = 1229504, 1263425
     local ns = start({ faction = "Horde" }, function(state)

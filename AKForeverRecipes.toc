@@ -26,5 +26,6 @@ Known.lua
 Guild.lua
 Friends.lua
 Locks.lua
+Tooltip.lua
 Window.lua
 Diagnostics.lua

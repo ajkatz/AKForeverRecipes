@@ -111,6 +111,7 @@ function Diagnostics:Collect()
         guild = ns.Guild and ns.Guild:Describe() or nil,
         friends = ns.Friends and ns.Friends:Describe() or nil,
         locks = ns.Locks and ns.Locks:Describe() or nil,
+        tooltip = ns.Tip and { hooked = ns.Tip.hooked == true, stats = ns.Tip.stats } or nil,
         vendorsSeen = db.vendors,
         errors = {},
         blockedActions = ns.blockedActions,

@@ -54,6 +54,10 @@ who leaves the guild is dropped. It talks over hidden addon messages to your gui
 most, and only sends a character when a guildmate's copy is out of date. `/akr guild` lists who shares;
 `/akr share off` stops both sharing and seeing (`/akr share on` turns it back on).
 
+**Who can use a recipe that drops.** Hover a recipe item - in the loot window, a roll, your bags, a merchant
+or a chat link - and its tooltip lists your characters on the realm with that profession: who can learn it
+now, who needs more skill (and how much), who already knows it. `/akr tooltip off` turns it off.
+
 ## Lockpicking
 
 A rogue gets a **Lockpicking** tab next to its professions: every lockbox, junkbox, fished chest, footlocker,
