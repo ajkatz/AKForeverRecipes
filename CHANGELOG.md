@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.3.1 - 2026-11-13
 
 - **Who can use a recipe that drops.** A recipe item's tooltip - in the loot window or a roll, your bags, a
   merchant, a chat link - lists your characters on the realm who have the profession: "can learn it
