@@ -77,7 +77,7 @@ function Tip.Lines(itemID)
         return {}
     end
     local prof = Lookup.ProfessionName(recipe.prof)
-    local spec = recipe.spec and (" - " .. recipe.spec .. " " .. prof .. " only") or ""
+    local spec = recipe.spec and (" - " .. Lookup.SpecName(recipe) .. " only") or ""
     local lines = { { "Your characters" .. spec .. ":", COLORS.head[1], COLORS.head[2], COLORS.head[3] } }
     for _, w in ipairs(who) do
         local text

@@ -1,6 +1,15 @@
 # Writes Data/<Profession>.lua for every profession from the saved pages of foreverchanges.pro
 # (tools/pages, see source.py), tools/binds.json (fetch_binds.py: how each recipe item binds) and
-# tools/found_sources.json (research.py: sources the pages do not have, each with where it was found).
+# tools/found_sources.json (research.py: sources the pages do not have, each with where it was found)
+# and tools/trainer_costs.json (what a trainer asks for each recipe it teaches: { "<spell id>": copper },
+# read 2026-11-13 in a browser from Wowhead's Forever spell lists, wowhead.com/forever/spells/professions/
+# <profession> and secondary-skills/<cooking|first-aid>, the "trainingcost" of every row) and
+# tools/specializations.json (the specialization a recipe needs: { "<spell id>": <the specialization's
+# spell id> }, read 2026-11-14 from the same Wowhead lists, the "specialization" of every row - Leatherworking,
+# Blacksmithing and Engineering have them; the profession pages only know Engineering's) and
+# tools/wowhead_drops.json (creatures that drop a recipe item the pages only name one faction's vendor or
+# quest for, read 2026-11-15 from Wowhead's Forever item pages - without them the other faction never saw
+# the recipe).
 #
 #   python tools/fetch_binds.py
 #   python tools/research.py
@@ -9,6 +18,7 @@
 # What a page leaves open is filled by hand in OVERRIDES below, each marked as taken from Classic.
 # Not shipped to players (.pkgmeta ignores tools/).
 import datetime
+import json
 import os
 import re
 
@@ -90,6 +100,12 @@ def write_profession(prof, binds, today, totals, found):
                     src[k] = extra[k]
             via = ", ".join(VIA[w] for w in extra.get("from", []) if w in VIA) or None
             counts["found"] += 1
+        # a creature Wowhead's item page saw dropping the recipe item, where the pages name no drop
+        more = WOWHEAD_DROPS.get(str(formula["id"])) if formula else None
+        on_wowhead = bool(more and not src.get("drops"))
+        if on_wowhead:
+            src["drops"] = more
+            counts["wowhead drop"] = counts.get("wowhead drop", 0) + 1
 
         level = None
         kind = r["kind"]
@@ -115,7 +131,9 @@ def write_profession(prof, binds, today, totals, found):
         by_quest = r["byQuest"] and not quests
         comes_with_skill = r["spell"] in auto and not formula and not has_source and not by_quest
         trainer = (not has_source) and (not formula) and (not by_quest) and (not comes_with_skill)
-        classic = bool(over.get("classic")) or src.get("read") == "classic"
+        # (a recipe whose item page was read is no longer "as in Classic": the page's sold-by list named the
+        # same vendors and its drop was counted on Forever)
+        classic = (bool(over.get("classic")) or src.get("read") == "classic") and not on_wowhead
 
         w("R({")
         w("    spell = %d,%s name = %s, icon = %s," % (r["spell"], (" item = %d," % r["item"]) if r["item"] else "", lua(r["name"]), lua(r["icon"])))
@@ -137,8 +155,10 @@ def write_profession(prof, binds, today, totals, found):
         if r["station"] and r["station"]["name"]:
             used_items[r["station"]["id"]] = (r["station"]["name"], None)
             w("    station = %d," % r["station"]["id"])
-        if r.get("spec"):
-            w("    spec = %s," % lua(r["spec"]))
+        spec = SPEC_WORDS.get(SPECIALIZATIONS.get(str(r["spell"]))) or r.get("spec")
+        if spec:
+            w("    spec = %s," % lua(spec))
+            counts["spec"] = counts.get("spec", 0) + 1
         if r["count"] > 1:
             w("    makes = %d," % r["count"])
         if formula:
@@ -151,7 +171,9 @@ def write_profession(prof, binds, today, totals, found):
             w("    recipe = %s," % fields([("id", formula["id"]), ("name", formula["name"]), ("bop", True if bind == "pickup" else None), ("bind", "?" if bind is None else None)]))
             counts["bop"] += 1 if bind == "pickup" else 0
         if trainer:
-            w("    trainer = true,%s" % (" unsure = true," if r["new"] else ""))
+            cost = TRAINER_COSTS.get(str(r["spell"]))
+            w("    trainer = true,%s%s" % (" unsure = true," if r["new"] else "", (" cost = %d," % cost) if cost else ""))
+            counts["cost"] = counts.get("cost", 0) + (1 if cost else 0)
             counts["trainer"] += 1
         if comes_with_skill:
             w("    auto = true,")
@@ -215,9 +237,26 @@ def write_profession(prof, binds, today, totals, found):
     return file_name
 
 
+_SPECS = os.path.join(source.HERE, "specializations.json")
+SPECIALIZATIONS = json.load(open(_SPECS, encoding="utf-8")) if os.path.exists(_SPECS) else {}
+# the specialization's spell -> the word the tables carry (Lookup.lua has the whole names)
+SPEC_WORDS = {
+    20219: "Gnomish", 20222: "Goblin",
+    10656: "Dragonscale", 10658: "Elemental", 10660: "Tribal",
+    9788: "Armorsmith", 9787: "Weaponsmith", 17039: "Swordsmith", 17040: "Hammersmith", 17041: "Axesmith",
+}
+_DROPS = os.path.join(source.HERE, "wowhead_drops.json")
+WOWHEAD_DROPS = json.load(open(_DROPS, encoding="utf-8")).get("drops", {}) if os.path.exists(_DROPS) else {}
+_COSTS = os.path.join(source.HERE, "trainer_costs.json")
+TRAINER_COSTS = json.load(open(_COSTS, encoding="utf-8")) if os.path.exists(_COSTS) else {}
+
+
 def main():
     binds = source.load_binds()
-    today = datetime.date.today().isoformat()
+    # the day the profession pages were saved, not the day this ran
+    pages = os.path.join(source.HERE, "pages")
+    saved = max(os.path.getmtime(os.path.join(pages, f)) for f in os.listdir(pages) if f.endswith(".html"))
+    today = datetime.date.fromtimestamp(saved).isoformat()
     totals = {}
     found = source.load_found()
     files = [write_profession(prof, binds, today, totals, found) for prof in source.PROFESSIONS]

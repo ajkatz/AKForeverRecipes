@@ -77,6 +77,39 @@ function Lookup.Training(key)
     return Data.training and Data.training[key] or nil
 end
 
+-- A recipe's specialization by its whole name, for sentences: the tables carry one word
+-- ("Dragonscale", "Swordsmith"), the game calls it "Dragonscale Leatherworking", "Master Swordsmith".
+-- A word this table lacks reads as itself; no specialization: nil.
+local SPEC_NAMES = {
+    Gnomish = "Gnomish Engineering", Goblin = "Goblin Engineering",
+    Dragonscale = "Dragonscale Leatherworking", Elemental = "Elemental Leatherworking", Tribal = "Tribal Leatherworking",
+    Armorsmith = "Armorsmith", Weaponsmith = "Weaponsmith",
+    Swordsmith = "Master Swordsmith", Hammersmith = "Master Hammersmith", Axesmith = "Master Axesmith",
+}
+function Lookup.SpecName(recipe)
+    local spec = type(recipe) == "table" and recipe.spec or nil
+    if type(spec) ~= "string" then
+        return nil
+    end
+    return SPEC_NAMES[spec] or spec
+end
+
+-- what a trainer asks for a rank, in copper, and whether that was read in a trainer's own window
+-- (db.trainerCosts, which wins) rather than taken from the tables; nil: no price is known
+function Lookup.RankCost(rank)
+    if type(rank) ~= "table" then
+        return nil
+    end
+    local seen = ns.db and ns.db.trainerCosts and rank.spell and ns.db.trainerCosts[rank.spell]
+    if type(seen) == "table" and type(seen.cost) == "number" then
+        return seen.cost, true
+    end
+    if type(rank.cost) == "number" then
+        return rank.cost, false
+    end
+    return nil
+end
+
 -- the entries of a list (trainers, vendors, quests) a character of `side` can use
 function Lookup.ForSide(list, side)
     local result = {}
@@ -136,12 +169,18 @@ local function seenVendors(recipe, side, listed)
     return result
 end
 
+local FACTION_NAMES = { A = "Alliance", H = "Horde" }
+
 -- Where a recipe comes from for a character of `side` ("A" | "H" | nil = either):
 --   { trainer, unsure, byQuest, taught, vendors, quests, drops, world, trainersSell, capitals, made, favor,
---     classic, any, unknown, otherSide }
+--     classic, any, unknown, otherSide, theirs }
 -- any       = there is a way to get it for this side
 -- unknown   = nobody has written down where it comes from yet
--- otherSide = every known source belongs to the other faction
+-- otherSide = every known source belongs to the other faction, and the recipe cannot come across: the recipe
+--             item binds when picked up, or the recipe is that faction's own. Such a recipe is in no list.
+-- theirs    = every known source belongs to the other faction and the recipe item does not bind:
+--             { side = "A" | "H", name = "Alliance" | "Horde", vendors = { ... }, quests = { ... } } - that
+--             faction's vendors and quests. `any` stays false: this side has no source of its own.
 function Lookup.Sources(recipe, side)
     local vendors = filtered(recipe.vendors, side)
     for _, vendor in ipairs(seenVendors(recipe, side, vendors)) do
@@ -150,6 +189,8 @@ function Lookup.Sources(recipe, side)
     local sources = {
         trainer = recipe.trainer or false,
         unsure = recipe.unsure or false,
+        spec = Lookup.SpecName(recipe), -- only this specialization's trainers teach it
+        cost = nil, costSeen = false, -- the trainer's price: as read at a trainer, else the table's
         byQuest = recipe.byQuest or false,
         taught = recipe.taught,
         vendors = vendors,
@@ -165,6 +206,14 @@ function Lookup.Sources(recipe, side)
         somewhere = recipe.somewhere,
         via = recipe.via,
     }
+    if sources.trainer then
+        local seen = ns.db and ns.db.trainerCosts and ns.db.trainerCosts[recipe.spell]
+        if type(seen) == "table" and type(seen.cost) == "number" then
+            sources.cost, sources.costSeen = seen.cost, true
+        else
+            sources.cost = recipe.cost
+        end
+    end
     sources.any = sources.trainer or sources.auto or sources.somewhere ~= nil or sources.byQuest or sources.taught ~= nil or #sources.vendors > 0 or #sources.quests > 0
         or #sources.drops > 0 or sources.world ~= nil or sources.trainersSell ~= nil or sources.capitals or sources.made ~= nil
     local listed = (recipe.vendors and #recipe.vendors > 0) or (recipe.quests and #recipe.quests > 0)
@@ -173,6 +222,16 @@ function Lookup.Sources(recipe, side)
     if recipe.side and side and recipe.side ~= side then
         -- the other faction's own recipe (Data.lua: its text says so)
         sources.any, sources.unknown, sources.otherSide = false, false, true
+    elseif sources.otherSide and side and Lookup.Bind(recipe) == "boe" then
+        -- only the other faction's vendors and quests have it, but the recipe item does not bind: somebody
+        -- of that faction can pass it on or auction it. In the list, under that faction's name.
+        local other = side == "A" and "H" or "A"
+        local theirVendors = filtered(recipe.vendors, other)
+        for _, vendor in ipairs(seenVendors(recipe, other, theirVendors)) do
+            theirVendors[#theirVendors + 1] = vendor
+        end
+        sources.theirs = { side = other, name = FACTION_NAMES[other], vendors = theirVendors, quests = filtered(recipe.quests, other) }
+        sources.otherSide = false
     end
     return sources
 end
@@ -234,6 +293,8 @@ function Lookup.Summary(recipe, side)
         return "quest"
     elseif somewhere.drop then
         return "drop"
+    elseif sources.theirs then
+        return sources.theirs.name .. (#sources.theirs.vendors > 0 and " vendor" or " quest")
     elseif sources.otherSide then
         return "other faction"
     end
@@ -257,8 +318,8 @@ function Lookup.Matches(recipe, query, side)
     if contains(recipe.name, needle) or contains(recipe.desc, needle) then
         return true
     end
-    if recipe.spec and needle == string.lower(recipe.spec) then
-        return true -- "gnomish", "goblin"
+    if recipe.spec and (needle == string.lower(recipe.spec) or needle == string.lower(Lookup.SpecName(recipe))) then
+        return true -- "gnomish", "dragonscale", "master swordsmith"
     end
     -- what it is made of: "linen cloth" lists everything that uses it
     for _, reagent in ipairs(recipe.reagents or {}) do
@@ -292,6 +353,22 @@ function Lookup.Matches(recipe, query, side)
     for _, drop in ipairs(sources.drops) do
         if contains(drop.npc, needle) or contains(drop.zone, needle) then
             return true
+        end
+    end
+    local theirs = sources.theirs
+    if theirs then
+        if needle == string.lower(theirs.name) then
+            return true -- "alliance" on a Horde character: what only the Alliance sells or is rewarded
+        end
+        for _, vendor in ipairs(theirs.vendors) do
+            if contains(vendor.npc, needle) or contains(vendor.zone, needle) then
+                return true
+            end
+        end
+        for _, quest in ipairs(theirs.quests) do
+            if contains(quest.name, needle) or contains(quest.zone, needle) then
+                return true
+            end
         end
     end
     return false

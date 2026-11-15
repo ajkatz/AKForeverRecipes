@@ -304,6 +304,7 @@ local function initDB()
     db.loads = (db.loads or 0) + 1
     db.chars = db.chars or {}
     db.vendors = db.vendors or {} -- [recipe item id] = { [npc name] = { zone, price, side, at } }: recipes seen in a merchant's window
+    db.trainerCosts = db.trainerCosts or {} -- [recipe spell id] = { cost, at }: what a trainer's own window asked for it
 
     ns.db = db
     ns.cdb = { options = {}, learned = {}, skills = {}, profs = {} } -- a stand-in until bindProfile, at PLAYER_LOGIN

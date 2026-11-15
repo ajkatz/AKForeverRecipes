@@ -17,7 +17,8 @@ and Mining - and where every one of them comes from.
 - **Click a card** and it opens: the made item's stats a line each, the **reagents** with how many of each
   you have and how many crafts that is, then every source - each vendor with zone and price, the quest, the
   creatures that drop it with their chance.
-- **Hover a card** for the made item's own tooltip.
+- **Hover a card** for the made item's own tooltip. **Shift-click** links what it makes into chat,
+  **Shift-right-click** the pattern or plans that teach it.
 - **Where to train.** The first card of every profession is its next rank - Journeyman, Expert, Artisan -
   and where your faction learns it: the trainers, the book and who sells it, the quest. Specializations too.
 - **Every profession has a tab**, the ones you do not have included - to see what a profession would make,
@@ -27,9 +28,10 @@ and Mining - and where every one of them comes from.
 - **Missing / All / Known / Hidden** lists; a search over names, zones, NPCs, quests and reagents (`linen
   cloth` lists everything made of it; `bop`, `quest`, `vendor`, `drop` list by tag).
 - **Hide what you do not care about** with a right-click; the Hidden list brings it back.
-- Recipes only the other faction can get are left out, so "missing" is a real to-do list.
+- A recipe only the other faction sells or is rewarded is listed under that faction's name when its recipe
+  item can be traded; one that binds when picked up is left out, so "missing" is a real to-do list.
 
-About 220 of Forever's new recipes have no known source anywhere yet. When one of your characters opens a
+About 130 of Forever's new recipes have no known source anywhere yet. When one of your characters opens a
 merchant who sells one, the merchant, the zone and the price are written down for all your characters.
 
 It only reads: nothing of Blizzard's is hooked, moved or hidden.

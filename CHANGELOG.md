@@ -1,5 +1,37 @@
 # Changelog
 
+## Unreleased
+
+- **What the trainer asks.** A recipe a trainer teaches shows its price - on the card's line ("Any
+  Blacksmithing trainer, 50c") and opened ("Any Blacksmithing trainer teaches it. | 50c"). The prices are
+  Wowhead's WoW Forever ones (425 of the 430 trainer recipes); whenever any of your characters opens a
+  profession trainer, the price it asks replaces them for the whole account, marked "seen at a trainer".
+- **What the next rank costs.** The training card shows the trainer's price for Apprentice, Journeyman, Expert
+  and Artisan - on the card ("Trainer: Yelmak, Orgrimmar, 5s") and on every trainer's line when opened.
+  A rank that comes from a book or a quest has no trainer's price.
+- **Specializations.** Leatherworking's (Dragonscale, Elemental, Tribal) and Blacksmithing's (Armorsmith,
+  Weaponsmith, and the Master Swordsmith, Hammersmith and Axesmith) recipes are marked like Engineering's
+  were: a tag on the card, "Needs the Dragonscale Leatherworking specialization." in the opened card, the
+  recipe item's tooltip, and the search ("tribal", "armorsmith"). A specialization's trainer recipe no longer
+  says any trainer teaches it: "Dragonscale Leatherworking trainers, 90s". 126 recipes, from Wowhead's lists.
+- **Fixed: Red Whelp Gloves was missing from a Horde character's Leatherworking.** Its only written-down
+  source was the Alliance's vendor, so the Horde never saw it - but creatures drop the pattern too. Four
+  recipes got the drop Wowhead's item page has: Red Whelp Gloves (Dragonmaw Scout, Wetlands), Herbalist's
+  Gloves (Shadethicket Raincaller, Ashenvale), Raptor Hide Belt (Daggerspine Shorestalker, Hillsbrad
+  Foothills) and, for the Alliance, Enchant Chest - Lesser Intellect (Wrathtail Sea Witch, Ashenvale).
+- **The other faction's recipes that can be traded.** A recipe only the other faction's vendors sell or
+  quests reward used to be left out. When its recipe item does not bind it is now in the list, under that
+  faction's name: "Alliance vendor: Kendor Kabonka, Stormwind City, 2s", a tag **Alliance** or **Horde**, and
+  the search word `alliance` / `horde`. 23 recipes for the Horde (14 of them Cooking's) and 12 for the
+  Alliance - they count as missing. Recipes that bind when picked up, and a faction's own, stay left out.
+- **The recipes read again (2026-11-15).** The game changed since the tables were read on 2026-11-10:
+  Green and Black Silk Pack are 12 slots, Green and Red Woolen Bag 10, Red Mageweave Bag 14 - each for one
+  more bolt of cloth. 232 recipes have their current creatures and drop chances, a few their current skill
+  numbers, Draught of Water Walking its recipe item. And 92 recipes that had no known source have one now:
+  about 130 are left without.
+- **Links.** A Shift-click on a card puts a link to what it makes into chat (an enchant: its spell), a
+  Shift-right-click the recipe item that teaches it - into the chat line you have open, or a new one.
+
 ## 0.3.1 - 2026-11-13
 
 - **Who can use a recipe that drops.** A recipe item's tooltip - in the loot window or a roll, your bags, a

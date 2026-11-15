@@ -246,6 +246,54 @@ function Known:ReadMerchant()
     end
 end
 
+-- A trainer's window: the price it asks for each recipe it teaches (the user, 2026-11-13: "for recipes can we
+-- try to include trainer cost"). The tables carry Wowhead's prices; the trainer's own wins, for every
+-- character of the account. A service is a recipe by its name, among the trainer-taught recipes of the
+-- professions built so far (a class trainer's spells match none).
+local byTrainerName -- [recipe name] = recipe, of the trainer-taught recipes
+Known.trainerReads, Known.trainerPrices = 0, 0
+
+function Known:ReadTrainer()
+    local count = ns.Readable(GetNumTrainerServices)
+    count = count and readableNumber(count[1]) or 0
+    if count == 0 or type(GetTrainerServiceInfo) ~= "function" or type(GetTrainerServiceCost) ~= "function" then
+        return
+    end
+    Lookup.BuildAll()
+    if not byTrainerName then
+        byTrainerName = {}
+        for _, key in ipairs(ns.Data.order) do
+            for _, recipe in ipairs(Lookup.Recipes(key) or {}) do
+                if recipe.trainer then
+                    byTrainerName[recipe.name] = recipe
+                end
+            end
+        end
+    end
+    local changed = false
+    for index = 1, count do
+        local info = ns.Readable(GetTrainerServiceInfo, index)
+        local name = info and ns.ReadableString(info[1])
+        local recipe = name and byTrainerName[name]
+        if recipe then
+            local cost = ns.Readable(GetTrainerServiceCost, index)
+            cost = cost and readableNumber(cost[1])
+            if cost then
+                local entry = ns.db.trainerCosts[recipe.spell]
+                if not entry or entry.cost ~= cost then
+                    changed = true
+                    Known.trainerPrices = Known.trainerPrices + 1
+                end
+                ns.db.trainerCosts[recipe.spell] = { cost = cost, at = now() }
+            end
+        end
+    end
+    Known.trainerReads = Known.trainerReads + 1
+    if changed then
+        ns:Fire("KNOWN_CHANGED")
+    end
+end
+
 ------------------------------------------------------------------------
 -- Answers
 ------------------------------------------------------------------------
@@ -346,6 +394,7 @@ function Known:Describe()
     return {
         lastScan = Known.lastScan, scans = Known.scans or 0, skillRaw = Known.skillRaw, merchantReads = Known.merchantReads,
         heardLearned = Known.heardLearned, chars = chars,
+        trainerReads = Known.trainerReads, trainerPrices = Known.trainerPrices,
     }
 end
 
@@ -401,5 +450,11 @@ end)
 for _, event in ipairs({ "MERCHANT_SHOW", "MERCHANT_UPDATE" }) do
     ns:On(event, function()
         Known:ReadMerchant()
+    end)
+end
+
+for _, event in ipairs({ "TRAINER_SHOW", "TRAINER_UPDATE" }) do
+    ns:On(event, function()
+        ns.SafeCall(Known.ReadTrainer, Known)
     end)
 end

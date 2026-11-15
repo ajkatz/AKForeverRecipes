@@ -1,0 +1,17 @@
+{
+ "readOn": "2026-11-15",
+ "about": "Wowhead's Forever item pages (wowhead.com/forever/item=<id>, the dropped-by list), read in a browser for the 56 recipe items whose every known source belonged to one faction. Four have a creature that drops them; chance = times looted / times the creature was looted. gen_data.py adds a drop here to a recipe the pages give no drop for. The four pages' sold-by lists named the vendors the tables already had (Wenna Silkbeard; Harlown Darkweave; Androd Fadran; Kithas and Lilly), so those recipes lose their 'as in Classic' mark.",
+ "drops": {
+  "7290": [{"npc": "Dragonmaw Scout", "zone": "Wetlands", "chance": 0.81, "level": [19, 20], "seen": "30 of 3713"}],
+  "7361": [{"npc": "Shadethicket Raincaller", "zone": "Ashenvale", "chance": 0.68, "level": [22, 23], "seen": "7 of 1027"}],
+  "13288": [{"npc": "Daggerspine Shorestalker", "zone": "Hillsbrad Foothills", "chance": 1.63, "level": [28, 29], "seen": "35 of 2146"}],
+  "6346": [{"npc": "Wrathtail Sea Witch", "zone": "Ashenvale", "chance": 1.13, "level": [19, 20], "seen": "43 of 3809"}]
+ },
+ "names": {
+  "7290": "Pattern: Red Whelp Gloves",
+  "7361": "Pattern: Herbalist's Gloves",
+  "13288": "Pattern: Raptor Hide Belt",
+  "6346": "Formula: Enchant Chest - Lesser Intellect"
+ },
+ "noDrop": [6735, 276984, 276985, 9367, 18649, 252761, 252762, 252764, 252763, 6710, 276986, 276987, 276988, 276989, 14627, 276990, 276991, 5482, 2889, 5485, 2697, 6329, 3679, 728, 3678, 5528, 3680, 2699, 2701, 3683, 3681, 3736, 7979, 7978, 7980, 7981, 7982, 276976, 276977, 18647, 5083, 276978, 276979, 276980, 276981, 276982, 276983, 12226, 5484, 5487, 5488, 20075]
+}

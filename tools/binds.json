@@ -8537,6 +8537,12 @@
   "spell": 3330,
   "unique": false
  },
+ "288206": {
+  "bind": "none",
+  "name": "Recipe: Draught of Water Walking",
+  "spell": 11447,
+  "unique": false
+ },
  "2883": {
   "bind": "none",
   "name": "Plans: Deadly Bronze Poniard",

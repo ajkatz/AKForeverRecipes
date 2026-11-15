@@ -40,6 +40,10 @@ local TAG = {
     quest = "|cffffff00Quest|r", drop = "|cffc79cffDrop|r", made = "|cffff9d5cCrafted|r",
     bop = "|cffff6060BoP|r", boe = "|cff40e0d0BoE|r",
     Gnomish = "|cffd0a0ffGnomish|r", Goblin = "|cffd0a0ffGoblin|r",
+    Dragonscale = "|cffd0a0ffDragonscale|r", Elemental = "|cffd0a0ffElemental|r", Tribal = "|cffd0a0ffTribal|r",
+    Armorsmith = "|cffd0a0ffArmorsmith|r", Weaponsmith = "|cffd0a0ffWeaponsmith|r",
+    Swordsmith = "|cffd0a0ffSwordsmith|r", Hammersmith = "|cffd0a0ffHammersmith|r", Axesmith = "|cffd0a0ffAxesmith|r",
+    Alliance = "|cff4a9effAlliance|r", Horde = "|cffff5040Horde|r", -- only that faction sells or is rewarded it; it does not bind
     guild = "|cff40ff40Guild|r", -- a recipe you are missing that somebody in your guild knows
     friend = "|cff66ccffFriend|r", -- ... that a friend of yours knows
 }
@@ -295,7 +299,10 @@ local function row(index)
         r:RegisterForClicks("LeftButtonUp", "RightButtonUp")
     end
     r:SetScript("OnClick", function(self, mouseButton)
-        if mouseButton == "RightButton" then
+        if (self.item or self.spell) and Window.LinkWanted() then
+            -- Shift held: a link into chat instead - what the recipe makes, or (right button) its recipe item
+            ns.SafeCall(Window.LinkCard, Window, self, mouseButton)
+        elseif mouseButton == "RightButton" then
             if self.hide then
                 ns.SafeCall(self.hide) -- a right-click hides the recipe (in the Hidden list: brings it back)
             end
@@ -355,6 +362,7 @@ local function fillCard(r, entry)
     r.skill:SetText(look[7] .. entry.skill .. "|r")
     r.skillLabel:SetText(entry.skillLabel or "")
     r.click, r.hide, r.item, r.spell = entry.click, entry.hide, entry.item, entry.spell
+    r.pattern, r.name = entry.pattern, entry.name -- the recipe item's id and the recipe's name, for a link
 
     local height = CARD_H
     local used = 0
@@ -426,6 +434,14 @@ local function place2(npc, zone)
     return npc .. (zone and (", " .. zone) or "")
 end
 
+-- the tag of a specialization: its own colour; a word the table lacks still shows, in that colour
+function Window.SpecTag(spec)
+    if type(spec) ~= "string" then
+        return nil
+    end
+    return TAG[spec] or ("|cffd0a0ff" .. spec .. "|r")
+end
+
 -- "Vendor  Quest   BoP": the kinds of source this side has, then how the recipe item binds
 local function tagsText(recipe, sources)
     local parts = {}
@@ -433,7 +449,10 @@ local function tagsText(recipe, sources)
         parts[#parts + 1] = TAG[kind]
     end
     if recipe.spec then
-        parts[#parts + 1] = TAG[recipe.spec]
+        parts[#parts + 1] = Window.SpecTag(recipe.spec)
+    end
+    if sources.theirs then
+        parts[#parts + 1] = TAG[sources.theirs.name]
     end
     local tags = table.concat(parts, "  ")
     local bind = Lookup.Bind(recipe)
@@ -454,10 +473,19 @@ local function worldWords(world)
 end
 
 local function trainerWords(sources, profName)
+    if sources.spec then
+        return sources.spec .. " trainers" -- a specialization's recipe: its own trainers, not any
+    end
     if sources.unsure then
         return "Probably any " .. profName .. " trainer"
     end
     return "Any " .. profName .. " trainer"
+end
+
+-- the trainer's price for the right-hand words: "50c", "1g 50s (seen at a trainer)", or nil
+local function trainerPrice(sources)
+    local price = money(sources.cost)
+    return price and (price .. (sources.costSeen and (COLOUR.dim .. " (seen at a trainer)|r") or "")) or nil
 end
 
 local SOMEWHERE = {
@@ -485,7 +513,7 @@ local function sourceLine(sources, profName)
     if sources.auto then
         first = "Comes with " .. profName
     elseif sources.trainer then
-        first = trainerWords(sources, profName)
+        first = trainerWords(sources, profName) .. (money(sources.cost) and (", " .. money(sources.cost)) or "")
     elseif sources.taught then
         first = "Taught by " .. place2(sources.taught.npc, sources.taught.zone)
     elseif #sources.vendors > 0 then
@@ -509,6 +537,18 @@ local function sourceLine(sources, profName)
         first = "Crafted: " .. sources.made[1]
     elseif #unnamed > 0 then
         first = SOMEWHERE[unnamed[1]] .. " (not known which)"
+    elseif sources.theirs then
+        -- the other faction's alone, and it does not bind: "Alliance vendor: Wenna Silkbeard, Wetlands"
+        local theirs = sources.theirs
+        count = #theirs.vendors + #theirs.quests
+        if #theirs.vendors > 0 then
+            local vendor = theirs.vendors[1]
+            first = theirs.name .. " vendor: " .. place2(vendor.npc, vendor.zone) .. (money(vendor.price) and (", " .. money(vendor.price)) or "")
+        elseif #theirs.quests > 0 then
+            first = theirs.name .. " quest: " .. theirs.quests[1].name .. (theirs.quests[1].zone and (", " .. theirs.quests[1].zone) or "")
+        else
+            return theirs.name .. " only"
+        end
     elseif sources.otherSide then
         return "Other faction only"
     else
@@ -587,7 +627,7 @@ local function detailLines(recipe, sources, profile, viewedKey, learned)
         end
     end
     if recipe.spec then
-        detail(details, "Needs the " .. recipe.spec .. " Engineering specialization.")
+        detail(details, "Needs the " .. Lookup.SpecName(recipe) .. " specialization.")
     end
     local stationName = Lookup.ItemName(recipe.station)
     if stationName then
@@ -609,10 +649,12 @@ local function detailLines(recipe, sources, profile, viewedKey, learned)
         detail(details, "It comes by itself with " .. profName .. ": nothing to buy or find.", COLOUR.dim .. "automatic|r")
     end
     if sources.trainer then
-        if sources.unsure then
-            detail(details, "Probably any " .. profName .. " trainer: no recipe item exists for it." .. COLOUR.dim .. " (Not confirmed.)|r", COLOUR.dim .. "trainer|r", true)
+        if sources.spec then
+            detail(details, "Only " .. sources.spec .. " trainers teach it.", trainerPrice(sources) or (COLOUR.dim .. "trainer|r"))
+        elseif sources.unsure then
+            detail(details, "Probably any " .. profName .. " trainer: no recipe item exists for it." .. COLOUR.dim .. " (Not confirmed.)|r", trainerPrice(sources) or (COLOUR.dim .. "trainer|r"), true)
         else
-            detail(details, "Any " .. profName .. " trainer teaches it.", COLOUR.dim .. "trainer|r")
+            detail(details, "Any " .. profName .. " trainer teaches it.", trainerPrice(sources) or (COLOUR.dim .. "trainer|r"))
         end
     end
     if sources.byQuest then
@@ -658,10 +700,23 @@ local function detailLines(recipe, sources, profile, viewedKey, learned)
         if recipe.recipe then
             detail(details, COLOUR.dim .. "A merchant selling " .. recipe.recipe.name .. " is noted the moment you open their window.|r", nil, true)
         end
+    elseif sources.theirs then
+        local theirs = sources.theirs
+        for _, vendor in ipairs(theirs.vendors) do
+            local price = money(vendor.price) or ""
+            if vendor.limited then
+                price = price .. (price ~= "" and ", " or "") .. "limited stock"
+            end
+            detail(details, theirs.name .. " vendor: " .. place2(vendor.npc, vendor.zone) .. (vendor.seen and (COLOUR.dim .. "  (seen by you)|r") or ""), price)
+        end
+        for _, quest in ipairs(theirs.quests) do
+            detail(details, theirs.name .. " quest: " .. quest.name .. (quest.zone and (", " .. quest.zone) or ""), quest.level and ("level " .. quest.level) or "")
+        end
+        detail(details, COLOUR.note .. "Only the " .. theirs.name .. " gets it there. It does not bind: one of them can trade or auction it.|r", nil, true)
     elseif sources.otherSide then
         detail(details, COLOUR.dim .. "Its known sources are the other faction's.|r")
     end
-    if sources.classic and sources.any then
+    if sources.classic and (sources.any or sources.theirs) then
         detail(details, COLOUR.dim .. "(Source as in Classic - not confirmed for Forever yet.)|r")
     end
 
@@ -748,9 +803,14 @@ local TRAINERS_SHOWN = 6
 local function rankWays(rank, side, profName)
     local ways = {}
     local trainers = Lookup.ForSide(rank.trainers, side)
+    -- what the trainer asks for the rank: on every trainer's line; "seen at a trainer" once, on the first
+    local cost, costSeen = Lookup.RankCost(rank)
+    local price = money(cost)
     for index, trainer in ipairs(trainers) do
         if index <= TRAINERS_SHOWN then
-            ways[#ways + 1] = { (rank.unsure and "Probably the trainer: " or "Trainer: ") .. place2(trainer.npc, trainer.zone), "" }
+            ways[#ways + 1] = { (rank.unsure and "Probably the trainer: " or "Trainer: ") .. place2(trainer.npc, trainer.zone),
+                price and (price .. ((costSeen and index == 1) and (COLOUR.dim .. " (seen at a trainer)|r") or "")) or "",
+                price = price }
         end
     end
     if #trainers > TRAINERS_SHOWN or (rank.total and rank.total > #(rank.trainers or {})) then
@@ -821,7 +881,7 @@ local function trainingCard(prof, profile, side)
     end
     if nextRank then
         local ways = rankWays(nextRank, side, profName)
-        right = ways[1] and (ways[1][1] .. (#ways > 1 and (COLOUR.dim .. "  (+" .. (#ways - 1) .. " more)|r") or "")) or (COLOUR.unknown .. "Nobody has written down where|r")
+        right = ways[1] and (ways[1][1] .. (ways[1].price and (", " .. ways[1].price) or "") .. (#ways > 1 and (COLOUR.dim .. "  (+" .. (#ways - 1) .. " more)|r") or "")) or (COLOUR.unknown .. "Nobody has written down where|r")
     elseif training.specs then
         right = COLOUR.dim .. #training.specs .. " specializations - open for where|r"
     else
@@ -913,7 +973,8 @@ function Window:Lines()
         local learned = Known:IsLearned(recipe.spell, key)
         local sources = Lookup.Sources(recipe, side)
         local isHidden = hiddenSet[recipe.spell] == true
-        -- a recipe only the other faction can get is not part of the list - unless it was learned anyway
+        -- a recipe only the other faction can get (its item binds, or it is that faction's own) is not part of
+        -- the list - unless it was learned anyway. One whose item does not bind is: sources.theirs.
         if learned or not sources.otherSide then
             -- a hidden recipe is in the Hidden list alone, and in no count but its own
             if isHidden then
@@ -954,6 +1015,7 @@ function Window:Lines()
                 local entry = {
                     card = true, icon = recipe.icon, skill = recipe.learn, state = state, skillLabel = profName,
                     item = recipe.item, spell = spell, hidden = isHidden,
+                    pattern = recipe.recipe and recipe.recipe.id or nil, name = recipe.name,
                     hide = function()
                         Window:SetHidden(key, spell, not isHidden)
                     end,
@@ -1156,9 +1218,101 @@ function Window:ShowTooltip(card)
         shown = pcall(tooltip.SetSpellByID, tooltip, card.spell)
     end
     if shown then
+        if type(tooltip.AddLine) == "function" then
+            pcall(tooltip.AddLine, tooltip, card.pattern and "Shift-click: link it.  Shift-right-click: link its recipe item." or "Shift-click: link it.", 0.5, 0.5, 0.5)
+        end
         tooltip:Show()
     else
         tooltip:Hide()
+    end
+end
+
+------------------------------------------------------------------------
+-- Links into chat: a Shift-click on a card
+------------------------------------------------------------------------
+-- is the key for chat links held? (the client's own binding for it, Shift unless the player changed it)
+function Window.LinkWanted()
+    if type(IsModifiedClick) == "function" then
+        local ok, held = pcall(IsModifiedClick, "CHATLINK")
+        if ok then
+            return held == true
+        end
+    end
+    return type(IsShiftKeyDown) == "function" and IsShiftKeyDown() == true
+end
+
+-- The client's own link of an item ("item") or a spell ("spell" - an enchant makes no item), as chat takes
+-- it. nil for anything else; nil, "loading" for an item the client has not loaded yet (it is asked to).
+function Window.LinkFor(kind, id)
+    if type(id) ~= "number" then
+        return nil
+    end
+    if kind == "item" then
+        local getInfo = (type(C_Item) == "table" and C_Item.GetItemInfo) or GetItemInfo
+        if type(getInfo) ~= "function" then
+            return nil
+        end
+        local ok, _, link = pcall(getInfo, id)
+        if ok and type(link) == "string" and link ~= "" then
+            return link
+        end
+        if type(C_Item) == "table" and type(C_Item.RequestLoadItemDataByID) == "function" then
+            pcall(C_Item.RequestLoadItemDataByID, id)
+        end
+        return nil, "loading"
+    elseif kind == "spell" then
+        local getLink = (type(C_Spell) == "table" and C_Spell.GetSpellLink) or GetSpellLink
+        if type(getLink) ~= "function" then
+            return nil
+        end
+        local ok, link = pcall(getLink, id)
+        if ok and type(link) == "string" and link ~= "" then
+            return link
+        end
+    end
+    return nil
+end
+
+-- the link into the chat line that is open, or a chat line opened with it; false: the client has no way
+local function intoChat(link)
+    local util = type(ChatFrameUtil) == "table" and ChatFrameUtil or {}
+    local insert, open, active = ChatEdit_InsertLink or util.InsertLink, ChatFrame_OpenChat or util.OpenChat, ChatEdit_GetActiveWindow or util.GetActiveWindow
+    local isOpen = false
+    if type(active) == "function" then
+        local ok, box = pcall(active)
+        isOpen = ok and box ~= nil and box ~= false
+    end
+    if type(insert) == "function" then
+        local ok, used = pcall(insert, link)
+        if ok and used then
+            return true
+        end
+    end
+    if not isOpen and type(open) == "function" then
+        return (pcall(open, link))
+    end
+    return false
+end
+
+-- A Shift-click on a recipe's card: what it makes (an enchant: its spell). A Shift-right-click: the recipe
+-- item that teaches it - a recipe a trainer teaches has none, and says so.
+function Window:LinkCard(card, mouseButton)
+    local link, why
+    if mouseButton == "RightButton" then
+        if not card.pattern then
+            ns:Print((card.name or "This") .. " has no recipe item to link.")
+            return
+        end
+        link, why = Window.LinkFor("item", card.pattern)
+    elseif card.item then
+        link, why = Window.LinkFor("item", card.item)
+    else
+        link, why = Window.LinkFor("spell", card.spell)
+    end
+    if not link then
+        ns:Print(why == "loading" and "the game has not loaded that item yet - click again in a moment." or "no link for that.")
+    elseif not intoChat(link) then
+        ns:Print("could not put a link into chat.")
     end
 end
 
@@ -1258,6 +1412,14 @@ ns:RegisterCommand("find", "'/akr find <recipe, place or NPC>': the matching rec
                     if index <= 2 then parts[#parts + 1] = "drops from " .. place2(drop.npc, drop.zone) end
                 end
                 if sources.world then parts[#parts + 1] = string.lower(string.sub(worldWords(sources.world), 1, 1)) .. string.sub(worldWords(sources.world), 2) end
+                if sources.theirs then
+                    for index, vendor in ipairs(sources.theirs.vendors) do
+                        if index <= 3 then
+                            parts[#parts + 1] = sources.theirs.name .. " vendor " .. place2(vendor.npc, vendor.zone) .. (money(vendor.price) and (" " .. money(vendor.price)) or "")
+                        end
+                    end
+                    for _, quest in ipairs(sources.theirs.quests) do parts[#parts + 1] = sources.theirs.name .. " quest " .. quest.name end
+                end
                 local bind = Lookup.Bind(recipe)
                 ns:Print(recipe.name .. " (" .. profName .. " " .. recipe.learn .. ", " .. (Known:IsLearned(recipe.spell) and "known" or "missing") .. (bind and (", " .. (bind == "bop" and "BoP" or "BoE")) or "") .. "): "
                     .. (#parts > 0 and table.concat(parts, "; ") or "source not known yet") .. ".")

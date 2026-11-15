@@ -13,6 +13,8 @@
 --           bop: the item binds when picked up (Wowhead's Forever tooltips), else it can be traded
 --   trainer any trainer of the profession teaches it (unsure: a guess - Forever added it and no recipe
 --           item exists)                      byQuest  a quest teaches it (which one is not written down)
+--   cost    what the trainer asks for it, in copper (Wowhead's Forever spell lists, tools/trainer_costs.json);
+--           a price read in a trainer's own window wins (db.trainerCosts)
 --   taught  { npc, zone }: one NPC teaches it
 --   vendors { npc, zone, side = "A" | "H" | nil, price (copper), limited }
 --   quests  { name, level, zone, side }     drops { npc, zone, chance (%), min, max (level), object (a chest) }
@@ -25,7 +27,10 @@
 --   classic the source is Classic's, unconfirmed for Forever    new     a recipe Forever added
 --   reagents { { item id, count }, ... }: what it is made of; the items' names are in Data.items
 --   station the item id of the camp object it has to be made at     makes  how many one craft gives
---   spec    the specialization it needs ("Gnomish" | "Goblin" Engineering)
+--   spec    the specialization it needs, one word: "Gnomish" | "Goblin" (Engineering), "Dragonscale" |
+--           "Elemental" | "Tribal" (Leatherworking), "Armorsmith" | "Weaponsmith" and a Weaponsmith's
+--           "Swordsmith" | "Hammersmith" | "Axesmith" (Blacksmithing) - Wowhead's Forever spell lists,
+--           tools/specializations.json; Lookup.SpecName has the whole names
 --   prof    the key of its profession (set here)
 --
 -- Data.training (Data\Training.lua, generated): how each profession's skill cap is raised and its

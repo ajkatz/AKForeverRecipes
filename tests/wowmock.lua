@@ -260,6 +260,12 @@ function Mock.install(options)
     global("C_SpellBook", { IsSpellKnown = spellKnown })
     global("IsPlayerSpell", spellKnown)
 
+    -- a trainer's services: { { name, cost (copper) } }
+    state.trainer = {}
+    global("GetNumTrainerServices", function() return #state.trainer end)
+    global("GetTrainerServiceInfo", function(index) local s = state.trainer[index]; if s then return s.name, "available", 134400, 0, "" end end)
+    global("GetTrainerServiceCost", function(index) local s = state.trainer[index]; if s then return s.cost, 0, 0 end end)
+
     -- a merchant's wares: { { id, price (copper) } }
     global("GetMerchantNumItems", function() return #state.merchant end)
     global("GetMerchantItemID", function(index)
@@ -274,10 +280,32 @@ function Mock.install(options)
     end)
 
     -- the bags and bank: [item id] = how many
-    global("C_Item", { GetItemCount = function(itemID, includeBank)
-        if state.bagsSecret then return Mock.SECRET end
-        return state.items[itemID] or 0
-    end })
+    -- an item's link: state.uncached[item id] = true: the client has not loaded it yet (nil, and a load asked)
+    state.uncached, Mock.loadAsked = {}, {}
+    global("C_Item", {
+        GetItemCount = function(itemID, includeBank)
+            if state.bagsSecret then return Mock.SECRET end
+            return state.items[itemID] or 0
+        end,
+        GetItemInfo = function(itemID)
+            if state.uncached[itemID] then return nil end
+            return "item " .. itemID, "|cffffffff|Hitem:" .. itemID .. "::::::::|h[item " .. itemID .. "]|h|r"
+        end,
+        RequestLoadItemDataByID = function(itemID) Mock.loadAsked[#Mock.loadAsked + 1] = itemID end,
+    })
+    global("C_Spell", { GetSpellLink = function(spell) return "|cff71d5ff|Hspell:" .. spell .. "|h[spell " .. spell .. "]|h|r" end })
+    -- chat links: state.shift = the Shift key is down; state.chatOpen = a chat edit box is open.
+    -- Mock.linked = what went into the open edit box; Mock.chatOpened = the texts chat was opened with
+    Mock.linked, Mock.chatOpened = {}, {}
+    global("IsShiftKeyDown", function() return state.shift == true end)
+    global("IsModifiedClick", function(action) return action == "CHATLINK" and state.shift == true end)
+    global("ChatEdit_GetActiveWindow", function() return state.chatOpen and {} or nil end)
+    global("ChatEdit_InsertLink", function(link)
+        if not state.chatOpen then return false end
+        Mock.linked[#Mock.linked + 1] = link
+        return true
+    end)
+    global("ChatFrame_OpenChat", function(textValue) Mock.chatOpened[#Mock.chatOpened + 1] = textValue end)
     global("C_Timer", { After = function(seconds, fn) Mock.timers[#Mock.timers + 1] = { at = state.now + seconds, fn = fn } end })
 
     -- the guild: options.guild = its name (nil: no guild); state.roster = { { name, online } }
@@ -409,6 +437,12 @@ function Mock.learn(spell, silent)
     if not silent then
         Mock.fire("NEW_RECIPE_LEARNED", spell)
     end
+end
+
+-- a trainer's window opens with these services: { { name = "Copper Mace", cost = 60 } }
+function Mock.trainer(services)
+    Mock.state.trainer = services or {}
+    Mock.fire("TRAINER_SHOW")
 end
 
 -- a merchant's window opens with these wares: { { id = 728, price = 200 } }

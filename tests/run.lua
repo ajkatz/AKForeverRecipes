@@ -69,7 +69,8 @@ local function cardNamed(ns, name)
     error("no card " .. name)
 end
 
-local WESTFALL_STEW, CHARRED_WOLF, CRISPY_BAT_WING, RAPTOR_RIBS, RAPTOR_RIBS_ITEM = 2543, 2538, 15935, 1250150, 250181
+local WESTFALL_STEW, CHARRED_WOLF, CRISPY_BAT_WING, SWIFTSTRIKE_STEAK, STEAK_RECIPE = 2543, 2538, 15935, 1250149, 250180 -- the steak: a recipe nobody has a source for
+local BRIGHT_YELLOW_SHIRT = 3869 -- Tailoring: the Alliance's vendor alone, and the pattern binds when picked up
 local SHARPENING_STONE, COPPER_CHAIN_VEST = 2660, 3321 -- Blacksmithing
 local BLACKSMITHING, TAILORING, ALCHEMY, ENGINEERING, LEATHERWORKING = 164, 197, 171, 202, 165
 local KEYS = { "alchemy", "blacksmithing", "enchanting", "engineering", "leatherworking", "tailoring", "cooking", "firstaid", "mining" }
@@ -364,10 +365,11 @@ scenario("the first card of a profession is its training: where the next rank is
     tabs.alchemy:Click()
     card = ns.Window.lines[1]
     equal(Mock.plain(card.text), "Artisan Alchemy  raises your skill cap to 300")
-    check(Mock.plain(card.right):find("Trainer: Kylanna Windwhisper, Feralas", 1, true) == 1, Mock.plain(card.right))
+    check(Mock.plain(card.right):find("Trainer: Kylanna Windwhisper, Feralas, 5g", 1, true) == 1, Mock.plain(card.right))
     card.click()
     rows = Mock.rows()
-    check(has(rows, "Trainer: Kylanna Windwhisper, Feralas") and has(rows, "Trainer: Master Mycologist Shurome, Felwood"))
+    -- what the rank costs, on every trainer's line
+    check(has(rows, "Trainer: Kylanna Windwhisper, Feralas | 5g") and has(rows, "Trainer: Master Mycologist Shurome, Felwood | 5g"), table.concat(rows, "\n", 1, 8))
     check(not has(rows, "Rogvar"), "the Horde's Artisan alchemist is shown to the Alliance")
     check(has(rows, "Artisan  skill cap 300 | at Alchemy 200"))
 
@@ -387,7 +389,7 @@ scenario("the first card of a profession is its training: where the next rank is
     tabs.tailoring:Click()
     card = ns.Window.lines[1]
     equal(Mock.plain(card.text), "Learn Tailoring"); equal(card.skill, "-")
-    check(Mock.plain(card.right):find("Trainer: Georgio Bolero, Stormwind City", 1, true) == 1, Mock.plain(card.right))
+    check(Mock.plain(card.right):find("Trainer: Georgio Bolero, Stormwind City, 10c", 1, true) == 1, Mock.plain(card.right))
     check(Mock.info():find("does not have Tailoring", 1, true), Mock.info())
     check(Mock.rowIndex("Linen Reagent Bag"), "the recipes of a profession the character lacks are not listed")
     equal(ns.cdb.options.prof, "tailoring")
@@ -397,7 +399,14 @@ scenario("the first card of a profession is its training: where the next rank is
         state.skill = { level = 130, max = 150 }
     end)
     ns.Window:Show()
-    equal(Mock.plain(ns.Window.lines[1].right), "Book: Expert Cookbook - Wulan, Desolace")
+    equal(Mock.plain(ns.Window.lines[1].right), "Book: Expert Cookbook - Wulan, Desolace") -- a book: no trainer's price
+    -- a price read in a trainer's own window wins, as for recipes
+    equal(ns.Lookup.RankCost({ spell = 3101, cost = 500 }), 500)
+    ns.db.trainerCosts[3101] = { cost = 475, at = 1 }
+    local cost, seen = ns.Lookup.RankCost({ spell = 3101, cost = 500 })
+    equal(cost, 475); equal(seen, true)
+    equal(ns.Lookup.RankCost({ spell = 3413 }), nil, "no price known: none shown")
+    equal(ns.Lookup.RankCost(nil), nil)
     -- every profession has its four ranks, in order, each with a way to it
     for _, key in ipairs(KEYS) do
         local training = ns.Lookup.Training(key)
@@ -406,6 +415,9 @@ scenario("the first card of a profession is its training: where the next rank is
         for _, rank in ipairs(training.ranks) do
             check(rank.cap > cap, key .. ": the ranks' caps rise"); cap = rank.cap
             check(rank.trainers or rank.book or rank.quests, key .. " " .. rank.name .. ": no way to it")
+            -- a rank a trainer teaches has its price; a book or a quest has none
+            check((type(rank.cost) == "number" and rank.cost > 0) == (rank.trainers ~= nil and not rank.book and not rank.quests),
+                key .. " " .. rank.name .. ": a trainer's rank has a price, a book's or a quest's has none")
         end
         equal(cap, 300)
     end
@@ -440,6 +452,76 @@ scenario("a recipe of a specialization carries its tag and says what it needs", 
     check(total >= 5, "the Goblin recipes in the table: " .. total)
     equal(tagged, total, "the search for 'goblin' lists every Goblin recipe")
     check(not ns.Lookup.Matches({ name = "x", spec = "Gnomish" }, "goblin"), "a Gnomish recipe matched 'goblin'")
+end)
+
+scenario("Leatherworking's and Blacksmithing's specializations: the tag, what it needs, and whose trainers teach it", function()
+    -- the user, 2026-11-14: "it doesn't do a good job of showing specialties - like black dragonscale legs"
+    local ns = start({ faction = "Alliance" }, function(state)
+        state.skills[LEATHERWORKING] = { level = 300, max = 300 }
+        state.skills[BLACKSMITHING] = { level = 300, max = 300 }
+    end)
+    Mock.slash("show all")
+    local function recipeNamed(prof, name)
+        for _, recipe in ipairs(ns.Lookup.Recipes(prof)) do
+            if recipe.name == name then return recipe end
+        end
+        error("no recipe " .. name)
+    end
+    local legs = recipeNamed("leatherworking", "Black Dragonscale Leggings")
+    equal(legs.spec, "Dragonscale")
+    -- the specialization's whole name, for sentences
+    equal(ns.Lookup.SpecName(legs), "Dragonscale Leatherworking")
+    equal(ns.Lookup.SpecName({ spec = "Gnomish" }), "Gnomish Engineering")
+    equal(ns.Lookup.SpecName({ spec = "Swordsmith" }), "Master Swordsmith")
+    equal(ns.Lookup.SpecName({ spec = "Unheard Of" }), "Unheard Of", "a word the table lacks reads as itself")
+    equal(ns.Lookup.SpecName({}), nil); equal(ns.Lookup.SpecName(nil), nil)
+
+    -- a pattern that drops: the tag on the card, the sentence in the opened card
+    ns.Window.widgets.tabs.leatherworking:Click()
+    local card = cardNamed(ns, "Black Dragonscale Leggings")
+    check(Mock.plain(card.tags):find("Dragonscale", 1, true), Mock.plain(card.tags))
+    card.click()
+    check(has(Mock.rows(), "Needs the Dragonscale Leatherworking specialization."))
+    -- a specialization's trainer recipe: not "any trainer"
+    ns.Window.open = {}
+    card = cardNamed(ns, "Dragonscale Gauntlets")
+    equal(Mock.plain(card.right), "Dragonscale Leatherworking trainers, 90s")
+    card.click()
+    check(has(Mock.rows(), "Only Dragonscale Leatherworking trainers teach it. | 90s"), table.concat(Mock.rows(), "\n", 1, 10))
+    check(not has(Mock.rows(), "Any Leatherworking trainer teaches it."), "the opened card still says any trainer")
+
+    -- Blacksmithing: Armorsmith, and a Weaponsmith's further specialization
+    ns.Window.open = {}
+    ns.Window.widgets.tabs.blacksmithing:Click()
+    equal(recipeNamed("blacksmithing", "Truesilver Gauntlets").spec, "Armorsmith")
+    card = cardNamed(ns, "Truesilver Gauntlets")
+    check(Mock.plain(card.tags):find("Armorsmith", 1, true), Mock.plain(card.tags))
+    equal(Mock.plain(card.right), "Armorsmith trainers, 1g")
+    equal(recipeNamed("blacksmithing", "Dawn's Edge").spec, "Axesmith")
+    card = cardNamed(ns, "Dawn's Edge")
+    check(Mock.plain(card.tags):find("Axesmith", 1, true), Mock.plain(card.tags))
+    card.click()
+    check(has(Mock.rows(), "Needs the Master Axesmith specialization."))
+
+    -- the search finds them by the short word and by the whole name
+    check(ns.Lookup.Matches({ name = "x", spec = "Dragonscale" }, "dragonscale leatherworking"))
+    check(ns.Lookup.Matches({ name = "x", spec = "Swordsmith" }, "Master Swordsmith"))
+    check(not ns.Lookup.Matches({ name = "x", spec = "Tribal" }, "elemental"))
+    -- every specialization in the tables is one the window has a tag and a name for
+    local counts = {}
+    for _, key in ipairs(KEYS) do
+        for _, recipe in ipairs(ns.Lookup.Recipes(key) or {}) do
+            if recipe.spec then
+                counts[recipe.spec] = (counts[recipe.spec] or 0) + 1
+                check(ns.Window.SpecTag(recipe.spec), key .. " " .. recipe.name .. ": no tag for " .. recipe.spec)
+                check(ns.Lookup.SpecName(recipe) ~= recipe.spec or recipe.spec == "Armorsmith" or recipe.spec == "Weaponsmith",
+                    recipe.name .. ": no whole name for " .. recipe.spec)
+            end
+        end
+    end
+    for _, spec in ipairs({ "Gnomish", "Goblin", "Dragonscale", "Elemental", "Tribal", "Armorsmith", "Weaponsmith", "Swordsmith", "Hammersmith", "Axesmith" }) do
+        check((counts[spec] or 0) >= 3, spec .. ": " .. (counts[spec] or 0) .. " recipes in the tables")
+    end
 end)
 
 scenario("the other professions' sources read in words: world drops, chests, trainers that sell, quests that teach, guesses", function()
@@ -491,8 +573,15 @@ scenario("the other professions' sources read in words: world drops, chests, tra
     check(has(rows, "It comes by itself with Blacksmithing: nothing to buy or find. | automatic"))
     local mace
     mace, rows = open("blacksmithing", "Copper Mace")
-    equal(Mock.plain(mace.right), "Any Blacksmithing trainer"); equal(Mock.plain(mace.tags), "Trainer")
-    check(has(rows, "Any Blacksmithing trainer teaches it. | trainer"))
+    equal(Mock.plain(mace.right), "Any Blacksmithing trainer, 50c"); equal(Mock.plain(mace.tags), "Trainer")
+    check(has(rows, "Any Blacksmithing trainer teaches it. | 50c"), "the trainer's price, from the tables")
+    -- a trainer's own window: its price wins, for the whole account, and says so
+    Mock.trainer({ { name = "Copper Mace", cost = 60 }, { name = "Battle Shout", cost = 100 } })
+    mace, rows = open("blacksmithing", "Copper Mace")
+    equal(Mock.plain(mace.right), "Any Blacksmithing trainer, 60c")
+    check(has(rows, "Any Blacksmithing trainer teaches it. | 60c (seen at a trainer)"), table.concat(rows, "\n", 1, 8))
+    equal(ns.db.trainerCosts[2737].cost, 60)
+    equal(ns.Known.trainerPrices, 1, "a class spell's name is no recipe")
 
     local kit = open("leatherworking", "Forceful Medium Armor Kit")
     check(Mock.plain(kit.right):find("Sold in the capital cities", 1, true) == 1, Mock.plain(kit.right))
@@ -504,8 +593,8 @@ scenario("the other professions' sources read in words: world drops, chests, tra
 
     local force
     force, rows = open("alchemy", "Mana Well")
-    equal(Mock.plain(force.right), "Probably any Alchemy trainer")
-    check(has(rows, "Probably any Alchemy trainer: no recipe item exists for it. (Not confirmed.) | trainer"))
+    equal(Mock.plain(force.right), "Probably any Alchemy trainer, 1s 5c")
+    check(has(rows, "Probably any Alchemy trainer: no recipe item exists for it. (Not confirmed.) | 1s 5c"))
 
     local recombobulator
     recombobulator, rows = open("engineering", "Major Recombobulator")
@@ -532,9 +621,10 @@ scenario("sources the research found elsewhere say where they were found; a kind
         return cardNamed(ns, name), Mock.rows()
     end
     -- one named creature, from Wowhead's list
-    local rouladen, rows = open("cooking", "Raptor Rouladen")
-    equal(Mock.plain(rouladen.right), "Drop: Bloodfen Lashtail, Dustwallow Marsh")
-    equal(Mock.plain(rouladen.tags), "Drop   BoP"); equal(rouladen.state, "now")
+    -- (Raptor Rouladen until the pages named its creature themselves, 2026-11-15)
+    local frostguard, rows = open("blacksmithing", "Frostguard")
+    equal(Mock.plain(frostguard.right), "Drop: Foreman Marcrid, Western Plaguelands")
+    equal(Mock.plain(frostguard.tags), "Drop  Swordsmith   BoE"); equal(frostguard.state, "now")
     check(has(rows, "(Source found in Wowhead, not on the profession's page.)"))
     -- Questie's database: a creature and a chest
     local shoulders
@@ -581,39 +671,249 @@ scenario("sources the research found elsewhere say where they were found; a kind
     end
     check(found and found.spell == 7428, "the enchants the page named without a spell id are missing")
     -- and what nobody knows is still said plainly
-    Mock.slash("find raging raptor ribs")
-    check(printed("Raging Raptor Ribs (Cooking 180, missing, BoP): source not known yet."), table.concat(Mock.printed, "\n"))
+    Mock.slash("find swiftstrike steak")
+    check(printed("Swiftstrike Steak (Cooking 275, missing, BoP): source not known yet."), table.concat(Mock.printed, "\n"))
 end)
 
 scenario("an Alliance character sees its own faction's sources and no recipe only the Horde can get", function()
     local ns = start({ faction = "Alliance" })
     Mock.slash("show all")
     check(Mock.rowIndex("Westfall Stew"))
-    check(not Mock.rowIndex("Crispy Bat Wing"), "a Horde-only recipe is listed for the Alliance")
     Mock.clickRow(Mock.rowIndex("Brilliant Smallfish"))
     local rows = Mock.rows()
     check(has(rows, "Vendor: Catherine Leland, Stormwind City | 40c"))
     check(not has(rows, "Sewa Mistrunner"), "a Thunder Bluff vendor is shown to the Alliance")
     check(has(rows, "Nyalah Brightfire"), "a vendor of no faction went missing")
+    -- a recipe only the Horde's vendor sells, whose recipe item binds when picked up: not in the Alliance's list
+    ns.Window.widgets.tabs.tailoring:Click()
+    check(Mock.rowIndex("Azure Stormsewn Cowl"))
+    check(not Mock.rowIndex("Cloudy Stormsewn Cowl"), "a Horde-only recipe that binds is listed for the Alliance")
     -- the Horde's list
     ns = start({ faction = "Horde" })
     Mock.slash("show all")
     check(Mock.rowIndex("Crispy Bat Wing"))
-    check(not Mock.rowIndex("Kaldorei Spider Kabob"), "an Alliance-only quest recipe is listed for the Horde")
+    ns.Window.widgets.tabs.tailoring:Click()
+    check(Mock.rowIndex("Cloudy Stormsewn Cowl"))
+    check(not Mock.rowIndex("Bright Yellow Shirt"), "an Alliance-only recipe that binds is listed for the Horde")
+    local shirt = ns.Lookup.BySpell(BRIGHT_YELLOW_SHIRT)
+    local forHorde = ns.Lookup.Sources(shirt, "H")
+    check(forHorde.otherSide and not forHorde.any and forHorde.theirs == nil)
+    check(not ns.Lookup.Sources(shirt, "A").otherSide)
+    equal(ns.Lookup.Summary(shirt, "H"), "other faction")
+end)
+
+scenario("a recipe only the other faction sells or is rewarded, whose recipe item does not bind, is in the list under that faction's name", function()
+    -- the user, 2026-11-15: "Yes, show them" - 35 recipes (Westfall Stew for the Horde, Crispy Bat Wing for
+    -- the Alliance ...) that somebody of the other faction can pass on or auction
+    local ns = start({ faction = "Horde" })
+    Mock.slash("show all")
     local stew = ns.Lookup.BySpell(WESTFALL_STEW)
-    check(ns.Lookup.Sources(stew, "H").otherSide and not ns.Lookup.Sources(stew, "A").otherSide)
+    local sources = ns.Lookup.Sources(stew, "H")
+    check(not sources.otherSide and not sources.any and not sources.unknown, "the Horde has no source of its own, and it is not hidden")
+    equal(sources.theirs.side, "A"); equal(sources.theirs.name, "Alliance")
+    equal(#sources.theirs.vendors, 1); equal(#sources.theirs.quests, 1)
+    equal(#sources.vendors, 0, "the Alliance's vendor is not the Horde's")
+    equal(ns.Lookup.Sources(stew, "A").theirs, nil, "the Alliance has it itself")
+    equal(ns.Lookup.Sources(stew, nil).theirs, nil, "no faction known: every source is usable")
+    equal(ns.Lookup.Summary(stew, "H"), "Alliance vendor")
+    -- the card: the faction's name on the source and as a tag
+    local card = cardNamed(ns, "Westfall Stew")
+    equal(Mock.plain(card.right), "Alliance vendor: Kendor Kabonka, Stormwind City, 2s  (+1 more)")
+    equal(Mock.plain(card.tags), "Alliance   BoE")
+    card.click()
+    local rows = Mock.rows()
+    check(has(rows, "Alliance vendor: Kendor Kabonka, Stormwind City | 2s"), table.concat(rows, "\n", 1, 14))
+    check(has(rows, "Alliance quest: Westfall Stew | level 13"))
+    check(has(rows, "Only the Alliance gets it there. It does not bind: one of them can trade or auction it."))
+    check(not has(rows, "other faction"))
+    -- a quest alone
+    ns.Window.open = {}
+    card = cardNamed(ns, "Kaldorei Spider Kabob")
+    equal(Mock.plain(card.right), "Alliance quest: Recipe of the Kaldorei")
+    equal(ns.Lookup.Summary(ns.Lookup.BySpell(6412), "H"), "Alliance quest")
+    -- the search: the faction's name, and its vendors and quests
+    check(ns.Lookup.Matches(stew, "alliance", "H") and ns.Lookup.Matches(stew, "Kendor", "H") and ns.Lookup.Matches(stew, "stormwind", "H"))
+    check(not ns.Lookup.Matches(stew, "alliance", "A"), "the Alliance's own recipe is not 'alliance' to the Alliance")
+    check(not ns.Lookup.Matches(stew, "horde", "H"))
+    Mock.slash("find westfall stew")
+    check(printed("Westfall Stew (Cooking 75, missing, BoE): Alliance vendor Kendor Kabonka, Stormwind City 2s; Alliance quest Westfall Stew."), table.concat(Mock.printed, "\n"))
+    -- it counts as missing: part of the list's total
+    local total = 0
+    for _, recipe in ipairs(ns.Lookup.Recipes("cooking")) do
+        if not ns.Lookup.Sources(recipe, "H").otherSide then total = total + 1 end
+    end
+    Mock.slash("show missing")
+    check(Mock.info():find("0 of " .. total, 1, true), Mock.info())
+
+    -- the other way round: the Horde's vendor, for the Alliance
+    ns = start({ faction = "Alliance" })
+    Mock.slash("show all")
+    card = cardNamed(ns, "Crispy Bat Wing")
+    equal(Mock.plain(card.right), "Horde vendor: Abigail Shiel, Tirisfal Glades, 25c")
+    equal(Mock.plain(card.tags), "Horde   BoE")
+    -- every recipe left out of a faction's list is one that cannot come across
+    for _, side in ipairs({ "A", "H" }) do
+        local hidden, theirs = 0, 0
+        for _, key in ipairs(KEYS) do
+            for _, recipe in ipairs(ns.Lookup.Recipes(key) or {}) do
+                local s = ns.Lookup.Sources(recipe, side)
+                check(not (s.otherSide and s.theirs), recipe.name .. ": hidden and listed")
+                if s.otherSide then
+                    hidden = hidden + 1
+                    check(recipe.side or ns.Lookup.Bind(recipe) ~= "boe", recipe.name .. " does not bind and is hidden from " .. side)
+                elseif s.theirs then
+                    theirs = theirs + 1
+                    check(#s.theirs.vendors + #s.theirs.quests > 0, recipe.name .. ": the other faction's, and no vendor or quest named")
+                end
+            end
+        end
+        check(hidden >= 8 and theirs >= 10, side .. ": " .. hidden .. " hidden, " .. theirs .. " the other faction's")
+    end
+end)
+
+scenario("a Shift-click on a card links what it makes, a Shift-right-click the recipe item - into the open chat line, or a new one", function()
+    -- the user, 2026-11-15: "be able to link both the finished product and the pattern (if applicable) from
+    -- the interface"
+    local STEW_ITEM, STEW_RECIPE = 733, 728
+    local ns, state = start({ faction = "Alliance" })
+    Mock.slash("show all")
+    local function frameOf(name)
+        local _, index = cardNamed(ns, name)
+        return Mock.cards()[index].frame
+    end
+    local function link(id) return "|cffffffff|Hitem:" .. id .. "::::::::|h[item " .. id .. "]|h|r" end
+    -- the links themselves
+    equal(ns.Window.LinkFor("item", STEW_ITEM), link(STEW_ITEM))
+    equal(ns.Window.LinkFor("spell", 7428), "|cff71d5ff|Hspell:7428|h[spell 7428]|h|r")
+    equal(ns.Window.LinkFor("item", nil), nil); equal(ns.Window.LinkFor("nothing", 5), nil); equal(ns.Window.LinkFor(nil, nil), nil)
+
+    -- a chat line is open: the link goes into it, and the card does not open
+    state.shift, state.chatOpen = true, true
+    frameOf("Westfall Stew"):Click("LeftButton")
+    equal(#Mock.linked, 1); equal(Mock.linked[1], link(STEW_ITEM))
+    equal(ns.Window.open[WESTFALL_STEW], nil, "a Shift-click opened the card")
+    -- the recipe item: Shift-right-click, and the recipe is not hidden
+    frameOf("Westfall Stew"):Click("RightButton")
+    equal(#Mock.linked, 2); equal(Mock.linked[2], link(STEW_RECIPE))
+    equal(ns.cdb.hidden and ns.cdb.hidden[WESTFALL_STEW], nil, "a Shift-right-click hid the recipe")
+    -- no chat line open: one is opened with the link
+    state.chatOpen = false
+    frameOf("Westfall Stew"):Click("LeftButton")
+    equal(#Mock.linked, 2); equal(#Mock.chatOpened, 1); equal(Mock.chatOpened[1], link(STEW_ITEM))
+
+    -- a recipe a trainer teaches has no recipe item: said, nothing linked
+    state.chatOpen = true
+    Mock.printed = {}
+    frameOf("Charred Wolf Meat"):Click("RightButton")
+    equal(#Mock.linked, 2)
+    check(printed("Charred Wolf Meat has no recipe item to link"), table.concat(Mock.printed, "\n"))
+    equal(ns.cdb.hidden and ns.cdb.hidden[CHARRED_WOLF], nil)
+    -- an item the client has not loaded yet: asked for, said, nothing linked
+    state.uncached[STEW_ITEM] = true
+    Mock.printed = {}
+    frameOf("Westfall Stew"):Click("LeftButton")
+    equal(#Mock.linked, 2); equal(Mock.loadAsked[#Mock.loadAsked], STEW_ITEM)
+    check(printed("the game has not loaded that item yet - click again in a moment"), table.concat(Mock.printed, "\n"))
+    state.uncached[STEW_ITEM] = nil
+
+    -- an enchant makes no item: its spell is linked
+    ns.Window.widgets.tabs.enchanting:Click()
+    frameOf("Enchant Bracer - Minor Deflect"):Click("LeftButton")
+    equal(Mock.linked[3], "|cff71d5ff|Hspell:7428|h[spell 7428]|h|r")
+
+    -- without Shift nothing changes: a click opens, a right-click hides
+    state.shift = false
+    ns.Window.widgets.tabs.cooking:Click()
+    frameOf("Westfall Stew"):Click("LeftButton")
+    check(ns.Window.open[WESTFALL_STEW], "a plain click no longer opens the card")
+    equal(#Mock.linked, 3)
+    frameOf("Westfall Stew"):Click("RightButton")
+    check(ns.cdb.hidden[WESTFALL_STEW], "a plain right-click no longer hides the recipe")
+    -- a client without the chat functions: no error, and it says so
+    state.shift = true
+    _G.ChatEdit_InsertLink, _G.ChatFrame_OpenChat = nil, nil
+    Mock.printed = {}
+    frameOf("Charred Wolf Meat"):Click("LeftButton")
+    check(printed("could not put a link into chat"), table.concat(Mock.printed, "\n"))
+end)
+
+scenario("the coloured bags have the slots and cost the cloth the game gives them now", function()
+    -- the user, 2026-11-15: "recipes says green/black silk packs are 10 slots but they are actually 12 now"
+    -- (the pages saved on 2026-11-10 were from before the change; saved again, with five bags different)
+    local ns = start({ faction = "Alliance" })
+    local wanted = {
+        ["Green Woolen Bag"] = { "10 Slot Bag", 5 }, ["Red Woolen Bag"] = { "10 Slot Bag", 5 },
+        ["Small Silk Pack"] = { "10 Slot Bag", 3 },
+        ["Green Silk Pack"] = { "12 Slot Bag", 5 }, ["Black Silk Pack"] = { "12 Slot Bag", 6 },
+        ["Mageweave Bag"] = { "12 Slot Bag", 4 }, ["Red Mageweave Bag"] = { "14 Slot Bag", 5 },
+    }
+    local seen = 0
+    for _, recipe in ipairs(ns.Lookup.Recipes("tailoring")) do
+        local want = wanted[recipe.name]
+        if want then
+            seen = seen + 1
+            equal(recipe.kind, want[1], recipe.name)
+            equal(recipe.reagents[1][2], want[2], recipe.name .. ": bolts of cloth")
+        end
+    end
+    equal(seen, 7)
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.tailoring:Click()
+    cardNamed(ns, "Green Silk Pack").click()
+    check(has(Mock.rows(), "12 Slot Bag"), table.concat(Mock.rows(), "\n", 1, 10))
 end)
 
 scenario("a recipe of the other faction that was learned anyway is in the list", function()
-    local ns = start({ faction = "Alliance" }, function(state)
-        state.learned[CRISPY_BAT_WING] = true
+    local ns = start({ faction = "Horde" }, function(state)
+        state.skills[TAILORING] = { level = 150, max = 150 }
+        state.learned[BRIGHT_YELLOW_SHIRT] = true
     end)
     Mock.slash("show known")
-    local index = Mock.rowIndex("Crispy Bat Wing")
+    ns.Window.widgets.tabs.tailoring:Click()
+    local index = Mock.rowIndex("Bright Yellow Shirt")
     check(index, "a learned recipe is hidden")
     Mock.clickRow(index)
     check(has(Mock.rows(), "other faction"))
     check(Mock.info():find("1 of ", 1, true), Mock.info())
+end)
+
+scenario("a recipe one faction's vendor sells and creatures drop is in the other faction's list, by its drop", function()
+    -- the user, 2026-11-15: "when i'm on my alt, i cannot find the red whelp gloves recipe from the LW tab"
+    -- (a Horde alt: the pages name the Alliance's vendor alone; Wowhead's Forever item page has the drop too)
+    local ns = start({ faction = "Horde" }, function(state)
+        state.skills[LEATHERWORKING] = { level = 150, max = 150 }
+    end)
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.leatherworking:Click()
+    local card = cardNamed(ns, "Red Whelp Gloves")
+    equal(Mock.plain(card.right), "Drop: Dragonmaw Scout, Wetlands, 0.81%")
+    card.click()
+    local rows = Mock.rows()
+    check(has(rows, "Drop: Dragonmaw Scout (19-20), Wetlands | 0.81%"), table.concat(rows, "\n", 1, 12))
+    check(not has(rows, "Wenna Silkbeard"), "the Alliance's vendor is shown to the Horde")
+    check(not has(rows, "as in Classic"), "a drop counted on Forever reads as a Classic one")
+    -- the Alliance has the vendor and the drop
+    ns = start({ faction = "Alliance" }, function(state)
+        state.skills[LEATHERWORKING] = { level = 150, max = 150 }
+    end)
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.leatherworking:Click()
+    card = cardNamed(ns, "Red Whelp Gloves")
+    equal(Mock.plain(card.right), "Vendor: Wenna Silkbeard, Wetlands  (+1 more)")
+    -- the four the item pages had a drop for: none of them is the other faction's alone any more
+    local wanted = { ["Red Whelp Gloves"] = "H", ["Herbalist's Gloves"] = "H", ["Raptor Hide Belt"] = "H", ["Enchant Chest - Lesser Intellect"] = "A" }
+    local seen = 0
+    for _, key in ipairs({ "leatherworking", "enchanting" }) do
+        for _, recipe in ipairs(ns.Lookup.Recipes(key)) do
+            local side = wanted[recipe.name]
+            if side then
+                seen = seen + 1
+                local sources = ns.Lookup.Sources(recipe, side)
+                check(not sources.otherSide and sources.any and #sources.drops == 1, recipe.name .. " is still hidden from " .. side)
+            end
+        end
+    end
+    equal(seen, 4)
 end)
 
 scenario("a recipe opens onto its trainer, vendors with prices, quests and drops", function()
@@ -635,7 +935,7 @@ scenario("a recipe opens onto its trainer, vendors with prices, quests and drops
     Mock.clickRow(Mock.rowIndex("Spiced Wolf Meat"))
     check(has(Mock.rows(), "Any Cooking trainer teaches it."))
     Mock.clickRow(Mock.rowIndex("Peace Tea"))
-    check(has(Mock.rows(), "Drop: Frostmane Seer, Dun Morogh | 7.86%"))
+    check(has(Mock.rows(), "Drop: Frostmane Seer, Dun Morogh | 7.29%"))
     Mock.clickRow(Mock.rowIndex("Venomous Smoothie"))
     check(has(Mock.rows(), "Vendor: Kalsey Sanden, Redridge Mountains | 30 Merchant's Favor"))
     Mock.clickRow(Mock.rowIndex("Goldthorn Tea"))
@@ -653,7 +953,7 @@ scenario("a card's third line says known, or the first source: gold when learnab
     check(cardNamed(ns, "Charred Wolf Meat").right:find("|cff60ff60Known", 1, true), "known is green")
     local stew = cardNamed(ns, "Westfall Stew").right
     check(stew:find("|cffffd100Vendor: Kendor Kabonka, Stormwind City, 2s  (+1 more)", 1, true), "skill 100 can learn a 75 recipe: gold, " .. stew)
-    check(cardNamed(ns, "Raging Raptor Ribs").right:find("|cffff8080Source unknown", 1, true), "an unknown source is red")
+    check(cardNamed(ns, "Swiftstrike Steak").right:find("|cffff8080Source unknown", 1, true), "an unknown source is red")
     check(cardNamed(ns, "Monster Omelet").right:find("|cff9d9d9d", 1, true), "skill 100 cannot learn a 225 recipe: grey")
     check(Mock.info():find("Purr Gola: 1 of ", 1, true) and Mock.info():find("Cooking 100/150", 1, true), Mock.info())
 end)
@@ -928,7 +1228,7 @@ scenario("a card's tags say the kind of source and whether the recipe item is Bo
     equal(tags("Peace Tea"), "Drop   BoP")
     equal(tags("Venomous Smoothie"), "Vendor   BoP")
     equal(tags("Goldthorn Tea"), "Taught")
-    equal(tags("Raging Raptor Ribs"), "BoP")                 -- no source known, but the item is
+    equal(tags("Swiftstrike Steak"), "BoP")                 -- no source known, but the item is
     equal(tags("Kaldorei Spider Kabob"), "Quest   BoE")
     local _, raw = tags("Peace Tea")
     check(raw:find("|cffff6060BoP", 1, true) and raw:find("|cffc79cffDrop", 1, true), "the tags have their colours")
@@ -1040,18 +1340,18 @@ end)
 
 scenario("a merchant selling a recipe nobody had a source for is written down for every character", function()
     local ns = start({ faction = "Alliance" })
-    local ribs = ns.Lookup.BySpell(RAPTOR_RIBS)
+    local ribs = ns.Lookup.BySpell(SWIFTSTRIKE_STEAK)
     check(ns.Lookup.Sources(ribs, "A").unknown)
     ns.Window:Show()
-    Mock.clickRow(Mock.rowIndex("Raging Raptor Ribs"))
+    Mock.clickRow(Mock.rowIndex("Swiftstrike Steak"))
     check(has(Mock.rows(), "Nobody has written down yet where this comes from."))
-    check(has(Mock.rows(), "A merchant selling Recipe: Raging Raptor Ribs is noted"))
+    check(has(Mock.rows(), "A merchant selling Recipe: Swiftstrike Steak is noted"))
 
-    Mock.merchant({ { id = 4540, price = 25 }, { id = RAPTOR_RIBS_ITEM, price = 12000 }, { secret = true } }, "Corporal Bluth", "Stranglethorn Vale")
+    Mock.merchant({ { id = 4540, price = 25 }, { id = STEAK_RECIPE, price = 12000 }, { secret = true } }, "Corporal Bluth", "Stranglethorn Vale")
     local rows = Mock.rows()
     check(has(rows, "Vendor: Corporal Bluth, Stranglethorn Vale  (seen by you) | 1g 20s"), table.concat(rows, "\n", 1, 20))
     check(not has(rows, "Nobody has written down"))
-    equal(ns.db.vendors[RAPTOR_RIBS_ITEM]["Corporal Bluth"].side, "A")
+    equal(ns.db.vendors[STEAK_RECIPE]["Corporal Bluth"].side, "A")
     -- a vendor the table already names is not listed twice
     Mock.merchant({ { id = 728, price = 200 } }, "Kendor Kabonka", "Stormwind City")
     Mock.clickRow(Mock.rowIndex("Westfall Stew"))
@@ -1062,8 +1362,8 @@ scenario("a merchant selling a recipe nobody had a source for is written down fo
     equal(count, 1)
     -- the next session, another character of the same faction
     ns = start({ db = AKForeverRecipesDB, first = "Alt", last = "Two", faction = "Alliance" })
-    equal(ns.Lookup.Summary(ns.Lookup.BySpell(RAPTOR_RIBS), "A"), "vendor: Stranglethorn Vale")
-    check(not ns.Lookup.Sources(ns.Lookup.BySpell(RAPTOR_RIBS), "H").any, "an Alliance vendor is offered to the Horde")
+    equal(ns.Lookup.Summary(ns.Lookup.BySpell(SWIFTSTRIKE_STEAK), "A"), "vendor: Stranglethorn Vale")
+    check(not ns.Lookup.Sources(ns.Lookup.BySpell(SWIFTSTRIKE_STEAK), "H").any, "an Alliance vendor is offered to the Horde")
 end)
 
 scenario("'/akr find' searches every profession and prints where the recipes come from", function()
@@ -1617,7 +1917,7 @@ scenario("a recipe item's tooltip: which of your characters on the realm with th
     -- a specialization's recipe says so
     local robe = ns.Lookup.ByRecipeItem(RED_ROBE_PATTERN)
     robe.spec = "Gnomish"
-    check(Mock.showItem(RED_ROBE_PATTERN):find("Your characters - Gnomish Tailoring only:", 1, true))
+    check(Mock.showItem(RED_ROBE_PATTERN):find("Your characters - Gnomish Engineering only:", 1, true))
     robe.spec = nil
     robe.side = "H" -- every tailor here is Alliance: nobody, so not even the heading
     equal(Mock.showItem(RED_ROBE_PATTERN), "")

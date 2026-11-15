@@ -34,7 +34,7 @@
   2657
  ],
  "clientBuild": "1.60.1.70888",
- "readOn": "2026-11-10",
+ "readOn": "2026-11-15",
  "sources": {
   "11207": {
    "drops": [
@@ -1111,14 +1111,33 @@
   "249487": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 2567,
+     "level": [
+      36,
+      37
+     ],
      "npc": "Boulderfist Magus",
      "zone": "Arathi Highlands"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "249488": {
+   "drops": [
+    {
+     "id": 4681,
+     "level": [
+      38,
+      39
+     ],
+     "npc": "Mage Hunter",
+     "zone": "Desolace"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "249489": {
@@ -1285,27 +1304,126 @@
   "249511": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 4329,
+     "level": [
+      41,
+      42
+     ],
      "npc": "Firemane Scout",
      "zone": "Dustwallow Marsh"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "249512": {
+   "drops": [
+    {
+     "id": 2720,
+     "level": [
+      43,
+      44
+     ],
+     "npc": "Dustbelcher Ogre Mage",
+     "zone": "Badlands"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "249513": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 5336,
+     "level": [
+      43,
+      44
+     ],
      "npc": "Hatecrest Sorceress",
      "zone": "Feralas"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "249514": {
+   "drops": [
+    {
+     "id": 7154,
+     "level": [
+      48,
+      49
+     ],
+     "npc": "Deadwood Gardener",
+     "zone": "Felwood"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "249515": {
+   "drops": [
+    {
+     "id": 6556,
+     "level": [
+      48,
+      50
+     ],
+     "npc": "Muculent Ooze",
+     "zone": "Ungoro Crater"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "249516": {
+   "drops": [
+    {
+     "id": 6196,
+     "level": [
+      50,
+      51
+     ],
+     "npc": "Spitelash Myrmidon",
+     "zone": "Azshara"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "249520": {
+   "drops": [
+    {
+     "id": 9816,
+     "level": 60,
+     "npc": "Pyroguard Emberseer",
+     "zone": "Blackrock Spire"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "249524": {
+   "drops": [
+    {
+     "id": 10399,
+     "level": [
+      59,
+      60
+     ],
+     "npc": "Thuzadin Acolyte",
+     "zone": "Stratholme"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "249529": {
@@ -1392,16 +1510,36 @@
     }
    ]
   },
-  "250173": {
-   "from": [
-    "wowhead"
-   ],
-   "vendors": [
+  "250175": {
+   "drops": [
     {
-     "npc": "Qia",
-     "side": "",
+     "id": 8602,
+     "level": [
+      56,
+      58
+     ],
+     "npc": "Monstrous Plaguebat",
+     "zone": "Eastern Plaguelands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "250178": {
+   "drops": [
+    {
+     "id": 7446,
+     "level": [
+      59,
+      60
+     ],
+     "npc": "Rabid Shardtooth",
      "zone": "Winterspring"
     }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "250179": {
@@ -1415,19 +1553,6 @@
      "side": "",
      "zone": null
     }
-   ]
-  },
-  "250184": {
-   "drops": [
-    {
-     "chance": null,
-     "level": null,
-     "npc": "Bloodfen Lashtail",
-     "zone": "Dustwallow Marsh"
-    }
-   ],
-   "from": [
-    "wowhead"
    ]
   },
   "250185": {
@@ -1444,17 +1569,65 @@
     }
    ]
   },
-  "250368": {
+  "250189": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Xavian Hellcaller",
+     "id": 7886,
+     "level": [
+      54,
+      55
+     ],
+     "npc": "Spitelash Enchantress",
+     "zone": "Azshara"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "250363": {
+   "drops": [
+    {
+     "id": 4684,
+     "level": [
+      39,
+      40
+     ],
+     "npc": "Nether Sorceress",
+     "zone": "Desolace"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "250370": {
+   "drops": [
+    {
+     "id": 4632,
+     "level": [
+      30,
+      31
+     ],
+     "npc": "Kolkar Centaur",
+     "zone": "Desolace"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "250385": {
+   "drops": [
+    {
+     "id": 3931,
+     "level": 30,
+     "npc": "Shadethicket Oracle",
      "zone": "Ashenvale"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "250979": {
@@ -1471,6 +1644,22 @@
     }
    ]
   },
+  "250980": {
+   "drops": [
+    {
+     "id": 6193,
+     "level": [
+      47,
+      48
+     ],
+     "npc": "Spitelash Screamer",
+     "zone": "Azshara"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
   "250985": {
    "adds": true,
    "from": [
@@ -1483,6 +1672,38 @@
      "side": "",
      "zone": "Desolace"
     }
+   ]
+  },
+  "250986": {
+   "drops": [
+    {
+     "id": 5363,
+     "level": [
+      48,
+      49
+     ],
+     "npc": "Northspring Roguefeather",
+     "zone": "Feralas"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "250992": {
+   "drops": [
+    {
+     "id": 2640,
+     "level": [
+      46,
+      47
+     ],
+     "npc": "Vilebranch Witch Doctor",
+     "zone": "The Hinterlands"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "250999": {
@@ -1517,104 +1738,15 @@
   "251340": {
    "drops": [
     {
-     "id": 3586,
-     "level": 19,
-     "npc": "Miner Johnson",
+     "id": 643,
+     "level": 20,
+     "npc": "Sneed",
      "zone": "The Deadmines"
     },
     {
-     "id": 3669,
+     "id": 645,
      "level": 20,
-     "npc": "Lord Cobrahn",
-     "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3671,
-     "level": 20,
-     "npc": "Lady Anacondra",
-     "zone": null
-    },
-    {
-     "id": 11517,
-     "level": 16,
-     "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11519,
-     "level": 16,
-     "npc": "Bazzalan",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11520,
-     "level": 16,
-     "npc": "Taragaman the Hungerer",
-     "zone": "Ragefire Chasm"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "251341": {
-   "drops": [
-    {
-     "id": 646,
-     "level": 20,
-     "npc": "Mr. Smite",
-     "zone": "The Deadmines"
-    },
-    {
-     "id": 3864,
-     "level": [
-      19,
-      20
-     ],
-     "npc": "Fel Steed",
-     "zone": "Shadowfang Keep"
-    },
-    {
-     "id": 11517,
-     "level": 16,
-     "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11519,
-     "level": 16,
-     "npc": "Bazzalan",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11520,
-     "level": 16,
-     "npc": "Taragaman the Hungerer",
-     "zone": "Ragefire Chasm"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "251342": {
-   "drops": [
-    {
-     "id": 644,
-     "level": 19,
-     "npc": "Rhahk'Zor",
+     "npc": "Cookie",
      "zone": "The Deadmines"
     },
     {
@@ -1630,59 +1762,10 @@
      "zone": "The Deadmines"
     },
     {
-     "id": 3586,
-     "level": 19,
-     "npc": "Miner Johnson",
-     "zone": "The Deadmines"
-    },
-    {
-     "id": 3653,
-     "level": 20,
-     "npc": "Kresh",
-     "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3671,
-     "level": 20,
-     "npc": "Lady Anacondra",
-     "zone": null
-    },
-    {
-     "id": 11517,
-     "level": 16,
-     "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
-     "zone": "Ragefire Chasm"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "251343": {
-   "drops": [
-    {
      "id": 1763,
      "level": 20,
      "npc": "Gilnid",
      "zone": "The Deadmines"
-    },
-    {
-     "id": 3653,
-     "level": 20,
-     "npc": "Kresh",
-     "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3671,
-     "level": 20,
-     "npc": "Lady Anacondra",
-     "zone": null
     },
     {
      "id": 3864,
@@ -1703,21 +1786,9 @@
      "zone": "Shadowfang Keep"
     },
     {
-     "id": 5912,
-     "level": 20,
-     "npc": "Deviate Faerie Dragon",
-     "zone": "Wailing Caverns"
-    },
-    {
      "id": 11517,
      "level": 16,
      "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
      "zone": "Ragefire Chasm"
     }
    ],
@@ -1725,8 +1796,75 @@
     "questie"
    ]
   },
-  "251344": {
+  "251341": {
    "drops": [
+    {
+     "id": 643,
+     "level": 20,
+     "npc": "Sneed",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 644,
+     "level": 19,
+     "npc": "Rhahk'Zor",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 645,
+     "level": 20,
+     "npc": "Cookie",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 646,
+     "level": 20,
+     "npc": "Mr. Smite",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 647,
+     "level": 20,
+     "npc": "Captain Greenskin",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1763,
+     "level": 20,
+     "npc": "Gilnid",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3586,
+     "level": 19,
+     "npc": "Miner Johnson",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3653,
+     "level": 20,
+     "npc": "Kresh",
+     "zone": "Wailing Caverns"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251342": {
+   "drops": [
+    {
+     "id": 643,
+     "level": 20,
+     "npc": "Sneed",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 644,
+     "level": 19,
+     "npc": "Rhahk'Zor",
+     "zone": "The Deadmines"
+    },
     {
      "id": 645,
      "level": 20,
@@ -1746,33 +1884,146 @@
      "zone": "The Deadmines"
     },
     {
-     "id": 3653,
-     "level": 20,
-     "npc": "Kresh",
-     "zone": "Wailing Caverns"
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
     },
     {
      "id": 11517,
      "level": 16,
      "npc": "Oggleflint",
      "zone": "Ragefire Chasm"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251343": {
+   "drops": [
+    {
+     "id": 643,
+     "level": 20,
+     "npc": "Sneed",
+     "zone": "The Deadmines"
     },
     {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
-     "zone": "Ragefire Chasm"
+     "id": 644,
+     "level": 19,
+     "npc": "Rhahk'Zor",
+     "zone": "The Deadmines"
     },
     {
-     "id": 11519,
-     "level": 16,
-     "npc": "Bazzalan",
-     "zone": "Ragefire Chasm"
+     "id": 645,
+     "level": 20,
+     "npc": "Cookie",
+     "zone": "The Deadmines"
     },
     {
-     "id": 11520,
+     "id": 646,
+     "level": 20,
+     "npc": "Mr. Smite",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 647,
+     "level": 20,
+     "npc": "Captain Greenskin",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1763,
+     "level": 20,
+     "npc": "Gilnid",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251344": {
+   "drops": [
+    {
+     "id": 643,
+     "level": 20,
+     "npc": "Sneed",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 644,
+     "level": 19,
+     "npc": "Rhahk'Zor",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 645,
+     "level": 20,
+     "npc": "Cookie",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 646,
+     "level": 20,
+     "npc": "Mr. Smite",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 647,
+     "level": 20,
+     "npc": "Captain Greenskin",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1763,
+     "level": 20,
+     "npc": "Gilnid",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 11517,
      "level": 16,
-     "npc": "Taragaman the Hungerer",
+     "npc": "Oggleflint",
      "zone": "Ragefire Chasm"
     }
    ],
@@ -1783,40 +2034,39 @@
   "251345": {
    "drops": [
     {
-     "id": 3673,
+     "id": 639,
      "level": 21,
-     "npc": "Lord Serpentis",
-     "zone": "Wailing Caverns"
+     "npc": "Edwin VanCleef",
+     "zone": "The Deadmines"
     },
     {
-     "id": 3887,
+     "id": 1696,
      "level": 24,
-     "npc": "Baron Silverlaine",
-     "zone": "Shadowfang Keep"
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
     },
     {
-     "id": 4275,
-     "level": 26,
-     "npc": "Archmage Arugal",
-     "zone": "Shadowfang Keep"
-    },
-    {
-     "id": 4831,
+     "id": 4887,
      "level": 25,
-     "npc": "Lady Sarevess",
+     "npc": "Ghamoo-ra",
      "zone": "Blackfathom Deeps"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "251346": {
-   "drops": [
+    },
     {
      "id": 3654,
      "level": 22,
      "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3670,
+     "level": 21,
+     "npc": "Lord Pythas",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3673,
+     "level": 21,
+     "npc": "Lord Serpentis",
      "zone": "Wailing Caverns"
     },
     {
@@ -1826,9 +2076,70 @@
      "zone": "Wailing Caverns"
     },
     {
-     "id": 5775,
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251346": {
+   "drops": [
+    {
+     "id": 639,
      "level": 21,
-     "npc": "Verdan the Everliving",
+     "npc": "Edwin VanCleef",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 4831,
+     "level": 25,
+     "npc": "Lady Sarevess",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 4887,
+     "level": 25,
+     "npc": "Ghamoo-ra",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 3654,
+     "level": 22,
+     "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3670,
+     "level": 21,
+     "npc": "Lord Pythas",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3673,
+     "level": 21,
+     "npc": "Lord Serpentis",
      "zone": "Wailing Caverns"
     }
    ],
@@ -1839,28 +2150,52 @@
   "251347": {
    "drops": [
     {
+     "id": 639,
+     "level": 21,
+     "npc": "Edwin VanCleef",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
+    {
+     "id": 4831,
+     "level": 25,
+     "npc": "Lady Sarevess",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 4887,
+     "level": 25,
+     "npc": "Ghamoo-ra",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 645,
+     "level": 20,
+     "npc": "Cookie",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3654,
+     "level": 22,
+     "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3670,
+     "level": 21,
+     "npc": "Lord Pythas",
+     "zone": "Wailing Caverns"
+    },
+    {
      "id": 3673,
      "level": 21,
      "npc": "Lord Serpentis",
      "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3872,
-     "level": 25,
-     "npc": "Deathsworn Captain",
-     "zone": "Shadowfang Keep"
-    },
-    {
-     "id": 3927,
-     "level": 25,
-     "npc": "Wolf Master Nandos",
-     "zone": "Shadowfang Keep"
-    },
-    {
-     "id": 4275,
-     "level": 26,
-     "npc": "Archmage Arugal",
-     "zone": "Shadowfang Keep"
     }
    ],
    "from": [
@@ -1876,10 +2211,10 @@
      "zone": "The Deadmines"
     },
     {
-     "id": 3673,
-     "level": 21,
-     "npc": "Lord Serpentis",
-     "zone": "Wailing Caverns"
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
     },
     {
      "id": 3865,
@@ -1891,9 +2226,33 @@
      "zone": "Shadowfang Keep"
     },
     {
-     "id": 5775,
+     "id": 4831,
+     "level": 25,
+     "npc": "Lady Sarevess",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 3654,
+     "level": 22,
+     "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3670,
      "level": 21,
-     "npc": "Verdan the Everliving",
+     "npc": "Lord Pythas",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3673,
+     "level": 21,
+     "npc": "Lord Serpentis",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3674,
+     "level": 21,
+     "npc": "Skum",
      "zone": "Wailing Caverns"
     }
    ],
@@ -1904,16 +2263,52 @@
   "251349": {
    "drops": [
     {
+     "id": 4831,
+     "level": 25,
+     "npc": "Lady Sarevess",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 4887,
+     "level": 25,
+     "npc": "Ghamoo-ra",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 639,
+     "level": 21,
+     "npc": "Edwin VanCleef",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
+    {
+     "id": 3654,
+     "level": 22,
+     "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3670,
+     "level": 21,
+     "npc": "Lord Pythas",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3673,
+     "level": 21,
+     "npc": "Lord Serpentis",
+     "zone": "Wailing Caverns"
+    },
+    {
      "id": 3674,
      "level": 21,
      "npc": "Skum",
      "zone": "Wailing Caverns"
-    },
-    {
-     "id": 4278,
-     "level": 24,
-     "npc": "Commander Springvale",
-     "zone": "Shadowfang Keep"
     }
    ],
    "from": [
@@ -1951,26 +2346,21 @@
     }
    ],
    "from": [
+    "questie",
     "wowhead"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "251351": {
-   "drops": [
-    {
-     "id": 1663,
-     "level": 26,
-     "npc": "Dextren Ward",
-     "zone": "The Stockade"
-    },
-    {
-     "id": 1716,
-     "level": 29,
-     "npc": "Bazil Thredd",
-     "zone": "The Stockade"
-    }
-   ],
    "from": [
     "questie"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "251352": {
@@ -1998,7 +2388,12 @@
     }
    ],
    "from": [
+    "questie",
     "wowhead"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "251353": {
@@ -2017,46 +2412,37 @@
     }
    ],
    "from": [
+    "questie",
     "wowhead"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "251354": {
-   "drops": [
-    {
-     "id": 1663,
-     "level": 26,
-     "npc": "Dextren Ward",
-     "zone": "The Stockade"
-    }
-   ],
    "from": [
     "questie"
-   ]
-  },
-  "251388": {
-   "drops": [
-    {
-     "chance": null,
-     "level": null,
-     "npc": "Kurzen Jungle Fighter",
-     "zone": "Stranglethorn Vale"
-    }
    ],
-   "from": [
-    "wowhead"
+   "world": [
+    26,
+    34
    ]
   },
   "251389": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 2906,
+     "level": [
+      36,
+      37
+     ],
      "npc": "Dustbelcher Warrior",
      "zone": "Badlands"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "251390": {
@@ -2073,41 +2459,32 @@
     }
    ]
   },
-  "251392": {
+  "251393": {
    "drops": [
     {
-     "chance": 1.96,
-     "level": [
-      42,
-      43
-     ],
-     "npc": "Magram Necromancer",
-     "zone": "Shen'dralas"
-    },
-    {
-     "chance": 0.03,
+     "id": 2596,
      "level": [
       39,
       40
      ],
-     "npc": "Outcast Necromancer",
-     "zone": "Shen'dralas"
+     "npc": "Daggerspine Sorceress",
+     "zone": "Arathi Highlands"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
-  "251394": {
+  "251396": {
    "drops": [
     {
-     "id": 2894,
+     "id": 2653,
      "level": [
-      40,
-      41
+      44,
+      45
      ],
-     "npc": "Stonevault Shaman",
-     "zone": "Badlands"
+     "npc": "Witherbark Sadist",
+     "zone": "The Hinterlands"
     }
    ],
    "from": [
@@ -2117,51 +2494,111 @@
   "251398": {
    "drops": [
     {
-     "chance": 0.05,
-     "level": 39,
-     "npc": "Mordresh Fire Eye",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.02,
+     "id": 3975,
      "level": 40,
      "npc": "Herod",
      "zone": "Scarlet Monastery"
-    }
-   ],
-   "from": [
-    "wowhead"
-   ]
-  },
-  "251399": {
-   "drops": [
-    {
-     "chance": 0.06,
-     "level": 40,
-     "npc": "Ragglesnout",
-     "zone": "Razorfen Downs"
     },
     {
-     "chance": 0.01,
-     "level": 40,
-     "npc": "Glutton",
-     "zone": "Razorfen Downs"
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
      "level": 37,
      "npc": "Arcanist Doan",
      "zone": "Scarlet Monastery"
     },
     {
-     "chance": null,
-     "level": 42,
-     "npc": "Scarlet Commander Mograine",
-     "zone": "Scarlet Monastery"
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "251399": {
+   "drops": [
+    {
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "251400": {
@@ -2180,95 +2617,507 @@
   "251401": {
    "drops": [
     {
-     "chance": 0.03,
+     "id": 3975,
      "level": 40,
-     "npc": "Plaguemaw the Rotting",
-     "zone": "Razorfen Downs"
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.02,
-     "level": 39,
-     "npc": "Mordresh Fire Eye",
-     "zone": "Razorfen Downs"
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.02,
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
      "level": 40,
      "npc": "High Inquisitor Fairbanks",
      "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 6487,
      "level": 37,
      "npc": "Arcanist Doan",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "251402": {
    "drops": [
     {
-     "chance": 0.04,
+     "id": 3975,
      "level": 40,
-     "npc": "Tuten'kash",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.01,
-     "level": 41,
-     "npc": "Amnennar the Coldbringer",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
+     "npc": "Herod",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
-  "251441": {
+  "251403": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Blood Elf Reclaimer",
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5710,
+     "level": 54,
+     "npc": "Jammal'an the Prophet",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251404": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7797,
+     "level": 46,
+     "npc": "Ruuzlu",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 8127,
+     "level": 48,
+     "npc": "Antu'sul",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 8580,
+     "level": 50,
+     "npc": "Atal'alarion",
+     "zone": null
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251405": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5715,
+     "level": 52,
+     "npc": "Hukku",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7797,
+     "level": 46,
+     "npc": "Ruuzlu",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251406": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5709,
+     "level": 55,
+     "npc": "Shade of Eranikus",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5715,
+     "level": 52,
+     "npc": "Hukku",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251407": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7797,
+     "level": 46,
+     "npc": "Ruuzlu",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251438": {
+   "drops": [
+    {
+     "id": 6117,
+     "level": [
+      46,
+      47
+     ],
+     "npc": "Highborne Lichling",
      "zone": "Azshara"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "251439": {
+   "drops": [
+    {
+     "id": 8566,
+     "level": [
+      47,
+      48
+     ],
+     "npc": "Dark Iron Lookout",
+     "zone": "Searing Gorge"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251440": {
+   "drops": [
+    {
+     "id": 7155,
+     "level": [
+      49,
+      50
+     ],
+     "npc": "Deadwood Pathfinder",
+     "zone": "Felwood"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "251442": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 7108,
+     "level": [
+      52,
+      53
+     ],
      "npc": "Jadefire Betrayer",
      "zone": "Felwood"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
-  "251455": {
+  "251443": {
    "drops": [
     {
-     "id": 3727,
+     "id": 7451,
      "level": [
-      20,
-      21
+      54,
+      56
      ],
-     "npc": "Dark Strand Enforcer",
-     "zone": "Ashenvale"
+     "npc": "Raging Owlbeast",
+     "zone": "Winterspring"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251444": {
+   "drops": [
+    {
+     "id": 8600,
+     "level": [
+      53,
+      55
+     ],
+     "npc": "Plaguebat",
+     "zone": "Eastern Plaguelands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251451": {
+   "drops": [
+    {
+     "id": 9583,
+     "level": [
+      58,
+      59
+     ],
+     "npc": "Bloodaxe Veteran",
+     "zone": "Blackrock Spire"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "251453": {
+   "drops": [
+    {
+     "id": 247248,
+     "level": null,
+     "npc": "Legashi Summoner",
+     "zone": null
     }
    ],
    "from": [
@@ -2319,254 +3168,52 @@
     }
    ]
   },
-  "251463": {
+  "251462": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Lost One Hunter",
-     "zone": "Swamp of Sorrows"
-    }
-   ],
-   "from": [
-    "wowhead"
-   ]
-  },
-  "251464": {
-   "drops": [
-    {
-     "chance": null,
-     "level": null,
-     "npc": "Gordunni Brute",
+     "id": 5249,
+     "level": [
+      40,
+      41
+     ],
+     "npc": "Woodpaw Mongrel",
      "zone": "Feralas"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "251467": {
+   "drops": [
+    {
+     "id": 8893,
+     "level": [
+      52,
+      53
+     ],
+     "npc": "Anvilrage Soldier",
+     "zone": null
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "252771": {
    "drops": [
     {
-     "id": 644,
-     "level": 19,
-     "npc": "Rhahk'Zor",
-     "zone": "The Deadmines"
-    },
-    {
-     "id": 3653,
-     "level": 20,
-     "npc": "Kresh",
-     "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3671,
-     "level": 20,
-     "npc": "Lady Anacondra",
-     "zone": null
-    },
-    {
-     "id": 11517,
-     "level": 16,
-     "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11519,
-     "level": 16,
-     "npc": "Bazzalan",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11520,
-     "level": 16,
-     "npc": "Taragaman the Hungerer",
-     "zone": "Ragefire Chasm"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "252772": {
-   "drops": [
-    {
-     "id": 644,
-     "level": 19,
-     "npc": "Rhahk'Zor",
-     "zone": "The Deadmines"
-    },
-    {
-     "id": 1763,
-     "level": 20,
-     "npc": "Gilnid",
-     "zone": "The Deadmines"
-    },
-    {
-     "id": 3653,
-     "level": 20,
-     "npc": "Kresh",
-     "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3669,
-     "level": 20,
-     "npc": "Lord Cobrahn",
-     "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3671,
-     "level": 20,
-     "npc": "Lady Anacondra",
-     "zone": null
-    },
-    {
-     "id": 3865,
-     "level": [
-      20,
-      21
-     ],
-     "npc": "Shadow Charger",
-     "zone": "Shadowfang Keep"
-    },
-    {
-     "id": 11517,
-     "level": 16,
-     "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
-     "zone": "Ragefire Chasm"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "252773": {
-   "drops": [
-    {
      "id": 643,
      "level": 20,
      "npc": "Sneed",
      "zone": "The Deadmines"
     },
     {
-     "id": 3653,
-     "level": 20,
-     "npc": "Kresh",
-     "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3671,
-     "level": 20,
-     "npc": "Lady Anacondra",
-     "zone": null
-    },
-    {
-     "id": 3914,
-     "level": 20,
-     "npc": "Rethilgore",
-     "zone": "Shadowfang Keep"
-    },
-    {
-     "id": 11517,
-     "level": 16,
-     "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11519,
-     "level": 16,
-     "npc": "Bazzalan",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11520,
-     "level": 16,
-     "npc": "Taragaman the Hungerer",
-     "zone": "Ragefire Chasm"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "252774": {
-   "drops": [
-    {
-     "id": 643,
-     "level": 20,
-     "npc": "Sneed",
+     "id": 644,
+     "level": 19,
+     "npc": "Rhahk'Zor",
      "zone": "The Deadmines"
     },
-    {
-     "id": 645,
-     "level": 20,
-     "npc": "Cookie",
-     "zone": "The Deadmines"
-    },
-    {
-     "id": 647,
-     "level": 20,
-     "npc": "Captain Greenskin",
-     "zone": "The Deadmines"
-    },
-    {
-     "id": 1763,
-     "level": 20,
-     "npc": "Gilnid",
-     "zone": "The Deadmines"
-    },
-    {
-     "id": 3653,
-     "level": 20,
-     "npc": "Kresh",
-     "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3671,
-     "level": 20,
-     "npc": "Lady Anacondra",
-     "zone": null
-    },
-    {
-     "id": 3864,
-     "level": [
-      19,
-      20
-     ],
-     "npc": "Fel Steed",
-     "zone": "Shadowfang Keep"
-    },
-    {
-     "id": 11517,
-     "level": 16,
-     "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "252775": {
-   "drops": [
     {
      "id": 645,
      "level": 20,
@@ -2598,16 +3245,245 @@
      "zone": "Wailing Caverns"
     },
     {
-     "id": 3669,
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252772": {
+   "drops": [
+    {
+     "id": 643,
      "level": 20,
-     "npc": "Lord Cobrahn",
-     "zone": "Wailing Caverns"
+     "npc": "Sneed",
+     "zone": "The Deadmines"
     },
     {
-     "id": 3671,
+     "id": 645,
      "level": 20,
-     "npc": "Lady Anacondra",
-     "zone": null
+     "npc": "Cookie",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 646,
+     "level": 20,
+     "npc": "Mr. Smite",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 647,
+     "level": 20,
+     "npc": "Captain Greenskin",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1763,
+     "level": 20,
+     "npc": "Gilnid",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 11517,
+     "level": 16,
+     "npc": "Oggleflint",
+     "zone": "Ragefire Chasm"
+    },
+    {
+     "id": 11518,
+     "level": 16,
+     "npc": "Jergosh the Invoker",
+     "zone": "Ragefire Chasm"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252773": {
+   "drops": [
+    {
+     "id": 643,
+     "level": 20,
+     "npc": "Sneed",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 644,
+     "level": 19,
+     "npc": "Rhahk'Zor",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 646,
+     "level": 20,
+     "npc": "Mr. Smite",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 647,
+     "level": 20,
+     "npc": "Captain Greenskin",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1763,
+     "level": 20,
+     "npc": "Gilnid",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 11517,
+     "level": 16,
+     "npc": "Oggleflint",
+     "zone": "Ragefire Chasm"
+    },
+    {
+     "id": 11518,
+     "level": 16,
+     "npc": "Jergosh the Invoker",
+     "zone": "Ragefire Chasm"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252774": {
+   "drops": [
+    {
+     "id": 643,
+     "level": 20,
+     "npc": "Sneed",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 644,
+     "level": 19,
+     "npc": "Rhahk'Zor",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 645,
+     "level": 20,
+     "npc": "Cookie",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 646,
+     "level": 20,
+     "npc": "Mr. Smite",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 647,
+     "level": 20,
+     "npc": "Captain Greenskin",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1763,
+     "level": 20,
+     "npc": "Gilnid",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252775": {
+   "drops": [
+    {
+     "id": 644,
+     "level": 19,
+     "npc": "Rhahk'Zor",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 645,
+     "level": 20,
+     "npc": "Cookie",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 646,
+     "level": 20,
+     "npc": "Mr. Smite",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 647,
+     "level": 20,
+     "npc": "Captain Greenskin",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1763,
+     "level": 20,
+     "npc": "Gilnid",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
     },
     {
      "id": 11517,
@@ -2635,40 +3511,46 @@
      "zone": "The Deadmines"
     },
     {
+     "id": 645,
+     "level": 20,
+     "npc": "Cookie",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 646,
+     "level": 20,
+     "npc": "Mr. Smite",
+     "zone": "The Deadmines"
+    },
+    {
      "id": 647,
      "level": 20,
      "npc": "Captain Greenskin",
      "zone": "The Deadmines"
     },
     {
-     "id": 3669,
+     "id": 1763,
      "level": 20,
-     "npc": "Lord Cobrahn",
-     "zone": "Wailing Caverns"
+     "npc": "Gilnid",
+     "zone": "The Deadmines"
     },
     {
-     "id": 11517,
-     "level": 16,
-     "npc": "Oggleflint",
-     "zone": "Ragefire Chasm"
+     "id": 3864,
+     "level": [
+      19,
+      20
+     ],
+     "npc": "Fel Steed",
+     "zone": "Shadowfang Keep"
     },
     {
-     "id": 11518,
-     "level": 16,
-     "npc": "Jergosh the Invoker",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11519,
-     "level": 16,
-     "npc": "Bazzalan",
-     "zone": "Ragefire Chasm"
-    },
-    {
-     "id": 11520,
-     "level": 16,
-     "npc": "Taragaman the Hungerer",
-     "zone": "Ragefire Chasm"
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
     }
    ],
    "from": [
@@ -2682,6 +3564,33 @@
      "level": 21,
      "npc": "Edwin VanCleef",
      "zone": "The Deadmines"
+    },
+    {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 4887,
+     "level": 25,
+     "npc": "Ghamoo-ra",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 3654,
+     "level": 22,
+     "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
     },
     {
      "id": 3670,
@@ -2700,12 +3609,6 @@
      "level": 21,
      "npc": "Skum",
      "zone": "Wailing Caverns"
-    },
-    {
-     "id": 3887,
-     "level": 24,
-     "npc": "Baron Silverlaine",
-     "zone": "Shadowfang Keep"
     }
    ],
    "from": [
@@ -2721,9 +3624,42 @@
      "zone": "The Deadmines"
     },
     {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 4831,
+     "level": 25,
+     "npc": "Lady Sarevess",
+     "zone": "Blackfathom Deeps"
+    },
+    {
      "id": 3654,
      "level": 22,
      "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3670,
+     "level": 21,
+     "npc": "Lord Pythas",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3673,
+     "level": 21,
+     "npc": "Lord Serpentis",
      "zone": "Wailing Caverns"
     },
     {
@@ -2731,12 +3667,6 @@
      "level": 21,
      "npc": "Skum",
      "zone": "Wailing Caverns"
-    },
-    {
-     "id": 4279,
-     "level": 24,
-     "npc": "Odo the Blindwatcher",
-     "zone": "Shadowfang Keep"
     }
    ],
    "from": [
@@ -2752,24 +3682,32 @@
      "zone": "The Deadmines"
     },
     {
-     "id": 3886,
-     "level": 22,
-     "npc": "Razorclaw the Butcher",
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
      "zone": "Shadowfang Keep"
     },
     {
-     "id": 5775,
-     "level": 21,
-     "npc": "Verdan the Everliving",
-     "zone": "Wailing Caverns"
-    }
-   ],
-   "from": [
-    "questie"
-   ]
-  },
-  "252795": {
-   "drops": [
+     "id": 4831,
+     "level": 25,
+     "npc": "Lady Sarevess",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 4887,
+     "level": 25,
+     "npc": "Ghamoo-ra",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
     {
      "id": 3654,
      "level": 22,
@@ -2780,6 +3718,61 @@
      "id": 3670,
      "level": 21,
      "npc": "Lord Pythas",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3673,
+     "level": 21,
+     "npc": "Lord Serpentis",
+     "zone": "Wailing Caverns"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252795": {
+   "drops": [
+    {
+     "id": 639,
+     "level": 21,
+     "npc": "Edwin VanCleef",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
+    {
+     "id": 4831,
+     "level": 25,
+     "npc": "Lady Sarevess",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 4887,
+     "level": 25,
+     "npc": "Ghamoo-ra",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 3654,
+     "level": 22,
+     "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3670,
+     "level": 21,
+     "npc": "Lord Pythas",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3673,
+     "level": 21,
+     "npc": "Lord Serpentis",
      "zone": "Wailing Caverns"
     },
     {
@@ -2796,9 +3789,42 @@
   "252796": {
    "drops": [
     {
+     "id": 639,
+     "level": 21,
+     "npc": "Edwin VanCleef",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 4887,
+     "level": 25,
+     "npc": "Ghamoo-ra",
+     "zone": "Blackfathom Deeps"
+    },
+    {
      "id": 3654,
      "level": 22,
      "npc": "Mutanus the Devourer",
+     "zone": "Wailing Caverns"
+    },
+    {
+     "id": 3670,
+     "level": 21,
+     "npc": "Lord Pythas",
      "zone": "Wailing Caverns"
     },
     {
@@ -2808,10 +3834,10 @@
      "zone": "Wailing Caverns"
     },
     {
-     "id": 3927,
-     "level": 25,
-     "npc": "Wolf Master Nandos",
-     "zone": "Shadowfang Keep"
+     "id": 3674,
+     "level": 21,
+     "npc": "Skum",
+     "zone": "Wailing Caverns"
     }
    ],
    "from": [
@@ -2820,6 +3846,39 @@
   },
   "252797": {
    "drops": [
+    {
+     "id": 639,
+     "level": 21,
+     "npc": "Edwin VanCleef",
+     "zone": "The Deadmines"
+    },
+    {
+     "id": 1696,
+     "level": 24,
+     "npc": "Targorr the Dread",
+     "zone": "The Stockade"
+    },
+    {
+     "id": 3865,
+     "level": [
+      20,
+      21
+     ],
+     "npc": "Shadow Charger",
+     "zone": "Shadowfang Keep"
+    },
+    {
+     "id": 4831,
+     "level": 25,
+     "npc": "Lady Sarevess",
+     "zone": "Blackfathom Deeps"
+    },
+    {
+     "id": 4887,
+     "level": 25,
+     "npc": "Ghamoo-ra",
+     "zone": "Blackfathom Deeps"
+    },
     {
      "id": 3654,
      "level": 22,
@@ -2844,16 +3903,12 @@
    ]
   },
   "252814": {
-   "drops": [
-    {
-     "id": 4830,
-     "level": 26,
-     "npc": "Old Serra'kis",
-     "zone": "Blackfathom Deeps"
-    }
-   ],
    "from": [
     "questie"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "252815": {
@@ -2872,7 +3927,12 @@
     }
    ],
    "from": [
+    "questie",
     "wowhead"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "252816": {
@@ -2909,7 +3969,12 @@
     }
    ],
    "from": [
+    "questie",
     "wowhead"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "252817": {
@@ -2928,33 +3993,30 @@
     }
    ],
    "from": [
+    "questie",
     "wowhead"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "252818": {
-   "drops": [
-    {
-     "id": 6243,
-     "level": 26,
-     "npc": "Gelihast",
-     "zone": "Blackfathom Deeps"
-    }
-   ],
    "from": [
     "questie"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "252819": {
-   "drops": [
-    {
-     "id": 1663,
-     "level": 26,
-     "npc": "Dextren Ward",
-     "zone": "The Stockade"
-    }
-   ],
    "from": [
     "questie"
+   ],
+   "world": [
+    26,
+    34
    ]
   },
   "252833": {
@@ -2974,172 +4036,664 @@
   "252843": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Mordresh Fire Eye",
-     "zone": "Razorfen Downs"
-    }
-   ],
-   "from": [
-    "wowhead"
-   ]
-  },
-  "252844": {
-   "drops": [
-    {
-     "chance": 0.02,
-     "level": 40,
-     "npc": "Tuten'kash",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.02,
-     "level": 39,
-     "npc": "Mordresh Fire Eye",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.01,
+     "id": 3975,
      "level": 40,
      "npc": "Herod",
      "zone": "Scarlet Monastery"
-    }
-   ],
-   "from": [
-    "wowhead"
-   ]
-  },
-  "252845": {
-   "drops": [
-    {
-     "chance": 0.03,
-     "level": 40,
-     "npc": "Plaguemaw the Rotting",
-     "zone": "Razorfen Downs"
     },
     {
-     "chance": 0.02,
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
      "level": 40,
      "npc": "High Inquisitor Fairbanks",
      "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
      "level": 37,
      "npc": "Arcanist Doan",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "252844": {
+   "drops": [
+    {
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252845": {
+   "drops": [
+    {
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "252846": {
    "drops": [
     {
-     "chance": 0.03,
+     "id": 3975,
      "level": 40,
-     "npc": "Plaguemaw the Rotting",
-     "zone": "Razorfen Downs"
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7023,
+     "level": 42,
+     "npc": "Obsidian Sentinel",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "252847": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
-     "zone": "Razorfen Downs"
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
-  "252859": {
+  "252858": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Dark Iron Taskmaster",
-     "zone": "Searing Gorge"
+     "id": 6116,
+     "level": [
+      45,
+      46
+     ],
+     "npc": "Highborne Apparition",
+     "zone": "Azshara"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "252865": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 7158,
+     "level": [
+      53,
+      54
+     ],
      "npc": "Deadwood Shaman",
      "zone": "Felwood"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
-  "252866": {
+  "252867": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Deadwood Warrior",
-     "zone": "Felwood"
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5709,
+     "level": 55,
+     "npc": "Shade of Eranikus",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5710,
+     "level": 54,
+     "npc": "Jammal'an the Prophet",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7797,
+     "level": 46,
+     "npc": "Ruuzlu",
+     "zone": "Zulfarrak Dungeon"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "252868": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 8127,
+     "level": 48,
+     "npc": "Antu'sul",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252869": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7797,
+     "level": 46,
+     "npc": "Ruuzlu",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252870": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7797,
+     "level": 46,
+     "npc": "Ruuzlu",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 8127,
+     "level": 48,
+     "npc": "Antu'sul",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "252871": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Atal'alarion",
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5721,
+     "level": 53,
+     "npc": "Dreamscythe",
+     "zone": null
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 8127,
+     "level": 48,
+     "npc": "Antu'sul",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 8440,
+     "level": 1,
+     "npc": "Shade of Hakkar",
      "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 9502,
+     "level": 55,
+     "npc": "Phalanx",
+     "zone": null
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "252878": {
+   "drops": [
+    {
+     "id": 6557,
+     "level": [
+      50,
+      52
+     ],
+     "npc": "Primal Ooze",
+     "zone": "Ungoro Crater"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "252879": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 9878,
+     "level": [
+      51,
+      52
+     ],
      "npc": "Entropic Beast",
      "zone": "Felwood"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "252881": {
+   "drops": [
+    {
+     "id": 1831,
+     "level": [
+      52,
+      53
+     ],
+     "npc": "Scarlet Hunter",
+     "zone": "Western Plaguelands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252882": {
+   "drops": [
+    {
+     "id": 6520,
+     "level": [
+      53,
+      54
+     ],
+     "npc": "Scorching Elemental",
+     "zone": "Ungoro Crater"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "252883": {
+   "drops": [
+    {
+     "id": 6005,
+     "level": [
+      52,
+      53
+     ],
+     "npc": "Shadowsworn Thug",
+     "zone": "Blasted Lands"
+    }
+   ],
    "from": [
-    "fc-quests"
+    "fc-quests",
+    "questie"
    ],
    "quests": [
     {
@@ -3150,111 +4704,716 @@
     }
    ]
   },
-  "252896": {
+  "252884": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
-     "zone": "Scarlet Monastery"
-    },
-    {
-     "chance": 0.01,
-     "level": 45,
-     "npc": "Sergeant Bly",
-     "zone": "Zul'Farrak"
+     "id": 8523,
+     "level": [
+      53,
+      54
+     ],
+     "npc": "Scourge Soldier",
+     "zone": "Eastern Plaguelands"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "252885": {
+   "drops": [
+    {
+     "id": 8534,
+     "level": [
+      54,
+      56
+     ],
+     "npc": "Putrid Gargoyle",
+     "zone": "Eastern Plaguelands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252886": {
+   "drops": [
+    {
+     "id": 7885,
+     "level": [
+      53,
+      54
+     ],
+     "npc": "Spitelash Battlemaster",
+     "zone": "Azshara"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252888": {
+   "drops": [
+    {
+     "id": 7025,
+     "level": [
+      55,
+      56
+     ],
+     "npc": "Blackrock Soldier",
+     "zone": "Burning Steppes"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252890": {
+   "drops": [
+    {
+     "id": 7440,
+     "level": [
+      55,
+      56
+     ],
+     "npc": "Winterfall Den Watcher",
+     "zone": "Winterspring"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252891": {
+   "drops": [
+    {
+     "id": 11462,
+     "level": [
+      54,
+      55
+     ],
+     "npc": "Warpwood Treant",
+     "zone": "Dire Maul"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252895": {
+   "drops": [
+    {
+     "id": 9262,
+     "level": [
+      56,
+      57
+     ],
+     "npc": "Firebrand Invoker",
+     "zone": "Blackrock Spire"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252896": {
+   "drops": [
+    {
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "252897": {
    "drops": [
     {
-     "chance": 0.14,
+     "id": 3975,
      "level": 40,
-     "npc": "Plaguemaw the Rotting",
-     "zone": "Razorfen Downs"
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.02,
-     "level": 40,
-     "npc": "Tuten'kash",
-     "zone": "Razorfen Downs"
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6487,
      "level": 37,
      "npc": "Arcanist Doan",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7023,
+     "level": 42,
+     "npc": "Obsidian Sentinel",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7206,
+     "level": 44,
+     "npc": "Ancient Stone Keeper",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "252898": {
    "drops": [
     {
-     "chance": 0.03,
+     "id": 3975,
      "level": 40,
-     "npc": "Plaguemaw the Rotting",
-     "zone": "Razorfen Downs"
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6487,
      "level": 37,
      "npc": "Arcanist Doan",
      "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 6910,
      "level": 40,
-     "npc": "Herod",
-     "zone": "Scarlet Monastery"
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7023,
+     "level": 42,
+     "npc": "Obsidian Sentinel",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7206,
+     "level": 44,
+     "npc": "Ancient Stone Keeper",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "252899": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
-     "zone": "Razorfen Downs"
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
      "level": 37,
      "npc": "Arcanist Doan",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 7023,
+     "level": 42,
+     "npc": "Obsidian Sentinel",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7206,
+     "level": 44,
+     "npc": "Ancient Stone Keeper",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "252908": {
+   "drops": [
+    {
+     "id": 5471,
+     "level": [
+      45,
+      46
+     ],
+     "npc": "Dunemaul Ogre",
+     "zone": "Tanaris"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252914": {
+   "drops": [
+    {
+     "id": 6505,
+     "level": [
+      48,
+      49
+     ],
+     "npc": "Ravasaur",
+     "zone": "Ungoro Crater"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252916": {
+   "drops": [
+    {
+     "id": 5262,
+     "level": [
+      49,
+      50
+     ],
+     "npc": "Groddoc Thunderer",
+     "zone": "Feralas"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252918": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5709,
+     "level": 55,
+     "npc": "Shade of Eranikus",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5710,
+     "level": 54,
+     "npc": "Jammal'an the Prophet",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 8127,
+     "level": 48,
+     "npc": "Antu'sul",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252919": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7797,
+     "level": 46,
+     "npc": "Ruuzlu",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252920": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5710,
+     "level": 54,
+     "npc": "Jammal'an the Prophet",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252921": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5709,
+     "level": 55,
+     "npc": "Shade of Eranikus",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7797,
+     "level": 46,
+     "npc": "Ruuzlu",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252926": {
+   "drops": [
+    {
+     "id": 7115,
+     "level": [
+      51,
+      52
+     ],
+     "npc": "Jaedenar Adept",
+     "zone": "Felwood"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252927": {
+   "drops": [
+    {
+     "id": 6527,
+     "level": [
+      51,
+      52
+     ],
+     "npc": "Tar Creeper",
+     "zone": "Ungoro Crater"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "252928": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 6004,
+     "level": [
+      51,
+      52
+     ],
      "npc": "Shadowsworn Cultist",
      "zone": "Blasted Lands"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "252930": {
+   "drops": [
+    {
+     "id": 1784,
+     "level": [
+      51,
+      52
+     ],
+     "npc": "Skeletal Sorcerer",
+     "zone": "Western Plaguelands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252931": {
+   "drops": [
+    {
+     "id": 6006,
+     "level": [
+      52,
+      53
+     ],
+     "npc": "Shadowsworn Adept",
+     "zone": "Blasted Lands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252932": {
+   "drops": [
+    {
+     "id": 6195,
+     "level": [
+      50,
+      52
+     ],
+     "npc": "Spitelash Siren",
+     "zone": "Azshara"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "252934": {
+   "drops": [
+    {
+     "id": 11291,
+     "level": [
+      53,
+      55
+     ],
+     "npc": "Unliving Mossflayer",
+     "zone": "Eastern Plaguelands"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "253974": {
@@ -3287,231 +5446,776 @@
     "questie"
    ]
   },
-  "254016": {
-   "drops": [
-    {
-     "chance": null,
-     "level": null,
-     "npc": "Slitherblade Sea Witch",
-     "zone": "Desolace"
-    }
-   ],
-   "from": [
-    "wowhead"
-   ]
-  },
   "254022": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 873,
+     "level": [
+      36,
+      37
+     ],
      "npc": "Saltscale Oracle",
      "zone": "Stranglethorn Vale"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "254034": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 2907,
+     "level": [
+      36,
+      37
+     ],
      "npc": "Dustbelcher Mystic",
      "zone": "Badlands"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "254038": {
    "drops": [
     {
-     "chance": 0.02,
-     "level": 40,
-     "npc": "Tuten'kash",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.01,
-     "level": 41,
-     "npc": "Amnennar the Coldbringer",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.02,
-     "level": 40,
-     "npc": "High Inquisitor Fairbanks",
-     "zone": "Scarlet Monastery"
-    },
-    {
-     "chance": null,
-     "level": 42,
-     "npc": "Scarlet Commander Mograine",
-     "zone": "Scarlet Monastery"
-    }
-   ],
-   "from": [
-    "wowhead"
-   ]
-  },
-  "254040": {
-   "drops": [
-    {
-     "chance": 0.02,
-     "level": 40,
-     "npc": "Tuten'kash",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.01,
-     "level": 41,
-     "npc": "Amnennar the Coldbringer",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.01,
-     "level": 42,
-     "npc": "Scarlet Commander Mograine",
-     "zone": "Scarlet Monastery"
-    },
-    {
-     "chance": 0.01,
-     "level": 37,
-     "npc": "Arcanist Doan",
-     "zone": "Scarlet Monastery"
-    }
-   ],
-   "from": [
-    "wowhead"
-   ]
-  },
-  "254042": {
-   "drops": [
-    {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.01,
-     "level": 40,
-     "npc": "High Inquisitor Fairbanks",
-     "zone": "Scarlet Monastery"
-    }
-   ],
-   "from": [
-    "wowhead"
-   ]
-  },
-  "254044": {
-   "drops": [
-    {
-     "chance": 0.03,
+     "id": 3975,
      "level": 40,
      "npc": "Herod",
      "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
      "level": 37,
      "npc": "Arcanist Doan",
      "zone": "Scarlet Monastery"
     },
     {
-     "chance": 0.01,
+     "id": 6910,
      "level": 40,
-     "npc": "Glutton",
-     "zone": "Razorfen Downs"
+     "npc": "Revelosh",
+     "zone": "Uldaman"
     },
     {
-     "chance": 0.01,
-     "level": 41,
-     "npc": "Amnennar the Coldbringer",
-     "zone": "Razorfen Downs"
+     "id": 7023,
+     "level": 42,
+     "npc": "Obsidian Sentinel",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "254040": {
+   "drops": [
+    {
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254042": {
+   "drops": [
+    {
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7023,
+     "level": 42,
+     "npc": "Obsidian Sentinel",
+     "zone": "Uldaman"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254044": {
+   "drops": [
+    {
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6906,
+     "level": 41,
+     "npc": "Baelog",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6907,
+     "level": 40,
+     "npc": "Eric \"The Swift\"",
+     "zone": "Uldaman"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "254046": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
-     "zone": "Razorfen Downs"
+     "id": 3975,
+     "level": 40,
+     "npc": "Herod",
+     "zone": "Scarlet Monastery"
     },
     {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7023,
+     "level": 42,
+     "npc": "Obsidian Sentinel",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "254048": {
    "drops": [
     {
-     "chance": 0.3,
-     "level": 45,
-     "npc": "Sandarr Dunereaver",
-     "zone": "Zul'Farrak"
-    },
-    {
-     "chance": 0.07,
+     "id": 3975,
      "level": 40,
-     "npc": "Plaguemaw the Rotting",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": 0.03,
-     "level": 39,
-     "npc": "Mordresh Fire Eye",
-     "zone": "Razorfen Downs"
-    },
-    {
-     "chance": null,
-     "level": null,
-     "npc": "Bosses",
+     "npc": "Herod",
      "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3976,
+     "level": 42,
+     "npc": "Scarlet Commander Mograine",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 3977,
+     "level": 42,
+     "npc": "High Inquisitor Whitemane",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4542,
+     "level": 40,
+     "npc": "High Inquisitor Fairbanks",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 4854,
+     "level": 45,
+     "npc": "Grimlok",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 6487,
+     "level": 37,
+     "npc": "Arcanist Doan",
+     "zone": "Scarlet Monastery"
+    },
+    {
+     "id": 6910,
+     "level": 40,
+     "npc": "Revelosh",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 7206,
+     "level": 44,
+     "npc": "Ancient Stone Keeper",
+     "zone": "Uldaman"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
-  "254078": {
+  "254076": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Vilebranch Soothsayer",
-     "zone": "The Hinterlands"
+     "id": 5852,
+     "level": [
+      47,
+      49
+     ],
+     "npc": "Inferno Elemental",
+     "zone": "Searing Gorge"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "254094": {
+   "drops": [
+    {
+     "id": 5297,
+     "level": [
+      48,
+      49
+     ],
+     "npc": "Elder Rage Scar",
+     "zone": "Feralas"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254096": {
+   "drops": [
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5721,
+     "level": 53,
+     "npc": "Dreamscythe",
+     "zone": null
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254098": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5709,
+     "level": 55,
+     "npc": "Shade of Eranikus",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254100": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5709,
+     "level": 55,
+     "npc": "Shade of Eranikus",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5710,
+     "level": 54,
+     "npc": "Jammal'an the Prophet",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5715,
+     "level": 52,
+     "npc": "Hukku",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5721,
+     "level": 53,
+     "npc": "Dreamscythe",
+     "zone": null
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254102": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5715,
+     "level": 52,
+     "npc": "Hukku",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7796,
+     "level": 46,
+     "npc": "Nekrum Gutchewer",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254104": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5715,
+     "level": 52,
+     "npc": "Hukku",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254106": {
+   "drops": [
+    {
+     "id": 2748,
+     "level": 47,
+     "npc": "Archaedas",
+     "zone": "Uldaman"
+    },
+    {
+     "id": 5710,
+     "level": 54,
+     "npc": "Jammal'an the Prophet",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 5719,
+     "level": 52,
+     "npc": "Morphaz",
+     "zone": "The Temple of Atal'Hakkar"
+    },
+    {
+     "id": 7267,
+     "level": 48,
+     "npc": "Chief Ukorz Sandscalp",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7271,
+     "level": 46,
+     "npc": "Witch Doctor Zum'rah",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7272,
+     "level": 46,
+     "npc": "Theka the Martyr",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7273,
+     "level": 46,
+     "npc": "Gahz'rilla",
+     "zone": "Zulfarrak Dungeon"
+    },
+    {
+     "id": 7275,
+     "level": 47,
+     "npc": "Shadowpriest Sezz'ziz",
+     "zone": "Zulfarrak Dungeon"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254120": {
+   "drops": [
+    {
+     "id": 1785,
+     "level": [
+      52,
+      54
+     ],
+     "npc": "Skeletal Terror",
+     "zone": "Western Plaguelands"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "254122": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 7523,
+     "level": [
+      54,
+      55
+     ],
      "npc": "Suffering Highborne",
      "zone": "Winterspring"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "254126": {
+   "drops": [
+    {
+     "id": 7139,
+     "level": [
+      52,
+      53
+     ],
+     "npc": "Irontree Stomper",
+     "zone": "Felwood"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "254134": {
@@ -3524,6 +6228,38 @@
      "side": "",
      "zone": "Mount Hyjal"
     }
+   ]
+  },
+  "254138": {
+   "drops": [
+    {
+     "id": 1795,
+     "level": [
+      55,
+      56
+     ],
+     "npc": "Searing Ghoul",
+     "zone": "Western Plaguelands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254681": {
+   "drops": [
+    {
+     "id": 4658,
+     "level": [
+      39,
+      40
+     ],
+     "npc": "Maraudine Stormer",
+     "zone": "Desolace"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "254682": {
@@ -3540,29 +6276,48 @@
     }
    ]
   },
-  "254686": {
+  "254684": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Hatecrest Serpent Guard",
-     "zone": "Feralas"
+     "id": 4334,
+     "level": [
+      43,
+      44
+     ],
+     "npc": "Firemane Flamecaller",
+     "zone": "Dustwallow Marsh"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
-  "255724": {
+  "254685": {
    "drops": [
     {
-     "id": 910,
+     "id": 5856,
      "level": [
-      26,
-      27
+      43,
+      45
      ],
-     "npc": "Defias Enchanter",
-     "zone": "Duskwood"
+     "npc": "Glassweb Spider",
+     "zone": "Searing Gorge"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "254686": {
+   "drops": [
+    {
+     "id": 5333,
+     "level": [
+      44,
+      45
+     ],
+     "npc": "Hatecrest Serpent Guard",
+     "zone": "Feralas"
     }
    ],
    "from": [
@@ -3572,53 +6327,164 @@
   "255730": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 6575,
+     "level": 30,
      "npc": "Scarlet Trainee",
      "zone": "Scarlet Monastery"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "264207": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 4281,
+     "level": [
+      29,
+      30
+     ],
      "npc": "Scarlet Scout",
      "zone": "Tirisfal Glades"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "264208": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
+     "id": 1054,
+     "level": [
+      30,
+      31
+     ],
      "npc": "Dark Iron Demolitionist",
      "zone": "Wetlands"
+    },
+    {
+     "id": 275045,
+     "level": null,
+     "npc": "Dragonmaw Saboteur",
+     "zone": null
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
-  "264215": {
+  "264210": {
    "drops": [
     {
-     "chance": null,
-     "level": null,
-     "npc": "Wastewander Thief",
-     "zone": "Tanaris"
+     "id": 1094,
+     "level": [
+      34,
+      35
+     ],
+     "npc": "Venture Co. Miner",
+     "zone": "Stranglethorn Vale"
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
+   ]
+  },
+  "264212": {
+   "drops": [
+    {
+     "id": 2570,
+     "level": [
+      38,
+      39
+     ],
+     "npc": "Boulderfist Shaman",
+     "zone": "Arathi Highlands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "264213": {
+   "drops": [
+    {
+     "id": 7030,
+     "level": [
+      40,
+      41
+     ],
+     "npc": "Shadowforge Geologist",
+     "zone": "Uldaman"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "264214": {
+   "drops": [
+    {
+     "id": 5839,
+     "level": [
+      43,
+      44
+     ],
+     "npc": "Dark Iron Geologist",
+     "zone": "Searing Gorge"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "264218": {
+   "drops": [
+    {
+     "id": 2656,
+     "level": [
+      47,
+      48
+     ],
+     "npc": "Jade Ooze",
+     "zone": "The Hinterlands"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "264224": {
+   "drops": [
+    {
+     "id": 7033,
+     "level": [
+      50,
+      51
+     ],
+     "npc": "Firegut Ogre",
+     "zone": "Burning Steppes"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "264231": {
+   "drops": [
+    {
+     "id": 250027,
+     "level": [
+      55,
+      57
+     ],
+     "npc": "Blackmaw Headhunter",
+     "zone": "Azshara"
+    }
+   ],
+   "from": [
+    "questie"
    ]
   },
   "269901": {
@@ -3717,14 +6583,14 @@
   "273101": {
    "drops": [
     {
-     "chance": null,
+     "id": 258966,
      "level": null,
      "npc": "Slavecrusher Grox",
      "zone": null
     }
    ],
    "from": [
-    "wowhead"
+    "questie"
    ]
   },
   "273102": {
@@ -3778,6 +6644,32 @@
     "fc-dungeons"
    ]
   },
+  "273115": {
+   "drops": [
+    {
+     "id": 9736,
+     "level": 59,
+     "npc": "Quartermaster Zigris",
+     "zone": "Blackrock Spire"
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
+  "273122": {
+   "drops": [
+    {
+     "id": 9156,
+     "level": 57,
+     "npc": "Ambassador Flamelash",
+     "zone": null
+    }
+   ],
+   "from": [
+    "questie"
+   ]
+  },
   "274049": {
    "drops": [
     {
@@ -3816,6 +6708,7 @@
    ]
   },
   "274972": {
+   "adds": true,
    "from": [
     "fc-quests"
    ],
@@ -4066,7 +6959,7 @@
     "currency": "Merchant's Favor"
    },
    "from": [
-    "wowhead"
+    "questie"
    ],
    "vendors": [
     {
