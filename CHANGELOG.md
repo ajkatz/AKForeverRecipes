@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.4.0 - 2026-11-15
 
 - **What the trainer asks.** A recipe a trainer teaches shows its price - on the card's line ("Any
   Blacksmithing trainer, 50c") and opened ("Any Blacksmithing trainer teaches it. | 50c"). The prices are
