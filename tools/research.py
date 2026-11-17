@@ -11,7 +11,9 @@
 #   questie      the installed QuestieDB Forever database: the NPCs and objects that drop an item, its vendors,
 #                the quests that reward it (questie.py). GPL-3.0 - only looked-up facts are kept.
 #   wowhead      Wowhead's Forever recipe lists, read by hand in a browser for the leftovers (wowhead_lists.txt):
-#                the kind of source (drop / quest / vendor) and, where there is only one, its name
+#                the kind of source (drop / quest / vendor) and, where there is only one, its name; and the
+#                item pages of some of them (wowhead_items.txt). Read 2026-11-10, and again 2026-11-16 for
+#                the recipes still without a source (Wowhead's numbers grow as players upload).
 #   client       wago.tools' export of the Forever client's SkillLineAbility + SpellName tables: the spell ids
 #                of the enchants the Enchanting page names without one, and which recipes come by themselves
 #                with the skill (AcquireMethod 1).
@@ -34,7 +36,7 @@ import source
 CACHE = os.path.join(source.PAGES, "research")
 BASE = "https://foreverchanges.pro"
 WAGO = "https://wago.tools/db2/%s/csv?build=%s"
-CLIENT_BUILD = "1.60.1.70888"
+CLIENT_BUILD = "1.60.1.70938"
 DECODER = json.JSONDecoder()
 ALLIANCE, HORDE = 77, 178          # race masks: human dwarf night-elf gnome / orc undead tauren troll
 MANY_DROPPERS = 25                 # an item more creatures than this drop is a world drop
@@ -235,7 +237,8 @@ def read_wowhead(areas):
 
 
 def read_wowhead_items(areas):
-    """item id -> {vendors, cost, drops} from wowhead_items.txt (the item pages of the unnamed ones)"""
+    """item id -> {vendors, cost, drops} from wowhead_items.txt (the item pages: of the unnamed ones, and of
+    the ones the lists named later - their droppers' levels and chances, and where one is fished)"""
     path = os.path.join(source.HERE, "wowhead_items.txt")
     result = {}
     if not os.path.exists(path):
@@ -277,6 +280,11 @@ def read_wowhead_items(areas):
                             level = None if lo in ("", "9999") else ([int(lo), int(hi)] if lo != hi else int(lo))
                             drops.append({"npc": name, "zone": zone, "chance": float(chance) if chance and float(chance) > 0 else None, "level": level})
                 found["drops"] = drops
+            elif kind == "F":
+                # fished in a zone's waters: kept with the drops, marked - the addon says "Fished in <zone>"
+                zone, chance, caught, casts = body.split("~")
+                found.setdefault("drops", []).append({"npc": "Fishing", "zone": areas.get(int(zone)), "level": None, "fished": True,
+                                                      "chance": float(chance) if chance and float(chance) > 0 else None})
         result[int(item_id)] = found
     return result
 

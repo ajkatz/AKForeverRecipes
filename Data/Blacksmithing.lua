@@ -4292,6 +4292,10 @@ R({
     reagents = { { 251290, 10 }, { 251291, 10 }, { 249726, 10 }, { 7910, 4 }, { 12361, 4 } },
     station = 279955,
     recipe = { id = 251470, name = "Plans: Bagh Nakh", bop = true },
+    via = "Wowhead",
+    vendors = {
+        { npc = "Meilosh", zone = "Felwood" },
+    },
 })
 R({
     spell = 23638, item = 19166, name = "Black Amnesty", icon = "inv_weapon_shortblade_12",
@@ -5083,6 +5087,10 @@ R({
     reagents = { { 251290, 12 }, { 251291, 20 }, { 7078, 10 }, { 13511, 2 } },
     station = 279955,
     recipe = { id = 251452, name = "Plans: Martyr's Legplates", bop = true },
+    via = "Wowhead",
+    drops = {
+        { npc = "Gordok Brute", zone = "Dire Maul" },
+    },
 })
 R({
     spell = 1263073, item = 279955, name = "Master Forge", icon = "inv_mace_1h_blacksmithing_b_01_black",
@@ -5090,6 +5098,10 @@ R({
     stats = { "Places a Master Forge usable for recipes that require it, and provides all of the benefits of a Sharpening Wheel. Requires a Campfire nearby. May be placed over a Sharpening Wheel to replace it. All camping features share a cooldown of 1 hr." },
     reagents = { { 273127, 1 }, { 12359, 5 }, { 8170, 2 } },
     recipe = { id = 273113, name = "Blueprint: Master Forge" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Golem Lord Argelmach", zone = "Blackrock Depths" },
+    },
 })
 R({
     spell = 16993, item = 12794, name = "Masterwork Stormhammer", icon = "inv_hammer_04",
@@ -5224,6 +5236,10 @@ R({
     reagents = { { 251290, 20 }, { 249726, 10 }, { 12644, 2 } },
     station = 279955,
     recipe = { id = 251469, name = "Plans: Stormcarver", bop = true },
+    via = "Wowhead",
+    vendors = {
+        { npc = "Meilosh", zone = "Felwood" },
+    },
 })
 R({
     spell = 16741, item = 12639, name = "Stronghold Gauntlets", icon = "inv_gauntlets_30",

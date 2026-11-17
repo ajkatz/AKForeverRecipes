@@ -19,33 +19,6 @@
  },
  {
   "prof": "alchemy",
-  "item": 288206,
-  "name": "Recipe: Draught of Water Walking",
-  "learn": 180,
-  "new": false,
-  "bind": "none",
-  "in_questie": false
- },
- {
-  "prof": "alchemy",
-  "item": 236754,
-  "name": "Recipe: Distilled Firewater",
-  "learn": 250,
-  "new": true,
-  "bind": "pickup",
-  "in_questie": true
- },
- {
-  "prof": "alchemy",
-  "item": 273112,
-  "name": "Blueprint: Alchemy Laboratory",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "alchemy",
   "item": 274277,
   "name": "Recipe: Flask of Natural Accuracy",
   "learn": 300,
@@ -118,15 +91,6 @@
  },
  {
   "prof": "blacksmithing",
-  "item": 273113,
-  "name": "Blueprint: Master Forge",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "blacksmithing",
   "item": 279314,
   "name": "Plans: Azerothium Legplates",
   "learn": 300,
@@ -190,15 +154,6 @@
  },
  {
   "prof": "blacksmithing",
-  "item": 251470,
-  "name": "Plans: Bagh Nakh",
-  "learn": 300,
-  "new": true,
-  "bind": "pickup",
-  "in_questie": true
- },
- {
-  "prof": "blacksmithing",
   "item": 251450,
   "name": "Plans: Champion's Legplates",
   "learn": 300,
@@ -234,24 +189,6 @@
   "in_questie": false
  },
  {
-  "prof": "blacksmithing",
-  "item": 251452,
-  "name": "Plans: Martyr's Legplates",
-  "learn": 300,
-  "new": true,
-  "bind": "pickup",
-  "in_questie": true
- },
- {
-  "prof": "blacksmithing",
-  "item": 251469,
-  "name": "Plans: Stormcarver",
-  "learn": 300,
-  "new": true,
-  "bind": "pickup",
-  "in_questie": true
- },
- {
   "prof": "enchanting",
   "item": 6345,
   "name": "Formula: Imbue Cloak - Protection",
@@ -271,24 +208,6 @@
  },
  {
   "prof": "enchanting",
-  "item": 249523,
-  "name": "Formula: Enchant 2H Weapon - Strength",
-  "learn": 290,
-  "new": true,
-  "bind": "pickup",
-  "in_questie": true
- },
- {
-  "prof": "enchanting",
-  "item": 249521,
-  "name": "Formula: Dormant Heart of the Mountain",
-  "learn": 265,
-  "new": true,
-  "bind": "pickup",
-  "in_questie": true
- },
- {
-  "prof": "enchanting",
   "item": 249519,
   "name": "Formula: Frozen Heart of the Mountain",
   "learn": 265,
@@ -303,15 +222,6 @@
   "learn": 275,
   "new": true,
   "bind": "pickup",
-  "in_questie": true
- },
- {
-  "prof": "enchanting",
-  "item": 273116,
-  "name": "Blueprint: Arcane Forge",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
   "in_questie": true
  },
  {
@@ -505,15 +415,6 @@
  },
  {
   "prof": "engineering",
-  "item": 273117,
-  "name": "Blueprint: Anarchist's Workbench",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "engineering",
   "item": 279322,
   "name": "Schematic: Hyper Deluxe Sniper Rifle Mk XVII",
   "learn": 300,
@@ -631,15 +532,6 @@
  },
  {
   "prof": "leatherworking",
-  "item": 8388,
-  "name": "Pattern: Nightscape Cloak",
-  "learn": 205,
-  "new": false,
-  "bind": "none",
-  "in_questie": false
- },
- {
-  "prof": "leatherworking",
   "item": 252917,
   "name": "Pattern: Charged Scorpid Shoulders",
   "learn": 250,
@@ -649,45 +541,9 @@
  },
  {
   "prof": "leatherworking",
-  "item": 252880,
-  "name": "Pattern: Tooled Leather Gauntlets",
-  "learn": 260,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
   "item": 252887,
   "name": "Pattern: Tooled Leather Epaulets",
   "learn": 275,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
-  "item": 252936,
-  "name": "Pattern: Charged Scorpid Boots",
-  "learn": 280,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
-  "item": 252935,
-  "name": "Pattern: Supple Scorpid Sabatons",
-  "learn": 280,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
-  "item": 252889,
-  "name": "Pattern: Tooled Leather Pants",
-  "learn": 280,
   "new": true,
   "bind": "none",
   "in_questie": true
@@ -802,15 +658,6 @@
  },
  {
   "prof": "leatherworking",
-  "item": 273121,
-  "name": "Blueprint: Sewing Machine",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
   "item": 279303,
   "name": "Pattern: Elderwild Pants",
   "learn": 300,
@@ -874,15 +721,6 @@
  },
  {
   "prof": "leatherworking",
-  "item": 252939,
-  "name": "Pattern: Black Dragonscale Helm",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
   "item": 252938,
   "name": "Pattern: Blue Dragonscale Helm",
   "learn": 300,
@@ -894,42 +732,6 @@
   "prof": "leatherworking",
   "item": 252892,
   "name": "Pattern: Dawn Armor",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
-  "item": 252940,
-  "name": "Pattern: Pristine Scorpid Leggings",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
-  "item": 252937,
-  "name": "Pattern: Red Dragonscale Leggings",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
-  "item": 252893,
-  "name": "Pattern: Timbermaw Tunic",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "leatherworking",
-  "item": 252894,
-  "name": "Pattern: Warbear Helm",
   "learn": 300,
   "new": true,
   "bind": "none",
@@ -1018,15 +820,6 @@
  },
  {
   "prof": "tailoring",
-  "item": 273124,
-  "name": "Blueprint: Loom",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "tailoring",
   "item": 279319,
   "name": "Pattern: Cloak of Earth and Sky",
   "learn": 300,
@@ -1080,15 +873,6 @@
   "in_questie": true
  },
  {
-  "prof": "tailoring",
-  "item": 254140,
-  "name": "Pattern: Bottomless Reagent Bag",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
   "prof": "cooking",
   "item": 7678,
   "name": "Recipe: Thistle Tea",
@@ -1135,38 +919,11 @@
  },
  {
   "prof": "cooking",
-  "item": 250180,
-  "name": "Recipe: Swiftstrike Steak",
-  "learn": 275,
-  "new": true,
-  "bind": "pickup",
-  "in_questie": true
- },
- {
-  "prof": "cooking",
   "item": 250177,
   "name": "Recipe: Flank au Poivre",
   "learn": 275,
   "new": true,
   "bind": "pickup",
-  "in_questie": true
- },
- {
-  "prof": "firstaid",
-  "item": 255731,
-  "name": "Manual: Powerful Poultice",
-  "learn": 280,
-  "new": true,
-  "bind": "none",
-  "in_questie": true
- },
- {
-  "prof": "firstaid",
-  "item": 273118,
-  "name": "Blueprint: Plague Doctor's Laboratory",
-  "learn": 300,
-  "new": true,
-  "bind": "none",
   "in_questie": true
  }
 ]

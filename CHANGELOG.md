@@ -1,5 +1,45 @@
 # Changelog
 
+## Unreleased
+
+- **Fixed: a rank you had learned was still shown as the next one.** After Dirge's quest the training card
+  went on saying "Artisan Cooking raises your skill cap to 300". The skill and its cap were asked of the
+  trade skill window's call alone, and on the current build (1.60.1.70938) that call answered 0/0 for every
+  profession at login - so the card kept the cap it had read earlier. They are now read from the
+  professions book first, then the skill window's list, then that call: right from login, with no
+  profession window opened. `/akr diag` says which of the three each profession was read from.
+- **What to bring Dirge.** Artisan Cooking (skill cap 300) is a quest, Clamlette Surprise, from Dirge
+  Quikcleave in Tanaris. The training card now lists what he wants under the quest's line - 12 Giant Egg,
+  10 Zesty Clam Meat, 20 Alterac Swiss - with how many of each you have ("have 3/12", bags and bank) and
+  "you have it all" once you do. The closed card says "(open for what to bring)".
+- **What a specialization's quest wants.** The same list under each specialization's quest in the opened
+  training card: Gnomish Engineering (6 Mithril Tube, 1 Accurate Scope, 2 Advanced Target Dummy), Goblin
+  Engineering (20 Big Iron Bomb, 20 Solid Dynamite, 5 Explosive Sheep), Dragonscale, Elemental and Tribal
+  Leatherworking, and Blacksmithing's Armorsmith and Weaponsmith - with how many of each you have. The
+  numbers are the quests' own words in Questie and on Wowhead's WoW Forever pages. The card no longer calls
+  the specializations "not confirmed for Forever": Wowhead's Forever pages have all seven quests.
+- **27 more recipes have a source (read again 2026-11-16): about 100 are left without.** Wowhead's WoW
+  Forever lists name one now for 27 of the 130 that had none:
+  - the seven Blueprints - Sewing Machine (Vectus), Alchemy Laboratory (Ras Frostwhisper), Plague Doctor's
+    Laboratory (Doctor Theolen Krastinov), all Scholomance; Loom (Baroness Anastari) and Anarchist's
+    Workbench (Ezra Grimm), Stratholme; Master Forge (Golem Lord Argelmach, Blackrock Depths); Arcane Forge
+    (Nanaya, The Shaper's Terrace);
+  - Leatherworking: Black Dragonscale Helm, Red Dragonscale Leggings, Pristine Scorpid Leggings, Supple
+    Scorpid Sabatons, Charged Scorpid Boots, Timbermaw Tunic, Warbear Helm, Tooled Leather Gauntlets and
+    Pants, Nightscape Cloak;
+  - Blacksmithing: Stormcarver and Bagh Nakh (sold by Meilosh in Felwood - no price read yet), Martyr's
+    Legplates; Tailoring: Bottomless Reagent Bag; Enchanting: Enchant 2H Weapon - Strength, Dormant Heart of
+    the Mountain; Cooking: Swiftstrike Steak (Frostsaber Pride Watcher, Winterspring);
+  - two quest rewards, by the quest's name only: Distilled Firewater (Running Firewater) and Powerful
+    Poultice (Transmuted Tincture).
+  The evidence is thin - most are one or two drops seen. A drop chance is shown only where the creature was
+  looted 20 times or more; twelve of the 27 had their own page read, the rest have the creature's name and
+  zone alone. The cards say "Source found in Wowhead".
+- **A recipe that is fished up says so.** Draught of Water Walking's recipe is caught fishing in Mount Hyjal
+  (one catch in 123 counted): "Fished in Mount Hyjal, 0.81%".
+- ForeverChanges' quest, dungeon and Merchant's Favor pages, the client tables of the current build
+  (1.60.1.70938) and Questie were read again on 2026-11-16 too: nothing new in them.
+
 ## 0.4.0 - 2026-11-15
 
 - **What the trainer asks.** A recipe a trainer teaches shows its price - on the card's line ("Any

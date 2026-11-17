@@ -124,3 +124,35 @@
 254122|2|1~7523~618~Suffering Highborne
 254134|5|1~256629~616~Dala Fairmaw
 254686|2|1~5333~357~Hatecrest Serpent Guard
+# Read again 2026-11-16 in a browser, for the 130 recipe items still without a source: 27 of them have one
+# on the lists now (none had a line above). Code 16 is "fished" - the entry 7~<zone area id>~0~<zone> names
+# the water; research.py takes that one from the item page (wowhead_items.txt, F=). The two quests (86927,
+# 86812) are in neither Questie nor ForeverChanges' quest pages: name only. Nanaya's line had zone 0;
+# ForeverChanges' dungeon pages name Nanaya as a boss of Shaper's Terrace, so its area (16667) is written here.
+273121|2|1~10432~2057~Vectus
+252939|2|1~10318~1583~Blackhand Assassin
+252893|2|1~258516~16554~Blackmaw Druid
+252894|2|1~11469~2557~Eldreth Seether
+252940|2|1~10499~2057~Spectral Researcher
+8388|2|~~16651~
+252937|2|1~10425~2017~Crimson Battle Mage
+252880|2|1~1809~0~Carrion Vulture
+252889|2|1~7376~0~Sky Shadow
+252935|2|1~8597~139~Plaguehound
+252936|2|1~7379~41~Deadwind Ogre Mage
+273117|2|1~11058~2017~Ezra Grimm
+273113|2|1~8983~1584~Golem Lord Argelmach
+251469|5|1~11557~361~Meilosh
+251470|5|1~11557~361~Meilosh
+251452|2|1~11441~2557~Gordok Brute
+254140|2|1~10417~2017~Venom Belcher
+273124|2|1~10436~2017~Baroness Anastari
+288206|16|7~616~0~Mount Hyjal
+273112|2|1~10508~2057~Ras Frostwhisper
+236754|4|5~86927~0~Running Firewater
+273116|2|1~261809~16667~Nanaya
+249523|2|1~10498~2057~Spectral Tutor
+249521|2|1~10596~1583~Mother Smolderweb
+250180|2|1~7434~618~Frostsaber Pride Watcher
+273118|2|1~11261~2057~Doctor Theolen Krastinov
+255731|4|5~86812~0~Transmuted Tincture

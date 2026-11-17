@@ -1412,6 +1412,10 @@ R({
     spell = 1249114, item = 249473, name = "Dormant Heart of the Mountain", icon = "inv_misc_gem_diamond_01",
     learn = 265, yellow = 285, green = 285, grey = 325, new = true,
     recipe = { id = 249521, name = "Formula: Dormant Heart of the Mountain", bop = true },
+    via = "Wowhead",
+    drops = {
+        { npc = "Mother Smolderweb", zone = "Blackrock Spire" },
+    },
 })
 R({
     spell = 20014, name = "Enchant Cloak - Greater Resistance", icon = "trade_engraving",
@@ -1593,6 +1597,10 @@ R({
     stats = { "Strength +25" },
     reagents = { { 14344, 8 }, { 16203, 10 }, { 16204, 8 }, { 12363, 4 } },
     recipe = { id = 249523, name = "Formula: Enchant 2H Weapon - Strength", bop = true },
+    via = "Wowhead",
+    drops = {
+        { npc = "Spectral Tutor", zone = "Scholomance" },
+    },
 })
 R({
     spell = 23801, name = "Enchant Bracer - Mana Regeneration", icon = "trade_engraving",
@@ -1724,6 +1732,10 @@ R({
     spell = 1263082, item = 279987, name = "Arcane Forge", icon = "inv_enchanting_modifiedcraftingreagent_indigo",
     learn = 300, yellow = 300, green = 300, grey = 300, new = true,
     recipe = { id = 273116, name = "Blueprint: Arcane Forge" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Nanaya", zone = "The Shaper's Terrace" },
+    },
 })
 R({
     spell = 25130, item = 20748, name = "Brilliant Mana Oil", icon = "inv_potion_100",

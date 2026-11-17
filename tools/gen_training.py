@@ -11,12 +11,15 @@
 # tools/trainer_costs.json ({ "<spell id>": copper }, Wowhead's Forever spell lists - see gen_data.py).
 #
 # The skill a rank needs (50 / 125 / 200) is Classic's; a book's or a quest's own requirement is used where
-# one is known. The specialization quests are Classic's, found in Questie's Forever database - whether
-# Forever keeps them is not confirmed, and the window says so. Not shipped to players.
+# one is known. The specialization quests are Classic's, found in Questie's Forever database; Wowhead's
+# Forever quest pages have all seven with the same words (read 2026-11-16), and the window says that is
+# where they stand - nobody has reported doing one in the game yet. Not shipped to players.
 import csv
 import datetime
+import glob
 import json
 import os
+import re
 
 import questie
 import source
@@ -37,6 +40,18 @@ SPECS = {
     "leatherworking": [("Dragonscale Leatherworking", [5141, 5145]), ("Elemental Leatherworking", [5144, 5146]), ("Tribal Leatherworking", [5143, 5148])],
 }
 ALLIANCE, HORDE = 77, 178
+# What a rank's quest wants brought (the user, 2026-11-16: "for recipes for 225 cooking it should show the raw
+# materials you need to bring down to dirge"): the items from Questie's objectives, how many of each from
+# the quest's own words ("12 Giant Eggs.", "10 pieces of Zesty Clam Meat.") - the same numbers Wowhead's
+# Forever page of quest 6610 gives (12 / 10 / 20, read 2026-11-16 in a browser). An item's icon is the one
+# the recipe tables already carry (Data/*.lua: a reagent's I(...) line, a made thing's recipe); for an item no
+# recipe uses or makes, the name of its icon on Wowhead's Forever item page, written here by hand:
+ITEM_ICONS = {8932: "inv_misc_food_37"}  # Alterac Swiss (wowhead.com/forever/item=8932, read 2026-11-16)
+# The specializations' quests list theirs the same way (the user, 2026-11-16: "can you do the same for the
+# engineering/leatherworking specialties" - Blacksmithing's two come along, they are the same kind). Their
+# words name one of a thing with "a" / "an" ("an Accurate Scope", "a Wild Leather Vest") and things in the
+# plural ("2 Advanced Target Dummies"). Wowhead's Forever pages of quests 3641, 3639, 5141, 5144, 5143, 5283
+# and 5284 have the same words as Questie (read 2026-11-16 in a browser).
 
 
 def lua(value):
@@ -57,6 +72,19 @@ def text_of(value):
     return value.decode("utf-8", "replace") if isinstance(value, bytes) else value
 
 
+# a quest's entry: one line, or - when it wants items brought - its fields, then the items a line each
+def quest_lines(w, q, pairs):
+    line = fields(pairs)
+    if not q.get("bring"):
+        w("                %s," % line)
+        return
+    w("                %s," % line[:-2])
+    w("                  bring = {")
+    for item in q["bring"]:
+        w("                    %s," % fields([("id", item["id"]), ("count", item["count"]), ("name", item["name"]), ("icon", item["icon"])]))
+    w("                  } },")
+
+
 def main():
     areas = {}
     for r in csv.DictReader(open(os.path.join(source.PAGES, "research", "AreaTable.csv"), encoding="utf-8")):
@@ -70,6 +98,45 @@ def main():
         friendly = text_of(s.get(13)) or ""
         return {"npc": text_of(s.get(1)), "zone": areas.get(s.get(9)), "side": {"A": "A", "H": "H"}.get(friendly)}
 
+    # the icons the recipe tables carry: a reagent's I(12207, "Giant Egg", "inv_egg_03"), and a made thing's
+    # recipe: spell = 3965, item = 4392, name = "Advanced Target Dummy", icon = "inv_crate_05",
+    icons = dict(ITEM_ICONS)
+    for path in glob.glob(os.path.join(ROOT, "Data", "*.lua")):
+        if os.path.basename(path) == "Training.lua":
+            continue
+        text = open(path, encoding="utf-8").read()
+        for item, icon in re.findall(r'^I\((\d+), "[^"]*", "([^"]+)"\)', text, re.M):
+            icons.setdefault(int(item), icon)
+        for item, icon in re.findall(r'^\s*spell = \d+, item = (\d+), name = "[^"]*", icon = "([^"]+)"', text, re.M):
+            icons.setdefault(int(item), icon)
+
+    # how many of an item a quest's words ask for: "12 Giant Eggs", "10 pieces of Zesty Clam Meat",
+    # "2 Advanced Target Dummies" (a name in -y), "an Accurate Scope" (one); None when they do not say
+    def count_in(words, name):
+        named = re.escape(name[:-1]) + "(?:y|ies)" if name.endswith("y") else re.escape(name)
+        number = re.search(r"(\d+)\s+(?:pieces of\s+)?" + named, words, re.I)
+        if number:
+            return int(number.group(1))
+        return 1 if re.search(r"\ban?\s+" + named, words, re.I) else None
+
+    def bring(quest_id):
+        objectives = store.raw("Quest", quest_id, 10)
+        wanted = (objectives.get(3) or objectives.get("3")) if isinstance(objectives, dict) else None
+        words = " ".join(text_of(t) or "" for t in (store.raw("Quest", quest_id, 8) or []))
+        items = []
+        for entry in wanted or []:
+            item = entry[0]
+            name = text_of(store.summary("Item", item).get(1))
+            if not name:
+                raise SystemExit("quest %d wants item %d, which Questie does not name" % (quest_id, item))
+            count = count_in(words, name)
+            if not count:
+                raise SystemExit("quest %d: how many %s? Its words do not say: %s" % (quest_id, name, words))
+            if not icons.get(item):
+                raise SystemExit("quest %d: no icon for %s (item %d) - add it to ITEM_ICONS" % (quest_id, name, item))
+            items.append({"id": item, "count": count, "name": name, "icon": icons.get(item)})
+        return items
+
     def quest(quest_id):
         s = store.summary("Quest", quest_id)
         if not s.get(1):
@@ -81,7 +148,8 @@ def main():
         skill = store.raw("Quest", quest_id, 18) or s.get(18)
         giver = givers[0] if givers else {}
         return {"name": text_of(s[1]), "npc": giver.get("npc"), "zone": giver.get("zone"), "side": side or giver.get("side"),
-                "level": s.get(4), "skill": skill[1] if isinstance(skill, list) and len(skill) > 1 else None}
+                "level": s.get(4), "skill": skill[1] if isinstance(skill, list) and len(skill) > 1 else None,
+                "bring": bring(quest_id)}
 
     # Wowhead's rank pages
     pages = {}
@@ -125,9 +193,11 @@ def main():
     w("--               cost (what a trainer asks for it, in copper; a price read in a trainer's own window wins),")
     w("--               trainers = { { npc, zone, side } }, total (how many trainers there are in all),")
     w("--               book = { name, vendors = { { npc, zone, side } } },")
-    w("--               quests = { { name, npc, zone, side, level } },")
+    w("--               quests = { { name, npc, zone, side, level,")
+    w("--                            bring = { { id, count, name, icon } } (the items the quest wants brought) } },")
     w("--               unsure = true: the trainers are the rank below's - this rank's own were not read } },")
-    w("--   specs = { { name, needs, level, quests = { { name, npc, zone, side } } } }  -- as in Classic, unconfirmed")
+    w("--   specs = { { name, needs, level, quests = { { name, npc, zone, side, bring = { ... as a rank's quest } } } } }")
+    w("--           -- Classic's quests; on Wowhead's Forever quest pages with the same words (read 2026-11-16)")
     w("-- }")
     w("local _, ns = ...")
     w("")
@@ -164,7 +234,7 @@ def main():
             if entry.get("quests"):
                 w("              quests = {")
                 for q in entry["quests"]:
-                    w("                %s," % fields([("name", q["name"]), ("npc", q["npc"]), ("zone", q["zone"]), ("side", q["side"]), ("level", q["level"])]))
+                    quest_lines(w, q, [("name", q["name"]), ("npc", q["npc"]), ("zone", q["zone"]), ("side", q["side"]), ("level", q["level"])])
                 w("              },")
             w("            },")
             if not unsure:
@@ -178,7 +248,7 @@ def main():
                 level = next((q["level"] for q in quests if q.get("level")), None)
                 w("            { name = %s,%s%s quests = {" % (lua(spec_name), (" needs = %d," % needs) if needs else "", (" level = %d," % level) if level else ""))
                 for q in quests:
-                    w("                %s," % fields([("name", q["name"]), ("npc", q["npc"]), ("zone", q["zone"]), ("side", q["side"])]))
+                    quest_lines(w, q, [("name", q["name"]), ("npc", q["npc"]), ("zone", q["zone"]), ("side", q["side"])])
                 w("            } },")
             w("        },")
         w("    },")

@@ -34,8 +34,9 @@ Blizzard's profession windows list the recipes you already have. This is the res
 - a **Shift-click** on a card links what it makes into chat, a **Shift-right-click** the recipe item that
   teaches it (the pattern, plans, formula ...) - into the chat line you have open, or a new one;
 - the **first card of every profession is its training**: the next rank - Journeyman, Expert, Artisan - and
-  where your faction learns it (trainers, the book and who sells it, the quest), and the specializations of
-  Blacksmithing, Engineering and Leatherworking;
+  where your faction learns it (trainers, the book and who sells it, the quest - with the items the quest
+  wants brought and how many you have, as for Artisan Cooking), and the specializations of Blacksmithing,
+  Engineering and Leatherworking, each with its quest and what that quest wants brought;
 - a **right-click** (or the Hide button of an opened card) hides a recipe you do not care about from that
   character's lists and counts; the **Hidden** list brings it back;
 - **Missing / All / Known / Hidden** choose what is listed; the box searches names, zones, NPCs and quests, and the
@@ -83,7 +84,7 @@ into the settings file.
 
 ## Recipes without a source
 
-About 130 of Forever's new recipes have no source anywhere we could look (see "The data"). When any of
+About 100 of Forever's new recipes have no source anywhere we could look (see "The data"). When any of
 your characters opens a merchant's window that sells a recipe of a profession somebody on your account has, the merchant, the zone
 and the price are written down and shown from then on, for every character of that faction.
 
@@ -91,7 +92,8 @@ and the price are written down and shown from then on, for every character of th
 
 It asks the client, recipe by recipe, about the professions the character has - at login and whenever a
 trade skill window opens or changes; a recipe learned while you play is heard at once. Refresh asks about
-every profession. It only reads: nothing of Blizzard's is hooked, moved or hidden. The recipe tables of a
+every profession. A profession's skill and its cap come from the professions book (then the skill window's
+list, then the trade skill call), so a new rank shows from login on. It only reads: nothing of Blizzard's is hooked, moved or hidden. The recipe tables of a
 profession are only built in memory when a character of yours has it.
 
 ## The data
@@ -108,7 +110,9 @@ dungeon pages (boss loot), its Merchant's Favor lists, the installed QuestieDB F
 vendors, chests), Wowhead's Forever recipe lists, and the client's own skill tables through wago.tools (the
 spell ids of 43 enchants, and the recipes that come by themselves with a skill). Each place is first
 measured against the recipes whose source is known; all agreed 97% of the time or better. Of 396 recipes
-without a source, 266 got one; a card opened on such a recipe says "Source found in Questie" or "in Wowhead".
+without a source, 293 got one (27 of them when Wowhead was read again on 2026-11-16 - mostly one or two drops
+seen, so a drop chance is shown only where enough were counted); a card opened on such a recipe says "Source
+found in Questie" or "in Wowhead". A recipe that is fished up says where ("Fished in Mount Hyjal").
 
 ## Development
 

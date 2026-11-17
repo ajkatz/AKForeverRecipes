@@ -41,3 +41,23 @@
 285290|S=Gor'mak~17~h~0~3402:60~-1;Stondry Darkhammer~44~a~0~3402:60~-1
 285291|S=Gor'mak~17~h~0~3402:90~-1;Stondry Darkhammer~44~a~0~3402:90~-1
 289560|S=Beneris~17~h~0~3402:180~-1;Alynsia~44~a~0~3402:180~-1
+# Read 2026-11-16 in a browser: the item pages of twelve of the 27 recipe items the lists newly name a
+# source for (then Wowhead answered 403 and the reading stopped - the other fifteen have their list line
+# only). The counts are small: a chance is written only where the creature was looted 20 times or more
+# (seen / looted: Vectus 1/17, Blackmaw Druid 1/18, Eldreth Seether 1/4, Spectral Researcher 1/12 - no chance;
+# Blackhand Assassin 3/23, Crimson Battle Mage 1/26, Carrion Vulture 1/53, Sky Shadow 2/202, Plaguehound 1/45,
+# Bristleback Skullcrusher 6/412, Bristleback Nomad 2/202). A creature seen in two zones has its first.
+#   F=zone area id~chance %~times caught~casts counted   (fished in that zone's waters)
+# Plans: Stormcarver (251469): sold by Meilosh, Felwood, both factions, stock unlimited - the page's cost read
+# [[105263]], not the usual shape, so no price is written (the list line names him).
+273121|D=1#Vectus~2057~~60~60~1
+252939|D=1#Blackhand Assassin~1583~13.04~60~61~3
+252893|D=1#Blackmaw Druid~16554~~~~1
+252894|D=1#Eldreth Seether~2557~~58~59~1
+252940|D=1#Spectral Researcher~2057~~58~60~1
+8388|D=2#Bristleback Skullcrusher~16651~1.46~42~43~6;Bristleback Nomad~16651~0.99~42~43~2
+252937|D=1#Crimson Battle Mage~2017~3.85~59~60~1
+252880|D=1#Carrion Vulture~28~1.89~50~52~1
+252889|D=1#Sky Shadow~41~0.99~55~56~2
+252935|D=1#Plaguehound~139~2.22~55~56~1
+288206|F=616~0.81~1~123

@@ -8,9 +8,11 @@
 --               cost (what a trainer asks for it, in copper; a price read in a trainer's own window wins),
 --               trainers = { { npc, zone, side } }, total (how many trainers there are in all),
 --               book = { name, vendors = { { npc, zone, side } } },
---               quests = { { name, npc, zone, side, level } },
+--               quests = { { name, npc, zone, side, level,
+--                            bring = { { id, count, name, icon } } (the items the quest wants brought) } },
 --               unsure = true: the trainers are the rank below's - this rank's own were not read } },
---   specs = { { name, needs, level, quests = { { name, npc, zone, side } } } }  -- as in Classic, unconfirmed
+--   specs = { { name, needs, level, quests = { { name, npc, zone, side, bring = { ... as a rank's quest } } } } }
+--           -- Classic's quests; on Wowhead's Forever quest pages with the same words (read 2026-11-16)
 -- }
 local _, ns = ...
 
@@ -127,12 +129,34 @@ ns.Data.training = {
         },
         specs = {
             { name = "Armorsmith", needs = 200, level = 40, quests = {
-                { name = "The Art of the Armorsmith", npc = "Grumnus Steelshaper", zone = "Ironforge", side = "A" },
-                { name = "The Art of the Armorsmith", npc = "Okothos Ironrager", zone = "Orgrimmar", side = "H" },
+                { name = "The Art of the Armorsmith", npc = "Grumnus Steelshaper", zone = "Ironforge", side = "A",
+                  bring = {
+                    { id = 7937, count = 4, name = "Ornate Mithril Helm", icon = "inv_helmet_10" },
+                    { id = 7936, count = 2, name = "Ornate Mithril Boots", icon = "inv_boots_01" },
+                    { id = 7935, count = 1, name = "Ornate Mithril Breastplate", icon = "inv_chest_plate10" },
+                  } },
+                { name = "The Art of the Armorsmith", npc = "Okothos Ironrager", zone = "Orgrimmar", side = "H",
+                  bring = {
+                    { id = 7937, count = 4, name = "Ornate Mithril Helm", icon = "inv_helmet_10" },
+                    { id = 7936, count = 2, name = "Ornate Mithril Boots", icon = "inv_boots_01" },
+                    { id = 7935, count = 1, name = "Ornate Mithril Breastplate", icon = "inv_chest_plate10" },
+                  } },
             } },
             { name = "Weaponsmith", needs = 200, level = 40, quests = {
-                { name = "The Way of the Weaponsmith", npc = "Ironus Coldsteel", zone = "Ironforge", side = "A" },
-                { name = "The Way of the Weaponsmith", npc = "Borgosh Corebender", zone = "Orgrimmar", side = "H" },
+                { name = "The Way of the Weaponsmith", npc = "Ironus Coldsteel", zone = "Ironforge", side = "A",
+                  bring = {
+                    { id = 3853, count = 4, name = "Moonsteel Broadsword", icon = "inv_sword_25" },
+                    { id = 3855, count = 4, name = "Massive Iron Axe", icon = "inv_throwingaxe_05" },
+                    { id = 7941, count = 2, name = "Heavy Mithril Axe", icon = "inv_axe_14" },
+                    { id = 7945, count = 2, name = "Big Black Mace", icon = "inv_mace_15" },
+                  } },
+                { name = "The Way of the Weaponsmith", npc = "Borgosh Corebender", zone = "Orgrimmar", side = "H",
+                  bring = {
+                    { id = 3853, count = 4, name = "Moonsteel Broadsword", icon = "inv_sword_25" },
+                    { id = 3855, count = 4, name = "Massive Iron Axe", icon = "inv_throwingaxe_05" },
+                    { id = 7941, count = 2, name = "Heavy Mithril Axe", icon = "inv_axe_14" },
+                    { id = 7945, count = 2, name = "Big Black Mace", icon = "inv_mace_15" },
+                  } },
             } },
         },
     },
@@ -238,11 +262,26 @@ ns.Data.training = {
         },
         specs = {
             { name = "Gnomish Engineering", needs = 200, level = 30, quests = {
-                { name = "Show Your Work", npc = "Tinkmaster Overspark", zone = "Ironforge", side = "A" },
-                { name = "Show Your Work", npc = "Oglethorpe Obnoticus", zone = "Stranglethorn Vale", side = "H" },
+                { name = "Show Your Work", npc = "Tinkmaster Overspark", zone = "Ironforge", side = "A",
+                  bring = {
+                    { id = 10559, count = 6, name = "Mithril Tube", icon = "inv_musket_01" },
+                    { id = 4407, count = 1, name = "Accurate Scope", icon = "inv_misc_spyglass_02" },
+                    { id = 4392, count = 2, name = "Advanced Target Dummy", icon = "inv_crate_05" },
+                  } },
+                { name = "Show Your Work", npc = "Oglethorpe Obnoticus", zone = "Stranglethorn Vale", side = "H",
+                  bring = {
+                    { id = 10559, count = 6, name = "Mithril Tube", icon = "inv_musket_01" },
+                    { id = 4407, count = 1, name = "Accurate Scope", icon = "inv_misc_spyglass_02" },
+                    { id = 4392, count = 2, name = "Advanced Target Dummy", icon = "inv_crate_05" },
+                  } },
             } },
             { name = "Goblin Engineering", needs = 200, level = 30, quests = {
-                { name = "Show Your Work", npc = "Nixx Sprocketspring", zone = "Tanaris" },
+                { name = "Show Your Work", npc = "Nixx Sprocketspring", zone = "Tanaris",
+                  bring = {
+                    { id = 4394, count = 20, name = "Big Iron Bomb", icon = "inv_misc_bomb_01" },
+                    { id = 10507, count = 20, name = "Solid Dynamite", icon = "inv_misc_bomb_06" },
+                    { id = 4384, count = 5, name = "Explosive Sheep", icon = "spell_nature_polymorph" },
+                  } },
             } },
         },
     },
@@ -302,16 +341,46 @@ ns.Data.training = {
         },
         specs = {
             { name = "Dragonscale Leatherworking", needs = 225, level = 40, quests = {
-                { name = "Dragonscale Leatherworking", npc = "Peter Galen", zone = "Azshara", side = "A" },
-                { name = "Dragonscale Leatherworking", npc = "Thorkaf Dragoneye", zone = "Badlands", side = "H" },
+                { name = "Dragonscale Leatherworking", npc = "Peter Galen", zone = "Azshara", side = "A",
+                  bring = {
+                    { id = 8203, count = 2, name = "Tough Scorpid Breastplate", icon = "inv_chest_leather_02" },
+                    { id = 8204, count = 2, name = "Tough Scorpid Gloves", icon = "inv_gauntlets_24" },
+                    { id = 8165, count = 10, name = "Worn Dragonscale", icon = "inv_misc_monsterscales_17" },
+                  } },
+                { name = "Dragonscale Leatherworking", npc = "Thorkaf Dragoneye", zone = "Badlands", side = "H",
+                  bring = {
+                    { id = 8203, count = 2, name = "Tough Scorpid Breastplate", icon = "inv_chest_leather_02" },
+                    { id = 8204, count = 2, name = "Tough Scorpid Gloves", icon = "inv_gauntlets_24" },
+                    { id = 8165, count = 10, name = "Worn Dragonscale", icon = "inv_misc_monsterscales_17" },
+                  } },
             } },
             { name = "Elemental Leatherworking", needs = 225, level = 40, quests = {
-                { name = "Elemental Leatherworking", npc = "Sarah Tanner", zone = "Searing Gorge", side = "A" },
-                { name = "Elemental Leatherworking", npc = "Brumn Winterhoof", zone = "Arathi Highlands", side = "H" },
+                { name = "Elemental Leatherworking", npc = "Sarah Tanner", zone = "Searing Gorge", side = "A",
+                  bring = {
+                    { id = 7077, count = 2, name = "Heart of Fire", icon = "spell_fire_lavaspawn" },
+                    { id = 7079, count = 2, name = "Globe of Water", icon = "inv_misc_orb_01" },
+                    { id = 7075, count = 2, name = "Core of Earth", icon = "inv_stone_05" },
+                    { id = 7081, count = 2, name = "Breath of Wind", icon = "spell_nature_cyclone" },
+                  } },
+                { name = "Elemental Leatherworking", npc = "Brumn Winterhoof", zone = "Arathi Highlands", side = "H",
+                  bring = {
+                    { id = 7077, count = 2, name = "Heart of Fire", icon = "spell_fire_lavaspawn" },
+                    { id = 7079, count = 2, name = "Globe of Water", icon = "inv_misc_orb_01" },
+                    { id = 7075, count = 2, name = "Core of Earth", icon = "inv_stone_05" },
+                    { id = 7081, count = 2, name = "Breath of Wind", icon = "spell_nature_cyclone" },
+                  } },
             } },
             { name = "Tribal Leatherworking", needs = 225, level = 40, quests = {
-                { name = "Tribal Leatherworking", npc = "Caryssia Moonhunter", zone = "Feralas", side = "A" },
-                { name = "Tribal Leatherworking", npc = "Se'Jib", zone = "Stranglethorn Vale", side = "H" },
+                { name = "Tribal Leatherworking", npc = "Caryssia Moonhunter", zone = "Feralas", side = "A",
+                  bring = {
+                    { id = 8211, count = 1, name = "Wild Leather Vest", icon = "inv_chest_cloth_06" },
+                    { id = 8214, count = 1, name = "Wild Leather Helmet", icon = "inv_helmet_10" },
+                  } },
+                { name = "Tribal Leatherworking", npc = "Se'Jib", zone = "Stranglethorn Vale", side = "H",
+                  bring = {
+                    { id = 8211, count = 1, name = "Wild Leather Vest", icon = "inv_chest_cloth_06" },
+                    { id = 8214, count = 1, name = "Wild Leather Helmet", icon = "inv_helmet_10" },
+                  } },
             } },
         },
     },
@@ -417,7 +486,12 @@ ns.Data.training = {
             },
             { name = "Artisan", cap = 300, needs = 225, spell = 18260,
               quests = {
-                { name = "Clamlette Surprise", npc = "Dirge Quikcleave", zone = "Tanaris", level = 35 },
+                { name = "Clamlette Surprise", npc = "Dirge Quikcleave", zone = "Tanaris", level = 35,
+                  bring = {
+                    { id = 12207, count = 12, name = "Giant Egg", icon = "inv_egg_03" },
+                    { id = 7974, count = 10, name = "Zesty Clam Meat", icon = "inv_misc_food_51" },
+                    { id = 8932, count = 20, name = "Alterac Swiss", icon = "inv_misc_food_37" },
+                  } },
               },
             },
         },

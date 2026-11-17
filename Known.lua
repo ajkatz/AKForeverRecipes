@@ -84,29 +84,100 @@ function Known:ReadSide()
     return ns.cdb.side
 end
 
--- the skill of every profession; gives back how many skill lines the client answered for
-function Known:ReadSkills()
-    local fn = C_TradeSkillUI and C_TradeSkillUI.GetProfessionInfoBySkillLineID
-    if type(fn) ~= "function" then
-        return 0
+-- A profession's skill and its cap are asked three ways, the first that names a skill above zero wins:
+--   1. the professions book (GetProfessions, GetProfessionInfo) - answers at login, no window open;
+--   2. the skill window's lines (C_SkillInfo), for what the book leaves out;
+--   3. the trade skill call (GetProfessionInfoBySkillLineID) - the only one asked until 2026-11-16.
+-- Why: on build 70938 the trade skill call answered 0/0 for all nine lines at login, so a cap kept from an
+-- earlier read went stale - the user, 2026-11-16: "i completed dirge's quest and it still doesn't think i
+-- have artisan unlocked" (the book said Cooking 225/300 in the same second the card kept 225).
+
+-- the professions book: { [skill line id] = entry, [name] = entry }, entry = { skill, max }; nil when the
+-- client does not answer or names no profession
+local function readBook()
+    local slots = ns.Readable(GetProfessions)
+    if not slots or type(GetProfessionInfo) ~= "function" then
+        return nil
     end
+    local found = {}
+    for i = 1, 6 do
+        local slot = readableNumber(slots[i])
+        if slot then
+            local ok, name, _, rank, maxRank, _, _, line = pcall(GetProfessionInfo, slot)
+            rank = ok and readableNumber(rank) or nil
+            if rank then
+                local entry = { skill = rank, max = readableNumber(maxRank) }
+                if readableNumber(line) then found[line] = entry end
+                if readable(name) then found[name] = entry end
+            end
+        end
+    end
+    return next(found) and found or nil -- a book that names nothing has not answered
+end
+
+-- the skill window's lines, the same shape; nil when the client has no such list
+local function readSkillWindow()
+    local api = type(C_SkillInfo) == "table" and C_SkillInfo or nil
+    local count = api and ns.Readable(api.GetNumSkillLines)
+    count = count and readableNumber(count[1])
+    if not count or type(api.GetSkillLineInfo) ~= "function" then
+        return nil
+    end
+    local found = {}
+    for index = 1, count do
+        local ok, info = pcall(api.GetSkillLineInfo, index)
+        if ok and not ns.IsSecret(info) and type(info) == "table" and not ns.IsSecret(info.isHeader) and not info.isHeader then
+            local rank = readableNumber(info.rank)
+            if rank then
+                local entry = { skill = rank, max = readableNumber(info.maxRank) }
+                if readableNumber(info.skillID) then found[info.skillID] = entry end
+                if readable(info.name) then found[info.name] = entry end
+            end
+        end
+    end
+    return next(found) and found or nil
+end
+
+-- the skill of every profession; gives back how many professions the client answered for
+function Known:ReadSkills()
+    local book, window = readBook(), readSkillWindow()
+    local fn = C_TradeSkillUI and C_TradeSkillUI.GetProfessionInfoBySkillLineID
     local answered = 0
     for _, key in ipairs(Lookup.Professions()) do
         local meta = Lookup.Profession(key)
-        local ok, info = pcall(fn, meta.line)
-        if ok and not ns.IsSecret(info) and type(info) == "table" then
-            local skill, max = readableNumber(info.skillLevel), readableNumber(info.maxSkillLevel)
-            Known.skillRaw[key] = { line = meta.line, skill = skill or "?", max = max or "?", name = readable(info.professionName) or "?" }
-            if skill then
-                answered = answered + 1
-                if skill > 0 then
-                    ns.cdb.skills[key] = { skill = skill, max = max }
-                    ns.cdb.profs[key] = true
-                end
+        local raw = { line = meta.line }
+        local api
+        if type(fn) == "function" then
+            local ok, info = pcall(fn, meta.line)
+            if ok and not ns.IsSecret(info) and type(info) == "table" then
+                api = { skill = readableNumber(info.skillLevel), max = readableNumber(info.maxSkillLevel) }
+                raw.skill, raw.max, raw.name = api.skill or "?", api.max or "?", readable(info.professionName) or "?"
+                raw.api = (api.skill or "?") .. "/" .. (api.max or "?")
+            else
+                raw.answered = false
             end
-        else
-            Known.skillRaw[key] = { line = meta.line, answered = false }
         end
+        local ways = {
+            { "professions book", book and (book[meta.line] or book[meta.name]) },
+            { "skill window", window and (window[meta.line] or window[meta.name]) },
+            { "trade skill API", api },
+        }
+        raw.how = "nothing above zero"
+        for _, way in ipairs(ways) do
+            local read = way[2]
+            if read and read.skill and read.skill > 0 then
+                local before = ns.cdb.skills[key]
+                -- a way that names no cap leaves the cap read before
+                ns.cdb.skills[key] = { skill = read.skill, max = read.max or (type(before) == "table" and before.max) or nil }
+                ns.cdb.profs[key] = true
+                raw.how, raw.skill, raw.max = way[1], read.skill, read.max or "?"
+                break
+            end
+        end
+        if book or window or (api and api.skill) then
+            answered = answered + 1
+        end
+        Known.skillRaw[key] = raw
     end
     return answered
 end

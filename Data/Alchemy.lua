@@ -783,6 +783,10 @@ R({
     stats = { "Lets you walk on water for 30 min." },
     reagents = { { 6370, 1 }, { 3357, 1 }, { 3372, 1 } },
     recipe = { id = 288206, name = "Recipe: Draught of Water Walking" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Fishing", zone = "Mount Hyjal", chance = 0.81, fished = true },
+    },
 })
 R({
     spell = 1251744, item = 250947, name = "Greater Mender's Potion", icon = "inv_potionf_3",
@@ -1221,6 +1225,10 @@ R({
     stats = { "Increases your melee attack power by 35 and size for 20 min." },
     reagents = { { 3819, 4 }, { 8846, 2 }, { 3372, 1 } },
     recipe = { id = 236754, name = "Recipe: Distilled Firewater", bop = true },
+    via = "Wowhead",
+    quests = {
+        { name = "Running Firewater" },
+    },
 })
 R({
     spell = 11478, item = 9233, name = "Draught of Detect Demon", icon = "inv_potion_53",
@@ -1820,6 +1828,10 @@ R({
     stats = { "Places an Alchemy Laboratory usable for recipes that require it, and provides all of the benefits of a Mana Well. Requires a Campfire nearby. May be placed over a Mana Well to replace it. All camping features share a cooldown of 1 hr." },
     reagents = { { 273125, 1 }, { 8925, 1 }, { 13463, 2 } },
     recipe = { id = 273112, name = "Blueprint: Alchemy Laboratory" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Ras Frostwhisper", zone = "Scholomance" },
+    },
 })
 R({
     spell = 25146, item = 7068, name = "Elemental Fire", icon = "spell_fire_fire",

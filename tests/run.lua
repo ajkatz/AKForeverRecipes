@@ -69,7 +69,7 @@ local function cardNamed(ns, name)
     error("no card " .. name)
 end
 
-local WESTFALL_STEW, CHARRED_WOLF, CRISPY_BAT_WING, SWIFTSTRIKE_STEAK, STEAK_RECIPE = 2543, 2538, 15935, 1250149, 250180 -- the steak: a recipe nobody has a source for
+local WESTFALL_STEW, CHARRED_WOLF, CRISPY_BAT_WING, FLANK_AU_POIVRE, FLANK_RECIPE = 2543, 2538, 15935, 1250146, 250177 -- the flank: a recipe nobody has a source for (the steak had none until 2026-11-16)
 local BRIGHT_YELLOW_SHIRT = 3869 -- Tailoring: the Alliance's vendor alone, and the pattern binds when picked up
 local SHARPENING_STONE, COPPER_CHAIN_VEST = 2660, 3321 -- Blacksmithing
 local BLACKSMITHING, TAILORING, ALCHEMY, ENGINEERING, LEATHERWORKING = 164, 197, 171, 202, 165
@@ -322,6 +322,248 @@ scenario("the tabs are the character's professions; a tab switches the list and 
     check(Mock.info():find("Cooking recipes known", 1, true), Mock.info())
 end)
 
+scenario("Artisan Cooking is Dirge's quest: the training card lists what to bring him - 12 Giant Egg, 10 Zesty Clam Meat, 20 Alterac Swiss - and how many of each you have", function()
+    local EGG, CLAM, SWISS = 12207, 7974, 8932
+    local ns, state = start({ first = "Purr", last = "Gola", faction = "Alliance" }, function(s)
+        s.skill = { level = 225, max = 225 } -- an Expert cook at the cap
+        s.items[EGG], s.items[CLAM] = 3, 10
+    end)
+    -- the tables: the quest names its items (Wowhead's Forever page of quest 6610, read 2026-11-16)
+    local bring = ns.Lookup.QuestItems(ns.Lookup.Training("cooking").ranks[4].quests[1])
+    equal(#bring, 3)
+    equal(bring[1].id, EGG); equal(bring[1].name, "Giant Egg"); equal(bring[1].count, 12); equal(bring[1].icon, "inv_egg_03")
+    equal(bring[2].id, CLAM); equal(bring[2].name, "Zesty Clam Meat"); equal(bring[2].count, 10)
+    equal(bring[3].id, SWISS); equal(bring[3].name, "Alterac Swiss"); equal(bring[3].count, 20); equal(bring[3].icon, "inv_misc_food_37")
+    equal(#ns.Lookup.QuestItems(ns.Lookup.Training("firstaid").ranks[4].quests[1]), 0, "Triage asks for no items")
+    equal(#ns.Lookup.QuestItems(nil), 0, "no quest: nothing")
+    equal(#ns.Lookup.QuestItems({ name = "A quest", bring = 5 }), 0, "a list that is no list: nothing")
+    -- the card, closed: the quest, and that there is something to bring
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.cooking:Click()
+    local card = ns.Window.lines[1]
+    equal(Mock.plain(card.text), "Artisan Cooking  raises your skill cap to 300")
+    equal(Mock.plain(card.right), "Quest: Clamlette Surprise - Dirge Quikcleave, Tanaris  (open for what to bring)")
+    -- opened: the items under the quest's line, as a recipe lists its reagents
+    card.click()
+    local rows = Mock.rows()
+    local at
+    for i, row in ipairs(rows) do
+        if row:find("Quest: Clamlette Surprise - Dirge Quikcleave, Tanaris | level 35", 1, true) then at = i end
+    end
+    check(at, table.concat(rows, "\n", 1, 10))
+    equal(rows[at + 1], "Bring to Dirge Quikcleave | not all yet")
+    equal(rows[at + 2], "Giant Egg | have 3/12")
+    equal(rows[at + 3], "Zesty Clam Meat | have 10/10")
+    equal(rows[at + 4], "Alterac Swiss | have 0/20")
+    local raw = Mock.rawRows()
+    check(raw[at + 2]:find("|cffff8080have 3/12", 1, true) and raw[at + 3]:find("|cff60ff60have 10/10", 1, true), raw[at + 2] .. "\n" .. raw[at + 3])
+    check(raw[at + 2]:find("Interface\\Icons\\inv_egg_03", 1, true), "the item's icon leads its line: " .. raw[at + 2])
+    -- everything gathered
+    state.items[EGG], state.items[SWISS] = 12, 25
+    ns.Window:Render()
+    rows = Mock.rows()
+    equal(rows[at + 1], "Bring to Dirge Quikcleave | you have it all")
+    equal(rows[at + 4], "Alterac Swiss | have 25/20")
+    -- the client silent about the bags: the list without counts
+    state.bagsSecret = true
+    ns.Window:Render()
+    rows = Mock.rows()
+    equal(rows[at + 1], "Bring to Dirge Quikcleave")
+    equal(rows[at + 2], "12 x Giant Egg"); equal(rows[at + 4], "20 x Alterac Swiss")
+    state.bagsSecret = nil
+    -- seen from another character: that character's bags are not the cook's
+    local alt = start({ db = AKForeverRecipesDB, first = "Alt", last = "Two", faction = "Alliance" }, function(s)
+        s.skill = { level = 40, max = 75 }
+        s.items[EGG] = 50
+    end)
+    Mock.slash("show all")
+    alt.Window.widgets.character:Click() -- on to Purr Gola
+    alt.Window.lines[1].click()
+    rows = Mock.rows()
+    check(has(rows, "Artisan  skill cap 300"), table.concat(rows, "\n", 1, 8))
+    check(has(rows, "12 x Giant Egg") and has(rows, "10 x Zesty Clam Meat") and not has(rows, "| have "), table.concat(rows, "\n", 1, 10))
+    -- a rank a trainer teaches says nothing of bringing
+    alt.Window.widgets.tabs.alchemy:Click()
+    check(not Mock.plain(alt.Window.lines[1].right):find("bring", 1, true), Mock.plain(alt.Window.lines[1].right))
+end)
+
+scenario("the skill cap comes from the professions book: Dirge's quest done, the trade skill call silent outside its window - the card says Artisan is learned", function()
+    -- (the user, 2026-11-16: "i completed dirge's quest and it still doesn't think i have artisan unlocked".
+    -- Build 70938: GetProfessionInfoBySkillLineID answered 0/0 for all nine lines at login, while
+    -- GetProfessionInfo said Cooking 225/300 in the same second.)
+    local ns = start({ first = "Purr", last = "Gola", faction = "Horde" }, function(s)
+        s.skill = { level = 225, max = 225 } -- read while the Cooking window was open, before the quest
+    end)
+    equal(select(2, ns.Known:Skill(ns.cdb, "cooking")), 225)
+    equal(ns.Known.skillRaw.cooking.how, "trade skill API")
+    -- the next login: the trade skill call says 0/0, the book has the cap the quest gave
+    local state
+    ns, state = start({ db = AKForeverRecipesDB, first = "Purr", last = "Gola", faction = "Horde" }, function(s)
+        s.skill = { level = 0, max = 0 }
+        s.book = { [1] = { name = "Leatherworking", level = 180, max = 225 }, -- no skill line id: known by its name
+                   [2] = { name = "Verzauberkunst", level = 261, max = 300, line = 333 }, -- another language: by its skill line
+                   [5] = { name = "Cooking", level = 225, max = 300, line = 185 } } -- holes, as the client leaves them
+    end)
+    local skill, max = ns.Known:Skill(ns.cdb, "cooking")
+    equal(skill, 225); equal(max, 300)
+    equal(ns.Known.skillRaw.cooking.how, "professions book"); equal(ns.Known.skillRaw.cooking.api, "0/0")
+    skill, max = ns.Known:Skill(ns.cdb, "leatherworking")
+    equal(skill, 180); equal(max, 225); check(ns.Known:Has(ns.cdb, "leatherworking"), "a profession only the book names is the character's")
+    equal(select(2, ns.Known:Skill(ns.cdb, "enchanting")), 300)
+    check(not ns.Known.lastScan.everything, "the book answered: not blind")
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.cooking:Click()
+    local card = ns.Window.lines[1]
+    equal(Mock.plain(card.text), "Cooking training")
+    equal(Mock.plain(card.desc), "Your cap is 300 (Artisan): there is no further rank.")
+    equal(card.state, "known"); equal(card.skill, 300)
+    card.click()
+    check(has(Mock.rows(), "Learned: Apprentice, Journeyman, Expert, Artisan"), table.concat(Mock.rows(), "\n", 1, 6))
+    check(not has(Mock.rows(), "Clamlette Surprise"), "a rank that is learned lists no quest")
+    -- both answer: the book's numbers are the ones kept
+    state.skill = { level = 225, max = 225 }
+    state.book[5].level = 226
+    Mock.fire("SKILL_LINES_CHANGED"); Mock.advance(1)
+    skill, max = ns.Known:Skill(ns.cdb, "cooking")
+    equal(skill, 226); equal(max, 300); equal(ns.Known.skillRaw.cooking.api, "225/225")
+    -- a profession the book leaves out is read from the skill window, by its skill line or its name
+    state.skillWindow = { { name = "Mining", rank = 50, max = 75, header = true }, { name = "First Aid", rank = 150, max = 225 },
+        { name = "Something", rank = 40, max = 75, line = ALCHEMY }, { name = "Cooking", rank = 1, max = 75, line = 185 } }
+    Mock.fire("SKILL_LINES_CHANGED"); Mock.advance(1)
+    skill, max = ns.Known:Skill(ns.cdb, "firstaid")
+    equal(skill, 150); equal(max, 225); equal(ns.Known.skillRaw.firstaid.how, "skill window")
+    equal(select(2, ns.Known:Skill(ns.cdb, "alchemy")), 75)
+    equal(ns.Known:Skill(ns.cdb, "mining"), nil, "a header is no skill")
+    equal(select(2, ns.Known:Skill(ns.cdb, "cooking")), 300, "the book comes before the skill window")
+    -- the book silent again (secrets): what was read stays, nothing breaks
+    state.book = { secret = true }
+    state.skillWindow = nil
+    state.skill = { level = 0, max = 0 }
+    Mock.fire("SKILL_LINES_CHANGED"); Mock.advance(1)
+    equal(select(2, ns.Known:Skill(ns.cdb, "cooking")), 300)
+    equal(ns.Known.skillRaw.cooking.how, "nothing above zero")
+    -- a secret rank in the book: that line is not taken
+    state.book = { [5] = { name = "Cooking", level = 300, max = 300, line = 185 } }
+    state.bookSecretRanks = true
+    Mock.fire("SKILL_LINES_CHANGED"); Mock.advance(1)
+    equal((ns.Known:Skill(ns.cdb, "cooking")), 226)
+    -- the book names a rank without a cap: the cap read before stays
+    state.bookSecretRanks = nil
+    state.book[5].max = nil
+    Mock.fire("SKILL_LINES_CHANGED"); Mock.advance(1)
+    skill, max = ns.Known:Skill(ns.cdb, "cooking")
+    equal(skill, 300); equal(max, 300)
+    -- the report shows how each was read, with no secret in it
+    Mock.slash("diag")
+    equal(AKForeverRecipesDB.diag.known.skillRaw.cooking.how, "professions book")
+    equal(#Mock.errors, 0)
+    -- a client with neither the book nor the skill window: the trade skill call alone, as before
+    GetProfessions, GetProfessionInfo, C_SkillInfo = nil, nil, nil
+    state.skill = { level = 230, max = 300 }
+    Mock.fire("SKILL_LINES_CHANGED"); Mock.advance(1)
+    equal((ns.Known:Skill(ns.cdb, "cooking")), 230); equal(ns.Known.skillRaw.cooking.how, "trade skill API")
+    equal(#Mock.errors, 0)
+    -- a client with the book but no trade skill call is not blind: only the book's professions are asked about
+    ns = start({ noSkillInfo = true, first = "Other", last = "Cook", faction = "Horde" }, function(s)
+        s.book = { [5] = { name = "Cooking", level = 80, max = 150, line = 185 } }
+    end)
+    check(not ns.Known.lastScan.everything and ns.Known.lastScan.skillLines > 0, "the book answered: not blind")
+    equal(select(2, ns.Known:Skill(ns.cdb, "cooking")), 150)
+end)
+
+scenario("a specialization's quest lists what to bring too: Gnomish and Goblin Engineering, the three of Leatherworking, the two of Blacksmithing - with how many you have", function()
+    local TUBE, SCOPE, DUMMY, VEST, HELMET = 10559, 4407, 4392, 8211, 8214
+    local ns, state = start({ first = "Purr", last = "Gola", faction = "Alliance" }, function(s)
+        s.skills[ENGINEERING] = { level = 300, max = 300 }
+        s.items[TUBE], s.items[DUMMY] = 6, 2
+    end)
+    -- the tables (Questie's words; Wowhead's Forever pages of the quests have the same, read 2026-11-16)
+    local function wants(prof, spec, quest)
+        local list = {}
+        for _, item in ipairs(ns.Lookup.QuestItems(ns.Lookup.Training(prof).specs[spec].quests[quest])) do
+            list[#list + 1] = item.count .. " " .. item.name
+        end
+        return table.concat(list, ", ")
+    end
+    -- "6 Mithril Tubes, an Accurate Scope, and 2 Advanced Target Dummies": one by "an", a plural in -ies
+    equal(wants("engineering", 1, 1), "6 Mithril Tube, 1 Accurate Scope, 2 Advanced Target Dummy")
+    equal(wants("engineering", 1, 2), wants("engineering", 1, 1), "the Horde's Gnomish quest asks for the same")
+    equal(wants("engineering", 2, 1), "20 Big Iron Bomb, 20 Solid Dynamite, 5 Explosive Sheep")
+    equal(wants("leatherworking", 1, 1), "2 Tough Scorpid Breastplate, 2 Tough Scorpid Gloves, 10 Worn Dragonscale")
+    equal(wants("leatherworking", 2, 1), "2 Heart of Fire, 2 Globe of Water, 2 Core of Earth, 2 Breath of Wind")
+    equal(wants("leatherworking", 3, 2), "1 Wild Leather Vest, 1 Wild Leather Helmet")
+    equal(wants("blacksmithing", 1, 1), "4 Ornate Mithril Helm, 2 Ornate Mithril Boots, 1 Ornate Mithril Breastplate")
+    equal(wants("blacksmithing", 2, 2), "4 Moonsteel Broadsword, 4 Massive Iron Axe, 2 Heavy Mithril Axe, 2 Big Black Mace")
+    -- every one of them has its items, each with an icon
+    for _, prof in ipairs({ "blacksmithing", "engineering", "leatherworking" }) do
+        for _, spec in ipairs(ns.Lookup.Training(prof).specs) do
+            for _, quest in ipairs(spec.quests) do
+                local items = ns.Lookup.QuestItems(quest)
+                check(#items >= 2, spec.name .. ": " .. quest.name .. " lists nothing to bring")
+                for _, item in ipairs(items) do
+                    check(type(item.icon) == "string" and item.icon ~= "", spec.name .. ": " .. item.name .. " has no icon")
+                end
+            end
+        end
+    end
+    -- the card of an Artisan engineer, closed: there is something to bring
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.engineering:Click()
+    local card = ns.Window.lines[1]
+    equal(Mock.plain(card.right), "2 specializations - open for where and what to bring")
+    -- opened: each specialization's quest, the items under it; the Horde's quest giver is not shown
+    card.click()
+    local rows = Mock.rows()
+    local function under(quest)
+        for i, row in ipairs(rows) do
+            if row == quest then return i end
+        end
+        check(false, "no row \"" .. quest .. "\":\n" .. table.concat(rows, "\n"))
+        return 0
+    end
+    local at = under("Quest: Show Your Work - Tinkmaster Overspark, Ironforge")
+    equal(rows[at + 1], "Bring to Tinkmaster Overspark | not all yet")
+    equal(rows[at + 2], "Mithril Tube | have 6/6")
+    equal(rows[at + 3], "Accurate Scope | have 0/1")
+    equal(rows[at + 4], "Advanced Target Dummy | have 2/2")
+    check(Mock.rawRows()[at + 4]:find("Interface\\Icons\\inv_crate_05", 1, true), "a made thing's icon comes from its recipe: " .. Mock.rawRows()[at + 4])
+    check(not has(rows, "Oglethorpe"), "the Horde's Gnomish quest is shown to the Alliance")
+    at = under("Quest: Show Your Work - Nixx Sprocketspring, Tanaris")
+    equal(rows[at + 1], "Bring to Nixx Sprocketspring | not all yet")
+    equal(rows[at + 2], "Big Iron Bomb | have 0/20"); equal(rows[at + 4], "Explosive Sheep | have 0/5")
+    -- the scope made: Gnomish is ready, Goblin is not
+    state.items[SCOPE] = 1
+    ns.Window:Render()
+    rows = Mock.rows()
+    equal(rows[under("Quest: Show Your Work - Tinkmaster Overspark, Ironforge") + 1], "Bring to Tinkmaster Overspark | you have it all")
+    equal(rows[under("Quest: Show Your Work - Nixx Sprocketspring, Tanaris") + 1], "Bring to Nixx Sprocketspring | not all yet")
+
+    -- a Horde leatherworker: its own quest givers, one of a thing counted as one
+    local horde, hordeState = start({ first = "Tusk", last = "Hide", faction = "Horde" }, function(s)
+        s.skills[LEATHERWORKING] = { level = 300, max = 300 }
+        s.items[VEST] = 1
+    end)
+    Mock.slash("show all")
+    horde.Window.widgets.tabs.leatherworking:Click()
+    equal(Mock.plain(horde.Window.lines[1].right), "3 specializations - open for where and what to bring")
+    horde.Window.lines[1].click()
+    rows = Mock.rows()
+    at = under("Quest: Tribal Leatherworking - Se'Jib, Stranglethorn Vale")
+    equal(rows[at + 1], "Bring to Se'Jib | not all yet")
+    equal(rows[at + 2], "Wild Leather Vest | have 1/1"); equal(rows[at + 3], "Wild Leather Helmet | have 0/1")
+    check(not has(rows, "Caryssia Moonhunter"), "the Alliance's Tribal quest is shown to the Horde")
+    at = under("Quest: Dragonscale Leatherworking - Thorkaf Dragoneye, Badlands")
+    equal(rows[at + 4], "Worn Dragonscale | have 0/10")
+    at = under("Quest: Elemental Leatherworking - Brumn Winterhoof, Arathi Highlands")
+    equal(rows[at + 1], "Bring to Brumn Winterhoof | not all yet"); equal(rows[at + 5], "Breath of Wind | have 0/2")
+    -- the client silent about the bags: the numbers wanted, no counts
+    hordeState.bagsSecret = true
+    horde.Window:Render()
+    rows = Mock.rows()
+    at = under("Quest: Tribal Leatherworking - Se'Jib, Stranglethorn Vale")
+    equal(rows[at + 1], "Bring to Se'Jib"); equal(rows[at + 2], "1 x Wild Leather Vest")
+end)
+
 scenario("the first card of a profession is its training: where the next rank is learned, for your faction", function()
     local ns = start({ faction = "Alliance" }, function(state)
         state.skill = { level = 130, max = 150 }                  -- a Journeyman cook
@@ -381,7 +623,7 @@ scenario("the first card of a profession is its training: where the next rank is
     -- ... and its specializations, for your faction, marked as Classic's
     card.click()
     rows = Mock.rows()
-    check(has(rows, "Specializations  (as in Classic - not confirmed for Forever)"))
+    check(has(rows, "Specializations  (the quests as on Wowhead's WoW Forever pages)"))
     check(has(rows, "Armorsmith | at 200, level 40") and has(rows, "Weaponsmith | at 200, level 40"))
     check(has(rows, "Quest: The Art of the Armorsmith - Grumnus Steelshaper, Ironforge") and not has(rows, "Okothos Ironrager"))
 
@@ -671,8 +913,67 @@ scenario("sources the research found elsewhere say where they were found; a kind
     end
     check(found and found.spell == 7428, "the enchants the page named without a spell id are missing")
     -- and what nobody knows is still said plainly
-    Mock.slash("find swiftstrike steak")
-    check(printed("Swiftstrike Steak (Cooking 275, missing, BoP): source not known yet."), table.concat(Mock.printed, "\n"))
+    Mock.slash("find flank au poivre")
+    check(printed("Flank au Poivre (Cooking 275, missing, BoP): source not known yet."), table.concat(Mock.printed, "\n"))
+end)
+
+scenario("Wowhead's lists read again (2026-11-16): a recipe that is fished says 'Fished in Mount Hyjal'; creatures, a vendor and a quest newly named; a chance only where enough were counted", function()
+    local ns = start({ faction = "Alliance" }, function(state)
+        state.skill = { level = 300, max = 300 }
+        state.skills[ALCHEMY] = { level = 300, max = 300 }
+        state.skills[BLACKSMITHING] = { level = 300, max = 300 }
+        state.skills[LEATHERWORKING] = { level = 300, max = 300 }
+    end)
+    Mock.slash("show all")
+    local tabs = ns.Window.widgets.tabs
+    local function open(tab, name)
+        tabs[tab]:Click()
+        ns.Window.open = {}
+        cardNamed(ns, name).click()
+        return cardNamed(ns, name), Mock.rows()
+    end
+    -- caught fishing: no creature to name, the waters instead (1 of 123 catches on Wowhead's Forever page)
+    local draught, rows = open("alchemy", "Draught of Water Walking")
+    equal(Mock.plain(draught.right), "Fished in Mount Hyjal, 0.81%")
+    equal(Mock.plain(draught.tags), "Drop   BoE")
+    check(has(rows, "Fished in Mount Hyjal | 0.81%"), table.concat(rows, "\n", 1, 14))
+    check(not has(rows, "Drop: Fishing"), "a fished recipe is listed as a creature's drop")
+    check(has(rows, "(Source found in Wowhead, not on the profession's page.)"))
+    equal(ns.Lookup.Summary(ns.Lookup.BySpell(11447), "A"), "fished: Mount Hyjal")
+    Mock.slash("find draught of water walking")
+    check(printed("Draught of Water Walking (Alchemy 180, missing, BoE): fished in Mount Hyjal."), table.concat(Mock.printed, "\n"))
+    -- no zone written down: just "Fished"
+    table.insert(ns.Lookup.Recipes("alchemy"), 1, { spell = 99999003, name = "Aaa Test Potion", icon = "inv_potion_15", prof = "alchemy",
+        learn = 1, yellow = 2, green = 3, grey = 4, recipe = { id = 99999004, name = "Recipe: Aaa Test Potion" }, drops = { { npc = "Fishing", fished = true } } })
+    ns.Window.open = {}
+    ns.Window:Render()
+    equal(Mock.plain(cardNamed(ns, "Aaa Test Potion").right), "Fished")
+    -- a quest neither Questie nor the quest pages know: its name alone
+    local firewater
+    firewater, rows = open("alchemy", "Distilled Firewater")
+    equal(Mock.plain(firewater.right), "Quest: Running Firewater")
+    -- a dungeon creature looted too few times for a chance (1 of 17): named, with its level, no number
+    local machine
+    machine, rows = open("leatherworking", "Sewing Machine")
+    equal(Mock.plain(machine.right), "Drop: Vectus, Scholomance")
+    check(has(rows, "Drop: Vectus (60), Scholomance"), table.concat(rows, "\n", 1, 14))
+    -- looted often enough (3 of 23): the chance is said
+    local helm
+    helm, rows = open("leatherworking", "Black Dragonscale Helm")
+    equal(Mock.plain(helm.right), "Drop: Blackhand Assassin, Blackrock Spire, 13.04%")
+    check(has(rows, "Drop: Blackhand Assassin (60-61), Blackrock Spire | 13.04%"), table.concat(rows, "\n", 1, 14))
+    -- two creatures of one camp
+    local cloak
+    cloak, rows = open("leatherworking", "Nightscape Cloak")
+    check(has(rows, "Drop: Bristleback Skullcrusher (42-43), Shen'dralas | 1.46%") and has(rows, "Drop: Bristleback Nomad (42-43), Shen'dralas | 0.99%"))
+    -- a vendor both factions can buy from; no price was read
+    local carver
+    carver, rows = open("blacksmithing", "Stormcarver")
+    equal(Mock.plain(carver.right), "Vendor: Meilosh, Felwood")
+    check(ns.Lookup.Sources(ns.Lookup.BySpell(1252366), "H").any, "Meilosh sells to the Horde too")
+    -- the steak the tests used as "nobody knows" has its creature
+    local steak = ns.Lookup.Sources(ns.Lookup.BySpell(1250149), "A")
+    check(steak.any and not steak.unknown and steak.drops[1].npc == "Frostsaber Pride Watcher", "Swiftstrike Steak lost its drop")
 end)
 
 scenario("an Alliance character sees its own faction's sources and no recipe only the Horde can get", function()
@@ -953,7 +1254,7 @@ scenario("a card's third line says known, or the first source: gold when learnab
     check(cardNamed(ns, "Charred Wolf Meat").right:find("|cff60ff60Known", 1, true), "known is green")
     local stew = cardNamed(ns, "Westfall Stew").right
     check(stew:find("|cffffd100Vendor: Kendor Kabonka, Stormwind City, 2s  (+1 more)", 1, true), "skill 100 can learn a 75 recipe: gold, " .. stew)
-    check(cardNamed(ns, "Swiftstrike Steak").right:find("|cffff8080Source unknown", 1, true), "an unknown source is red")
+    check(cardNamed(ns, "Flank au Poivre").right:find("|cffff8080Source unknown", 1, true), "an unknown source is red")
     check(cardNamed(ns, "Monster Omelet").right:find("|cff9d9d9d", 1, true), "skill 100 cannot learn a 225 recipe: grey")
     check(Mock.info():find("Purr Gola: 1 of ", 1, true) and Mock.info():find("Cooking 100/150", 1, true), Mock.info())
 end)
@@ -1228,7 +1529,7 @@ scenario("a card's tags say the kind of source and whether the recipe item is Bo
     equal(tags("Peace Tea"), "Drop   BoP")
     equal(tags("Venomous Smoothie"), "Vendor   BoP")
     equal(tags("Goldthorn Tea"), "Taught")
-    equal(tags("Swiftstrike Steak"), "BoP")                 -- no source known, but the item is
+    equal(tags("Flank au Poivre"), "BoP")                 -- no source known, but the item is
     equal(tags("Kaldorei Spider Kabob"), "Quest   BoE")
     local _, raw = tags("Peace Tea")
     check(raw:find("|cffff6060BoP", 1, true) and raw:find("|cffc79cffDrop", 1, true), "the tags have their colours")
@@ -1340,18 +1641,18 @@ end)
 
 scenario("a merchant selling a recipe nobody had a source for is written down for every character", function()
     local ns = start({ faction = "Alliance" })
-    local ribs = ns.Lookup.BySpell(SWIFTSTRIKE_STEAK)
+    local ribs = ns.Lookup.BySpell(FLANK_AU_POIVRE)
     check(ns.Lookup.Sources(ribs, "A").unknown)
     ns.Window:Show()
-    Mock.clickRow(Mock.rowIndex("Swiftstrike Steak"))
+    Mock.clickRow(Mock.rowIndex("Flank au Poivre"))
     check(has(Mock.rows(), "Nobody has written down yet where this comes from."))
-    check(has(Mock.rows(), "A merchant selling Recipe: Swiftstrike Steak is noted"))
+    check(has(Mock.rows(), "A merchant selling Recipe: Flank au Poivre is noted"))
 
-    Mock.merchant({ { id = 4540, price = 25 }, { id = STEAK_RECIPE, price = 12000 }, { secret = true } }, "Corporal Bluth", "Stranglethorn Vale")
+    Mock.merchant({ { id = 4540, price = 25 }, { id = FLANK_RECIPE, price = 12000 }, { secret = true } }, "Corporal Bluth", "Stranglethorn Vale")
     local rows = Mock.rows()
     check(has(rows, "Vendor: Corporal Bluth, Stranglethorn Vale  (seen by you) | 1g 20s"), table.concat(rows, "\n", 1, 20))
     check(not has(rows, "Nobody has written down"))
-    equal(ns.db.vendors[STEAK_RECIPE]["Corporal Bluth"].side, "A")
+    equal(ns.db.vendors[FLANK_RECIPE]["Corporal Bluth"].side, "A")
     -- a vendor the table already names is not listed twice
     Mock.merchant({ { id = 728, price = 200 } }, "Kendor Kabonka", "Stormwind City")
     Mock.clickRow(Mock.rowIndex("Westfall Stew"))
@@ -1362,8 +1663,8 @@ scenario("a merchant selling a recipe nobody had a source for is written down fo
     equal(count, 1)
     -- the next session, another character of the same faction
     ns = start({ db = AKForeverRecipesDB, first = "Alt", last = "Two", faction = "Alliance" })
-    equal(ns.Lookup.Summary(ns.Lookup.BySpell(SWIFTSTRIKE_STEAK), "A"), "vendor: Stranglethorn Vale")
-    check(not ns.Lookup.Sources(ns.Lookup.BySpell(SWIFTSTRIKE_STEAK), "H").any, "an Alliance vendor is offered to the Horde")
+    equal(ns.Lookup.Summary(ns.Lookup.BySpell(FLANK_AU_POIVRE), "A"), "vendor: Stranglethorn Vale")
+    check(not ns.Lookup.Sources(ns.Lookup.BySpell(FLANK_AU_POIVRE), "H").any, "an Alliance vendor is offered to the Horde")
 end)
 
 scenario("'/akr find' searches every profession and prints where the recipes come from", function()

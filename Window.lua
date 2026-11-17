@@ -464,8 +464,14 @@ end
 
 local STAT_FITS = 70 -- characters of a stat or effect that fit on one line of an opened card
 
-local function dropWords(drop)
-    return (drop.object and "Chest: " or "Drop: ") .. drop.npc
+-- a drop in words, with its place: "Drop: Vectus (60), Scholomance", "Chest: ...", and for a recipe caught
+-- fishing (Wowhead's Forever item pages name the waters, 2026-11-16) "Fished in Mount Hyjal". `levels`: the
+-- creature's levels, where the line has room for them.
+local function dropWords(drop, levels)
+    if drop.fished then
+        return "Fished" .. (drop.zone and (" in " .. drop.zone) or "")
+    end
+    return (drop.object and "Chest: " or "Drop: ") .. drop.npc .. (levels or "") .. (drop.zone and (", " .. drop.zone) or "")
 end
 
 local function worldWords(world)
@@ -530,7 +536,7 @@ local function sourceLine(sources, profName)
         first = "Taught by a quest"
     elseif #sources.drops > 0 then
         local drop = sources.drops[1]
-        first = dropWords(drop) .. (drop.zone and (", " .. drop.zone) or "") .. (drop.chance and (", " .. drop.chance .. "%") or "")
+        first = dropWords(drop) .. (drop.chance and (", " .. drop.chance .. "%") or "")
     elseif sources.world then
         first = worldWords(sources.world)
     elseif sources.made then
@@ -681,7 +687,7 @@ local function detailLines(recipe, sources, profile, viewedKey, learned)
         detail(details, "Quest: " .. quest.name .. (quest.zone and (", " .. quest.zone) or ""), quest.level and ("level " .. quest.level) or "")
     end
     for _, drop in ipairs(sources.drops) do
-        detail(details, dropWords(drop) .. levelsText(drop) .. (drop.zone and (", " .. drop.zone) or ""), drop.chance and (drop.chance .. "%") or "")
+        detail(details, dropWords(drop, levelsText(drop)), drop.chance and (drop.chance .. "%") or "")
     end
     if sources.world then
         detail(details, worldWords(sources.world) .. ".", COLOUR.dim .. "world drop|r")
@@ -799,8 +805,34 @@ end
 ------------------------------------------------------------------------
 local TRAINERS_SHOWN = 6
 
--- the ways to a rank for one side, as lines { text, right }
-local function rankWays(rank, side, profName)
+-- What a rank's quest wants brought, as lines { text, right } under the quest's own (the user, 2026-11-16:
+-- "for recipes for 225 cooking it should show the raw materials you need to bring down to dirge"): a head
+-- line, then an item a line as a recipe lists its reagents - for the character logged in with how many
+-- there are ("have 3/12", bags and bank), for another character or silent bags the number wanted.
+local function bringLines(quest, own)
+    local items = Lookup.QuestItems(quest)
+    if #items == 0 then
+        return nil
+    end
+    local lines, counted, all = {}, false, true
+    for _, item in ipairs(items) do
+        local have = own and Known:ItemCount(item.id) or nil
+        local right = ""
+        if have then
+            counted = true
+            all = all and have >= item.count
+            right = ((have >= item.count) and COLOUR.known or COLOUR.unknown) .. "have " .. have .. "/" .. item.count .. "|r"
+        end
+        lines[#lines + 1] = { Lookup.IconText(item.icon, 14) .. (have and "" or (item.count .. " x ")) .. item.name, right }
+    end
+    table.insert(lines, 1, { COLOUR.head .. "Bring|r" .. (quest.npc and (COLOUR.dim .. " to " .. quest.npc .. "|r") or ""),
+        counted and (all and (COLOUR.known .. "you have it all|r") or (COLOUR.dim .. "not all yet|r")) or "" })
+    return lines
+end
+
+-- the ways to a rank for one side, as lines { text, right }; a quest that wants items brought carries
+-- them as `bring` (bringLines), for the opened card. `own`: the character shown is the one logged in.
+local function rankWays(rank, side, profName, own)
     local ways = {}
     local trainers = Lookup.ForSide(rank.trainers, side)
     -- what the trainer asks for the rank: on every trainer's line; "seen at a trainer" once, on the first
@@ -826,7 +858,8 @@ local function rankWays(rank, side, profName)
         end
     end
     for _, quest in ipairs(Lookup.ForSide(rank.quests, side)) do
-        ways[#ways + 1] = { "Quest: " .. quest.name .. (quest.npc and (" - " .. place2(quest.npc, quest.zone)) or ""), quest.level and ("level " .. quest.level) or "" }
+        ways[#ways + 1] = { "Quest: " .. quest.name .. (quest.npc and (" - " .. place2(quest.npc, quest.zone)) or ""), quest.level and ("level " .. quest.level) or "",
+            bring = bringLines(quest, own) }
     end
     return ways
 end
@@ -834,7 +867,7 @@ end
 -- the character level a rank asks for, by the cap it gives - Classic's (Forever's are not written down)
 local RANK_LEVEL = { [150] = 10, [225] = 20, [300] = 35 }
 
-local function trainingCard(prof, profile, side)
+local function trainingCard(prof, profile, side, own)
     local training = Lookup.Training(prof)
     if not training then
         return nil
@@ -880,10 +913,11 @@ local function trainingCard(prof, profile, side)
         state = "plain"
     end
     if nextRank then
-        local ways = rankWays(nextRank, side, profName)
-        right = ways[1] and (ways[1][1] .. (ways[1].price and (", " .. ways[1].price) or "") .. (#ways > 1 and (COLOUR.dim .. "  (+" .. (#ways - 1) .. " more)|r") or "")) or (COLOUR.unknown .. "Nobody has written down where|r")
+        local ways = rankWays(nextRank, side, profName, own)
+        right = ways[1] and (ways[1][1] .. (ways[1].price and (", " .. ways[1].price) or "") .. (#ways > 1 and (COLOUR.dim .. "  (+" .. (#ways - 1) .. " more)|r") or "")
+            .. (ways[1].bring and (COLOUR.dim .. "  (open for what to bring)|r") or "")) or (COLOUR.unknown .. "Nobody has written down where|r")
     elseif training.specs then
-        right = COLOUR.dim .. #training.specs .. " specializations - open for where|r"
+        right = COLOUR.dim .. #training.specs .. " specializations - open for where and what to bring|r"
     else
         right = ""
     end
@@ -913,9 +947,12 @@ local function trainingCard(prof, profile, side)
                     detail(details, (short and COLOUR.unknown or COLOUR.dim) .. "Needs character level " .. needsLevel
                         .. (short and (" - you are level " .. level) or "") .. "|r" .. COLOUR.dim .. "  (as in Classic)|r")
                 end
-                local ways = rankWays(rank, side, profName)
+                local ways = rankWays(rank, side, profName, own)
                 for _, way in ipairs(ways) do
                     detail(details, way[1], way[2])
+                    for _, line in ipairs(way.bring or {}) do
+                        detail(details, line[1], line[2])
+                    end
                 end
                 if #ways == 0 then
                     detail(details, COLOUR.unknown .. "Nobody has written down where this is learned.|r")
@@ -926,11 +963,18 @@ local function trainingCard(prof, profile, side)
             table.insert(details, 1, { text = COLOUR.known .. "Learned: " .. table.concat(done, ", ") .. "|r", right = "" })
         end
         if training.specs then
-            detail(details, COLOUR.head .. "Specializations|r" .. COLOUR.dim .. "  (as in Classic - not confirmed for Forever)|r")
+            -- (until 2026-11-16 "as in Classic - not confirmed for Forever": Wowhead's Forever pages have the
+            -- seven quests, with the words Questie has; nobody has reported doing one in the game yet)
+            detail(details, COLOUR.head .. "Specializations|r" .. COLOUR.dim .. "  (the quests as on Wowhead's WoW Forever pages)|r")
             for _, spec in ipairs(training.specs) do
                 detail(details, spec.name, COLOUR.dim .. ((spec.needs and ("at " .. spec.needs) or "") .. (spec.level and (", level " .. spec.level) or "")) .. "|r")
+                -- what its quest wants brought, as under a rank's quest (the user, 2026-11-16: "can you do
+                -- the same for the engineering/leatherworking specialties")
                 for _, quest in ipairs(Lookup.ForSide(spec.quests, side)) do
                     detail(details, "Quest: " .. quest.name .. (quest.npc and (" - " .. place2(quest.npc, quest.zone)) or ""))
+                    for _, line in ipairs(bringLines(quest, own) or {}) do
+                        detail(details, line[1], line[2])
+                    end
                 end
             end
         end
@@ -967,7 +1011,7 @@ function Window:Lines()
     local hiddenSet = type(profile.hidden) == "table" and profile.hidden or {}
     local hiddenCount = 0
     if filter ~= "hidden" and (Window.query or "") == "" then
-        lines[#lines + 1] = trainingCard(prof, profile, side)
+        lines[#lines + 1] = trainingCard(prof, profile, side, key == ns.characterKey)
     end
     for _, recipe in ipairs(Lookup.Recipes(prof)) do
         local learned = Known:IsLearned(recipe.spell, key)
@@ -1409,7 +1453,9 @@ ns:RegisterCommand("find", "'/akr find <recipe, place or NPC>': the matching rec
                 if sources.trainersSell then parts[#parts + 1] = sources.trainersSell .. " " .. profName .. " trainers sell it" end
                 for _, quest in ipairs(sources.quests) do parts[#parts + 1] = "quest " .. quest.name end
                 for index, drop in ipairs(sources.drops) do
-                    if index <= 2 then parts[#parts + 1] = "drops from " .. place2(drop.npc, drop.zone) end
+                    if index <= 2 then
+                        parts[#parts + 1] = drop.fished and ("fished" .. (drop.zone and (" in " .. drop.zone) or "")) or ("drops from " .. place2(drop.npc, drop.zone))
+                    end
                 end
                 if sources.world then parts[#parts + 1] = string.lower(string.sub(worldWords(sources.world), 1, 1)) .. string.sub(worldWords(sources.world), 2) end
                 if sources.theirs then

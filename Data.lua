@@ -17,7 +17,8 @@
 --           a price read in a trainer's own window wins (db.trainerCosts)
 --   taught  { npc, zone }: one NPC teaches it
 --   vendors { npc, zone, side = "A" | "H" | nil, price (copper), limited }
---   quests  { name, level, zone, side }     drops { npc, zone, chance (%), min, max (level), object (a chest) }
+--   quests  { name, level, zone, side }     drops { npc, zone, chance (%), min, max (level), object (a chest),
+--           fished (caught fishing in that zone's waters - npc is "Fishing") }
 --   world   { lo, hi }: a world drop from creatures of these levels
 --   trainersSell  that many trainers of the profession sell the recipe item     capitals  sold in the capitals
 --   made    { names }: another craft makes the recipe item      favor   its price in Merchant's Favor

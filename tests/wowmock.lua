@@ -251,6 +251,31 @@ function Mock.install(options)
         end
     end
     global("C_TradeSkillUI", tradeSkill)
+    -- the professions book: state.book = { [slot 1..6] = { name, level, max, line } } with holes, as the
+    -- client's GetProfessions has them; nil: it answers nothing; { secret = true }: secrets.
+    -- state.bookSecretRanks: GetProfessionInfo answers a secret rank
+    local function bookSlot(slot)
+        return state.book and state.book[slot] and slot or nil
+    end
+    global("GetProfessions", function()
+        if not state.book then return nil end
+        if state.book.secret then return Mock.SECRET, Mock.SECRET end
+        return bookSlot(1), bookSlot(2), bookSlot(3), bookSlot(4), bookSlot(5), bookSlot(6)
+    end)
+    global("GetProfessionInfo", function(slot)
+        local entry = state.book and state.book[slot]
+        if not entry then return nil end
+        return entry.name, 134400, state.bookSecretRanks and Mock.SECRET or entry.level, entry.max, 0, 0, entry.line
+    end)
+    -- the skill window: state.skillWindow = { { name, rank, max, line, header } }
+    global("C_SkillInfo", {
+        GetNumSkillLines = function() return state.skillWindow and #state.skillWindow or 0 end,
+        GetSkillLineInfo = function(index)
+            local line = state.skillWindow and state.skillWindow[index]
+            if not line then return nil end
+            return { name = line.name, rank = line.rank, maxRank = line.max, skillID = line.line, isHeader = line.header and true or false }
+        end,
+    })
     local function spellKnown(spell)
         state.calls.spell = state.calls.spell + 1
         if state.spellMode == "false" then return false end

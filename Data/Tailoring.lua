@@ -4745,6 +4745,10 @@ R({
     reagents = { { 14048, 8 }, { 14342, 12 }, { 14344, 2 }, { 249427, 5 }, { 14341, 2 }, { 249428, 5 }, { 249429, 5 } },
     station = 279959,
     recipe = { id = 254140, name = "Pattern: Bottomless Reagent Bag" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Venom Belcher", zone = "Stratholme" },
+    },
 })
 R({
     spell = 1306544, item = 279270, name = "Cloak of Earth and Sky", icon = "inv_misc_cape_13",
@@ -4976,6 +4980,10 @@ R({
     stats = { "Places a Loom usable for recipes that require it, and provides all the benefits of a Faction Banner. Requires a Campfire nearby. May be placed over a Faction Banner to replace it. All camping features share a cooldown of 1 hr." },
     reagents = { { 273131, 1 }, { 14048, 4 }, { 4470, 4 } },
     recipe = { id = 273124, name = "Blueprint: Loom" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Baroness Anastari", zone = "Stratholme" },
+    },
 })
 R({
     spell = 1306541, item = 279267, name = "Mana-infused Cord", icon = "inv_belt_06",

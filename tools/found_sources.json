@@ -33,8 +33,8 @@
   3275,
   2657
  ],
- "clientBuild": "1.60.1.70888",
- "readOn": "2026-11-15",
+ "clientBuild": "1.60.1.70938",
+ "readOn": "2026-11-16",
  "sources": {
   "11207": {
    "drops": [
@@ -931,6 +931,19 @@
     }
    ]
   },
+  "236754": {
+   "from": [
+    "wowhead"
+   ],
+   "quests": [
+    {
+     "level": null,
+     "name": "Running Firewater",
+     "side": "",
+     "zone": null
+    }
+   ]
+  },
   "249475": {
    "drops": [
     {
@@ -1410,6 +1423,32 @@
     "questie"
    ]
   },
+  "249521": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Mother Smolderweb",
+     "zone": "Blackrock Spire"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "249523": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Spectral Tutor",
+     "zone": "Scholomance"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
   "249524": {
    "drops": [
     {
@@ -1553,6 +1592,19 @@
      "side": "",
      "zone": null
     }
+   ]
+  },
+  "250180": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Frostsaber Pride Watcher",
+     "zone": "Winterspring"
+    }
+   ],
+   "from": [
+    "wowhead"
    ]
   },
   "250185": {
@@ -3111,6 +3163,19 @@
     "questie"
    ]
   },
+  "251452": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Gordok Brute",
+     "zone": "Dire Maul"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
   "251453": {
    "drops": [
     {
@@ -3198,6 +3263,30 @@
    ],
    "from": [
     "questie"
+   ]
+  },
+  "251469": {
+   "from": [
+    "wowhead"
+   ],
+   "vendors": [
+    {
+     "npc": "Meilosh",
+     "side": "",
+     "zone": "Felwood"
+    }
+   ]
+  },
+  "251470": {
+   "from": [
+    "wowhead"
+   ],
+   "vendors": [
+    {
+     "npc": "Meilosh",
+     "side": "",
+     "zone": "Felwood"
+    }
    ]
   },
   "252771": {
@@ -4647,6 +4736,22 @@
     "questie"
    ]
   },
+  "252880": {
+   "drops": [
+    {
+     "chance": 1.89,
+     "level": [
+      50,
+      52
+     ],
+     "npc": "Carrion Vulture",
+     "zone": "Western Plaguelands"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
   "252881": {
    "drops": [
     {
@@ -4768,6 +4873,22 @@
     "questie"
    ]
   },
+  "252889": {
+   "drops": [
+    {
+     "chance": 0.99,
+     "level": [
+      55,
+      56
+     ],
+     "npc": "Sky Shadow",
+     "zone": "Deadwind Pass"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
   "252890": {
    "drops": [
     {
@@ -4798,6 +4919,35 @@
    ],
    "from": [
     "questie"
+   ]
+  },
+  "252893": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Blackmaw Druid",
+     "zone": "Blackmaw Hold"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "252894": {
+   "drops": [
+    {
+     "chance": null,
+     "level": [
+      58,
+      59
+     ],
+     "npc": "Eldreth Seether",
+     "zone": "Dire Maul"
+    }
+   ],
+   "from": [
+    "wowhead"
    ]
   },
   "252895": {
@@ -5414,6 +5564,83 @@
    ],
    "from": [
     "questie"
+   ]
+  },
+  "252935": {
+   "drops": [
+    {
+     "chance": 2.22,
+     "level": [
+      55,
+      56
+     ],
+     "npc": "Plaguehound",
+     "zone": "Eastern Plaguelands"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "252936": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Deadwind Ogre Mage",
+     "zone": "Deadwind Pass"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "252937": {
+   "drops": [
+    {
+     "chance": 3.85,
+     "level": [
+      59,
+      60
+     ],
+     "npc": "Crimson Battle Mage",
+     "zone": "Stratholme"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "252939": {
+   "drops": [
+    {
+     "chance": 13.04,
+     "level": [
+      60,
+      61
+     ],
+     "npc": "Blackhand Assassin",
+     "zone": "Blackrock Spire"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "252940": {
+   "drops": [
+    {
+     "chance": null,
+     "level": [
+      58,
+      60
+     ],
+     "npc": "Spectral Researcher",
+     "zone": "Scholomance"
+    }
+   ],
+   "from": [
+    "wowhead"
    ]
   },
   "253974": {
@@ -6246,6 +6473,19 @@
     "questie"
    ]
   },
+  "254140": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Venom Belcher",
+     "zone": "Stratholme"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
   "254681": {
    "drops": [
     {
@@ -6335,6 +6575,19 @@
    ],
    "from": [
     "questie"
+   ]
+  },
+  "255731": {
+   "from": [
+    "wowhead"
+   ],
+   "quests": [
+    {
+     "level": null,
+     "name": "Transmuted Tincture",
+     "side": "",
+     "zone": null
+    }
    ]
   },
   "264207": {
@@ -6644,6 +6897,32 @@
     "fc-dungeons"
    ]
   },
+  "273112": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Ras Frostwhisper",
+     "zone": "Scholomance"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "273113": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Golem Lord Argelmach",
+     "zone": "Blackrock Depths"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
   "273115": {
    "drops": [
     {
@@ -6657,6 +6936,58 @@
     "questie"
    ]
   },
+  "273116": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Nanaya",
+     "zone": "The Shaper's Terrace"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "273117": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Ezra Grimm",
+     "zone": "Stratholme"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "273118": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Doctor Theolen Krastinov",
+     "zone": "Scholomance"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
+  "273121": {
+   "drops": [
+    {
+     "chance": null,
+     "level": 60,
+     "npc": "Vectus",
+     "zone": "Scholomance"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
   "273122": {
    "drops": [
     {
@@ -6668,6 +6999,19 @@
    ],
    "from": [
     "questie"
+   ]
+  },
+  "273124": {
+   "drops": [
+    {
+     "chance": null,
+     "level": null,
+     "npc": "Baroness Anastari",
+     "zone": "Stratholme"
+    }
+   ],
+   "from": [
+    "wowhead"
    ]
   },
   "274049": {
@@ -6953,6 +7297,20 @@
     }
    ]
   },
+  "288206": {
+   "drops": [
+    {
+     "chance": 0.81,
+     "fished": true,
+     "level": null,
+     "npc": "Fishing",
+     "zone": "Mount Hyjal"
+    }
+   ],
+   "from": [
+    "wowhead"
+   ]
+  },
   "289560": {
    "cost": {
     "amount": 180,
@@ -7005,6 +7363,31 @@
    ],
    "from": [
     "questie"
+   ]
+  },
+  "8388": {
+   "drops": [
+    {
+     "chance": 1.46,
+     "level": [
+      42,
+      43
+     ],
+     "npc": "Bristleback Skullcrusher",
+     "zone": "Shen'dralas"
+    },
+    {
+     "chance": 0.99,
+     "level": [
+      42,
+      43
+     ],
+     "npc": "Bristleback Nomad",
+     "zone": "Shen'dralas"
+    }
+   ],
+   "from": [
+    "wowhead"
    ]
   }
  },

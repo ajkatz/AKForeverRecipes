@@ -1545,6 +1545,10 @@ R({
     reagents = { { 12202, 3 }, { 3713, 2 } },
     station = 279982,
     recipe = { id = 250180, name = "Recipe: Swiftstrike Steak", bop = true },
+    via = "Wowhead",
+    drops = {
+        { npc = "Frostsaber Pride Watcher", zone = "Winterspring" },
+    },
 })
 R({
     spell = 25659, item = 21023, name = "Dirge's Kickin' Chimaerok Chops", icon = "inv_misc_food_65",

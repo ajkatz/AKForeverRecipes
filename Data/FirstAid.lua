@@ -292,6 +292,10 @@ R({
     reagents = { { 7080, 1 }, { 2692, 1 }, { 2594, 1 } },
     makes = 3,
     recipe = { id = 255731, name = "Manual: Powerful Poultice" },
+    via = "Wowhead",
+    quests = {
+        { name = "Transmuted Tincture" },
+    },
 })
 R({
     spell = 30021, item = 23684, name = "Crystal Infused Bandage", icon = "inv_misc_bandage_16",
@@ -314,6 +318,10 @@ R({
     stats = { "Places a Plague Doctor's Laboratory that contains healing potions and poultices, and provides all of the benefits of a First Aid Kit. Requires a Campfire nearby. May be placed over a First Aid Kit to replace it. All camping features share a cooldown of 1 hr." },
     reagents = { { 4470, 2 }, { 6453, 2 }, { 14530, 5 } },
     recipe = { id = 273118, name = "Blueprint: Plague Doctor's Laboratory" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Doctor Theolen Krastinov", zone = "Scholomance" },
+    },
 })
 R({
     spell = 23787, item = 19440, name = "Powerful Anti-Venom", icon = "inv_drink_14",

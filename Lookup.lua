@@ -94,6 +94,20 @@ function Lookup.SpecName(recipe)
     return SPEC_NAMES[spec] or spec
 end
 
+-- what a rank's quest wants brought: { { id, count, name, icon } } as Lookup.Reagents gives a recipe's - Dirge
+-- Quikcleave's Giant Eggs, Zesty Clam Meat and Alterac Swiss for Artisan Cooking. No quest, or a quest that
+-- asks for no items: an empty list.
+function Lookup.QuestItems(quest)
+    local list = {}
+    local bring = type(quest) == "table" and quest.bring or nil
+    for _, item in ipairs(type(bring) == "table" and bring or {}) do
+        if type(item) == "table" and type(item.id) == "number" then
+            list[#list + 1] = { id = item.id, count = item.count or 1, name = item.name or Lookup.ItemName(item.id) or ("item " .. item.id), icon = item.icon }
+        end
+    end
+    return list
+end
+
 -- what a trainer asks for a rank, in copper, and whether that was read in a trainer's own window
 -- (db.trainerCosts, which wins) rather than taken from the tables; nil: no price is known
 function Lookup.RankCost(rank)
@@ -282,7 +296,7 @@ function Lookup.Summary(recipe, side)
     elseif sources.byQuest then
         return "quest"
     elseif #sources.drops == 1 then
-        return "drop" .. (sources.drops[1].zone and (": " .. sources.drops[1].zone) or "")
+        return (sources.drops[1].fished and "fished" or "drop") .. (sources.drops[1].zone and (": " .. sources.drops[1].zone) or "")
     elseif #sources.drops > 1 or sources.world then
         return "drop"
     elseif sources.made then

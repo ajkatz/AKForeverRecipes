@@ -213,7 +213,7 @@ def write_profession(prof, binds, today, totals, found):
             w("    drops = {")
             for d in drops:
                 lo, hi = levels(d.get("level"))
-                w("        %s," % fields([("npc", d["npc"]), ("zone", d.get("zone")), ("chance", d.get("chance")), ("min", lo), ("max", hi), ("object", d.get("object"))]))
+                w("        %s," % fields([("npc", d["npc"]), ("zone", d.get("zone")), ("chance", d.get("chance")), ("min", lo), ("max", hi), ("object", d.get("object")), ("fished", d.get("fished"))]))
             w("    },")
         if drops or world:
             counts["drop"] += 1

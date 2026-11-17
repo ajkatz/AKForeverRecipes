@@ -2330,6 +2330,10 @@ R({
     stats = { "Places an Anarchist's Workbench usable for recipes that require it. Requires a Campfire nearby. All camping features share a cooldown of 1 hr." },
     reagents = { { 273129, 1 }, { 15994, 2 } },
     recipe = { id = 273117, name = "Blueprint: Anarchist's Workbench" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Ezra Grimm", zone = "Stratholme" },
+    },
 })
 R({
     spell = 19831, item = 16040, name = "Arcane Bomb", icon = "spell_shadow_mindbomb",

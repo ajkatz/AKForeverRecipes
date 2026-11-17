@@ -3152,6 +3152,11 @@ R({
     stats = { "+10 Agility", "+3 Stamina" },
     reagents = { { 4304, 12 }, { 4291, 4 } },
     recipe = { id = 8388, name = "Pattern: Nightscape Cloak" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Bristleback Skullcrusher", zone = "Shen'dralas", chance = 1.46, min = 42, max = 43 },
+        { npc = "Bristleback Nomad", zone = "Shen'dralas", chance = 0.99, min = 42, max = 43 },
+    },
 })
 R({
     spell = 10552, item = 8191, name = "Turtle Scale Helm", icon = "inv_helmet_40",
@@ -4626,6 +4631,10 @@ R({
     stats = { "+12 Intellect", "+8 Spirit", "+9 Spell Power" },
     reagents = { { 8170, 10 }, { 14341, 1 }, { 6261, 1 } },
     recipe = { id = 252880, name = "Pattern: Tooled Leather Gauntlets" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Carrion Vulture", zone = "Western Plaguelands", chance = 1.89, min = 50, max = 52 },
+    },
 })
 R({
     spell = 19076, item = 15053, name = "Volcanic Breastplate", icon = "inv_chest_leather_07",
@@ -5026,6 +5035,10 @@ R({
     stats = { "+9 Intellect", "+9 Spirit", "+14 Spell Power" },
     reagents = { { 8170, 12 }, { 15408, 14 }, { 14341, 1 }, { 7069, 2 } },
     recipe = { id = 252936, name = "Pattern: Charged Scorpid Boots" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Deadwind Ogre Mage", zone = "Deadwind Pass" },
+    },
 })
 R({
     spell = 19100, item = 15081, name = "Heavy Scorpid Shoulders", icon = "inv_shoulder_07",
@@ -5046,6 +5059,10 @@ R({
     stats = { "+7 Stamina", "+7 Strength", "+15 Spell Power" },
     reagents = { { 8170, 20 }, { 15408, 10 }, { 14341, 1 } },
     recipe = { id = 252935, name = "Pattern: Supple Scorpid Sabatons" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Plaguehound", zone = "Eastern Plaguelands", chance = 2.22, min = 55, max = 56 },
+    },
 })
 R({
     spell = 1255018, item = 252560, name = "Tooled Leather Pants", icon = "inv_pants_10",
@@ -5054,6 +5071,10 @@ R({
     stats = { "+17 Spirit", "+7 Stamina", "+19 Spell Power" },
     reagents = { { 8170, 18 }, { 14341, 1 }, { 6261, 1 }, { 15407, 1 } },
     recipe = { id = 252889, name = "Pattern: Tooled Leather Pants" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Sky Shadow", zone = "Deadwind Pass", chance = 0.99, min = 55, max = 56 },
+    },
 })
 R({
     spell = 19101, item = 15055, name = "Volcanic Shoulders", icon = "inv_shoulder_13",
@@ -5506,6 +5527,10 @@ R({
     reagents = { { 8170, 20 }, { 15416, 40 }, { 12810, 12 }, { 15407, 4 }, { 249429, 10 }, { 14341, 2 }, { 248825, 20 } },
     station = 279945,
     recipe = { id = 252939, name = "Pattern: Black Dragonscale Helm" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Blackhand Assassin", zone = "Blackrock Spire", chance = 13.04, min = 60, max = 61 },
+    },
 })
 R({
     spell = 24124, item = 19688, name = "Blood Tiger Breastplate", icon = "inv_chest_leather_07",
@@ -6088,6 +6113,10 @@ R({
     reagents = { { 8170, 20 }, { 15408, 40 }, { 12810, 12 }, { 15407, 4 }, { 249429, 10 }, { 14341, 2 }, { 248825, 20 } },
     station = 279945,
     recipe = { id = 252940, name = "Pattern: Pristine Scorpid Leggings" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Spectral Researcher", zone = "Scholomance", min = 58, max = 60 },
+    },
 })
 R({
     spell = 1254970, item = 252603, name = "Red Dragonscale Leggings", icon = "inv_pants_mail_09",
@@ -6097,6 +6126,10 @@ R({
     reagents = { { 8170, 20 }, { 15414, 40 }, { 12810, 12 }, { 15407, 4 }, { 249429, 10 }, { 14341, 2 }, { 248825, 20 } },
     station = 279945,
     recipe = { id = 252937, name = "Pattern: Red Dragonscale Leggings" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Crimson Battle Mage", zone = "Stratholme", chance = 3.85, min = 59, max = 60 },
+    },
 })
 R({
     spell = 1263079, item = 279945, name = "Sewing Machine", icon = "inv_tailoring_modifiedcraftingreagent_orange",
@@ -6104,6 +6137,10 @@ R({
     stats = { "Places a Sewing Machine usable for recipes that require it, and provides all of the benefits of a Camp Tent. Requires a Campfire nearby. May be placed over a Camp Tent to replace it. All camping features share a cooldown of 1 hr." },
     reagents = { { 273130, 1 }, { 8170, 5 }, { 14341, 1 } },
     recipe = { id = 273121, name = "Blueprint: Sewing Machine" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Vectus", zone = "Scholomance", min = 60, max = 60 },
+    },
 })
 R({
     spell = 22928, item = 18511, name = "Shifting Cloak", icon = "inv_misc_cape_20",
@@ -6258,6 +6295,10 @@ R({
     reagents = { { 12810, 6 }, { 12804, 20 }, { 12803, 20 }, { 249429, 10 }, { 15407, 4 }, { 14341, 10 }, { 248825, 20 } },
     station = 279945,
     recipe = { id = 252893, name = "Pattern: Timbermaw Tunic" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Blackmaw Druid", zone = "Blackmaw Hold" },
+    },
 })
 R({
     spell = 1306530, item = 279256, name = "Tranquil Wristguards", icon = "inv_bracer_02",
@@ -6276,6 +6317,10 @@ R({
     reagents = { { 8170, 20 }, { 15419, 20 }, { 14341, 4 }, { 15407, 2 }, { 249429, 10 }, { 248825, 20 } },
     station = 279945,
     recipe = { id = 252894, name = "Pattern: Warbear Helm" },
+    via = "Wowhead",
+    drops = {
+        { npc = "Eldreth Seether", zone = "Dire Maul", min = 58, max = 59 },
+    },
 })
 R({
     spell = 1306532, item = 279258, name = "Wild Leather Armor Kit", icon = "inv_10_inscription_runedwrithebark_color1",
