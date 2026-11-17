@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.4.1 - 2026-11-16
 
 - **Fixed: a rank you had learned was still shown as the next one.** After Dirge's quest the training card
   went on saying "Artisan Cooking raises your skill cap to 300". The skill and its cap were asked of the
