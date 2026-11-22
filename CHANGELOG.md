@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.5.0 - 2026-11-22
 
 - **Recipes that need a reputation say so.** 175 recipe items ask for a standing before they can be bought
   or learned (Timbermaw Hold, Thorium Brotherhood, Argent Dawn, Cenarion Circle, Zandalar Tribe, Hydraxian
