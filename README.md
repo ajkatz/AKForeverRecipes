@@ -24,7 +24,15 @@ Blizzard's profession windows list the recipes you already have. This is the res
   it now, grey when not yet, red when nobody has written down a source;
 - **tags** at the right of each name: **Trainer / Vendor / Quest / Drop / Crafted** for the kind of source,
   and **BoP** (the recipe binds when picked up - the crafter has to get it) or **BoE** (it does not bind -
-  mail it to an alt, buy it at auction);
+  mail it to an alt, buy it at auction); a recipe that needs a **reputation** carries the standing as a tag
+  (**Friendly / Honored / Revered / Exalted**) and names the faction - a faction's vendor goes by the
+  faction's name in place of "Vendor", on the tag ("Cenarion Circle  Revered") and on the source line
+  ("Cenarion Circle: Mishta, Silithus - needs Revered") - and, opened, says "Requires Cenarion Circle -
+  Revered" - with
+  the character's own standing against it: the tag turns green when it has the standing and orange when
+  not, a recipe whose skill is there but whose standing is not has no gold rim, and the card says how
+  much reputation is still to earn: "Cenarion Circle: Mishta, Silithus - 8,800 rep to Revered" on its
+  line, "8,800 reputation to go" when opened;
 - a click opens a card downwards, in place of its two summary lines: what the made thing gives, a line
   per stat; the skill it needs and until when it gives skill; then every way to get it - each vendor with
   zone and price (or Merchant's Favor), the quest, the creatures that drop it with their chance;
@@ -39,8 +47,9 @@ Blizzard's profession windows list the recipes you already have. This is the res
   Engineering and Leatherworking, each with its quest and what that quest wants brought;
 - a **right-click** (or the Hide button of an opened card) hides a recipe you do not care about from that
   character's lists and counts; the **Hidden** list brings it back;
-- **Missing / All / Known / Hidden** choose what is listed; the box searches names, zones, NPCs and quests, and the
-  tags' own words (`bop`, `boe`, `quest`, `vendor`, `drop`, `trainer`);
+- **Missing / All / Known / Hidden** choose what is listed; the box searches names, zones, NPCs and quests (its X empties it), and the
+  tags' own words (`bop`, `boe`, `quest`, `vendor`, `drop`, `trainer`), and `rep`, a faction or a standing
+  for the recipes that need a reputation;
 - the name button at the bottom walks through **your other characters**: every character's recipes are
   kept when you log it in, and an opened card says which of your characters with that profession have the
   recipe and which still miss it.
@@ -62,7 +71,9 @@ most, and only sends a character when a guildmate's copy is out of date. `/akr g
 
 **Who can use a recipe that drops.** Hover a recipe item - in the loot window, a roll, your bags, a merchant
 or a chat link - and its tooltip lists your characters on the realm with that profession: who can learn it
-now, who needs more skill (and how much), who already knows it. `/akr tooltip off` turns it off.
+now, who needs more skill (and how much), who already knows it - and, for a recipe that needs a reputation,
+who lacks the standing and how much reputation is still to earn ("needs Cenarion Circle Revered (8,800 to
+go)"). `/akr tooltip off` turns it off.
 
 ## Lockpicking
 
@@ -70,6 +81,35 @@ A rogue gets a **Lockpicking** tab next to its professions: every lockbox, junkb
 dungeon chest and door, in the order of the skill it needs, with where to find it, the key that opens a door
 instead, and whether this rogue can open it now. The skills are Classic's (Forever has published none) unless
 the game's own tooltip names one - the card says which.
+
+## Cooldowns
+
+Cooldowns are not a profession, so they are not one of the tabs: they have **a row of their own** under
+the tabs, always in view - "Cooldowns: 1 ready - next Transmute (Purr Gola) 5h". A click on the row opens
+them all as cards, a second click goes back to where you were. They are the crafts that can only be made
+every so often, for every character of the account at once: the **Transmute** cooldown (one for all transmutes: 23 hours, 47 for Arcanite and
+Legionite), **Transmute: Iron to Gold** and **Mithril to Truesilver** (an hour each, on their own),
+**Mooncloth** (3 days 23 hours) and **Refined Deeprock Salt** (the Salt Shaker, 2 days 23 hours - for
+whoever owns one). Ready ones first, then the soonest; a card says "Ready" or "Ready in 14h 20m", and
+opened, which crafts start it and for how long. The row appears once a character of yours has one of them.
+
+- A cooldown is read on the character that has it - at login and whenever the game says a cooldown moved -
+  and kept as the moment it is over, so your other characters show the time left without being logged in.
+  A character that has not logged in since this was added reads "Not read yet".
+- At login, one chat line when a long cooldown is ready on any character: "Ready: Transmute (Purr Gola),
+  Mooncloth (Purr Smith)". `/akr cd notice off` silences it. The one-hour bars are not named.
+- A right-click hides a cooldown of a character you do not care about (the Hidden list brings it back): it
+  leaves the row, the cards, the login line and `/akr cd`.
+- `/akr cd` prints the list to chat.
+
+The lengths come from the game client's own spell tables (`tools/gen_cooldowns.py`, build 1.60.1.70938;
+checked again on 2026-11-18 against build 1.60.1.70959 and the hotfixes the client had received: no
+change - Arcanite and Legionite are 47 hours each, on the one cooldown every transmute shares).
+
+The time left is always the game's own answer, and each transmute is asked for by itself. While they all
+answer the same they are one **Transmute** card. Where the game answers for them separately - Arcanite on
+cooldown while Legionite is ready - each time gets its own card ("Transmute: Arcanite", "Transmute:
+Legionite, Air to Fire"), and `/akr diag` records it (`cooldowns.raw.transmute.disagree`).
 
 ## Your friends
 
@@ -93,7 +133,9 @@ and the price are written down and shown from then on, for every character of th
 It asks the client, recipe by recipe, about the professions the character has - at login and whenever a
 trade skill window opens or changes; a recipe learned while you play is heard at once. Refresh asks about
 every profession. A profession's skill and its cap come from the professions book (then the skill window's
-list, then the trade skill call), so a new rank shows from login on. It only reads: nothing of Blizzard's is hooked, moved or hidden. The recipe tables of a
+list, then the trade skill call), so a new rank shows from login on. The standing with the nine factions a
+recipe can ask for is read at login and whenever a standing moves, and kept per character, so an alt's shows
+without logging it in again. It only reads: nothing of Blizzard's is hooked, moved or hidden. The recipe tables of a
 profession are only built in memory when a character of yours has it.
 
 ## The data
@@ -102,7 +144,12 @@ The files under `Data\` are generated by `tools/gen_data.py` from the profession
 [foreverchanges.pro](https://foreverchanges.pro/professions) (read 2026-11-15); how each recipe item binds
 comes from Wowhead's Forever tooltips (`tools/fetch_binds.py`). A few sources are Classic's and marked "not
 confirmed for Forever yet" in the window. Recipes with no recipe item that Forever added are shown as
-"Probably any trainer".
+"Probably any trainer" until a trainer's list was read with them in it.
+
+Not every trainer teaches every recipe: a city's trainer lacks the last ones, which only the Master
+trainers have (in Enchanting, most of them). Those recipes name the trainers who do teach them, from what
+Wowhead's Forever pages say each trainer teaches (`tools/trainer_teachers.json`, read 2026-11-18, with what
+was and was not read). First Aid's three top bandages name Classic's Triage doctors and say so.
 
 For the recipes those pages give no source for, `tools/research.py` asks five more places and keeps what it
 finds, with where it found it, in `tools/found_sources.json`: ForeverChanges' quest pages (quest rewards) and

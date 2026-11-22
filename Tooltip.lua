@@ -5,6 +5,13 @@
 --   "Purrdee: can learn it (Tailoring 120)"     the profession, skill at least what the recipe needs
 --   "Bubson: Tailoring 20, needs 25"            the profession, the skill not there yet
 --   "Gorm: knows it"                            learned already
+-- A recipe item that asks for a reputation standing (Lookup.Rep) is held against each character's own
+-- (Known:Meets - the user, 2026-11-20: "Yes, add standing"):
+--   "Purrdee: needs Cenarion Circle Revered (8,800 to go)"            the skill is there, the standing not:
+--                                                                      how much reputation is still to earn
+--   "Newt: needs Cenarion Circle Revered (not met yet)"
+--   "Bubson: Tailoring 20, needs 300 and Cenarion Circle Revered (18,000 to go)"     neither
+--   "Alt: can learn it (Tailoring 300), if Cenarion Circle Revered"   its standing was never read
 -- Characters on another realm, and a faction's own recipe for a character of the other faction, are left
 -- out. Nobody with the profession: no lines at all. The recipe item has to be in the tables (Lookup).
 local _, ns = ...
@@ -17,11 +24,12 @@ local Lookup, Known = ns.Lookup, ns.Known
 
 local COLORS = {
     learn = { 0.25, 1.0, 0.25 },
+    rep = { 1.0, 0.5, 0.25 },
     low = { 1.0, 0.5, 0.25 },
     known = { 0.6, 0.6, 0.6 },
     head = { 1.0, 0.82, 0 },
 }
-local ORDER = { learn = 1, low = 2, known = 3 }
+local ORDER = { learn = 1, rep = 2, low = 3, known = 4 }
 
 local function realmOf(key)
     return type(key) == "string" and string.match(key, " %- (.+)$") or nil
@@ -31,9 +39,12 @@ local function shortName(key)
     return string.match(key, "^(.-) %- ") or key -- the whole name, "First Last": alts can share a first name
 end
 
--- { { name, status = "learn" | "low" | "known", skill, me }, ... } for one recipe, best first
+-- { { name, status = "learn" | "rep" | "low" | "known", skill, me, need, met, standing }, ... } for one
+-- recipe, best first. "rep": the skill is there, the standing the recipe item asks for is not. need = what
+-- it asks for (nil: nothing); met / standing = Known:Meets' answer for that character.
 function Tip.Who(recipe)
     local out = {}
+    local need = Lookup.Rep(recipe)
     local chars = ns.db and ns.db.chars
     local realm = realmOf(ns.characterKey)
     if type(chars) ~= "table" or not realm or type(recipe) ~= "table" then
@@ -43,15 +54,17 @@ function Tip.Who(recipe)
         if type(profile) == "table" and realmOf(key) == realm and Known:Has(profile, recipe.prof)
             and not (recipe.side and profile.side and recipe.side ~= profile.side) then
             local skill = Known:Skill(profile, recipe.prof)
+            local met, standing = Known:Meets(profile, need)
             local status
             if type(profile.learned) == "table" and profile.learned[recipe.spell] ~= nil then
                 status = "known"
             elseif skill and skill >= (recipe.learn or 0) then
-                status = "learn"
+                status = met == false and "rep" or "learn"
             else
                 status = "low"
             end
-            out[#out + 1] = { name = shortName(key), status = status, skill = skill, me = key == ns.characterKey }
+            out[#out + 1] = { name = shortName(key), status = status, skill = skill, me = key == ns.characterKey,
+                need = need, met = met, standing = standing }
         end
     end
     table.sort(out, function(a, b)
@@ -81,14 +94,26 @@ function Tip.Lines(itemID)
     local lines = { { "Your characters" .. spec .. ":", COLORS.head[1], COLORS.head[2], COLORS.head[3] } }
     for _, w in ipairs(who) do
         local text
+        local wants = w.need and (w.need.name .. " " .. w.need.word) or nil -- "Cenarion Circle Revered"
         if w.status == "known" then
             text = w.name .. ": knows it"
         elseif w.status == "learn" then
             text = string.format("%s: can learn it (%s %d)", w.name, prof, w.skill)
-        elseif w.skill then
-            text = string.format("%s: %s %d, needs %d", w.name, prof, w.skill, recipe.learn or 0)
+            if wants and w.met == nil then
+                text = text .. ", if " .. wants -- this character's standing was never read
+            end
+        elseif w.status == "rep" then
+            text = string.format("%s: needs %s (%s)", w.name, wants, Known.ToGoText(w.standing, w.need.standing) or "not met yet")
         else
-            text = string.format("%s: needs %s %d", w.name, prof, recipe.learn or 0)
+            if w.skill then
+                text = string.format("%s: %s %d, needs %d", w.name, prof, w.skill, recipe.learn or 0)
+            else
+                text = string.format("%s: needs %s %d", w.name, prof, recipe.learn or 0)
+            end
+            if wants and w.met == false then
+                local points = Known.PointsTo(w.standing, w.need.standing)
+                text = text .. " and " .. wants .. (points and (" (" .. Known.Grouped(points) .. " to go)") or "")
+            end
         end
         local c = COLORS[w.status]
         lines[#lines + 1] = { "  " .. text, c[1], c[2], c[3] }

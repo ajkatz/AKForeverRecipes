@@ -1,0 +1,294 @@
+{
+  "about": "Recipes that not every trainer of the profession teaches: who does. Read 2026-11-18 in a browser from Wowhead's Forever pages - what an NPC teaches (the 'Teaches' list of its page). Each group's spells are the ones its Master trainers teach and a city's trainer does not (the rank Artisan itself, and each side's own Faction Banner, aside). The user, 2026-11-18: 'red mageweave bag is only taught by the master trainers - not the artisan ... also looks like in felwood'. Every profession is read: Tailoring, Alchemy, Blacksmithing, Leatherworking, Engineering, Enchanting (three tiers: a city's Expert Enchanter, the Artisan Enchanters out in the world, the Master) and First Aid have such recipes; Mining and Cooking have none (npc=5513 Gelman Stonehand teaches all twelve smelts and all four ranks of Mining; npc=5482 Stephen Ryback teaches every trainer's cooking recipe but Spinefin Halibut, which nobody read teaches). Wowhead answers 403 after about five to ten pages in a sitting (twice that day; 30 seconds between pages did not help) - the user: 'we can just look stuff up at slower intervals': one page every five minutes went through, 14 pages in a row. Not read: the trainers below a city's highest (Journeyman and Expert titles), who may teach fewer still, and most of the Horde's city trainers (taken to match the Alliance's).",
+  "groups": [
+    {
+      "name": "Master Tailors and Meilosh",
+      "read": "item=10051 Red Mageweave Bag ('Taught by': Daryl Stack, Timothy Worthington, Meilosh); npc=2399 Daryl Stack <Master Tailor>: 85; npc=1346 Georgio Bolero <Artisan Tailor>: 75; npc=11557 Meilosh, Timbermaw Hold: 86, every rank of Tailoring included. Timothy Worthington's own page was not read: he is the other <Master Tailor> and the item page names him.",
+      "teachers": [
+        {
+          "npc": "Daryl Stack",
+          "zone": "Hillsbrad Foothills",
+          "side": "h",
+          "title": "Master Tailor"
+        },
+        {
+          "npc": "Timothy Worthington",
+          "zone": "Dustwallow Marsh",
+          "side": "a",
+          "title": "Master Tailor"
+        },
+        {
+          "npc": "Meilosh",
+          "zone": "Felwood",
+          "faction": "Timbermaw Hold"
+        }
+      ],
+      "spells": {
+        "12072": "Black Mageweave Headband",
+        "12073": "Black Mageweave Boots",
+        "12074": "Black Mageweave Shoulders",
+        "12077": "Simple Black Dress",
+        "12079": "Red Mageweave Bag",
+        "12088": "Cindercloth Boots",
+        "12092": "Dreamweave Circlet",
+        "18401": "Bolt of Runecloth",
+        "18402": "Runecloth Belt"
+      }
+    },
+    {
+      "name": "Master Alchemists and Master Mycologist Shurome",
+      "read": "npc=1386 Rogvar <Master Alchemist>: 39; npc=7948 Kylanna Windwhisper <Master Alchemist>: 39; npc=259585 Master Mycologist Shurome <Emerald Circle>: 39 - the three lists are the same; npc=4160 Ainethil <Artisan Alchemist>: 31. Doctor Herbert Halsey, the Horde's <Artisan Alchemist>, was not read.",
+      "teachers": [
+        {
+          "npc": "Rogvar",
+          "zone": "Swamp of Sorrows",
+          "side": "h",
+          "title": "Master Alchemist"
+        },
+        {
+          "npc": "Kylanna Windwhisper",
+          "zone": "Feralas",
+          "side": "a",
+          "title": "Master Alchemist"
+        },
+        {
+          "npc": "Master Mycologist Shurome",
+          "zone": "Felwood",
+          "faction": "Emerald Circle"
+        }
+      ],
+      "spells": {
+        "11460": "Draught of Detect Undead",
+        "11461": "Arcane Elixir",
+        "11465": "Elixir of Greater Intellect",
+        "11467": "Elixir of Greater Agility",
+        "11478": "Draught of Detect Demon",
+        "15833": "Dreamless Sleep Potion",
+        "17551": "Stonescale Oil"
+      }
+    },
+    {
+      "name": "the Master Blacksmith",
+      "read": "npc=2836 Brikk Keencraft <Master Blacksmith>: 84; npc=4258 Bengus Deepforge <Artisan Blacksmith>: 74. Saru Steelfury, the Horde's <Artisan Blacksmith>, and Alard Schmied <Blacksmith> (Alterac Mountains, teaches the rank Expert) were not read.",
+      "teachers": [
+        {
+          "npc": "Brikk Keencraft",
+          "zone": "Stranglethorn Vale",
+          "title": "Master Blacksmith"
+        }
+      ],
+      "spells": {
+        "9959": "Heavy Mithril Breastplate",
+        "9961": "Mithril Coif",
+        "9968": "Heavy Mithril Boots",
+        "10001": "Big Black Mace",
+        "16639": "Dense Grinding Stone",
+        "16640": "Dense Weightstone",
+        "16641": "Dense Sharpening Stone",
+        "19669": "Arcanite Skeleton Key",
+        "20201": "Arcanite Rod"
+      }
+    },
+    {
+      "name": "Master Leatherworkers",
+      "read": "npc=11097 Drakk Stonehand <Master Leatherworking Trainer>: 76; npc=4212 Telonis <Artisan Leatherworker>: 68; spell=10662 (the rank Artisan) is taught by Drakk Stonehand and Hahrana Ironhide alone. Hahrana Ironhide's own page and Una, the Horde's <Artisan Leatherworker>, were not read.",
+      "teachers": [
+        {
+          "npc": "Hahrana Ironhide",
+          "zone": "Feralas",
+          "side": "h",
+          "title": "Master Leatherworker"
+        },
+        {
+          "npc": "Drakk Stonehand",
+          "zone": "The Hinterlands",
+          "side": "a",
+          "title": "Master Leatherworking Trainer"
+        }
+      ],
+      "spells": {
+        "10548": "Nightscape Pants",
+        "10552": "Turtle Scale Helm",
+        "10556": "Turtle Scale Leggings",
+        "10558": "Nightscape Boots",
+        "19047": "Cured Rugged Hide",
+        "19058": "Rugged Armor Kit",
+        "22331": "Rugged Leather"
+      }
+    },
+    {
+      "name": "the Master Engineer and Kaylaena Springwhisper",
+      "read": "spell=12656 (the rank Artisan) is taught by npc=8736 Buzzek Bracketswing <Master Engineer> and npc=249235 Kaylaena Springwhisper <Cenarion Circle> alone; both teach the same 61; npc=5174 Springspindle Fizzlegear <Artisan Engineer>: 53. Roxxik, the Horde's <Artisan Engineer>, was not read.",
+      "teachers": [
+        {
+          "npc": "Buzzek Bracketswing",
+          "zone": "Tanaris",
+          "title": "Master Engineer"
+        },
+        {
+          "npc": "Kaylaena Springwhisper",
+          "zone": "Mount Hyjal",
+          "faction": "Cenarion Circle"
+        }
+      ],
+      "spells": {
+        "12618": "Rose Colored Goggles",
+        "12619": "Hi-Explosive Bomb",
+        "12621": "Mithril Gyro-Shot",
+        "12622": "Green Lens",
+        "19567": "Salt Shaker",
+        "19788": "Dense Blasting Powder",
+        "23070": "Dense Dynamite"
+      }
+    },
+    {
+      "name": "the Master Enchanter",
+      "read": "spell=13920 (the rank Artisan) is taught by npc=11073 Annora <Master Enchanter> alone: she teaches 65; npc=11072 Kitta Firewind <Artisan Enchanter>: 55; npc=1317 Lucan Cordell <Expert Enchanter> (Stormwind City): 29. Not read: Hgarth, the Horde's <Artisan Enchanter> (taken to teach what Kitta Firewind does), and Melanie Sable and Vanessa Sellers, who teach the rank Expert too and may have these recipes. Spell 14810, which Kitta Firewind and Annora teach, is not in the recipe tables. Enchanted Lute (1230643) is taught by Lucan Cordell and Kitta Firewind and not by Annora - left as it was.",
+      "teachers": [
+        {
+          "npc": "Annora",
+          "zone": "Uldaman",
+          "title": "Master Enchanter"
+        }
+      ],
+      "spells": {
+        "13905": "Enchant Shield - Greater Spirit",
+        "13917": "Enchant Chest - Superior Intellect",
+        "13935": "Enchant Boots - Agility",
+        "13937": "Enchant 2H Weapon - Greater Impact",
+        "13939": "Enchant Bracer - Greater Strength",
+        "13941": "Enchant Chest - Stats",
+        "13943": "Enchant Weapon - Greater Striking",
+        "13948": "Enchant Gloves - Minor Haste",
+        "17180": "Enchanted Thorium Bar",
+        "17181": "Enchanted Leather"
+      }
+    },
+    {
+      "name": "the Artisan Enchanters and the Master Enchanter",
+      "read": "spell=13920 (the rank Artisan) is taught by npc=11073 Annora <Master Enchanter> alone: she teaches 65; npc=11072 Kitta Firewind <Artisan Enchanter>: 55; npc=1317 Lucan Cordell <Expert Enchanter> (Stormwind City): 29. Not read: Hgarth, the Horde's <Artisan Enchanter> (taken to teach what Kitta Firewind does), and Melanie Sable and Vanessa Sellers, who teach the rank Expert too and may have these recipes. Spell 14810, which Kitta Firewind and Annora teach, is not in the recipe tables. Enchanted Lute (1230643) is taught by Lucan Cordell and Kitta Firewind and not by Annora - left as it was.",
+      "teachers": [
+        {
+          "npc": "Hgarth",
+          "zone": "Stonetalon Mountains",
+          "side": "h",
+          "title": "Artisan Enchanter"
+        },
+        {
+          "npc": "Kitta Firewind",
+          "zone": "Elwynn Forest",
+          "side": "a",
+          "title": "Artisan Enchanter"
+        },
+        {
+          "npc": "Annora",
+          "zone": "Uldaman",
+          "title": "Master Enchanter"
+        }
+      ],
+      "spells": {
+        "13631": "Enchant Shield - Lesser Stamina",
+        "13635": "Enchant Cloak - Defense",
+        "13637": "Enchant Boots - Lesser Agility",
+        "13640": "Enchant Chest - Greater Stamina",
+        "13642": "Enchant Bracer - Spirit",
+        "13644": "Enchant Boots - Lesser Stamina",
+        "13648": "Enchant Bracer - Stamina",
+        "13657": "Enchant Cloak - Fire Resistance",
+        "13659": "Enchant Shield - Spirit",
+        "13661": "Enchant Bracer - Strength",
+        "13663": "Enchant Chest - Greater Intellect",
+        "13693": "Enchant Weapon - Striking",
+        "13695": "Enchant 2H Weapon - Impact",
+        "13700": "Enchant Chest - Lesser Stats",
+        "13702": "Runed Truesilver Rod",
+        "13746": "Enchant Cloak - Greater Defense",
+        "13794": "Enchant Cloak - Resistance",
+        "13815": "Enchant Gloves - Agility",
+        "13822": "Enchant Bracer - Intellect",
+        "13836": "Enchant Boots - Stamina",
+        "13858": "Enchant Chest - Superior Stamina",
+        "13887": "Enchant Gloves - Strength",
+        "13890": "Enchant Boots - Minor Speed",
+        "14809": "Lesser Mystic Wand"
+      }
+    },
+    {
+      "name": "the Triage doctors (as in Classic)",
+      "classic": true,
+      "read": "npc=2327 Shaina Fuller <First Aid Trainer> (Stormwind City) teaches 13: both ranks a trainer gives and the eleven recipes up to Silk Bandage - not these three. Wowhead's Forever pages name NOBODY for them: spell=18630 Heavy Runecloth Bandage has no 'taught by', and npc=12939 Doctor Gustaf VanHowzen has no 'teaches' list, only the Triage quest. In Classic the two Triage doctors teach them once Triage is done; that is what is written here, marked 'as in Classic'.",
+      "teachers": [
+        {
+          "npc": "Doctor Gregory Victor",
+          "zone": "Arathi Highlands",
+          "side": "h",
+          "title": "Trauma Surgeon"
+        },
+        {
+          "npc": "Doctor Gustaf VanHowzen",
+          "zone": "Dustwallow Marsh",
+          "side": "a",
+          "title": "Trauma Surgeon"
+        }
+      ],
+      "spells": {
+        "10841": "Heavy Mageweave Bandage",
+        "18629": "Runecloth Bandage",
+        "18630": "Heavy Runecloth Bandage"
+      }
+    }
+  ],
+  "confirmed": {
+    "about": "Recipes new in Forever with no recipe item, which the tables took for a trainer's as a guess ('Probably any trainer'): these were in the list of a trainer read above (a city's, for all but the Horde's Faction Banner), so the guess is right and the card says 'Any ... trainer'. Still a guess: Alchemy's four Discolored Healing Potions (1244645-1244648) and Cooking's Spinefin Halibut (1247741) - no trainer read teaches them.",
+    "spells": [
+      1229504,
+      1263425,
+      1257368,
+      1257369,
+      1257426,
+      1257427,
+      1257428,
+      1257429,
+      1257430,
+      1257431,
+      1230564,
+      1249630,
+      1249631,
+      1249632,
+      1249633,
+      1230171,
+      1252229,
+      1252230,
+      1252231,
+      1252305,
+      1252306,
+      1252307,
+      1252308,
+      1252309,
+      1229432,
+      1255075,
+      1255076,
+      1255077,
+      1255078,
+      1255079,
+      1255080,
+      1255081,
+      1255143,
+      1255144,
+      1255145,
+      1255146,
+      1230656,
+      1249634,
+      1230643,
+      1230117,
+      1244431,
+      1244432,
+      1244433,
+      1259342,
+      1259347,
+      1230161,
+      1249637,
+      1306126
+    ]
+  }
+}

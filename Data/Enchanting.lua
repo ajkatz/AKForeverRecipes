@@ -170,7 +170,7 @@ R({
 R({
     spell = 1230643, item = 279976, name = "Enchanted Lute", icon = "inv_10_enchanting2_magicswirl_bronze",
     learn = 20, yellow = 20, green = 20, grey = 20, new = true,
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 7426, name = "Enchant Chest - Minor Absorption", icon = "trade_engraving",
@@ -693,6 +693,11 @@ R({
     stats = { "Armor +30" },
     reagents = { { 11138, 1 }, { 11083, 1 } },
     trainer = true, cost = 2600,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13631, name = "Enchant Shield - Lesser Stamina", icon = "trade_engraving",
@@ -700,6 +705,11 @@ R({
     stats = { "Stamina +5" },
     reagents = { { 11134, 1 } },
     trainer = true, cost = 2600,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13637, name = "Enchant Boots - Lesser Agility", icon = "trade_engraving",
@@ -707,6 +717,11 @@ R({
     stats = { "Agility +4" },
     reagents = { { 11083, 1 } },
     trainer = true, cost = 2800,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13640, name = "Enchant Chest - Greater Stamina", icon = "trade_engraving",
@@ -714,6 +729,11 @@ R({
     stats = { "Stamina +6" },
     reagents = { { 11083, 2 } },
     trainer = true, cost = 2700,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13642, name = "Enchant Bracer - Spirit", icon = "trade_engraving",
@@ -721,6 +741,11 @@ R({
     stats = { "Spirit +5" },
     reagents = { { 11134, 1 } },
     trainer = true, cost = 2800,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13644, name = "Enchant Boots - Lesser Stamina", icon = "trade_engraving",
@@ -728,6 +753,11 @@ R({
     stats = { "Stamina +4" },
     reagents = { { 11083, 2 } },
     trainer = true, cost = 2800,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13646, name = "Enchant Bracer - Lesser Deflection", icon = "trade_engraving",
@@ -746,6 +776,11 @@ R({
     stats = { "Stamina +5" },
     reagents = { { 11083, 3 } },
     trainer = true, cost = 2800,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13657, name = "Enchant Cloak - Fire Resistance", icon = "trade_engraving",
@@ -753,6 +788,11 @@ R({
     stats = { "+12 Fire Resistance" },
     reagents = { { 11134, 1 }, { 7068, 1 } },
     trainer = true, cost = 3000,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13653, name = "Enchant Weapon - Lesser Beastslayer", icon = "trade_engraving",
@@ -782,6 +822,11 @@ R({
     spell = 14809, item = 11289, name = "Lesser Mystic Wand", icon = "inv_staff_02",
     learn = 175, yellow = 175, green = 175, grey = 215,
     trainer = true, cost = 2600,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13628, item = 11130, name = "Runed Golden Rod", icon = "inv_staff_10",
@@ -795,6 +840,11 @@ R({
     stats = { "Strength +5" },
     reagents = { { 11137, 1 } },
     trainer = true, cost = 3600,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13659, name = "Enchant Shield - Spirit", icon = "trade_engraving",
@@ -802,6 +852,11 @@ R({
     stats = { "Spirit +5" },
     reagents = { { 11134, 1 }, { 11137, 1 } },
     trainer = true, cost = 3200,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13663, name = "Enchant Chest - Greater Intellect", icon = "trade_engraving",
@@ -809,6 +864,11 @@ R({
     stats = { "Intellect +6" },
     reagents = { { 11134, 1 } },
     trainer = true, cost = 3800,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 1248461, item = 249144, name = "Twisted Nether Wand", icon = "inv_wand_03",
@@ -871,6 +931,11 @@ R({
     stats = { "Weapon Damage +3" },
     reagents = { { 11135, 1 }, { 11139, 1 } },
     trainer = true, cost = 4000,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13695, name = "Enchant 2H Weapon - Impact", icon = "trade_engraving",
@@ -878,6 +943,11 @@ R({
     stats = { "Weapon Damage +6" },
     reagents = { { 11137, 2 }, { 11139, 1 } },
     trainer = true, cost = 4000,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13700, name = "Enchant Chest - Lesser Stats", icon = "trade_engraving",
@@ -885,6 +955,11 @@ R({
     stats = { "All Stats +2" },
     reagents = { { 11135, 1 }, { 11137, 1 }, { 11139, 1 } },
     trainer = true, cost = 4000,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13698, name = "Enchant Gloves - Skinning", icon = "trade_engraving",
@@ -935,6 +1010,11 @@ R({
     stats = { "Armor +60" },
     reagents = { { 11137, 1 } },
     trainer = true, cost = 4200,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13794, name = "Enchant Cloak - Resistance", icon = "trade_engraving",
@@ -942,6 +1022,11 @@ R({
     stats = { "+3 All Resistances" },
     reagents = { { 11174, 1 } },
     trainer = true, cost = 4200,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 1248510, name = "Enchant 2H Weapon - Lesser Agility", icon = "trade_engraving",
@@ -960,6 +1045,11 @@ R({
     stats = { "Intellect +5" },
     reagents = { { 11174, 1 } },
     trainer = true, cost = 4400,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13815, name = "Enchant Gloves - Agility", icon = "trade_engraving",
@@ -967,6 +1057,11 @@ R({
     stats = { "Agility +7" },
     reagents = { { 11137, 1 } },
     trainer = true, cost = 4400,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 1249059, name = "Enchant Necklace - Agility", icon = "trade_engraving",
@@ -1085,6 +1180,11 @@ R({
     stats = { "Stamina +5" },
     reagents = { { 11137, 2 } },
     trainer = true, cost = 4600,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13841, name = "Enchant Gloves - Advanced Mining", icon = "trade_engraving",
@@ -1147,6 +1247,11 @@ R({
     stats = { "Stamina +8" },
     reagents = { { 11137, 3 } },
     trainer = true, cost = 4800,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 1249061, item = 249453, name = "Radiant Staff", icon = "inv_staff_13",
@@ -1163,6 +1268,11 @@ R({
     learn = 220, yellow = 220, green = 220, grey = 260,
     reagents = { { 11144, 1 }, { 7971, 1 }, { 11135, 1 }, { 11137, 1 } },
     trainer = true, cost = 4000,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 1249069, item = 249455, name = "Truesilver Conduit", icon = "inv_rod_enchantedadamantite",
@@ -1190,6 +1300,11 @@ R({
     stats = { "Give a slight movement speed increase." },
     reagents = { { 11177, 1 }, { 7909, 1 }, { 11174, 1 } },
     trainer = true, cost = 5000,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13882, name = "Enchant Cloak - Lesser Agility", icon = "trade_engraving",
@@ -1220,6 +1335,11 @@ R({
     stats = { "Strength +7" },
     reagents = { { 11174, 1 }, { 11137, 2 } },
     trainer = true, cost = 5000,
+    teachers = {
+        { npc = "Hgarth", zone = "Stonetalon Mountains", side = "H", title = "Artisan Enchanter" },
+        { npc = "Kitta Firewind", zone = "Elwynn Forest", side = "A", title = "Artisan Enchanter" },
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13917, name = "Enchant Chest - Superior Intellect", icon = "trade_engraving",
@@ -1227,6 +1347,9 @@ R({
     stats = { "Intellect +8" },
     reagents = { { 11175, 1 } },
     trainer = true, cost = 5400,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13905, name = "Enchant Shield - Greater Spirit", icon = "trade_engraving",
@@ -1234,6 +1357,9 @@ R({
     stats = { "Spirit +7" },
     reagents = { { 11174, 2 }, { 11176, 1 } },
     trainer = true, cost = 5400,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13915, name = "Enchant Weapon - Demonslaying", icon = "trade_engraving",
@@ -1253,6 +1379,9 @@ R({
     stats = { "Agility +5" },
     reagents = { { 11175, 1 } },
     trainer = true, cost = 5800,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13931, name = "Enchant Bracer - Deflection", icon = "trade_engraving",
@@ -1283,6 +1412,9 @@ R({
     stats = { "Weapon Damage +7" },
     reagents = { { 11178, 1 }, { 11176, 1 } },
     trainer = true, cost = 6200,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 1248500, name = "Enchant Bracer - Greater Agility", icon = "trade_engraving",
@@ -1301,6 +1433,9 @@ R({
     stats = { "Strength +7" },
     reagents = { { 11176, 1 }, { 11174, 2 } },
     trainer = true, cost = 6200,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13945, name = "Enchant Bracer - Greater Stamina", icon = "trade_engraving",
@@ -1320,6 +1455,9 @@ R({
     stats = { "All Stats +3" },
     reagents = { { 11178, 1 }, { 11176, 1 }, { 11175, 1 } },
     trainer = true, cost = 6200,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13943, name = "Enchant Weapon - Greater Striking", icon = "trade_engraving",
@@ -1327,6 +1465,9 @@ R({
     stats = { "Weapon Damage +4" },
     reagents = { { 11178, 1 }, { 11175, 1 } },
     trainer = true, cost = 6200,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 1248505, item = 249232, name = "Lesser Eternal Wand", icon = "inv_wand_05",
@@ -1354,6 +1495,9 @@ R({
     stats = { "Haste +1%" },
     reagents = { { 11178, 1 }, { 8153, 1 } },
     trainer = true, cost = 6500,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 13947, name = "Enchant Gloves - Riding Skill", icon = "trade_engraving",
@@ -1371,11 +1515,17 @@ R({
     spell = 17181, item = 12810, name = "Enchanted Leather", icon = "inv_misc_rune_05",
     learn = 250, yellow = 250, green = 250, grey = 260,
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 17180, item = 12655, name = "Enchanted Thorium Bar", icon = "inv_ingot_eternium",
     learn = 250, yellow = 250, green = 250, grey = 260,
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Annora", zone = "Uldaman", title = "Master Enchanter" },
+    },
 })
 R({
     spell = 25127, item = 20747, name = "Lesser Mana Oil", icon = "inv_potion_99",
@@ -1586,7 +1736,7 @@ R({
     learn = 290, yellow = 310, green = 330, grey = 350,
     stats = { "Agility +25" },
     reagents = { { 14344, 10 }, { 16203, 6 }, { 16204, 14 }, { 7082, 4 } },
-    recipe = { id = 22392, name = "Formula: Enchant 2H Weapon - Agility", bop = true },
+    recipe = { id = 22392, name = "Formula: Enchant 2H Weapon - Agility", bop = true, rep = { 576, "Timbermaw Hold", 4 } },
     vendors = {
         { npc = "Meilosh", zone = "Felwood" },
     },
@@ -1607,7 +1757,7 @@ R({
     learn = 290, yellow = 310, green = 330, grey = 350,
     stats = { "Mana Regen 4 per 5 sec." },
     reagents = { { 16204, 16 }, { 16203, 4 }, { 7080, 2 } },
-    recipe = { id = 19446, name = "Formula: Enchant Bracer - Mana Regeneration", bop = true },
+    recipe = { id = 19446, name = "Formula: Enchant Bracer - Mana Regeneration", bop = true, rep = { 529, "Argent Dawn", 5 } },
     vendors = {
         { npc = "Quartermaster Miranda Breechlock", zone = "Eastern Plaguelands" },
         { npc = "Argent Quartermaster Hasana", zone = "Tirisfal Glades" },
@@ -1629,7 +1779,7 @@ R({
     learn = 290, yellow = 310, green = 330, grey = 350,
     stats = { "Agility +15" },
     reagents = { { 14344, 6 }, { 16203, 6 }, { 16204, 4 }, { 7082, 2 } },
-    recipe = { id = 19445, name = "Formula: Enchant Weapon - Agility", bop = true },
+    recipe = { id = 19445, name = "Formula: Enchant Weapon - Agility", bop = true, rep = { 576, "Timbermaw Hold", 5 } },
     vendors = {
         { npc = "Meilosh", zone = "Felwood" },
     },
@@ -1639,7 +1789,7 @@ R({
     learn = 290, yellow = 310, green = 330, grey = 350,
     stats = { "Strength +15" },
     reagents = { { 14344, 6 }, { 16203, 6 }, { 16204, 4 }, { 7076, 2 } },
-    recipe = { id = 19444, name = "Formula: Enchant Weapon - Strength", bop = true },
+    recipe = { id = 19444, name = "Formula: Enchant Weapon - Strength", bop = true, rep = { 59, "Thorium Brotherhood", 4 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -1740,7 +1890,7 @@ R({
 R({
     spell = 25130, item = 20748, name = "Brilliant Mana Oil", icon = "inv_potion_100",
     learn = 300, yellow = 310, green = 310, grey = 330,
-    recipe = { id = 20757, name = "Formula: Brilliant Mana Oil", bop = true },
+    recipe = { id = 20757, name = "Formula: Brilliant Mana Oil", bop = true, rep = { 270, "Zandalar Tribe", 4 } },
     via = "Questie",
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
@@ -1749,7 +1899,7 @@ R({
 R({
     spell = 25129, item = 20749, name = "Brilliant Wizard Oil", icon = "inv_potion_105",
     learn = 300, yellow = 310, green = 310, grey = 330,
-    recipe = { id = 20756, name = "Formula: Brilliant Wizard Oil", bop = true },
+    recipe = { id = 20756, name = "Formula: Brilliant Wizard Oil", bop = true, rep = { 270, "Zandalar Tribe", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
@@ -1829,7 +1979,7 @@ R({
     learn = 300, yellow = 320, green = 340, grey = 360,
     stats = { "Healing Spells +24" },
     reagents = { { 14344, 2 }, { 16204, 20 }, { 16203, 4 }, { 12803, 6 } },
-    recipe = { id = 19447, name = "Formula: Enchant Bracer - Healing", bop = true },
+    recipe = { id = 19447, name = "Formula: Enchant Bracer - Healing", bop = true, rep = { 529, "Argent Dawn", 6 } },
     vendors = {
         { npc = "Quartermaster Miranda Breechlock", zone = "Eastern Plaguelands" },
         { npc = "Argent Quartermaster Hasana", zone = "Tirisfal Glades" },
@@ -1911,7 +2061,7 @@ R({
     learn = 300, yellow = 320, green = 340, grey = 360,
     stats = { "+15 Fire Resistance" },
     reagents = { { 20725, 3 }, { 14344, 8 }, { 7078, 4 } },
-    recipe = { id = 20732, name = "Formula: Enchant Cloak - Greater Fire Resistance", bop = true },
+    recipe = { id = 20732, name = "Formula: Enchant Cloak - Greater Fire Resistance", bop = true, rep = { 609, "Cenarion Circle", 4 } },
     vendors = {
         { npc = "Kania", zone = "Silithus" },
     },
@@ -1921,7 +2071,7 @@ R({
     learn = 300, yellow = 320, green = 340, grey = 360,
     stats = { "+15 Nature Resistance" },
     reagents = { { 20725, 2 }, { 14344, 8 }, { 12803, 4 } },
-    recipe = { id = 20733, name = "Formula: Enchant Cloak - Greater Nature Resistance", bop = true },
+    recipe = { id = 20733, name = "Formula: Enchant Cloak - Greater Nature Resistance", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     vendors = {
         { npc = "Kania", zone = "Silithus" },
     },
@@ -2110,7 +2260,7 @@ R({
     learn = 300, yellow = 320, green = 340, grey = 360,
     stats = { "Intellect +22" },
     reagents = { { 14344, 15 }, { 16203, 12 }, { 16204, 20 } },
-    recipe = { id = 19449, name = "Formula: Enchant Weapon - Mighty Intellect", bop = true },
+    recipe = { id = 19449, name = "Formula: Enchant Weapon - Mighty Intellect", bop = true, rep = { 59, "Thorium Brotherhood", 6 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -2120,7 +2270,7 @@ R({
     learn = 300, yellow = 320, green = 340, grey = 360,
     stats = { "Spirit +22" },
     reagents = { { 14344, 10 }, { 16203, 8 }, { 16204, 15 } },
-    recipe = { id = 19448, name = "Formula: Enchant Weapon - Mighty Spirit", bop = true },
+    recipe = { id = 19448, name = "Formula: Enchant Weapon - Mighty Spirit", bop = true, rep = { 59, "Thorium Brotherhood", 5 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },

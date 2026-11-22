@@ -696,6 +696,338 @@ scenario("a recipe of a specialization carries its tag and says what it needs", 
     check(not ns.Lookup.Matches({ name = "x", spec = "Gnomish" }, "goblin"), "a Gnomish recipe matched 'goblin'")
 end)
 
+scenario("a recipe whose item needs a reputation standing says so: the tag, the card's line, the opened card, the search", function()
+    -- the user, 2026-11-20: "sometimes a BOP vendor recipe requires a rep level and we aren't representing that at all"
+    local ns = start({ faction = "Alliance" }, function(state)
+        state.skills[TAILORING] = { level = 300, max = 300 }
+    end)
+    Mock.slash("show all")
+    local function recipeNamed(prof, name)
+        for _, recipe in ipairs(ns.Lookup.Recipes(prof)) do
+            if recipe.name == name then return recipe end
+        end
+        error("no recipe " .. name)
+    end
+    -- the client's item table: Pattern: Sylvan Vest "Requires Cenarion Circle - Revered"
+    local rep = ns.Lookup.Rep(recipeNamed("tailoring", "Sylvan Vest"))
+    check(rep, "no standing on the Sylvan Vest's pattern")
+    equal(rep.name, "Cenarion Circle"); equal(rep.standing, 6); equal(rep.word, "Revered")
+    equal(ns.Lookup.RepWords(rep), "Cenarion Circle - Revered")
+    equal(ns.Lookup.Rep(recipeNamed("tailoring", "Linen Reagent Bag")), nil, "a pattern anybody can buy")
+    equal(ns.Lookup.Rep({ name = "x" }), nil, "a trainer's recipe has no item to need anything")
+    equal(ns.Lookup.Rep(nil), nil)
+
+    ns.Window.widgets.tabs.tailoring:Click()
+    local card = cardNamed(ns, "Sylvan Vest")
+    check(Mock.plain(card.tags):find("Revered", 1, true), Mock.plain(card.tags))
+    equal(Mock.plain(card.right), "Cenarion Circle: Mishta, Silithus - needs Revered")
+    card.click()
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: below that the recipe can be neither bought nor learned."), table.concat(Mock.rows(), "\n"))
+    -- a pattern without the need says nothing of the kind
+    ns.Window.open = {}
+    card = cardNamed(ns, "Linen Reagent Bag")
+    check(not Mock.plain(card.right):find("needs", 1, true), Mock.plain(card.right))
+    card.click()
+    for _, row in ipairs(Mock.rows()) do
+        check(not row:find("Requires", 1, true), row)
+    end
+    -- the search: the faction, the standing, or "rep"
+    check(ns.Lookup.Matches(recipeNamed("tailoring", "Sylvan Vest"), "cenarion"), "the faction's name")
+    check(ns.Lookup.Matches(recipeNamed("tailoring", "Sylvan Vest"), "revered"), "the standing")
+    check(ns.Lookup.Matches(recipeNamed("tailoring", "Sylvan Vest"), "rep"), "'rep' lists everything that needs a standing")
+    check(not ns.Lookup.Matches(recipeNamed("tailoring", "Sylvan Vest"), "honored"), "another standing")
+    check(not ns.Lookup.Matches(recipeNamed("tailoring", "Linen Reagent Bag"), "reputation"), "a pattern without the need")
+    check(not ns.Lookup.Matches(recipeNamed("tailoring", "Linen Reagent Bag"), "revered"), "a pattern without the need")
+    -- every standing in the tables is one the game has a word for, on a faction with a name
+    local total = 0
+    for _, prof in ipairs({ "alchemy", "blacksmithing", "enchanting", "engineering", "leatherworking", "tailoring", "cooking", "firstaid", "mining" }) do
+        for _, recipe in ipairs(ns.Lookup.Recipes(prof)) do
+            local need = ns.Lookup.Rep(recipe)
+            if need then
+                total = total + 1
+                check(type(need.name) == "string" and need.name ~= "", recipe.name .. ": a faction without a name")
+                check(need.standing >= 4 and need.standing <= 7 and need.word, recipe.name .. ": standing " .. tostring(need.standing))
+                -- ... and one the character's standing is read for (Lookup.RepFactions)
+                equal(ns.Lookup.RepFactions()[need.faction], need.name, recipe.name .. ": a faction no standing is read for")
+            end
+        end
+    end
+    check(total >= 150, "recipes that need a standing: " .. total)
+end)
+
+scenario("a reputation recipe's vendor goes by the faction's name: on the tag and on the card's line, in place of 'Vendor'", function()
+    -- the user, 2026-11-20: "instead of "Vendor" can we put the rep name for those items (of course they come
+    -- from a vendor if it's faction based)" - asked which of the two, the tag or the line: both
+    local ns = start({ faction = "Alliance" }, function(state)
+        state.skills[TAILORING] = { level = 300, max = 300 }
+        state.skills[BLACKSMITHING] = { level = 300, max = 300 }
+        state.skills[ALCHEMY] = { level = 300, max = 300 }
+    end)
+    Mock.slash("show all")
+    local tabs = ns.Window.widgets.tabs
+    local function card(tab, name)
+        tabs[tab]:Click()
+        ns.Window.open = {}
+        ns.Window:Render()
+        return cardNamed(ns, name)
+    end
+    -- the faction where "Vendor" stood, in the vendor tag's colour, its standing right after it; the line
+    -- starts with the faction and so names it once: only the standing is left at its end
+    local vest = card("tailoring", "Sylvan Vest")
+    equal(Mock.plain(vest.tags), "Cenarion Circle  Revered   BoP")
+    check(vest.tags:find("|cffe6cc80Cenarion Circle|r  |cff33c9a7Revered|r", 1, true), vest.tags)
+    equal(Mock.plain(vest.right), "Cenarion Circle: Mishta, Silithus - needs Revered")
+    -- the opened card lists every way to get it, under its "Requires" line: the vendor is a vendor there
+    vest.click()
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered"), table.concat(Mock.rows(), "\n"))
+    check(has(Mock.rows(), "Vendor: Mishta, Silithus"), table.concat(Mock.rows(), "\n"))
+    -- "vendor" in the search box still lists it
+    local pattern
+    for _, recipe in ipairs(ns.Lookup.Recipes("tailoring")) do
+        if recipe.name == "Sylvan Vest" then pattern = recipe end
+    end
+    check(ns.Lookup.Matches(pattern, "vendor"), "a faction's vendor is still a vendor to the search")
+    -- several vendors: the first, and how many more
+    local essence = card("alchemy", "Essence of Fire")
+    equal(Mock.plain(essence.tags), "Argent Dawn  Honored   BoP")
+    equal(Mock.plain(essence.right), "Argent Dawn: Quartermaster Miranda Breechlock, Eastern Plaguelands  (+2 more) - needs Honored")
+    -- a specialization's recipe: the faction and its standing stay together, the specialization after them
+    local bracers = card("blacksmithing", "Dark Iron Bracers")
+    equal(Mock.plain(bracers.tags), "Thorium Brotherhood  Friendly  Armorsmith   BoP")
+    equal(Mock.plain(bracers.right), "Thorium Brotherhood: Lokhtos Darkbargainer, Blackrock Depths - needs Friendly")
+    -- a recipe that needs a standing but is not a vendor's: nothing took the faction's name, so the line's
+    -- end still says it
+    local shoulders = card("blacksmithing", "Dawnbringer Shoulders")
+    equal(Mock.plain(shoulders.tags), "Drop  Armorsmith  Revered   BoE")
+    equal(Mock.plain(shoulders.right), "Drop: Hive'Zora Tunneler, Silithus  (+1 more) - needs Argent Dawn Revered")
+    local icebane = card("blacksmithing", "Icebane Bracers")
+    equal(Mock.plain(icebane.tags), "Revered   BoP")
+    equal(Mock.plain(icebane.right), "Source unknown - needs Hydraxian Waterlords Revered")
+    -- a vendor's recipe without a standing: a vendor, as before
+    local bag = card("tailoring", "Linen Reagent Bag")
+    check(Mock.plain(bag.tags):find("Vendor", 1, true) == 1, Mock.plain(bag.tags))
+    check(Mock.plain(bag.right):find("Vendor: ", 1, true) == 1, Mock.plain(bag.right))
+end)
+
+local CENARION, TIMBERMAW = 609, 576
+local HONORED, REVERED, FRIENDLY, NEUTRAL = 6, 7, 5, 4 -- as the client counts a reaction: 1 Hated .. 8 Exalted
+local SYLVAN_VEST_PATTERN = 22774 -- "Requires Cenarion Circle - Revered"; the Sylvan Shoulders' asks for Friendly
+
+scenario("a character's own standing against what a recipe needs: the tag's colour, the gold rim, the card's line, the opened card", function()
+    -- asked "Also show each character's own standing against the requirement?", the user, 2026-11-20: "Yes, add standing"
+    local ns, state = start({ faction = "Alliance" }, function(state)
+        state.skills[TAILORING] = { level = 300, max = 300 }
+        state.rep[CENARION] = { reaction = HONORED, into = 3200 }
+    end)
+    -- kept on the character as the item table counts standings: 4 Friendly .. 7 Exalted
+    local saved = ns.cdb.rep[CENARION]
+    equal(saved.s, 5); equal(saved.v, 3200); equal(saved.m, 12000)
+    equal(saved.a, 12200, "the reputation itself, as the client counts it from Neutral 0")
+    check(ns.cdb.repAt, "when the standings were read")
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.tailoring:Click()
+    -- the standing is short: no gold rim (the skill alone would learn it), the tag orange, and how much
+    -- reputation is still to earn - the user, 2026-11-20: "instead of showing like neutral/honored can we
+    -- just show exactly how many reputation points you need to earn to get to that goal?"
+    local vest = cardNamed(ns, "Sylvan Vest")
+    equal(vest.state, "later", "Tailoring 300 but Honored: not learnable now")
+    check(vest.tags:find("|cffff9040Revered|r", 1, true), vest.tags)
+    equal(Mock.plain(vest.right), "Cenarion Circle: Mishta, Silithus - 8,800 rep to Revered")
+    vest.click()
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: 8,800 reputation to go. Below Revered the recipe can be neither bought nor learned."),
+        table.concat(Mock.rows(), "\n"))
+    -- the standing is there: gold rim, the tag green, the card's line no longer says what it needs
+    ns.Window.open = {}
+    ns.Window:Render()
+    local shoulders = cardNamed(ns, "Sylvan Shoulders")
+    equal(shoulders.state, "now")
+    check(shoulders.tags:find("|cff60ff60Friendly|r", 1, true), shoulders.tags)
+    equal(Mock.plain(shoulders.right), "Cenarion Circle: Mishta, Silithus")
+    shoulders.click()
+    check(has(Mock.rows(), "Requires Cenarion Circle - Friendly: you have it."), table.concat(Mock.rows(), "\n"))
+    for _, row in ipairs(Mock.rows()) do
+        check(not row:find("neither bought", 1, true), row)
+    end
+    -- the standing moves while the window is open: heard, and the card follows
+    ns.Window.open = {}
+    Mock.standing(CENARION, REVERED, 0)
+    equal(ns.cdb.rep[CENARION].s, 6)
+    vest = cardNamed(ns, "Sylvan Vest")
+    equal(vest.state, "now")
+    check(vest.tags:find("|cff60ff60Revered|r", 1, true), vest.tags)
+    equal(Mock.plain(vest.right), "Cenarion Circle: Mishta, Silithus")
+    -- two standings short: the whole way, over the standing between (Friendly at 4,200 of Revered's 21,000)
+    Mock.standing(CENARION, FRIENDLY, 1200)
+    vest = cardNamed(ns, "Sylvan Vest")
+    equal(vest.state, "later")
+    equal(Mock.plain(vest.right), "Cenarion Circle: Mishta, Silithus - 16,800 rep to Revered")
+    vest.click()
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: 16,800 reputation to go. Below Revered the recipe can be neither bought nor learned."),
+        table.concat(Mock.rows(), "\n"))
+    -- from below Neutral too: Unfriendly at -2,000
+    Mock.standing(CENARION, 3, 1000)
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: 23,000 reputation to go."), table.concat(Mock.rows(), "\n"))
+    -- a faction whose standings are not the ordinary size (the client's own numbers for the standing it is
+    -- in say so): no sum over standings nobody gave a size for - where it is, in the client's numbers
+    Mock.standing(CENARION, FRIENDLY, 1200, 0, 8000)
+    equal(Mock.plain(cardNamed(ns, "Sylvan Vest").right), "Cenarion Circle: Mishta, Silithus - needs Revered")
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: you are Friendly 1200/8000. Below Revered the recipe can be neither bought nor learned."),
+        table.concat(Mock.rows(), "\n"))
+    -- ... but into the very next standing the client's own numbers are the answer, whatever the size
+    Mock.standing(CENARION, HONORED, 100, 8000, 10000)
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: 1,900 reputation to go."), table.concat(Mock.rows(), "\n"))
+    -- the sum itself
+    equal(ns.Known.PointsTo({ s = 5, v = 3200, m = 12000, a = 12200 }, 6), 8800)
+    equal(ns.Known.PointsTo({ s = 5, v = 3200, m = 12000, a = 12200 }, 7), 29800, "Honored to Exalted")
+    equal(ns.Known.PointsTo({ s = 5, v = 3200, m = 12000 }, 6), 8800, "kept before the reputation itself was: the next standing still")
+    equal(ns.Known.PointsTo({ s = 4, v = 0, m = 6000 }, 6), nil, "... and no further")
+    equal(ns.Known.PointsTo({ s = 6, v = 0, m = 21000, a = 21000 }, 6), nil, "there already")
+    equal(ns.Known.PointsTo({ s = 4 }, 5), nil, "the client gave no numbers")
+    equal(ns.Known.PointsTo({ s = 4, v = 1200, m = 6000, a = 1200 }, 6), nil, "Friendly of the ordinary size, starting elsewhere")
+    equal(ns.Known.PointsTo({ s = 4, v = 1200, m = 8000, a = 4200 }, 6), nil, "Friendly starting where it does, of another size")
+    equal(ns.Known.StandingText({ s = 5, v = 1, m = 2 }), "Honored 1/2"); equal(ns.Known.StandingText({ s = 6 }), "Revered")
+    equal(ns.Known.StandingText({ s = 7, v = 0, m = 999 }), "Exalted"); equal(ns.Known.StandingText(false), nil)
+    equal(ns.Known.PointsTo(false, 5), nil); equal(ns.Known.PointsTo(nil, 5), nil)
+    equal(ns.Known.Grouped(900), "900"); equal(ns.Known.Grouped(0), "0")
+    equal(ns.Known.Grouped(123456), "123,456"); equal(ns.Known.Grouped(1234567), "1,234,567")
+    -- a faction the character never met (the client answers for another, and nothing for this one)
+    state.rep[TIMBERMAW] = { reaction = NEUTRAL, into = 10 }
+    Mock.standing(CENARION, nil)
+    equal(ns.cdb.rep[CENARION], false)
+    equal(cardNamed(ns, "Sylvan Vest").state, "later")
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: you have not met them yet. Below Revered the recipe can be neither bought nor learned."),
+        table.concat(Mock.rows(), "\n"))
+    -- a burst of UPDATE_FACTION (every kill says it) is one read
+    local before = state.calls.rep
+    for _ = 1, 20 do Mock.fire("UPDATE_FACTION") end
+    Mock.advance(3)
+    equal(state.calls.rep - before, 9, "one pass over the nine factions")
+    -- a standing's change is no news for the guild or friends (KNOWN_CHANGED has them say hello), and a
+    -- read that finds nothing new redraws nothing
+    local known, moved = 0, 0
+    ns:Listen("KNOWN_CHANGED", function() known = known + 1 end)
+    ns:Listen("STANDING_CHANGED", function() moved = moved + 1 end)
+    Mock.standing(TIMBERMAW, NEUTRAL, 20)
+    equal(known, 0); equal(moved, 1)
+    Mock.standing(TIMBERMAW, NEUTRAL, 20)
+    equal(moved, 1, "nothing moved")
+    equal(#Mock.errors, 0, Mock.errors[1])
+end)
+
+scenario("standings are only written when the client answers: no such call, secrets, an error, an empty list - what was read before stays", function()
+    -- a client without the calls: the card is as it was before standings were read at all
+    local ns, state = start({ faction = "Alliance", noReputation = true }, function(state)
+        state.skills[TAILORING] = { level = 300, max = 300 }
+    end)
+    equal(ns.cdb.rep, nil); equal(ns.cdb.repAt, nil)
+    Mock.slash("show all")
+    ns.Window.widgets.tabs.tailoring:Click()
+    local vest = cardNamed(ns, "Sylvan Vest")
+    equal(vest.state, "now", "nothing known of the standing: the skill decides")
+    check(vest.tags:find("|cff33c9a7Revered|r", 1, true), vest.tags)
+    equal(Mock.plain(vest.right), "Cenarion Circle: Mishta, Silithus - needs Revered")
+    vest.click()
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: below that the recipe can be neither bought nor learned."), table.concat(Mock.rows(), "\n"))
+    for _, row in ipairs(Mock.rows()) do
+        check(not row:find("log it in", 1, true), "the one logged in is not told to log in: " .. row)
+    end
+    equal(ns.Known:Describe().rep.raw.answered, "no such call")
+
+    -- the reputation list has factions, none of them one a recipe asks for: that is an answer - never met
+    ns, state = start({ faction = "Alliance" }, function(state)
+        state.skills[TAILORING] = { level = 300, max = 300 }
+        state.rep[72] = { reaction = FRIENDLY, into = 0 } -- Stormwind
+    end)
+    equal(ns.cdb.rep[CENARION], false)
+    check(ns.cdb.repAt, "read")
+
+    -- the reputation list is empty and no faction answers (a login too early): nothing is written
+    ns, state = start({ faction = "Alliance" }, function(state)
+        state.skills[TAILORING] = { level = 300, max = 300 }
+    end)
+    equal(ns.cdb.rep, nil); equal(ns.cdb.repAt, nil)
+    -- then it answers
+    Mock.standing(CENARION, HONORED, 3200)
+    equal(ns.cdb.rep[CENARION].s, 5)
+    equal(ns.cdb.rep[TIMBERMAW], false, "the client answered, and has nothing on Timbermaw Hold")
+    -- secrets, a secret field, an error: the standing read before stays, nothing is raised
+    for _, mode in ipairs({ "secret", "secretField", "error" }) do
+        state.repMode = mode
+        state.rep[CENARION] = { reaction = REVERED, into = 0 }
+        Mock.fire("UPDATE_FACTION")
+        Mock.advance(3)
+        equal(ns.cdb.rep[CENARION].s, 5, mode)
+        equal(ns.cdb.rep[CENARION].v, 3200, mode)
+    end
+    equal(ns.cdb.rep[TIMBERMAW], false, "an unanswered pass does not make a faction met or unmet")
+    -- the list went empty with nothing answering (logging out): what was read stays
+    state.repMode, state.rep, state.repCount = "ok", {}, 0
+    Mock.fire("UPDATE_FACTION")
+    Mock.advance(3)
+    equal(ns.cdb.rep[CENARION].s, 5)
+    -- /akr diag keeps what the client said, faction by faction
+    state.repCount, state.rep[CENARION] = nil, { reaction = REVERED, into = 15 }
+    Mock.fire("UPDATE_FACTION")
+    Mock.advance(3)
+    local diag = ns.Known:Describe().rep
+    equal(diag.raw[CENARION], "7 15/21000")
+    equal(diag.raw[TIMBERMAW], "nil")
+    check(diag.reads >= 2, "reads: " .. tostring(diag.reads))
+    equal(ns.cdb.rep[CENARION].s, 6)
+    equal(#Mock.errors, 0, Mock.errors[1])
+end)
+
+scenario("your other characters' standings: kept from their own login, on the card when viewed and on the recipe item's tooltip", function()
+    local db = { schema = 2, chars = {
+        -- Revered: read at its own login
+        ["Purr Smith - ClassicBetaPvE"] = { learned = {}, skills = { tailoring = { skill = 300, max = 300 } }, profs = { tailoring = true }, side = "A", options = {},
+            rep = { [CENARION] = { s = 6, v = 100, m = 21000 } }, repAt = 5 },
+        -- not logged in since standings are read
+        ["Purr Know - ClassicBetaPvE"] = { learned = {}, skills = { tailoring = { skill = 300, max = 300 } }, profs = { tailoring = true }, side = "A", options = {} },
+        -- the skill and the standing both short
+        ["Purr Low - ClassicBetaPvE"] = { learned = {}, skills = { tailoring = { skill = 20, max = 75 } }, profs = { tailoring = true }, side = "A", options = {},
+            rep = { [CENARION] = { s = 4, v = 0, m = 6000, a = 3000 } }, repAt = 5 },
+        -- never met the Cenarion Circle
+        ["Purr New - ClassicBetaPvE"] = { learned = {}, skills = { tailoring = { skill = 300, max = 300 } }, profs = { tailoring = true }, side = "A", options = {},
+            rep = { [CENARION] = false }, repAt = 5 },
+    } }
+    local ns = start({ db = db, tooltips = true, faction = "Alliance" }, function(state)
+        state.skills[TAILORING] = { level = 300, max = 300 } -- Purr Gola, the one logged in
+        state.rep[CENARION] = { reaction = HONORED, into = 3200 }
+    end)
+    -- the tooltip: who can learn it now first, then who lacks the standing, then who lacks the skill
+    equal(Mock.showItem(SYLVAN_VEST_PATTERN), "Your characters: "
+        .. "|   Purr Know: can learn it (Tailoring 300), if Cenarion Circle Revered "
+        .. "|   Purr Smith: can learn it (Tailoring 300) "
+        .. "|   Purr Gola: needs Cenarion Circle Revered (8,800 to go) "
+        .. "|   Purr New: needs Cenarion Circle Revered (not met yet) "
+        .. "|   Purr Low: Tailoring 20, needs 300 and Cenarion Circle Revered (18,000 to go)")
+    local _, lines = Mock.showItem(SYLVAN_VEST_PATTERN)
+    equal(string.format("%.2f %.2f %.2f", lines[3].r, lines[3].g, lines[3].b), "0.25 1.00 0.25", "can learn: green")
+    equal(string.format("%.2f %.2f %.2f", lines[4].r, lines[4].g, lines[4].b), "1.00 0.50 0.25", "the standing is short: orange")
+    -- the window, looking at the one who is Revered
+    Mock.slash("show all")
+    ns.Window.char = "Purr Smith - ClassicBetaPvE"
+    ns.Window:SetProfession("tailoring")
+    local vest = cardNamed(ns, "Sylvan Vest")
+    equal(vest.state, "now")
+    equal(Mock.plain(vest.right), "Cenarion Circle: Mishta, Silithus")
+    vest.click()
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: you have it."), table.concat(Mock.rows(), "\n"))
+    -- and at the one whose standings were never read: said so
+    ns.Window.char = "Purr Know - ClassicBetaPvE"
+    ns.Window:Render()
+    vest = cardNamed(ns, "Sylvan Vest")
+    equal(vest.state, "now")
+    equal(Mock.plain(vest.right), "Cenarion Circle: Mishta, Silithus - needs Revered")
+    check(has(Mock.rows(), "Requires Cenarion Circle - Revered: below that the recipe can be neither bought nor learned. This character's standing is not read yet - log it in once."),
+        table.concat(Mock.rows(), "\n"))
+    -- the one logged in reads its own standing; the others' are left alone
+    equal(db.chars["Purr Smith - ClassicBetaPvE"].rep[CENARION].s, 6)
+    equal(db.chars["Purr Know - ClassicBetaPvE"].rep, nil)
+    equal(#Mock.errors, 0, Mock.errors[1])
+end)
+
 scenario("Leatherworking's and Blacksmithing's specializations: the tag, what it needs, and whose trainers teach it", function()
     -- the user, 2026-11-14: "it doesn't do a good job of showing specialties - like black dragonscale legs"
     local ns = start({ faction = "Alliance" }, function(state)
@@ -834,9 +1166,13 @@ scenario("the other professions' sources read in words: world drops, chests, tra
     check(has(rows, "Crafted by another profession: Goblin Rocket Fuel Recipe."))
 
     local force
+    -- new in Forever, no recipe item: a guess - until a trainer's list was read with it in (Mana Well: Ainethil's)
     force, rows = open("alchemy", "Mana Well")
-    equal(Mock.plain(force.right), "Probably any Alchemy trainer, 1s 5c")
-    check(has(rows, "Probably any Alchemy trainer: no recipe item exists for it. (Not confirmed.) | 1s 5c"))
+    equal(Mock.plain(force.right), "Any Alchemy trainer, 1s 5c")
+    check(has(rows, "Any Alchemy trainer teaches it. | 1s 5c"))
+    force, rows = open("alchemy", "Lesser Discolored Healing Potion")
+    check(Mock.plain(force.right):find("Probably any Alchemy trainer", 1, true) == 1, Mock.plain(force.right))
+    check(has(rows, "Probably any Alchemy trainer: no recipe item exists for it. (Not confirmed.)"))
 
     local recombobulator
     recombobulator, rows = open("engineering", "Major Recombobulator")
@@ -969,7 +1305,7 @@ scenario("Wowhead's lists read again (2026-11-16): a recipe that is fished says 
     -- a vendor both factions can buy from; no price was read
     local carver
     carver, rows = open("blacksmithing", "Stormcarver")
-    equal(Mock.plain(carver.right), "Vendor: Meilosh, Felwood")
+    equal(Mock.plain(carver.right), "Timbermaw Hold: Meilosh, Felwood - needs Revered") -- the standing: 2026-11-20
     check(ns.Lookup.Sources(ns.Lookup.BySpell(1252366), "H").any, "Meilosh sells to the Horde too")
     -- the steak the tests used as "nobody knows" has its creature
     local steak = ns.Lookup.Sources(ns.Lookup.BySpell(1250149), "A")
@@ -2260,6 +2596,760 @@ scenario("one faction's recipe: a Horde tailor who knows the Horde Faction Banne
         end
     end
     equal(banners, 1)
+    equal(#Mock.errors, 0)
+end)
+
+------------------------------------------------------------------------
+-- Cooldowns (the user, 2026-11-17: "track cooldowns like transmutes, mooncloth, refined deeprock salt per
+-- character/acccount" - one Cooldowns tab for everything, a login line for the ready ones)
+------------------------------------------------------------------------
+local ARCANITE, AIR_TO_FIRE, IRON_TO_GOLD, MOONCLOTH, SALT_SHAKER = 17187, 17559, 11479, 18560, 15846
+local TWO_DAYS, FOUR_DAYS, THREE_DAYS = 169200, 342000, 255600 -- Forever's: 47, 95 and 71 hours
+
+-- Purr Gola as an alchemist who knows Transmute: Arcanite, Air to Fire and Iron to Gold
+local function alchemist(state)
+    state.skills[ALCHEMY] = { level = 300, max = 300 }
+    state.learned[ARCANITE], state.learned[AIR_TO_FIRE], state.learned[IRON_TO_GOLD] = true, true, true
+end
+
+local function cdCard(ns, name, who)
+    for _, entry in ipairs(ns.Window:Lines()) do
+        if entry.card and Mock.plain(entry.text) == name and (not who or Mock.plain(entry.tags) == who) then return entry end
+    end
+end
+
+local function cooldownTab(ns)
+    ns.Window:Show()
+    ns.Window:SetProfession("cooldowns")
+end
+
+-- the cooldowns' own row under the profession tabs: its words and the hint at its right end - nil while
+-- it is not shown
+local function strip(ns)
+    local row = ns.Window.widgets.cooldowns
+    if not row:IsShown() then return nil end
+    return Mock.plain(row.words:GetText()), Mock.plain(row.hint:GetText())
+end
+
+-- how far under the window's top the list of cards starts
+local function listTop(ns)
+    local _, _, _, _, y = ns.Window.widgets.scroll:GetPoint(1)
+    return -y
+end
+
+scenario("cooldowns: the table - every transmute is one shared cooldown, Iron to Gold, Mithril to Truesilver and Mooncloth have their own, the Salt Shaker is an item's use; every spell is a recipe of ours", function()
+    local ns = start()
+    ns.Lookup.BuildAll()
+    local by = {}
+    for _, group in ipairs(ns.Cooldowns.Groups()) do
+        by[group.key] = group
+        for _, entry in ipairs(group.spells or {}) do
+            check(ns.Lookup.BySpell(entry.spell) ~= nil, entry.name .. " is no recipe of ours")
+            check(entry.seconds >= 600, entry.name)
+        end
+    end
+    equal(by.transmute.shared, true); equal(by.transmute.prof, "alchemy")
+    check(#by.transmute.spells >= 10, "the transmutes")
+    equal(by.transmute.spells[1].seconds, TWO_DAYS, "the longest first")
+    equal(ns.Cooldowns.Length(by.transmute), TWO_DAYS)
+    equal(by.s18560.name, "Mooncloth"); equal(by.s18560.prof, "tailoring"); equal(ns.Cooldowns.Length(by.s18560), FOUR_DAYS)
+    equal(by.s11479.name, "Transmute: Iron to Gold"); equal(ns.Cooldowns.Length(by.s11479), 3600)
+    equal(by.s11480.name, "Transmute: Mithril to Truesilver")
+    equal(by.salt.item, SALT_SHAKER); equal(by.salt.seconds, THREE_DAYS); equal(by.salt.prof, "leatherworking")
+    equal(ns.Cooldowns.Span(FOUR_DAYS), "3d 23h"); equal(ns.Cooldowns.Span(86400), "1d"); equal(ns.Cooldowns.Span(3600), "1h")
+    equal(ns.Cooldowns.Span(3601), "1h 1m"); equal(ns.Cooldowns.Span(59), "1m"); equal(ns.Cooldowns.Span(0), "1m")
+    equal(ns.Cooldowns.Short(51600), "14h"); equal(ns.Cooldowns.Short(51660), "14h"); equal(ns.Cooldowns.Short(2700), "45m")
+    equal(ns.Cooldowns.Short(TWO_DAYS), "1d 23h")
+end)
+
+scenario("cooldowns: a transmute is read when the game says a cooldown moved, kept as the moment it is over, and counted down from there - whichever transmute was made", function()
+    local ns, state = start(nil, alchemist)
+    Mock.advance(10)
+    local saved = ns.db.chars[ns.characterKey].cooldowns
+    check(saved and saved.transmute and saved.transmute.ready <= time(), "read after login: the transmute is ready")
+    check(saved.s11479 and saved.s11479.ready <= time(), "Iron to Gold, a cooldown of its own")
+    equal(saved.s11480, nil, "Mithril to Truesilver is not known")
+    equal(saved.s18560, nil, "no tailor"); equal(saved.salt, nil, "no Salt Shaker")
+    local since = saved.transmute.ready
+
+    -- an Arcanite Bar is made: the game puts 47 hours on every transmute - here it says so for another one
+    local made = time()
+    Mock.cooldown(AIR_TO_FIRE, TWO_DAYS, TWO_DAYS)
+    Mock.advance(2)
+    equal(saved.transmute.ready, made + TWO_DAYS, "the moment it is over, on the wall clock")
+    equal(saved.s11479.ready, since, "Iron to Gold is untouched - and ready since when it was")
+
+    cooldownTab(ns)
+    equal((strip(ns)), "Cooldowns: 1 ready - next Transmute (Purr Gola) 1d 23h", "the row of its own says so")
+    local card = cdCard(ns, "Transmute", "Purr Gola")
+    equal(card.skill, "1d 23h"); equal(card.skillLabel, "left"); equal(card.state, "later")
+    equal(Mock.plain(card.right), "Ready in 1d 23h")
+    equal(Mock.plain(card.desc), "Alchemy - one cooldown for all 12 of them, up to 1d 23h")
+    equal(card.item, 12360, "the tooltip of what the longest makes")
+    local gold = cdCard(ns, "Transmute: Iron to Gold", "Purr Gola")
+    equal(gold.skill, "Ready"); equal(gold.state, "known"); equal(Mock.plain(gold.right), "Ready"); equal(gold.skillLabel, "")
+    equal(Mock.plain(gold.desc), "Alchemy - 1h")
+    equal(Mock.info(), "Cooldowns of all your characters: 1 ready, 1 running   right-click hides")
+    local lines = ns.Window:Lines()
+    equal(Mock.plain(lines[1].text), "Transmute: Iron to Gold", "ready ones first")
+
+    -- a day and a half on, nothing read in between: counted from the saved moment
+    state.now = state.now + 36 * 3600
+    card = cdCard(ns, "Transmute", "Purr Gola")
+    equal(card.skill, "11h"); equal(Mock.plain(card.right), "Ready in 11h")
+    state.now = state.now + 10 * 3600 + 1800
+    equal(Mock.plain(cdCard(ns, "Transmute", "Purr Gola").right), "Ready in 30m")
+    equal(cdCard(ns, "Transmute", "Purr Gola").skill, "30m")
+    state.now = state.now + 1800
+    card = cdCard(ns, "Transmute", "Purr Gola")
+    equal(card.skill, "Ready"); equal(card.state, "known")
+
+    -- opened: who, what starts it and for how long, when it was read
+    card.click()
+    card = cdCard(ns, "Transmute", "Purr Gola")
+    local text = {}
+    for _, d in ipairs(card.details) do text[#text + 1] = Mock.plain(d.text) .. " | " .. Mock.plain(d.right) end
+    check(has(text, "Purr Gola: ready"), table.concat(text, "\n"))
+    check(has(text, "Transmute: Arcanite | 1d 23h"), table.concat(text, "\n"))
+    check(has(text, "Transmute: Air to Fire | 23h"))
+    check(has(text, "Transmute: Elemental Fire | 10m"))
+    check(has(text, "Read on Purr Gola 1d 23h ago"), table.concat(text, "\n"))
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: the other characters are shown from what was saved on them - the time left runs while you play someone else; one never read says so; a character with no cooldown is not listed", function()
+    local now = 1700000000 + 1000 -- the mock's wall clock at login
+    local db = { schema = 2, chars = {
+        ["Purr Smith - ClassicBetaPvE"] = { learned = { [MOONCLOTH] = 1 }, skills = { tailoring = { skill = 290, max = 300 } }, profs = { tailoring = true },
+            side = "A", options = {}, cooldowns = { s18560 = { ready = now + 30 * 3600, at = now - 500 } } },
+        ["Purr Know - ClassicBetaPvE"] = { learned = { [ARCANITE] = 1 }, skills = { alchemy = { skill = 300, max = 300 } }, profs = { alchemy = true },
+            side = "A", options = {} },
+        ["Purr Salt - OtherRealm"] = { learned = {}, skills = {}, profs = { leatherworking = true }, side = "A", options = {},
+            cooldowns = { salt = { ready = now - 50, at = now - 90000 } } },
+        ["Purr Wait - ClassicBetaPvE"] = { learned = { [ARCANITE] = 1 }, skills = {}, profs = { alchemy = true }, side = "A", options = {},
+            cooldowns = { transmute = { ready = now + 5 * 3600, at = now - 500 } } },
+        ["Purr Cook - ClassicBetaPvE"] = { learned = { [WESTFALL_STEW] = 1 }, skills = {}, profs = { cooking = true }, side = "A", options = {} },
+    } }
+    local ns, state = start({ db = db })
+    Mock.advance(10)
+    cooldownTab(ns)
+    local order = {}
+    for _, entry in ipairs(ns.Window:Lines()) do
+        order[#order + 1] = Mock.plain(entry.text) .. " [" .. Mock.plain(entry.tags) .. "] " .. tostring(entry.skill)
+    end
+    equal(table.concat(order, "; "), "Refined Deeprock Salt [Purr Salt] Ready; Transmute [Purr Wait] 5h; Mooncloth [Purr Smith] 1d 6h; Transmute [Purr Know] ?",
+        "ready, then running with the soonest first, then not read - whatever realm")
+    equal(Mock.plain(cdCard(ns, "Transmute", "Purr Know").right), "Not read yet - log in on Purr Know once")
+    equal(cdCard(ns, "Transmute", "Purr Know").state, "plain")
+    equal(Mock.plain(cdCard(ns, "Refined Deeprock Salt").desc), "Leatherworking - using the Salt Shaker, 2d 23h")
+    equal(cdCard(ns, "Refined Deeprock Salt").item, 15409, "the salt's own tooltip")
+    equal(Mock.plain(cdCard(ns, "Mooncloth").desc), "Tailoring - 3d 23h")
+    equal(Mock.info(), "Cooldowns of all your characters: 1 ready, 2 running   1 not read yet   right-click hides")
+    state.now = state.now + 29 * 3600
+    equal(cdCard(ns, "Mooncloth", "Purr Smith").skill, "1h")
+    equal(Mock.plain(cdCard(ns, "Mooncloth", "Purr Smith").right), "Ready in 1h")
+    -- the search finds a cooldown by its name, its character or its profession
+    ns.Window.query = "smith"
+    equal(#ns.Window:Lines(), 1); check(cdCard(ns, "Mooncloth", "Purr Smith"))
+    ns.Window.query = "leatherw"
+    equal(#ns.Window:Lines(), 1); check(cdCard(ns, "Refined Deeprock Salt"))
+    ns.Window.query = "zzz"
+    equal(Mock.plain(ns.Window:Lines()[1].note), 'Nothing matches "zzz".')
+    ns.Window.query = ""
+
+    -- nobody on the account has a cooldown: no row, and the window is as it was
+    local plain = start()
+    Mock.advance(10)
+    plain.Window:Show()
+    equal(strip(plain), nil, "no row without a cooldown")
+    equal(listTop(plain), 74, "and the list starts where it always did")
+    plain.Window:SetProfession("cooldowns")
+    check(plain.Window.totals.prof ~= "cooldowns", "and asking for it lands on a real tab")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: the Salt Shaker - tracked for whoever owns one, read as the item's cooldown; sold, it is dropped", function()
+    local ns, state = start(nil, function(state) state.items[SALT_SHAKER] = 1 end)
+    Mock.advance(10)
+    local saved = ns.db.chars[ns.characterKey].cooldowns
+    check(saved.salt and saved.salt.ready <= time(), "owned and ready")
+    local used = time()
+    Mock.itemCooldown(SALT_SHAKER, THREE_DAYS, THREE_DAYS)
+    Mock.advance(2)
+    equal(saved.salt.ready, used + THREE_DAYS)
+    cooldownTab(ns)
+    equal(cdCard(ns, "Refined Deeprock Salt", "Purr Gola").skill, "2d 23h")
+    -- the bags cannot be read: what is saved stays
+    state.bagsSecret = true
+    Mock.fire("BAG_UPDATE_COOLDOWN"); Mock.advance(2)
+    equal(saved.salt.ready, used + THREE_DAYS)
+    state.bagsSecret = false
+    -- the shaker is gone
+    state.items[SALT_SHAKER] = 0
+    Mock.fire("BAG_UPDATE_COOLDOWN"); Mock.advance(2)
+    equal(saved.salt, nil)
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: what the client will not say changes nothing - secret numbers, no answer, no such call, combat; a burst of events is one read", function()
+    local ns, state = start(nil, alchemist)
+    Mock.advance(10)
+    local saved = ns.db.chars[ns.characterKey].cooldowns
+    Mock.cooldown(ARCANITE, TWO_DAYS, TWO_DAYS)
+    Mock.advance(2)
+    local ready = saved.transmute.ready
+    check(ready > time(), "running")
+    -- the game then keeps the numbers to itself: the saved moment stays
+    for _, mode in ipairs({ "secret", "nil" }) do
+        state.cooldownMode = mode
+        Mock.fire("SPELL_UPDATE_COOLDOWN"); Mock.advance(2)
+        equal(saved.transmute.ready, ready, mode)
+    end
+    state.cooldownMode = "ok"
+    -- in combat nothing is asked at all
+    state.combat = true
+    local asked = state.calls.cooldown
+    Mock.fire("SPELL_UPDATE_COOLDOWN"); Mock.advance(2)
+    equal(state.calls.cooldown, asked, "not asked in combat")
+    state.combat = false
+    -- twenty events in a moment: one read (three known spells asked once each)
+    asked = state.calls.cooldown
+    for _ = 1, 20 do Mock.fire("SPELL_UPDATE_COOLDOWN") end
+    Mock.advance(2)
+    equal(state.calls.cooldown, asked + 3, "one read")
+    -- the game says it is over early (a reset): believed
+    Mock.cooldown(ARCANITE, 0, 0)
+    Mock.advance(2)
+    check(saved.transmute.ready <= time(), "over")
+    equal(Mock.errors[1], nil, "and none of that raised an error")
+
+    -- a client without the calls: nothing kept, nothing breaks
+    local bare = start({ noCooldowns = true }, alchemist)
+    Mock.advance(10)
+    equal(next(bare.db.chars[bare.characterKey].cooldowns or {}), nil, "nothing read, nothing kept")
+    bare.Window:Show()
+    equal((strip(bare)), "Cooldowns: 2 not read yet", "the row is there all the same: this character knows two transmutes with a cooldown each")
+    bare.Window:SetProfession("cooldowns")
+    equal(cdCard(bare, "Transmute", "Purr Gola").skill, "?")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: a cooldown from before this session - the client's start time has wrapped round - is read right; the global cooldown is no cooldown", function()
+    local ns, state = start(nil, function(state)
+        state.skills[TAILORING] = { level = 300, max = 300 }
+        state.learned[MOONCLOTH] = true
+    end)
+    Mock.advance(10)
+    local saved = ns.db.chars[ns.characterKey].cooldowns
+    -- Mooncloth was made 100,000 seconds ago, long before the client started: 242,000 seconds are left
+    state.spellCooldowns[MOONCLOTH] = { state.now - 100000 + 4294967.296, FOUR_DAYS }
+    local at = time()
+    Mock.fire("SPELL_UPDATE_COOLDOWN"); Mock.advance(2)
+    equal(saved.s18560.ready, at + 242000)
+    -- the global cooldown and other short ones show on every spell: not a craft's cooldown
+    state.spellCooldowns[MOONCLOTH] = { state.now, 30 }
+    Mock.fire("SPELL_UPDATE_COOLDOWN"); Mock.advance(2)
+    check(saved.s18560.ready <= time(), "ready, with 28 seconds of a short cooldown left")
+    -- a number that makes no sense (more left than the cooldown is long) is cut to its length
+    state.spellCooldowns[MOONCLOTH] = { state.now + 0.9, FOUR_DAYS }
+    ns.Cooldowns:Read()
+    equal(saved.s18560.ready, time() + FOUR_DAYS, "never longer than the cooldown")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: one line at login when a long cooldown is ready on any character - the one-hour bars and hidden ones left out; nothing ready, nothing said; '/akr cd notice off' silences it for good", function()
+    local now = 1700000000 + 1000
+    local function account()
+        return { schema = 2, chars = {
+            ["Purr Smith - ClassicBetaPvE"] = { learned = { [MOONCLOTH] = 1 }, skills = {}, profs = { tailoring = true }, side = "A", options = {},
+                cooldowns = { s18560 = { ready = now - 10, at = now - 500 } } },
+            ["Purr Know - ClassicBetaPvE"] = { learned = { [ARCANITE] = 1 }, skills = {}, profs = { alchemy = true }, side = "A", options = {},
+                cooldowns = { transmute = { ready = now - 10, at = now - 500 }, s11479 = { ready = now - 10, at = now - 500 } } },
+            ["Purr Wait - ClassicBetaPvE"] = { learned = { [ARCANITE] = 1 }, skills = {}, profs = { alchemy = true }, side = "A", options = {},
+                cooldowns = { transmute = { ready = now + 5000, at = now - 500 } } },
+        } }
+    end
+    local ns = start({ db = account() }, alchemist)
+    equal(printed("Ready:"), false, "not before the game was asked")
+    Mock.advance(10)
+    check(printed("AKForeverRecipes|r: Ready: Mooncloth (Purr Smith), Transmute (Purr Gola, Purr Know)"), table.concat(Mock.printed, " | "))
+    local count = 0
+    for _, line in ipairs(Mock.printed) do if line:find("Ready:", 1, true) then count = count + 1 end end
+    equal(count, 1, "once")
+    equal(printed("Iron to Gold"), false, "a one-hour cooldown is not worth a line")
+
+    -- hidden on one character: left out for that character
+    local db = account()
+    db.chars["Purr Know - ClassicBetaPvE"].cooldownsHidden = { transmute = true }
+    start({ db = db })
+    Mock.advance(10)
+    check(printed("Ready: Mooncloth (Purr Smith)"), table.concat(Mock.printed, " | "))
+    equal(printed("Transmute"), false)
+
+    -- nothing ready
+    db = account()
+    db.chars["Purr Smith - ClassicBetaPvE"].cooldowns.s18560.ready = now + 999
+    db.chars["Purr Know - ClassicBetaPvE"].cooldowns.transmute.ready = now + 999
+    start({ db = db })
+    Mock.advance(10)
+    equal(printed("Ready:"), false)
+
+    -- silenced, and kept
+    ns = start({ db = account() })
+    Mock.slash("cd notice off")
+    check(printed("the login line is off"), table.concat(Mock.printed, " | "))
+    equal(ns.db.cooldownNotice, false)
+    local again = start({ db = ns.db })
+    Mock.advance(10)
+    equal(printed("Ready:"), false, "off stays off")
+    Mock.slash("cd notice on")
+    check(printed("the login line is on"))
+    equal(again.db.cooldownNotice, nil)
+    Mock.slash("cd notice")
+    equal(again.db.cooldownNotice, nil, "asking changes nothing")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: '/akr cd' lists every character's cooldowns; a right-click hides one for that character - out of the tab, the list and the login line - and the Hidden list brings it back", function()
+    local now = 1700000000 + 1000
+    local db = { schema = 2, chars = {
+        ["Purr Smith - ClassicBetaPvE"] = { learned = { [MOONCLOTH] = 1 }, skills = {}, profs = { tailoring = true }, side = "A", options = {},
+            cooldowns = { s18560 = { ready = now + 7200 + 10, at = now - 500 } } },
+    } }
+    local ns = start({ db = db }, alchemist)
+    Mock.advance(10)
+    Mock.slash("cd")
+    check(printed("cooldowns of all your characters:"), table.concat(Mock.printed, " | "))
+    local text = Mock.plain(table.concat(Mock.printed, "\n"))
+    check(text:find("Transmute - Purr Gola: ready", 1, true), text)
+    check(text:find("Mooncloth - Purr Smith: in 2h", 1, true), text)
+    check(Mock.slash("help") == nil and printed("/akr cd"), "the command is in the help")
+
+    cooldownTab(ns)
+    ns:SetOption("filter", "missing")
+    check(cdCard(ns, "Mooncloth", "Purr Smith"), "whatever the filter, short of Hidden")
+    cdCard(ns, "Mooncloth", "Purr Smith").hide()
+    equal(cdCard(ns, "Mooncloth", "Purr Smith"), nil, "hidden")
+    check(cdCard(ns, "Transmute", "Purr Gola"), "the others stay")
+    equal(db.chars["Purr Smith - ClassicBetaPvE"].cooldownsHidden.s18560, true)
+    check(Mock.info():find("1 hidden", 1, true), Mock.info())
+    Mock.printed = {}
+    Mock.slash("cd")
+    equal(printed("Mooncloth"), false, "not in the list")
+    ns:SetOption("filter", "hidden")
+    local hidden = cdCard(ns, "Mooncloth", "Purr Smith")
+    check(hidden and hidden.hidden == true, "in the Hidden list")
+    equal(cdCard(ns, "Transmute", "Purr Gola"), nil)
+    hidden.hide()
+    equal(db.chars["Purr Smith - ClassicBetaPvE"].cooldownsHidden.s18560, nil, "shown again")
+    equal(Mock.plain(ns.Window:Lines()[1].note), "Nothing is hidden here. A right-click hides a cooldown you do not care about.")
+    ns:SetOption("filter", "all")
+    check(cdCard(ns, "Mooncloth", "Purr Smith"))
+    -- everything hidden: the tab says where they went
+    for _, entry in ipairs(ns.Window:Lines()) do if entry.hide then entry.hide() end end
+    equal(Mock.plain(ns.Window:Lines()[1].note), "Every cooldown is hidden - the Hidden list has them.")
+
+    -- nobody has one
+    start()
+    Mock.advance(10)
+    Mock.slash("cd")
+    check(printed("no cooldown to watch on any of your characters yet"), table.concat(Mock.printed, " | "))
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: a row of their own under the profession tabs (the user, 2026-11-18: \"i was thinking CDs would be distinguished from the list maybe in its own row or a tab or something\") - how many are ready and the next one due, always in view; a click opens them all, a second click goes back; it is not one of the tabs", function()
+    local now = 1700000000 + 1000
+    local db = { schema = 2, chars = {
+        ["Purr Smith - ClassicBetaPvE"] = { learned = { [MOONCLOTH] = 1 }, skills = {}, profs = { tailoring = true }, side = "A", options = {},
+            cooldowns = { s18560 = { ready = now + 30 * 3600, at = now - 500 } } },
+        ["Purr Know - ClassicBetaPvE"] = { learned = { [ARCANITE] = 1 }, skills = {}, profs = { alchemy = true }, side = "A", options = {} },
+        ["Purr Salt - OtherRealm"] = { learned = {}, skills = {}, profs = { leatherworking = true }, side = "A", options = {},
+            cooldowns = { salt = { ready = now - 50, at = now - 90000 } } },
+        ["Purr Wait - ClassicBetaPvE"] = { learned = { [ARCANITE] = 1 }, skills = {}, profs = { alchemy = true }, side = "A", options = {},
+            cooldowns = { transmute = { ready = now + 5 * 3600, at = now - 500 } } },
+    } }
+    local ns, state = start({ db = db })
+    Mock.advance(10)
+    ns.Window:Show()
+    local before = ns.Window.totals.prof
+    check(before ~= "cooldowns", "the window opens on a profession")
+    local words, hint = strip(ns)
+    equal(words, "Cooldowns: 1 ready - next Transmute (Purr Wait) 5h - 1 not read yet")
+    equal(hint, "show all")
+    check(not has(ns.Window.totals.offered, "cooldowns"), "not among the profession tabs")
+    equal(ns.Window.widgets.tabs.cooldowns, nil, "and no tab button of that name")
+    equal(listTop(ns), 93, "the cards start under the row")
+
+    -- a click opens every cooldown; no profession tab is the pressed one; where the window opens next
+    -- time stays a profession
+    ns.Window.widgets.cooldowns:Click()
+    equal(ns.Window.totals.prof, "cooldowns")
+    check(cdCard(ns, "Mooncloth", "Purr Smith"), "the cards")
+    words, hint = strip(ns)
+    equal(words, "Cooldowns: 1 ready - next Transmute (Purr Wait) 5h - 1 not read yet", "the row stays")
+    equal(hint, "back to " .. ns.Lookup.ProfessionName(before))
+    for key, tab in pairs(ns.Window.widgets.tabs) do
+        if tab:IsShown() then check(tab:IsEnabled(), key .. " can be clicked") end
+    end
+    check(ns.cdb.options.prof ~= "cooldowns", "not where the window opens next time")
+    -- a second click goes back to where you were
+    ns.Window.widgets.cooldowns:Click()
+    equal(ns.Window.totals.prof, before)
+    equal(select(2, strip(ns)), "show all")
+    check(not ns.Window.widgets.tabs[before]:IsEnabled(), "its tab is the pressed one again")
+    -- a profession's tab leaves the cooldowns just as well
+    ns.Window.widgets.cooldowns:Click()
+    ns.Window:SetProfession("alchemy")
+    equal(ns.Window.totals.prof, "alchemy")
+    equal(select(2, strip(ns)), "show all")
+    ns.Window.widgets.cooldowns:Click()
+    equal(select(2, strip(ns)), "back to Alchemy", "back is where you came from this time")
+    ns.Window:SetProfession("cooldowns") -- asked for again while it is open: where you were is kept
+    ns.Window.widgets.cooldowns:Click()
+    equal(ns.Window.totals.prof, "alchemy")
+    check(ns.Window.totals.offered[1] ~= "alchemy", "(not simply the first tab)")
+
+    -- five hours on the transmute is over: the next one due is the Mooncloth
+    state.now = state.now + 5 * 3600
+    ns.Window:Render()
+    equal((strip(ns)), "Cooldowns: 2 ready - next Mooncloth (Purr Smith) 1d 1h - 1 not read yet")
+    -- hidden ones are not counted
+    db.chars["Purr Salt - OtherRealm"].cooldownsHidden = { salt = true }
+    db.chars["Purr Wait - ClassicBetaPvE"].cooldownsHidden = { transmute = true }
+    ns.Window:Render()
+    equal((strip(ns)), "Cooldowns: none ready - next Mooncloth (Purr Smith) 1d 1h - 1 not read yet")
+    db.chars["Purr Smith - ClassicBetaPvE"].cooldownsHidden = { s18560 = true }
+    ns.Window:Render()
+    equal((strip(ns)), "Cooldowns: not read yet - log in on Purr Know once", "one character to visit: named")
+    db.chars["Purr Know - ClassicBetaPvE"].cooldownsHidden = { transmute = true }
+    ns.Window:Render()
+    equal((strip(ns)), "Cooldowns: all hidden", "the row stays: the Hidden list is behind it")
+    ns.Window.widgets.cooldowns:Click()
+    equal(Mock.plain(ns.Window:Lines()[1].note), "Every cooldown is hidden - the Hidden list has them.")
+    ns.Window.widgets.cooldowns:Click()
+    db.chars["Purr Salt - OtherRealm"].cooldownsHidden = nil
+    ns.Window:Render()
+    equal((strip(ns)), "Cooldowns: 1 ready", "nothing running, nothing to visit")
+
+    -- a window that the earlier build left on the cooldowns opens on them, and back is the first tab
+    ns.Window.prof, ns.Window.before = nil, nil
+    ns:SetOption("prof", "cooldowns")
+    ns.Window:Render()
+    equal(ns.Window.totals.prof, "cooldowns")
+    equal(select(2, strip(ns)), "back")
+    ns.Window.widgets.cooldowns:Click()
+    equal(ns.Window.totals.prof, ns.Window.totals.offered[1])
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: transmutes the game answers for separately are shown separately (the user, 2026-11-18: \"i know legionite and arcanite have different cooldowns\" - \"Separate cooldowns\"; the client's tables say one shared cooldown) - each transmute is kept by itself, the ones with the same time are one card, and all ready they are one \"Transmute\" again", function()
+    local LEGIONITE = 1317279
+    local ns, state = start(nil, function(state)
+        alchemist(state)
+        state.learned[LEGIONITE] = true
+    end)
+    Mock.advance(10)
+    cooldownTab(ns)
+    local function names()
+        local out = {}
+        for _, entry in ipairs(ns.Window:Lines()) do
+            if entry.card then out[#out + 1] = Mock.plain(entry.text) .. " [" .. tostring(entry.skill) .. "]" end
+        end
+        return table.concat(out, "; ")
+    end
+    equal(names(), "Transmute [Ready]; Transmute: Iron to Gold [Ready]", "all ready: one Transmute card, as before")
+    local saved = ns.db.chars[ns.characterKey].cooldowns
+    check(saved.transmute.each[ARCANITE] <= time() and saved.transmute.each[LEGIONITE] <= time() and saved.transmute.each[AIR_TO_FIRE] <= time(),
+        "each known transmute is kept by itself")
+    equal(saved.transmute.each[17560], nil, "not one that is not known")
+    equal(saved.s11479.each, nil, "a cooldown of one spell needs none of that")
+
+    -- an Arcanite Bar is made, and the game puts ONLY Arcanite on cooldown
+    local made = time()
+    Mock.cooldownAlone(ARCANITE, TWO_DAYS, TWO_DAYS)
+    Mock.advance(2)
+    equal(saved.transmute.each[ARCANITE], made + TWO_DAYS)
+    check(saved.transmute.each[LEGIONITE] <= made, "Legionite is ready, since when it was")
+    equal(saved.transmute.ready, made + TWO_DAYS, "the cooldown as a whole: its longest")
+    equal(ns.Cooldowns:Describe().raw.transmute.disagree, true, "'/akr diag' says the transmutes did not answer as one")
+    equal(ns.Cooldowns:Describe().raw.s11479.disagree, false, "a cooldown of one spell cannot")
+    equal(names(), "Transmute: Iron to Gold [Ready]; Transmute: Legionite, Air to Fire [Ready]; Transmute: Arcanite [1d 23h]",
+        "Arcanite by itself, the two that are ready together")
+    equal((strip(ns)), "Cooldowns: 2 ready - next Transmute: Arcanite (Purr Gola) 1d 23h")
+    local arcanite = cdCard(ns, "Transmute: Arcanite", "Purr Gola")
+    equal(Mock.plain(arcanite.right), "Ready in 1d 23h"); equal(arcanite.item, 12360, "the Arcanite Bar's tooltip")
+    equal(Mock.plain(arcanite.desc), "Alchemy - 1d 23h")
+    local others = cdCard(ns, "Transmute: Legionite, Air to Fire", "Purr Gola")
+    equal(others.state, "known"); equal(others.item, 251290, "the first of them")
+    equal(Mock.plain(others.desc), "Alchemy - 2 crafts, up to 1d 23h")
+    -- opened: only its own transmutes, and why it stands alone
+    arcanite.click()
+    arcanite = cdCard(ns, "Transmute: Arcanite", "Purr Gola")
+    local text = {}
+    for _, d in ipairs(arcanite.details) do text[#text + 1] = Mock.plain(d.text) .. " | " .. Mock.plain(d.right) end
+    check(has(text, "Transmute: Arcanite | 1d 23h"), table.concat(text, "\n"))
+    check(not has(text, "Transmute: Air to Fire | 23h") and not has(text, "Transmute: Legionite | 1d 23h"), "not the others': " .. table.concat(text, "\n"))
+    check(has(text, "The game answers for this apart from your other transmutes. | "), table.concat(text, "\n"))
+    check(not has(text, "Making any of these starts it, for that one's length: | "), "that is the shared cooldown's line")
+    equal(cdCard(ns, "Transmute: Legionite, Air to Fire", "Purr Gola").details, nil, "the other card stays closed")
+    arcanite.click()
+    -- a change to one transmute that leaves the longest as it is redraws the window all the same
+    Mock.cooldownAlone(AIR_TO_FIRE, 3600, 3600)
+    Mock.advance(2)
+    check(has(Mock.rows(), "Transmute: Air to Fire  1h"), table.concat(Mock.rows(), "\n"))
+    Mock.cooldownAlone(AIR_TO_FIRE, 0, 0)
+    Mock.advance(2)
+    check(has(Mock.rows(), "Transmute: Legionite, Air to Fire  Ready"), table.concat(Mock.rows(), "\n"))
+
+    -- three hours on a Legionite Bar is made too: three times, three cards, the soonest first
+    Mock.advance(3 * 3600)
+    Mock.cooldownAlone(LEGIONITE, TWO_DAYS, TWO_DAYS)
+    Mock.advance(2)
+    equal(names(), "Transmute: Air to Fire [Ready]; Transmute: Iron to Gold [Ready]; Transmute: Arcanite [1d 20h]; Transmute: Legionite [1d 23h]")
+    equal((strip(ns)), "Cooldowns: 2 ready - next Transmute: Arcanite (Purr Gola) 1d 20h")
+    Mock.printed = {}
+    Mock.slash("cd")
+    local report = Mock.plain(table.concat(Mock.printed, "\n"))
+    check(report:find("Transmute: Arcanite - Purr Gola: in 1d 20h", 1, true) and report:find("Transmute: Legionite - Purr Gola: in 1d 23h", 1, true), report)
+    check(report:find("Transmute: Air to Fire - Purr Gola: ready", 1, true), report)
+    equal(ns.Cooldowns:ReadyWords(), "Ready: Transmute: Air to Fire (Purr Gola)", "the login line names the one that is ready")
+    -- the search finds a part by its own name; a right-click hides the transmutes of that character as one
+    ns.Window.query = "legionite"
+    equal(names(), "Transmute: Legionite [1d 23h]")
+    ns.Window.query = ""
+    cdCard(ns, "Transmute: Legionite", "Purr Gola").hide()
+    equal(names(), "Transmute: Iron to Gold [Ready]", "hidden together")
+    ns.db.chars[ns.characterKey].cooldownsHidden = nil
+
+    -- the game answering as one again (an essence transmute puts all three on 23 hours): one card
+    Mock.advance(TWO_DAYS)
+    equal(names(), "Transmute [Ready]; Transmute: Iron to Gold [Ready]", "all over: one Transmute card again")
+    Mock.cooldown(AIR_TO_FIRE, 82800, 82800)
+    Mock.advance(2)
+    equal(names(), "Transmute: Iron to Gold [Ready]; Transmute [23h]")
+    equal(ns.Cooldowns:Describe().raw.transmute.disagree, false)
+    equal(Mock.plain(cdCard(ns, "Transmute", "Purr Gola").desc), "Alchemy - one cooldown for all 12 of them, up to 1d 23h")
+
+    -- a part that is ready is named at login by its own length: a ten-minute transmute is not worth a line
+    local short = start(nil, function(state)
+        state.skills[ALCHEMY] = { level = 300, max = 300 }
+        state.learned[ARCANITE], state.learned[25146] = true, true
+    end)
+    Mock.advance(10)
+    Mock.cooldownAlone(ARCANITE, TWO_DAYS, TWO_DAYS)
+    Mock.advance(2)
+    equal(short.Cooldowns:ReadyWords(), nil, "Elemental Fire alone is ready: nothing to say")
+
+    -- what an earlier build saved (no time per transmute) is one card until it is read again
+    local now = time()
+    local old = start({ db = { schema = 2, chars = {
+        ["Purr Wait - ClassicBetaPvE"] = { learned = { [ARCANITE] = 1, [LEGIONITE] = 1 }, skills = {}, profs = { alchemy = true }, side = "A", options = {},
+            cooldowns = { transmute = { ready = now + 5 * 3600, at = now - 500 } } },
+    } } })
+    Mock.advance(10)
+    cooldownTab(old)
+    check(cdCard(old, "Transmute", "Purr Wait"), "one card")
+    equal(#Mock.errors, 0)
+end)
+
+scenario("the search box has an X that empties it (the user, 2026-11-18: \"can we also add an X to cancel/clear search on training/recipes\") - shown only while something is searched for; a click lists everything again", function()
+    local ns = start()
+    ns.Window:Show()
+    local clear, search = ns.Window.widgets.clear, ns.Window.widgets.search
+    check(clear and not clear:IsShown(), "nothing typed: no X")
+    local all = #Mock.cards()
+    check(all > 1, "cards to search")
+    search:SetText("zzz")
+    equal(#Mock.cards(), 0)
+    check(clear:IsShown(), "typed: the X is there")
+    clear:Click()
+    equal(search:GetText(), "", "the box is empty")
+    equal(ns.Window.query, "")
+    equal(#Mock.cards(), all, "everything is listed again")
+    check(not clear:IsShown(), "and the X is gone")
+    check(not ns.Window.widgets.note:IsShown(), "no 'Nothing matches'")
+    check(ns.Window.window:IsShown(), "the window stays open")
+    -- a click with nothing typed changes nothing
+    clear:Click()
+    equal(#Mock.cards(), all)
+    -- typing, emptying by hand: the X follows
+    search:SetText("stew")
+    check(clear:IsShown())
+    search:SetText("")
+    check(not clear:IsShown())
+    equal(#Mock.errors, 0)
+end)
+
+scenario("cooldowns: the window follows - a cooldown read while the tab is open redraws it; the report for '/akr diag' holds what the client said", function()
+    local ns, state = start(nil, alchemist)
+    Mock.advance(10)
+    cooldownTab(ns)
+    equal(cdCard(ns, "Transmute", "Purr Gola").skill, "Ready")
+    Mock.cooldown(ARCANITE, 82800, 82800)
+    Mock.advance(2)
+    check(has(Mock.rows(), "Transmute  23h"), table.concat(Mock.rows(), "\n"))
+    local report = ns.Cooldowns:Describe()
+    check(report.reads >= 2 and report.notice == true)
+    equal(report.raw.transmute.answers[1].id, ARCANITE)
+    equal(report.raw.transmute.answers[1].duration, 82800)
+    equal(report.raw.transmute.disagree, false, "every transmute answered the same, as the client's tables have it")
+    check(report.saved.transmute.ready > time())
+    -- the other tabs are what they were
+    ns.Window:SetProfession("alchemy")
+    equal(ns.Window.totals.prof, "alchemy")
+    check(Mock.info():find("Alchemy recipes known", 1, true), Mock.info())
+    equal(#Mock.errors, 0)
+end)
+
+scenario("a recipe only some trainers teach names them: Red Mageweave Bag is the Master Tailors' and Meilosh's, not a city trainer's", function()
+    local RED_BAG, MAGEWEAVE_BAG = 12079, 12065
+    local function tailor(faction)
+        local ns = start({ faction = faction }, function(state)
+            state.skill = { level = 0, max = 0 }
+            state.skills[TAILORING] = { level = 300, max = 300 }
+        end)
+        Mock.slash("show all")
+        ns.Window.widgets.tabs.tailoring:Click()
+        return ns
+    end
+    local function open(ns, name)
+        ns.Window.open = {}
+        cardNamed(ns, name).click()
+        return cardNamed(ns, name), Mock.rows()
+    end
+
+    -- the Horde's Master Tailor, then Meilosh, who teaches both sides
+    local ns = tailor("Horde")
+    local bag, rows = open(ns, "Red Mageweave Bag")
+    equal(Mock.plain(bag.right), "Trainer: Daryl Stack, Hillsbrad Foothills, 65s  (+1 more)")
+    equal(Mock.plain(bag.tags), "Trainer")
+    check(has(rows, "Not every Tailoring trainer teaches it - only these: | 65s"), table.concat(rows, "\n", 1, 10))
+    check(has(rows, "Trainer: Daryl Stack, Hillsbrad Foothills | Master Tailor"))
+    check(has(rows, "Trainer: Meilosh, Felwood | Timbermaw Hold"))
+    check(not has(rows, "Timothy Worthington"), "the Alliance's Master Tailor is no use to the Horde")
+    check(not has(rows, "Any Tailoring trainer teaches it."), "the card still says any trainer")
+    equal(ns.Lookup.Summary(ns.Lookup.BySpell(RED_BAG), "H"), "trainer: Hillsbrad Foothills")
+    -- a trainer's own window still gives the price
+    Mock.trainer({ { name = "Red Mageweave Bag", cost = 6000 } })
+    bag, rows = open(ns, "Red Mageweave Bag")
+    equal(Mock.plain(bag.right), "Trainer: Daryl Stack, Hillsbrad Foothills, 60s  (+1 more)")
+    check(has(rows, "Not every Tailoring trainer teaches it - only these: | 60s (seen at a trainer)"))
+    -- the bag below it is everybody's
+    bag, rows = open(ns, "Mageweave Bag")
+    equal(Mock.plain(bag.right), "Any Tailoring trainer, 50s")
+    check(has(rows, "Any Tailoring trainer teaches it. | 50s"))
+    equal(ns.Lookup.Summary(ns.Lookup.BySpell(MAGEWEAVE_BAG), "H"), "trainer")
+    -- the search finds it by a teacher's name, zone and title
+    for _, words in ipairs({ "meilosh", "felwood", "master tailor", "daryl" }) do
+        ns.Window.widgets.search:SetText(words)
+        check(pcall(cardNamed, ns, "Red Mageweave Bag"), "searching " .. words .. " does not find the bag")
+        check(not pcall(cardNamed, ns, "Linen Bag"), "searching " .. words .. " lists a recipe any trainer teaches")
+    end
+    ns.Window.widgets.search:SetText("timothy")
+    check(not pcall(cardNamed, ns, "Red Mageweave Bag"), "the other side's trainer found it")
+    ns.Window.widgets.search:SetText("")
+    -- chat names them too
+    Mock.printed = {}
+    Mock.slash("find red mageweave bag")
+    check(printed("only Daryl Stack, Hillsbrad Foothills or Meilosh, Felwood"), table.concat(Mock.printed, "\n"))
+
+    -- the Alliance's
+    ns = tailor("Alliance")
+    bag, rows = open(ns, "Red Mageweave Bag")
+    equal(Mock.plain(bag.right), "Trainer: Timothy Worthington, Dustwallow Marsh, 65s  (+1 more)")
+    check(has(rows, "Trainer: Timothy Worthington, Dustwallow Marsh | Master Tailor"))
+    check(has(rows, "Trainer: Meilosh, Felwood | Timbermaw Hold"))
+    check(not has(rows, "Daryl Stack"))
+
+    -- the table: the recipes a city's Artisan trainer lacks, each with somebody for either side
+    local named, byProfession = {}, {}
+    for _, key in ipairs(KEYS) do
+        for _, recipe in ipairs(ns.Lookup.Recipes(key)) do
+            if recipe.teachers then
+                byProfession[key] = byProfession[key] or {}
+                table.insert(byProfession[key], recipe.name)
+                if key == "tailoring" then named[#named + 1] = recipe.name end
+                check(recipe.trainer, recipe.name .. ": teachers without a trainer")
+                for _, side in ipairs({ "A", "H" }) do
+                    check(#ns.Lookup.Sources(recipe, side).teachers > 0, recipe.name .. ": nobody teaches the " .. side .. " side")
+                end
+                for _, teacher in ipairs(recipe.teachers) do
+                    check(type(teacher.npc) == "string" and type(teacher.zone) == "string", recipe.name .. ": a teacher without a name or zone")
+                end
+            end
+        end
+    end
+    table.sort(named)
+    equal(table.concat(named, ", "), "Black Mageweave Boots, Black Mageweave Headband, Black Mageweave Shoulders, Bolt of Runecloth, "
+        .. "Cindercloth Boots, Dreamweave Circlet, Red Mageweave Bag, Runecloth Belt, Simple Black Dress")
+    equal(ns.Lookup.Sources(ns.Lookup.BySpell(MAGEWEAVE_BAG), "A").teachers, nil)
+    -- Alchemy's, Blacksmithing's, Leatherworking's and Engineering's Master trainers have theirs; the professions not read yet have none
+    table.sort(byProfession.alchemy); table.sort(byProfession.blacksmithing)
+    equal(table.concat(byProfession.alchemy, ", "), "Arcane Elixir, Draught of Detect Demon, Draught of Detect Undead, Dreamless Sleep Potion, "
+        .. "Elixir of Greater Agility, Elixir of Greater Intellect, Stonescale Oil")
+    equal(table.concat(byProfession.blacksmithing, ", "), "Arcanite Rod, Arcanite Skeleton Key, Big Black Mace, Dense Grinding Stone, "
+        .. "Dense Sharpening Stone, Dense Weightstone, Heavy Mithril Boots, Heavy Mithril Breastplate, Mithril Coif")
+    table.sort(byProfession.leatherworking)
+    equal(table.concat(byProfession.leatherworking, ", "), "Cured Rugged Hide, Nightscape Boots, Nightscape Pants, Rugged Armor Kit, Rugged Leather, "
+        .. "Turtle Scale Helm, Turtle Scale Leggings")
+    table.sort(byProfession.engineering)
+    equal(table.concat(byProfession.engineering, ", "), "Dense Blasting Powder, Dense Dynamite, Green Lens, Hi-Explosive Bomb, Mithril Gyro-Shot, "
+        .. "Rose Colored Goggles, Salt Shaker")
+    -- Enchanting has three tiers: ten enchants are the Master's alone, 24 more the Artisan Enchanters' as well
+    equal(#byProfession.enchanting, 34)
+    equal(ns.Lookup.Sources(ns.Lookup.BySpell(13626), "A").teachers, nil, "Enchant Chest - Minor Stats is a city trainer's too")
+    -- Mining and Cooking: a city's trainer has everything; First Aid's top bandages are the Triage doctors', as in Classic
+    for _, key in ipairs({ "cooking", "mining" }) do
+        equal(byProfession[key], nil, key .. ": every trainer teaches everything")
+    end
+    table.sort(byProfession.firstaid)
+    equal(table.concat(byProfession.firstaid, ", "), "Heavy Mageweave Bandage, Heavy Runecloth Bandage, Runecloth Bandage")
+    check(ns.Lookup.BySpell(18630).classic, "the doctors are Classic's: the card has to say so")
+    check(not ns.Lookup.BySpell(12079).classic, "the Master Tailors were read for Forever")
+    -- what a trainer's list was read to hold is no guess; what none holds still is
+    for spell, guess in pairs({ [1230643] = false, [1230117] = false, [1249637] = false, [1244645] = true, [1247741] = true }) do
+        equal(ns.Lookup.BySpell(spell).unsure == true, guess, "spell " .. spell)
+    end
+    local function names(spell, side)
+        local list = {}
+        for _, teacher in ipairs(ns.Lookup.Sources(ns.Lookup.BySpell(spell), side).teachers) do
+            list[#list + 1] = teacher.npc .. " (" .. teacher.zone .. ", " .. (teacher.title or teacher.faction) .. ")"
+        end
+        return table.concat(list, "; ")
+    end
+    local STONESCALE_OIL, ARCANITE_ROD, RUGGED_LEATHER = 17551, 20201, 22331
+    equal(names(18630, "H"), "Doctor Gregory Victor (Arathi Highlands, Trauma Surgeon)")
+    equal(names(18630, "A"), "Doctor Gustaf VanHowzen (Dustwallow Marsh, Trauma Surgeon)")
+    equal(names(17181, "A"), "Annora (Uldaman, Master Enchanter)") -- Enchanted Leather
+    equal(names(17181, "H"), names(17181, "A"))
+    equal(names(13693, "A"), "Kitta Firewind (Elwynn Forest, Artisan Enchanter); Annora (Uldaman, Master Enchanter)") -- Enchant Weapon - Striking
+    equal(names(13693, "H"), "Hgarth (Stonetalon Mountains, Artisan Enchanter); Annora (Uldaman, Master Enchanter)")
+    equal(names(19567, "A"), "Buzzek Bracketswing (Tanaris, Master Engineer); Kaylaena Springwhisper (Mount Hyjal, Cenarion Circle)") -- Salt Shaker
+    equal(names(19567, "H"), names(19567, "A"), "both of Engineering's teach either side")
+    equal(names(RUGGED_LEATHER, "H"), "Hahrana Ironhide (Feralas, Master Leatherworker)")
+    equal(names(RUGGED_LEATHER, "A"), "Drakk Stonehand (The Hinterlands, Master Leatherworking Trainer)")
+    equal(names(STONESCALE_OIL, "H"), "Rogvar (Swamp of Sorrows, Master Alchemist); Master Mycologist Shurome (Felwood, Emerald Circle)")
+    equal(names(STONESCALE_OIL, "A"), "Kylanna Windwhisper (Feralas, Master Alchemist); Master Mycologist Shurome (Felwood, Emerald Circle)")
+    equal(names(ARCANITE_ROD, "H"), "Brikk Keencraft (Stranglethorn Vale, Master Blacksmith)")
+    equal(names(ARCANITE_ROD, "A"), names(ARCANITE_ROD, "H"), "Booty Bay's smith teaches both sides")
+    -- one trainer alone: named, with nothing "more" behind him
+    local smith = start({ faction = "Horde" }, function(state)
+        state.skill = { level = 0, max = 0 }
+        state.skills[BLACKSMITHING] = { level = 300, max = 300 }
+    end)
+    Mock.slash("show all")
+    smith.Window.widgets.tabs.blacksmithing:Click()
+    local rod, rodRows = open(smith, "Arcanite Rod")
+    equal(Mock.plain(rod.right), "Trainer: Brikk Keencraft, Stranglethorn Vale, 1g")
+    check(has(rodRows, "Not every Blacksmithing trainer teaches it - only these: | 1g"))
+    check(has(rodRows, "Trainer: Brikk Keencraft, Stranglethorn Vale | Master Blacksmith"))
+    ns = smith
+    -- Meilosh teaches the rank Artisan as well
+    local artisan = {}
+    for _, trainer in ipairs(ns.Lookup.Training("tailoring").ranks[4].trainers) do
+        artisan[#artisan + 1] = trainer.npc .. "/" .. trainer.zone .. "/" .. (trainer.side or "-")
+    end
+    equal(table.concat(artisan, " "), "Daryl Stack/Hillsbrad Foothills/H Timothy Worthington/Dustwallow Marsh/A Meilosh/Felwood/-")
     equal(#Mock.errors, 0)
 end)
 

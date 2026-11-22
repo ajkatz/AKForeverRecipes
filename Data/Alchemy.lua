@@ -138,7 +138,7 @@ R({
     learn = 20, yellow = 20, green = 20, grey = 20, new = true,
     stats = { "Constructs a mana well that allows you and others sitting nearby to regenerate 29 Mana every 5 sec, mutually exclusive with Blessing of Wisdom. Requires a Campfire nearby. All camping features share a cooldown of 1 hr." },
     reagents = { { 2447, 1 }, { 3371, 1 } },
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 1250788, item = 250339, name = "Minor Mageblood Elixir", icon = "trade_alchemy_dpotion_a12",
@@ -221,7 +221,7 @@ R({
     spell = 1249630, item = 249409, name = "Cerulean Dye", icon = "inv_inscription_inkcerulean01",
     learn = 50, yellow = 50, green = 70, grey = 90, new = true,
     reagents = { { 249399, 2 }, { 3371, 1 } },
-    trainer = true, unsure = true, cost = 157,
+    trainer = true, cost = 157,
 })
 R({
     spell = 3230, item = 2457, name = "Elixir of Minor Agility", icon = "inv_potion_91",
@@ -265,7 +265,7 @@ R({
     spell = 1249633, item = 249410, name = "Sulfuric Acid", icon = "trade_alchemy",
     learn = 50, yellow = 50, green = 70, grey = 90, new = true,
     reagents = { { 249391, 2 }, { 3371, 1 } },
-    trainer = true, unsure = true, cost = 157,
+    trainer = true, cost = 157,
 })
 R({
     spell = 6617, item = 5631, name = "Rage Potion", icon = "inv_potion_24",
@@ -525,7 +525,7 @@ R({
     spell = 1249631, item = 249430, name = "Magenta Dye", icon = "inv_inscription_inkpurple02",
     learn = 130, yellow = 130, green = 142, grey = 155, new = true,
     reagents = { { 249424, 2 }, { 3372, 1 } },
-    trainer = true, unsure = true, cost = 1578,
+    trainer = true, cost = 1578,
 })
 R({
     spell = 1251743, item = 250946, name = "Mender's Potion", icon = "inv_potiond_6",
@@ -1067,6 +1067,11 @@ R({
     stats = { "Shows the location of all nearby undead on the minimap for 1 hr." },
     reagents = { { 8836, 1 }, { 8925, 1 } },
     trainer = true, cost = 5000,
+    teachers = {
+        { npc = "Rogvar", zone = "Swamp of Sorrows", side = "H", title = "Master Alchemist" },
+        { npc = "Kylanna Windwhisper", zone = "Feralas", side = "A", title = "Master Alchemist" },
+        { npc = "Master Mycologist Shurome", zone = "Felwood", faction = "Emerald Circle" },
+    },
 })
 R({
     spell = 15833, item = 12190, name = "Dreamless Sleep Potion", icon = "inv_potion_83",
@@ -1074,6 +1079,11 @@ R({
     stats = { "Puts the imbiber in a dreamless sleep for 12 sec. During that time the imbiber heals 1200 health and 1200 mana." },
     reagents = { { 8831, 3 }, { 8925, 1 } },
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Rogvar", zone = "Swamp of Sorrows", side = "H", title = "Master Alchemist" },
+        { npc = "Kylanna Windwhisper", zone = "Feralas", side = "A", title = "Master Alchemist" },
+        { npc = "Master Mycologist Shurome", zone = "Felwood", faction = "Emerald Circle" },
+    },
 })
 R({
     spell = 1244648, item = 247242, name = "Superior Discolored Healing Potion", icon = "inv_potion_39",
@@ -1098,7 +1108,7 @@ R({
     learn = 230, yellow = 230, green = 250, grey = 270, new = true,
     reagents = { { 249274, 2 }, { 8925, 1 } },
     station = 279970,
-    trainer = true, unsure = true, cost = 10000,
+    trainer = true, cost = 10000,
 })
 R({
     spell = 11461, item = 9155, name = "Arcane Elixir", icon = "inv_potion_30",
@@ -1106,6 +1116,11 @@ R({
     stats = { "Increases spell damage by up to 20 for 30 min." },
     reagents = { { 8839, 1 }, { 3821, 1 }, { 8925, 1 } },
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Rogvar", zone = "Swamp of Sorrows", side = "H", title = "Master Alchemist" },
+        { npc = "Kylanna Windwhisper", zone = "Feralas", side = "A", title = "Master Alchemist" },
+        { npc = "Master Mycologist Shurome", zone = "Felwood", faction = "Emerald Circle" },
+    },
 })
 R({
     spell = 11465, item = 9179, name = "Elixir of Greater Intellect", icon = "inv_potion_10",
@@ -1113,6 +1128,11 @@ R({
     stats = { "Increases Intellect by 25 for 1 hr." },
     reagents = { { 8839, 1 }, { 3358, 1 }, { 8925, 1 } },
     trainer = true, cost = 12000,
+    teachers = {
+        { npc = "Rogvar", zone = "Swamp of Sorrows", side = "H", title = "Master Alchemist" },
+        { npc = "Kylanna Windwhisper", zone = "Feralas", side = "A", title = "Master Alchemist" },
+        { npc = "Master Mycologist Shurome", zone = "Felwood", faction = "Emerald Circle" },
+    },
 })
 R({
     spell = 11464, item = 9172, name = "Invisibility Potion", icon = "inv_potion_25",
@@ -1158,6 +1178,11 @@ R({
     stats = { "Increases Agility by 25 for 1 hr." },
     reagents = { { 8838, 1 }, { 3821, 1 }, { 8925, 1 } },
     trainer = true, cost = 12000,
+    teachers = {
+        { npc = "Rogvar", zone = "Swamp of Sorrows", side = "H", title = "Master Alchemist" },
+        { npc = "Kylanna Windwhisper", zone = "Feralas", side = "A", title = "Master Alchemist" },
+        { npc = "Master Mycologist Shurome", zone = "Felwood", faction = "Emerald Circle" },
+    },
 })
 R({
     spell = 11466, item = 9088, name = "Gift of Arthas", icon = "inv_potion_28",
@@ -1236,6 +1261,11 @@ R({
     stats = { "Shows the location of all nearby demons on the minimap for 1 hr." },
     reagents = { { 8846, 2 }, { 8925, 1 } },
     trainer = true, cost = 14000,
+    teachers = {
+        { npc = "Rogvar", zone = "Swamp of Sorrows", side = "H", title = "Master Alchemist" },
+        { npc = "Kylanna Windwhisper", zone = "Feralas", side = "A", title = "Master Alchemist" },
+        { npc = "Master Mycologist Shurome", zone = "Felwood", faction = "Emerald Circle" },
+    },
 })
 R({
     spell = 26277, item = 21546, name = "Elixir of Holy Power", icon = "inv_potion_62",
@@ -1305,6 +1335,11 @@ R({
     reagents = { { 13422, 1 }, { 3372, 1 } },
     makes = 2,
     trainer = true, cost = 15000,
+    teachers = {
+        { npc = "Rogvar", zone = "Swamp of Sorrows", side = "H", title = "Master Alchemist" },
+        { npc = "Kylanna Windwhisper", zone = "Feralas", side = "A", title = "Master Alchemist" },
+        { npc = "Master Mycologist Shurome", zone = "Felwood", faction = "Emerald Circle" },
+    },
 })
 R({
     spell = 17552, item = 13442, name = "Mighty Rage Potion", icon = "inv_potion_41",
@@ -1479,7 +1514,7 @@ R({
     spell = 17559, item = 7078, name = "Essence of Fire", icon = "spell_fire_volcano",
     learn = 275, yellow = 275, green = 282, grey = 290,
     reagents = { { 7082, 1 } },
-    recipe = { id = 13482, name = "Recipe: Transmute Air to Fire", bop = true },
+    recipe = { id = 13482, name = "Recipe: Transmute Air to Fire", bop = true, rep = { 529, "Argent Dawn", 5 } },
     vendors = {
         { npc = "Quartermaster Miranda Breechlock", zone = "Eastern Plaguelands" },
         { npc = "Argent Quartermaster Hasana", zone = "Tirisfal Glades" },
@@ -1503,7 +1538,7 @@ R({
     spell = 17561, item = 7080, name = "Essence of Water", icon = "spell_nature_acid_01",
     learn = 275, yellow = 275, green = 282, grey = 290,
     reagents = { { 7076, 1 } },
-    recipe = { id = 13484, name = "Recipe: Transmute Earth to Water", bop = true },
+    recipe = { id = 13484, name = "Recipe: Transmute Earth to Water", bop = true, rep = { 576, "Timbermaw Hold", 4 } },
     vendors = {
         { npc = "Meilosh", zone = "Felwood", limited = true },
     },
@@ -1526,7 +1561,7 @@ R({
     learn = 275, yellow = 290, green = 310, grey = 330, level = 55,
     stats = { "Puts the imbiber in a dreamless sleep for 12 sec. During that time the imbiber heals 2100 health and 2100 mana." },
     reagents = { { 13463, 2 }, { 13464, 1 }, { 8925, 1 } },
-    recipe = { id = 20012, name = "Recipe: Greater Dreamless Sleep", bop = true },
+    recipe = { id = 20012, name = "Recipe: Greater Dreamless Sleep", bop = true, rep = { 270, "Zandalar Tribe", 4 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -1558,7 +1593,7 @@ R({
     learn = 275, yellow = 290, green = 310, grey = 330, level = 40,
     stats = { "Regenerate 12 mana per 5 sec for 1 hr." },
     reagents = { { 13463, 1 }, { 13466, 2 }, { 8925, 1 } },
-    recipe = { id = 20011, name = "Recipe: Mageblood Elixir", bop = true },
+    recipe = { id = 20011, name = "Recipe: Mageblood Elixir", bop = true, rep = { 270, "Zandalar Tribe", 6 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -1689,7 +1724,7 @@ R({
     learn = 285, yellow = 300, green = 320, grey = 340, level = 47,
     stats = { "Makes you immune to Stun and Movement Impairing effects for the next 5 sec. Also removes existing Stun and Movement Impairing effects." },
     reagents = { { 13467, 2 }, { 13465, 2 }, { 10286, 2 }, { 8925, 1 } },
-    recipe = { id = 20013, name = "Recipe: Living Action Potion", bop = true },
+    recipe = { id = 20013, name = "Recipe: Living Action Potion", bop = true, rep = { 270, "Zandalar Tribe", 7 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -1805,7 +1840,7 @@ R({
     learn = 290, yellow = 305, green = 325, grey = 345, level = 53,
     stats = { "Regenerate 20 health every 5 sec for 1 hr." },
     reagents = { { 8846, 1 }, { 13466, 2 }, { 8925, 1 } },
-    recipe = { id = 20014, name = "Recipe: Major Troll's Blood Elixir", bop = true },
+    recipe = { id = 20014, name = "Recipe: Major Troll's Blood Elixir", bop = true, rep = { 270, "Zandalar Tribe", 5 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -1838,7 +1873,7 @@ R({
     learn = 300, yellow = 301, green = 305, grey = 310,
     reagents = { { 7077, 1 } },
     makes = 3,
-    recipe = { id = 20761, name = "Recipe: Transmute Elemental Fire", bop = true },
+    recipe = { id = 20761, name = "Recipe: Transmute Elemental Fire", bop = true, rep = { 59, "Thorium Brotherhood", 4 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },

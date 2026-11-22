@@ -11,8 +11,11 @@
 --   learn / yellow / green / grey   the skill it is learned at and where its colour turns
 --   recipe  the recipe ITEM that teaches it ({ id, name, bop }) - none: it is taught, not read;
 --           bop: the item binds when picked up (Wowhead's Forever tooltips), else it can be traded
---   trainer any trainer of the profession teaches it (unsure: a guess - Forever added it and no recipe
---           item exists)                      byQuest  a quest teaches it (which one is not written down)
+--   trainer any trainer of the profession teaches it (unsure: a guess - Forever added it, no recipe
+--           item exists and no trainer's list read has it)                      byQuest  a quest teaches it (which one is not written down)
+--   teachers  { npc, zone, side = "A" | "H" | nil, title, faction }: not every trainer teaches it - these do
+--           (tools/trainer_teachers.json: the Master trainers of six professions, and First Aid's
+--           Triage doctors as in Classic)
 --   cost    what the trainer asks for it, in copper (Wowhead's Forever spell lists, tools/trainer_costs.json);
 --           a price read in a trainer's own window wins (db.trainerCosts)
 --   taught  { npc, zone }: one NPC teaches it

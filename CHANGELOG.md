@@ -1,5 +1,74 @@
 # Changelog
 
+## Unreleased
+
+- **Recipes that need a reputation say so.** 175 recipe items ask for a standing before they can be bought
+  or learned (Timbermaw Hold, Thorium Brotherhood, Argent Dawn, Cenarion Circle, Zandalar Tribe, Hydraxian
+  Waterlords, and Forever's Nightclaw Druids, Earthen Ring and Kirin Tor). The card carries the standing as a
+  tag and on its source line, and a faction's vendor goes by the faction's name there in place of "Vendor":
+  the tags read "Cenarion Circle  Revered", the line "Cenarion Circle: Mishta, Silithus - needs Revered".
+  The opened card says "Requires Cenarion Circle - Revered", and the search finds them by `rep`, the
+  faction or the standing (and still by `vendor`).
+  Read from the game client's own item table.
+- **... and hold it against each character's own standing.** The standing with those nine factions is read
+  at login and whenever it moves, and kept per character. The tag is green when the character has the
+  standing and orange when not; a recipe whose skill is there but whose standing is not loses its gold rim.
+  A character that lacks the standing is told how much reputation is still to earn, over every standing
+  between: on the card's line ("Cenarion Circle: Mishta, Silithus - 8,800 rep to Revered"), in the
+  opened card ("8,800 reputation to go", or "you have not met them yet") and on the recipe item's tooltip,
+  which no longer says "can learn it" for such a character: "needs Cenarion Circle Revered (8,800 to go)".
+  A character not logged in since reads as before, and its card says so.
+- **Cooldowns: transmutes, Mooncloth and the Salt Shaker for all your characters, in a row of their own.**
+  Under the profession tabs a row says how many are ready and which is due next ("Cooldowns: 1 ready -
+  next Transmute (Purr Gola) 5h"); a click opens them all as cards, a second click goes back. The cards list
+  every character's Transmute cooldown (shared by all transmutes), Transmute: Iron to Gold and Mithril to
+  Truesilver, Mooncloth and Refined Deeprock Salt (for whoever owns a Salt Shaker): "Ready" or "Ready in
+  14h 20m", ready ones first. A cooldown is read on the character that has it and kept as the moment it is
+  over, so the others count down without being logged in; a character that has not logged in since reads
+  "Not read yet". The lengths are the game client's own (23 hours, 47 for Arcanite and Legionite, 3 days 23
+  hours for Mooncloth, 2 days 23 hours for the salt).
+- **Transmutes with separate cooldowns are shown separately.** Each transmute is asked for by itself: while
+  they answer the same they are one Transmute card, and where the game keeps them apart (Arcanite on
+  cooldown, Legionite ready) each gets its own card and its own time.
+- **A line at login when a long cooldown is ready** on any of your characters: "Ready: Transmute (Purr
+  Gola), Mooncloth (Purr Smith)". `/akr cd notice off` silences it; `/akr cd` prints every cooldown.
+- A right-click hides a cooldown of a character you do not use; the Hidden list brings it back.
+- **An X in the search box** empties it and lists everything again.
+- **Recipes only a Master trainer teaches now say so.** 76 recipes read "Any ... trainer", and a city's
+  trainer does not have them. The card now names who does, for your side, and a search for the trainer or
+  the zone ("felwood", "master tailor") finds them.
+  - Tailoring - Red Mageweave Bag, Simple Black Dress, Black Mageweave Headband, Boots and Shoulders,
+    Cindercloth Boots, Dreamweave Circlet, Bolt of Runecloth, Runecloth Belt: Daryl Stack in Hillsbrad
+    Foothills (Horde), Timothy Worthington in Dustwallow Marsh (Alliance), Meilosh in Felwood (both).
+  - Alchemy - Arcane Elixir, Elixir of Greater Intellect, Elixir of Greater Agility, Dreamless Sleep
+    Potion, Stonescale Oil, Draught of Detect Undead, Draught of Detect Demon: Rogvar in Swamp of Sorrows
+    (Horde), Kylanna Windwhisper in Feralas (Alliance), Master Mycologist Shurome in Felwood (both).
+  - Blacksmithing - Heavy Mithril Breastplate, Mithril Coif, Heavy Mithril Boots, Big Black Mace, Dense
+    Grinding Stone, Dense Weightstone, Dense Sharpening Stone, Arcanite Skeleton Key, Arcanite Rod: Brikk
+    Keencraft in Booty Bay.
+  - Leatherworking - Nightscape Pants, Nightscape Boots, Turtle Scale Helm, Turtle Scale Leggings, Cured
+    Rugged Hide, Rugged Armor Kit, Rugged Leather: Hahrana Ironhide in Feralas (Horde), Drakk Stonehand in
+    The Hinterlands (Alliance).
+  - Engineering - Rose Colored Goggles, Green Lens, Hi-Explosive Bomb, Mithril Gyro-Shot, Salt Shaker,
+    Dense Blasting Powder, Dense Dynamite: Buzzek Bracketswing in Tanaris and Kaylaena Springwhisper in
+    Mount Hyjal (both sides).
+  - Enchanting - ten enchants are Annora's alone (Uldaman): Enchanted Leather, Enchanted Thorium Bar,
+    Enchant Gloves - Minor Haste, Weapon - Greater Striking, Chest - Stats, Bracer - Greater Strength, 2H
+    Weapon - Greater Impact, Boots - Agility, Chest - Superior Intellect, Shield - Greater Spirit. 24 more,
+    from Enchant Shield - Lesser Stamina (skill 155) up, are not a city trainer's either: Hgarth in
+    Stonetalon Mountains (Horde), Kitta Firewind in Elwynn Forest (Alliance) and Annora teach them.
+  - First Aid - Heavy Mageweave, Runecloth and Heavy Runecloth Bandage: a city's trainer does not have
+    them and Wowhead names nobody for Forever; the card names the Triage doctors, as in Classic (Doctor
+    Gregory Victor in Arathi Highlands, Doctor Gustaf VanHowzen in Dustwallow Marsh), and says it is not
+    confirmed for Forever.
+  - Mining and Cooking: a city's trainer teaches everything a trainer teaches.
+- **21 new recipes no longer say "Probably any trainer".** A trainer's list was read with each of them in
+  it (First Aid Kit, the First Aid healing potions, Lodestone, Azerothium Bar, Heavy Thorium Bar, Mana
+  Well, the dyes, Sandpaper, Camp Tent, Enchanted Lute, the Faction Banners and more): "Any ... trainer".
+  Still a guess: Alchemy's four Discolored Healing Potions and Cooking's Spinefin Halibut - no trainer
+  read teaches them.
+- **Meilosh in Felwood teaches Tailoring**, the rank Artisan included: the training card lists him.
+
 ## 0.4.1 - 2026-11-16
 
 - **Fixed: a rank you had learned was still shown as the next one.** After Dirge's quest the training card

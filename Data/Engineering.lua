@@ -204,7 +204,7 @@ R({
     learn = 20, yellow = 20, green = 20, grey = 20, new = true,
     stats = { "Summons a Reagent Bot that allows you and others nearby to purchase reagents. Requires a Campfire nearby. All camping features share a cooldown of 1 hr." },
     reagents = { { 4359, 1 }, { 4361, 1 } },
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 1266905, item = 260792, name = "SAF-T Dynamite", icon = "inv_misc_bomb_06",
@@ -648,7 +648,7 @@ R({
     spell = 1249634, item = 249432, name = "Sandpaper", icon = "inv_inscription_papyrus",
     learn = 130, yellow = 130, green = 142, grey = 155, new = true,
     reagents = { { 249425, 2 }, { 2996, 1 } },
-    trainer = true, unsure = true, cost = 500,
+    trainer = true, cost = 500,
 })
 R({
     spell = 3949, item = 4379, name = "Silver-plated Shotgun", icon = "inv_weapon_rifle_07",
@@ -1732,6 +1732,10 @@ R({
     stats = { "+13 Spirit", "+12 Intellect" },
     reagents = { { 4304, 6 }, { 7910, 2 } },
     trainer = true, cost = 2200,
+    teachers = {
+        { npc = "Buzzek Bracketswing", zone = "Tanaris", title = "Master Engineer" },
+        { npc = "Kaylaena Springwhisper", zone = "Mount Hyjal", faction = "Cenarion Circle" },
+    },
 })
 R({
     spell = 1317960, item = 285277, name = "Satchel of Iron Bombs", icon = "inv_misc_bag_10_black",
@@ -1762,6 +1766,10 @@ R({
     reagents = { { 10561, 2 }, { 10560, 1 }, { 10505, 2 } },
     makes = 4,
     trainer = true, cost = 2400,
+    teachers = {
+        { npc = "Buzzek Bracketswing", zone = "Tanaris", title = "Master Engineer" },
+        { npc = "Kaylaena Springwhisper", zone = "Mount Hyjal", faction = "Cenarion Circle" },
+    },
 })
 R({
     spell = 12754, item = 10586, name = "The Big One", icon = "inv_misc_bomb_04",
@@ -1839,6 +1847,10 @@ R({
     stats = { "+10 Stamina" },
     reagents = { { 4304, 8 }, { 1529, 3 }, { 7909, 3 }, { 10286, 2 }, { 8153, 2 } },
     trainer = true, cost = 2800,
+    teachers = {
+        { npc = "Buzzek Bracketswing", zone = "Tanaris", title = "Master Engineer" },
+        { npc = "Kaylaena Springwhisper", zone = "Mount Hyjal", faction = "Cenarion Circle" },
+    },
 })
 R({
     spell = 12621, item = 10513, name = "Mithril Gyro-Shot", icon = "inv_ammo_bullet_01",
@@ -1847,12 +1859,20 @@ R({
     reagents = { { 3860, 2 }, { 10505, 2 } },
     makes = 200,
     trainer = true, cost = 2800,
+    teachers = {
+        { npc = "Buzzek Bracketswing", zone = "Tanaris", title = "Master Engineer" },
+        { npc = "Kaylaena Springwhisper", zone = "Mount Hyjal", faction = "Cenarion Circle" },
+    },
 })
 R({
     spell = 19788, item = 15992, name = "Dense Blasting Powder", icon = "inv_misc_ammo_gunpowder_01",
     learn = 250, yellow = 250, green = 255, grey = 260,
     reagents = { { 12365, 2 } },
     trainer = true, cost = 4000,
+    teachers = {
+        { npc = "Buzzek Bracketswing", zone = "Tanaris", title = "Master Engineer" },
+        { npc = "Kaylaena Springwhisper", zone = "Mount Hyjal", faction = "Cenarion Circle" },
+    },
 })
 R({
     spell = 23070, item = 18641, name = "Dense Dynamite", icon = "inv_misc_bomb_06",
@@ -1861,6 +1881,10 @@ R({
     reagents = { { 15992, 2 }, { 14047, 3 } },
     makes = 2,
     trainer = true, cost = 5000,
+    teachers = {
+        { npc = "Buzzek Bracketswing", zone = "Tanaris", title = "Master Engineer" },
+        { npc = "Kaylaena Springwhisper", zone = "Mount Hyjal", faction = "Cenarion Circle" },
+    },
 })
 R({
     spell = 1266924, item = 260811, name = "Gnomish Army Knife", icon = "inv_misc_enggizmos_swissarmy",
@@ -1904,6 +1928,10 @@ R({
     stats = { "Allows an experienced leatherworker to turn Deeprock Salt into Refined Deeprock Salt. Use of the device exposes the user to sub-core micro radiation and should not be used more than once every few days." },
     reagents = { { 10561, 1 }, { 12359, 6 }, { 10558, 1 }, { 10560, 4 } },
     trainer = true, cost = 4000,
+    teachers = {
+        { npc = "Buzzek Bracketswing", zone = "Tanaris", title = "Master Engineer" },
+        { npc = "Kaylaena Springwhisper", zone = "Mount Hyjal", faction = "Cenarion Circle" },
+    },
 })
 R({
     spell = 23507, item = 19026, name = "Snake Burst Firework", icon = "spell_holy_holybolt",
@@ -2379,7 +2407,7 @@ R({
     kind = "Cloth head, level 60",
     stats = { "+20 Hit Rating", "+14 Critical Strike Rating", "+9 Mana Regeneration" },
     reagents = { { 19726, 4 }, { 19774, 5 }, { 16006, 2 }, { 12804, 8 }, { 12810, 4 } },
-    recipe = { id = 20000, name = "Schematic: Bloodvine Goggles", bop = true },
+    recipe = { id = 20000, name = "Schematic: Bloodvine Goggles", bop = true, rep = { 270, "Zandalar Tribe", 5 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -2391,7 +2419,7 @@ R({
     kind = "Leather head, level 60",
     stats = { "+12 Stamina", "+28 Critical Strike Rating Increases your effective stealth detection level by 2." },
     reagents = { { 19726, 5 }, { 19774, 5 }, { 16006, 1 }, { 12804, 8 }, { 12810, 4 } },
-    recipe = { id = 20001, name = "Schematic: Bloodvine Lens", bop = true },
+    recipe = { id = 20001, name = "Schematic: Bloodvine Lens", bop = true, rep = { 270, "Zandalar Tribe", 4 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },

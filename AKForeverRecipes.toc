@@ -21,11 +21,13 @@ Data\Tailoring.lua
 Data\Cooking.lua
 Data\FirstAid.lua
 Data\Mining.lua
+Data\Cooldowns.lua
 Lookup.lua
 Known.lua
 Guild.lua
 Friends.lua
 Locks.lua
+Cooldowns.lua
 Tooltip.lua
 Window.lua
 Diagnostics.lua

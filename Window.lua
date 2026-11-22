@@ -21,6 +21,9 @@ ns.Window = Window
 local Lookup, Known = ns.Lookup, ns.Known
 
 local WIDTH, HEIGHT, PAD = 640, 560, 12
+-- down from the window's top: where the list of cards starts, and the cooldowns' row that sits between
+-- the tabs and the list when some character has a cooldown
+local LIST_TOP, STRIP_TOP, STRIP_H = 74, 71, 18
 local DEFAULT_POSITION = { point = "CENTER", relativePoint = "CENTER", x = 0, y = 60 }
 local BACKDROP = {
     bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
@@ -35,8 +38,9 @@ local COLOUR = {
 -- The tags at the right of a card's name: what kind of source the recipe has, and how the recipe item
 -- binds. BoP: only the character that buys, loots or is rewarded it can learn it. BoE (the players' word
 -- for "does not bind"): it can be mailed to an alt, traded or bought at the auction house.
+local VENDOR_COLOUR = "|cffe6cc80" -- the Vendor tag's, and the faction's name where it stands for a vendor
 local TAG = {
-    auto = "|cff80d0ffAutomatic|r", trainer = "|cff80d0ffTrainer|r", taught = "|cff80d0ffTaught|r", vendor = "|cffe6cc80Vendor|r",
+    auto = "|cff80d0ffAutomatic|r", trainer = "|cff80d0ffTrainer|r", taught = "|cff80d0ffTaught|r", vendor = VENDOR_COLOUR .. "Vendor|r",
     quest = "|cffffff00Quest|r", drop = "|cffc79cffDrop|r", made = "|cffff9d5cCrafted|r",
     bop = "|cffff6060BoP|r", boe = "|cff40e0d0BoE|r",
     Gnomish = "|cffd0a0ffGnomish|r", Goblin = "|cffd0a0ffGoblin|r",
@@ -44,6 +48,8 @@ local TAG = {
     Armorsmith = "|cffd0a0ffArmorsmith|r", Weaponsmith = "|cffd0a0ffWeaponsmith|r",
     Swordsmith = "|cffd0a0ffSwordsmith|r", Hammersmith = "|cffd0a0ffHammersmith|r", Axesmith = "|cffd0a0ffAxesmith|r",
     Alliance = "|cff4a9effAlliance|r", Horde = "|cffff5040Horde|r", -- only that faction sells or is rewarded it; it does not bind
+    -- the reputation standing the recipe item asks for
+    Friendly = "|cff33c9a7Friendly|r", Honored = "|cff33c9a7Honored|r", Revered = "|cff33c9a7Revered|r", Exalted = "|cff33c9a7Exalted|r",
     guild = "|cff40ff40Guild|r", -- a recipe you are missing that somebody in your guild knows
     friend = "|cff66ccffFriend|r", -- ... that a friend of yours knows
 }
@@ -168,8 +174,29 @@ local function build()
         Window:SetProfession(ns.Locks.KEY)
     end)
     w.tabs[ns.Locks.KEY]:Hide()
+    -- Cooldowns (Cooldowns.lua): not a profession, so not one of the tabs - a row of its own under them
+    -- (the user, 2026-11-18: "i was thinking CDs would be distinguished from the list maybe in its own
+    -- row or a tab or something"). It says how many are ready and which is due next, on every character;
+    -- a click opens them all as cards, a second click goes back. Render shows it once there is one.
+    w.cooldowns = CreateFrame("Button", nil, window)
+    w.cooldowns:SetSize(WIDTH - 2 * PAD, STRIP_H)
+    w.cooldowns:SetPoint("TOPLEFT", window, "TOPLEFT", PAD, -STRIP_TOP)
+    local shade = w.cooldowns:CreateTexture(nil, "BACKGROUND")
+    shade:SetAllPoints(w.cooldowns)
+    shade:SetColorTexture(1, 0.82, 0, 0.10)
+    w.cooldowns.shade = shade
+    w.cooldowns:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+    w.cooldowns.hint = text(w.cooldowns, "GameFontDisableSmall", "RIGHT")
+    w.cooldowns.hint:SetPoint("RIGHT", w.cooldowns, "RIGHT", -6, 0)
+    w.cooldowns.words = text(w.cooldowns, "GameFontHighlightSmall")
+    w.cooldowns.words:SetPoint("LEFT", w.cooldowns, "LEFT", 6, 0)
+    w.cooldowns.words:SetPoint("RIGHT", w.cooldowns.hint, "LEFT", -8, 0)
+    w.cooldowns:SetScript("OnClick", function()
+        ns.SafeCall(Window.ToggleCooldowns, Window)
+    end)
+    w.cooldowns:Hide()
 
-    w.scroll:SetPoint("TOPLEFT", window, "TOPLEFT", PAD, -74)
+    w.scroll:SetPoint("TOPLEFT", window, "TOPLEFT", PAD, -LIST_TOP)
     w.scroll:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -PAD - 20, 44)
     w.content = CreateFrame("Frame", nil, w.scroll)
     w.content:SetSize(WIDTH - 2 * PAD - 24, 58)
@@ -212,6 +239,18 @@ local function build()
     w.search:SetScript("OnEscapePressed", function(self)
         self:ClearFocus()
     end)
+    -- an X at the box's right end empties it (the user, 2026-11-18: "can we also add an X to cancel/clear
+    -- search"): the window's own close button, small; Render shows it only while something is searched for
+    w.clear = CreateFrame("Button", nil, w.search, "UIPanelCloseButton")
+    w.clear:SetSize(20, 20)
+    w.clear:SetPoint("RIGHT", w.search, "RIGHT", 3, 0)
+    w.clear:SetScript("OnClick", function()
+        ns.SafeCall(Window.ClearSearch, Window)
+    end)
+    w.clear:Hide()
+    if type(w.search.SetTextInsets) == "function" then
+        w.search:SetTextInsets(0, 16, 0, 0) -- what is typed stops short of the X
+    end
 
     w.refresh = button(window, "Refresh", 70, function()
         Window:Refresh()
@@ -442,14 +481,37 @@ function Window.SpecTag(spec)
     return TAG[spec] or ("|cffd0a0ff" .. spec .. "|r")
 end
 
--- "Vendor  Quest   BoP": the kinds of source this side has, then how the recipe item binds
-local function tagsText(recipe, sources)
+-- The standing a recipe item asks for, as a tag, against the viewed character's own (met = Known:Meets):
+-- green when it has the standing, orange when it does not, the tag's own colour while nothing is known.
+local function standingTag(rep, met)
+    if met == true then
+        return COLOUR.known .. rep.word .. "|r"
+    elseif met == false then
+        return "|cffff9040" .. rep.word .. "|r"
+    end
+    return TAG[rep.word]
+end
+
+-- "Vendor  Quest   BoP": the kinds of source this side has, then how the recipe item binds. The vendor of a
+-- recipe that needs a standing is the faction's: its name stands where "Vendor" would, in the vendor tag's
+-- colour, with the standing right after it - "Cenarion Circle  Revered   BoP".
+local function tagsText(recipe, sources, met)
     local parts = {}
+    local named = false
     for _, kind in ipairs(Lookup.Kinds(sources)) do
-        parts[#parts + 1] = TAG[kind]
+        if kind == "vendor" and sources.rep then
+            parts[#parts + 1] = VENDOR_COLOUR .. sources.rep.name .. "|r"
+            parts[#parts + 1] = standingTag(sources.rep, met)
+            named = true
+        else
+            parts[#parts + 1] = TAG[kind]
+        end
     end
     if recipe.spec then
         parts[#parts + 1] = Window.SpecTag(recipe.spec)
+    end
+    if sources.rep and not named then
+        parts[#parts + 1] = standingTag(sources.rep, met)
     end
     if sources.theirs then
         parts[#parts + 1] = TAG[sources.theirs.name]
@@ -478,7 +540,20 @@ local function worldWords(world)
     return "World drop, creatures of level " .. world[1] .. "-" .. world[2]
 end
 
+-- a recipe not every trainer teaches (the user, 2026-11-18: "red mageweave bag is only taught by the master
+-- trainers - not the artisan"): the ones who do, "Daryl Stack, Hillsbrad Foothills or Meilosh, Felwood"
+local function teacherNames(teachers)
+    local names = {}
+    for _, teacher in ipairs(teachers) do
+        names[#names + 1] = place2(teacher.npc, teacher.zone)
+    end
+    return table.concat(names, " or ")
+end
+
 local function trainerWords(sources, profName)
+    if sources.teachers then
+        return "Only " .. teacherNames(sources.teachers)
+    end
     if sources.spec then
         return sources.spec .. " trainers" -- a specialization's recipe: its own trainers, not any
     end
@@ -510,14 +585,20 @@ local function somewhereKinds(sources)
     return list
 end
 
--- the card's third line: the first way to get the recipe, in full, and how many more there are
-local function sourceLine(sources, profName)
-    local first
+-- the first way to get the recipe, in full, and how many more there are; and whether it went by the name
+-- of the faction the recipe needs a standing with ("Cenarion Circle: Mishta, Silithus" - a faction's
+-- vendor), so that the line does not name the faction a second time
+local function firstSource(sources, profName)
+    local first, byFaction
     local unnamed = somewhereKinds(sources)
-    local count = #unnamed + (sources.auto and 1 or 0) + (sources.trainer and 1 or 0) + (sources.byQuest and 1 or 0) + (sources.taught and 1 or 0) + #sources.vendors + #sources.quests
+    local teachers = sources.trainer and sources.teachers and #sources.teachers > 0 and sources.teachers or nil
+    local count = #unnamed + (sources.auto and 1 or 0) + (teachers and #teachers or (sources.trainer and 1 or 0)) + (sources.byQuest and 1 or 0) + (sources.taught and 1 or 0) + #sources.vendors + #sources.quests
         + #sources.drops + (sources.world and 1 or 0) + ((sources.trainersSell or sources.capitals) and 1 or 0) + (sources.made and 1 or 0)
     if sources.auto then
         first = "Comes with " .. profName
+    elseif teachers then
+        -- the first of the trainers who teach it, like a vendor: the rest are "+N more"
+        first = "Trainer: " .. place2(teachers[1].npc, teachers[1].zone) .. (money(sources.cost) and (", " .. money(sources.cost)) or "")
     elseif sources.trainer then
         first = trainerWords(sources, profName) .. (money(sources.cost) and (", " .. money(sources.cost)) or "")
     elseif sources.taught then
@@ -525,7 +606,8 @@ local function sourceLine(sources, profName)
     elseif #sources.vendors > 0 then
         local vendor = sources.vendors[1]
         local price = sources.favor and (sources.favor .. " Merchant's Favor") or money(vendor.price)
-        first = "Vendor: " .. place2(vendor.npc, vendor.zone) .. (price and (", " .. price) or "")
+        byFaction = sources.rep ~= nil
+        first = (byFaction and sources.rep.name or "Vendor") .. ": " .. place2(vendor.npc, vendor.zone) .. (price and (", " .. price) or "")
     elseif sources.trainersSell then
         first = "Sold by " .. sources.trainersSell .. " " .. profName .. " trainers" .. (sources.favor and (", " .. sources.favor .. " Merchant's Favor") or "")
     elseif sources.capitals then
@@ -563,7 +645,22 @@ local function sourceLine(sources, profName)
     if count > 1 then
         first = first .. "  (+" .. (count - 1) .. " more)"
     end
-    return first
+    return first, byFaction
+end
+
+-- the card's third line: the first way to get the recipe - and the standing its item asks for, which
+-- holds whichever way it is got: "Drop: Hive'Zora Tunneler, Silithus - needs Argent Dawn Revered". A
+-- faction's vendor already goes by the faction's name, so only the standing follows: "Cenarion Circle:
+-- Mishta, Silithus - needs Revered". A character that has the standing (met) is not told what it needs;
+-- one that lacks it, how much reputation is still to earn (points) when that can be said: "Cenarion
+-- Circle: Mishta, Silithus - 8,800 rep to Revered".
+local function sourceLine(sources, profName, met, points)
+    local line, byFaction = firstSource(sources, profName)
+    if sources.rep and met ~= true then
+        line = line .. " - " .. (points and (Known.Grouped(points) .. " rep to ") or "needs ")
+            .. (byFaction and "" or (sources.rep.name .. " ")) .. sources.rep.word
+    end
+    return line
 end
 
 -- "Guild: Thrall, Jaina" - or "Guild: 7 can make this" when more than three do; online names bright. Friends
@@ -650,12 +747,41 @@ local function detailLines(recipe, sources, profile, viewedKey, learned)
     if bind then
         detail(details, recipe.recipe.name .. COLOUR.dim .. " " .. BIND_WORDS[bind] .. ".|r", TAG[bind], true)
     end
+    if sources.rep then
+        -- "Requires Cenarion Circle - Revered", and the viewed character's own standing against it
+        local need = sources.rep
+        local met, standing = Known:Meets(profile, need)
+        local said
+        if met == true then
+            said = COLOUR.dim .. ": |r" .. COLOUR.known .. "you have it|r" .. COLOUR.dim .. ".|r"
+        elseif met == false then
+            -- how much reputation is still to earn (Known.PointsTo) - where that cannot be said, where the
+            -- character stands, in the client's own numbers
+            local where = "you have not met them yet"
+            if standing then
+                local points = Known.PointsTo(standing, need.standing)
+                where = points and (Known.Grouped(points) .. " reputation to go") or ("you are " .. Known.StandingText(standing))
+            end
+            said = COLOUR.dim .. ": |r" .. COLOUR.unknown .. where .. "|r" .. COLOUR.dim .. ". Below " .. need.word
+                .. " the recipe can be neither bought nor learned.|r"
+        else
+            local unread = viewedKey ~= ns.characterKey and not profile.repAt
+            said = COLOUR.dim .. ": below that the recipe can be neither bought nor learned."
+                .. (unread and " This character's standing is not read yet - log it in once." or "") .. "|r"
+        end
+        detail(details, "Requires " .. Lookup.RepWords(need) .. said, standingTag(need, met), true)
+    end
 
     if sources.auto then
         detail(details, "It comes by itself with " .. profName .. ": nothing to buy or find.", COLOUR.dim .. "automatic|r")
     end
     if sources.trainer then
-        if sources.spec then
+        if sources.teachers then
+            detail(details, "Not every " .. profName .. " trainer teaches it - only these:", trainerPrice(sources) or (COLOUR.dim .. "trainer|r"))
+            for _, teacher in ipairs(sources.teachers) do
+                detail(details, "Trainer: " .. place2(teacher.npc, teacher.zone), COLOUR.dim .. (teacher.title or teacher.faction or "") .. "|r")
+            end
+        elseif sources.spec then
             detail(details, "Only " .. sources.spec .. " trainers teach it.", trainerPrice(sources) or (COLOUR.dim .. "trainer|r"))
         elseif sources.unsure then
             detail(details, "Probably any " .. profName .. " trainer: no recipe item exists for it." .. COLOUR.dim .. " (Not confirmed.)|r", trainerPrice(sources) or (COLOUR.dim .. "trainer|r"), true)
@@ -789,6 +915,10 @@ function Window:ViewedProfession(profile)
         end
     end
     local wanted = Window.prof or ns:GetOption("prof")
+    if wanted == ns.Cooldowns.KEY and ns.Cooldowns.Offered() then
+        Window.prof = wanted -- the account's cooldowns: no tab, opened from their own row
+        return wanted, offered
+    end
     for _, key in ipairs(offered) do
         if key == wanted then
             Window.prof = key
@@ -988,6 +1118,21 @@ function Window:Lines()
     local key = self:ViewedKey()
     local profile = Known:Profile(key)
     local prof, offered = self:ViewedProfession(profile)
+    if prof == ns.Cooldowns.KEY then
+        local filter = ns:GetOption("filter")
+        Window.cooldownOpen = Window.cooldownOpen or {}
+        local cards, totals = ns.Cooldowns:Lines(filter, Window.query, Window.cooldownOpen, COLOUR, function()
+            Window:Render()
+        end)
+        Window.totals = { total = totals.total, known = totals.ready, shown = totals.shown, hidden = totals.hidden, filter = filter,
+            key = key, prof = prof, offered = offered, running = totals.running, unread = totals.unread }
+        if totals.shown == 0 then
+            cards[#cards + 1] = { note = COLOUR.dim .. ((Window.query or "") ~= "" and ("Nothing matches \"" .. Window.query .. "\".")
+                or filter == "hidden" and "Nothing is hidden here. A right-click hides a cooldown you do not care about."
+                or "Every cooldown is hidden - the Hidden list has them.") .. "|r" }
+        end
+        return cards
+    end
     if prof == ns.Locks.KEY then
         local filter = ns:GetOption("filter")
         Window.lockOpen = Window.lockOpen or {}
@@ -1037,19 +1182,28 @@ function Window:Lines()
             end
             if wanted and Lookup.Matches(recipe, Window.query, side) then
                 shown = shown + 1
+                -- the viewed character against the standing the recipe item asks for: true, false, nil (not known)
+                -- points: how much reputation is still to earn, when it lacks the standing and that can be said
+                local met, points = nil, nil
+                if sources.rep then
+                    local standing
+                    met, standing = Known:Meets(profile, sources.rep)
+                    points = met == false and Known.PointsTo(standing, sources.rep.standing) or nil
+                end
                 local state = "plain"
                 if learned then
                     state = "known"
                 elseif sources.unknown then
                     state = "unknown"
                 elseif skill then
-                    state = (skill >= recipe.learn) and "now" or "later"
+                    -- learnable now: the skill is there - and the standing is not known to be missing
+                    state = (skill >= recipe.learn and met ~= false) and "now" or "later"
                 end
                 local colour = CARD_LOOK[state][7]
                 local spell = recipe.spell
                 local people = ns.Guild:Who(recipe)
                 local friends = ns.Friends and ns.Friends:Who(recipe) or {}
-                local tags = tagsText(recipe, sources)
+                local tags = tagsText(recipe, sources, met)
                 if #friends > 0 and not learned then
                     tags = TAG.friend .. (tags ~= "" and "   " or "") .. tags
                 end
@@ -1066,7 +1220,7 @@ function Window:Lines()
                     tags = tags, guild = guildLine(people, friends),
                     text = (learned and COLOUR.known or COLOUR.head) .. recipe.name .. "|r" .. (recipe.new and (COLOUR.note .. "  new in Forever|r") or ""),
                     desc = recipe.desc and (COLOUR.dim .. recipe.desc .. "|r") or "",
-                    right = colour .. (learned and "Known" or sourceLine(sources, profName)) .. "|r",
+                    right = colour .. (learned and "Known" or sourceLine(sources, profName, met, points)) .. "|r",
                     click = function()
                         Window.open[spell] = not Window.open[spell] or nil
                         Window:Render()
@@ -1099,6 +1253,18 @@ local function infoText()
     local totals = Window.totals or { total = 0, known = 0, shown = 0 }
     local key = totals.key
     local profile = Known:Profile(key)
+    if totals.prof == ns.Cooldowns.KEY then
+        local parts = { COLOUR.head .. "Cooldowns of all your characters|r: " .. COLOUR.known .. totals.known .. "|r ready, "
+            .. (totals.running or 0) .. " running" }
+        if (totals.unread or 0) > 0 then
+            parts[#parts + 1] = COLOUR.dim .. totals.unread .. " not read yet|r"
+        end
+        if (totals.hidden or 0) > 0 then
+            parts[#parts + 1] = COLOUR.dim .. totals.hidden .. " hidden|r"
+        end
+        parts[#parts + 1] = COLOUR.dim .. "right-click hides|r"
+        return table.concat(parts, "   ")
+    end
     if totals.prof == ns.Locks.KEY then
         return COLOUR.head .. Known.ShortName(key) .. "|r: opens " .. COLOUR.known .. totals.known .. "|r of " .. totals.total .. " locks   "
             .. (totals.skill and ("Lockpicking " .. totals.skill) or (COLOUR.dim .. "Lockpicking skill not read yet|r"))
@@ -1155,6 +1321,7 @@ function Window:Render()
             b:SetEnabled(name ~= filter) -- the pressed-in one is where you are
         end
     end
+    widgets.clear:SetShown((Window.query or "") ~= "") -- the X that empties the search box
     -- the tabs: the offered professions in a row, short names when the row would not fit
     local offered = Window.totals.offered or {}
     local offeredSet = {}
@@ -1186,6 +1353,22 @@ function Window:Render()
             tab:Hide()
         end
     end
+    -- the cooldowns' row, and the list of cards under it - or where the row would be
+    local summary = ns.Cooldowns:Summary(COLOUR)
+    local strip = widgets.cooldowns
+    if summary then
+        strip.words:SetText(COLOUR.head .. "Cooldowns|r: " .. summary)
+        if Window.totals.prof == ns.Cooldowns.KEY then
+            local back = Window.before and (Lookup.ProfessionName(Window.before) or (Window.before == ns.Locks.KEY and ns.Locks.meta.name))
+            strip.hint:SetText(back and ("back to " .. back) or "back")
+        else
+            strip.hint:SetText("show all")
+        end
+    end
+    strip:SetShown(summary ~= nil)
+    widgets.scroll:ClearAllPoints()
+    widgets.scroll:SetPoint("TOPLEFT", window, "TOPLEFT", PAD, -(summary and (STRIP_TOP + STRIP_H + 4) or LIST_TOP))
+    widgets.scroll:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -PAD - 20, 44)
 
     local characters = Known:Characters()
     widgets.character:SetText(Known.ShortName(self:ViewedKey()))
@@ -1367,12 +1550,37 @@ function Window:HideTooltip()
 end
 
 function Window:SetProfession(key)
-    if Lookup.Profession(key) or key == ns.Locks.KEY then
+    if key == ns.Cooldowns.KEY then
+        if Window.prof ~= key then
+            Window.before = Window.prof -- where the row's second click goes back to
+        end
+        Window.prof = key -- (not where the window opens next time: that stays a profession)
+        self:Render()
+    elseif Lookup.Profession(key) or key == ns.Locks.KEY then
         Window.prof = key
         if self:ViewedKey() == ns.characterKey then
             ns:SetOption("prof", key) -- where your own character's window opens next time
         end
         self:Render()
+    end
+end
+
+-- the X in the search box: nothing searched for, everything listed again
+function Window:ClearSearch()
+    Window.query = ""
+    widgets.search:SetText("")
+    widgets.search:ClearFocus()
+    self:Render()
+end
+
+-- the cooldowns' row was clicked: every cooldown as cards - or, from there, back to where you were
+function Window:ToggleCooldowns()
+    if Window.totals and Window.totals.prof == ns.Cooldowns.KEY then
+        local back = Window.before or (Window.totals.offered or {})[1]
+        Window.before = nil
+        self:SetProfession(back)
+    else
+        self:SetProfession(ns.Cooldowns.KEY)
     end
 end
 
@@ -1404,7 +1612,7 @@ function Window:Describe()
         char = Window.char or false, prof = Window.prof or false, totals = Window.totals, filter = ns:GetOption("filter") }
 end
 
-for _, message in ipairs({ "KNOWN_CHANGED", "GUILD_CHANGED", "FRIENDS_CHANGED" }) do
+for _, message in ipairs({ "KNOWN_CHANGED", "GUILD_CHANGED", "FRIENDS_CHANGED", "COOLDOWNS_CHANGED", "STANDING_CHANGED" }) do
     ns:Listen(message, function()
         if window and window:IsShown() then
             Window:Render()

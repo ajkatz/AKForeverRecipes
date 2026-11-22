@@ -232,14 +232,14 @@ R({
     learn = 20, yellow = 20, green = 20, grey = 20, new = true,
     stats = { "Unrolls a banner that allows you and other members of the Horde sitting nearby to gain 32 increased Spirit, mutually exclusive with Divine Spirit. Requires a Campfire nearby. All camping features share a cooldown of 1 hr." },
     reagents = { { 2996, 1 }, { 2320, 1 } },
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 1263425, item = 279973, name = "Faction Banner", icon = "inv_banner_03",
     learn = 20, yellow = 20, green = 20, grey = 20, new = true,
     stats = { "Unrolls a banner that allows you and other members of the Alliance sitting nearby to gain 32 increased Spirit, mutually exclusive with Divine Spirit. Requires a Campfire nearby. All camping features share a cooldown of 1 hr." },
     reagents = { { 2996, 1 }, { 2320, 1 } },
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 12045, item = 10046, name = "Simple Linen Boots", icon = "inv_boots_05",
@@ -422,7 +422,7 @@ R({
     kind = "Cloth waist, level 5",
     stats = { "+1 Stamina" },
     reagents = { { 2996, 3 }, { 2320, 3 } },
-    recipe = { id = 276973, name = "Pattern: Azure Stormsewn Cord", bop = true },
+    recipe = { id = 276973, name = "Pattern: Azure Stormsewn Cord", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 950 },
     },
@@ -433,7 +433,7 @@ R({
     kind = "Cloth wrist, level 5",
     stats = { "+1 Intellect" },
     reagents = { { 2996, 3 }, { 2320, 3 } },
-    recipe = { id = 276971, name = "Pattern: Azure Stormsewn Cuffs", bop = true },
+    recipe = { id = 276971, name = "Pattern: Azure Stormsewn Cuffs", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 950 },
     },
@@ -444,7 +444,7 @@ R({
     kind = "Cloth waist, level 5",
     stats = { "+1 Stamina" },
     reagents = { { 2996, 3 }, { 2320, 3 } },
-    recipe = { id = 276949, name = "Pattern: Cloudy Stormsewn Cord", bop = true },
+    recipe = { id = 276949, name = "Pattern: Cloudy Stormsewn Cord", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 950 },
     },
@@ -455,7 +455,7 @@ R({
     kind = "Cloth wrist, level 5",
     stats = { "+1 Intellect" },
     reagents = { { 2996, 3 }, { 2320, 3 } },
-    recipe = { id = 276947, name = "Pattern: Cloudy Stormsewn Cuffs", bop = true },
+    recipe = { id = 276947, name = "Pattern: Cloudy Stormsewn Cuffs", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 950 },
     },
@@ -514,7 +514,7 @@ R({
     kind = "Cloth hands, level 6",
     stats = { "+1 Spirit" },
     reagents = { { 2996, 4 }, { 2320, 4 } },
-    recipe = { id = 276972, name = "Pattern: Azure Stormsewn Handwraps", bop = true },
+    recipe = { id = 276972, name = "Pattern: Azure Stormsewn Handwraps", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1100 },
     },
@@ -525,7 +525,7 @@ R({
     kind = "Cloth feet, level 6",
     stats = { "+1 Spirit" },
     reagents = { { 2996, 4 }, { 2320, 3 } },
-    recipe = { id = 276975, name = "Pattern: Azure Stormsewn Shoes", bop = true },
+    recipe = { id = 276975, name = "Pattern: Azure Stormsewn Shoes", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1100 },
     },
@@ -543,7 +543,7 @@ R({
     kind = "Cloth hands, level 6",
     stats = { "+1 Spirit" },
     reagents = { { 2996, 4 }, { 2320, 4 } },
-    recipe = { id = 276948, name = "Pattern: Cloudy Stormsewn Handwraps", bop = true },
+    recipe = { id = 276948, name = "Pattern: Cloudy Stormsewn Handwraps", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1100 },
     },
@@ -554,7 +554,7 @@ R({
     kind = "Cloth feet, level 6",
     stats = { "+1 Spirit" },
     reagents = { { 2996, 4 }, { 2320, 3 } },
-    recipe = { id = 276951, name = "Pattern: Cloudy Stormsewn Shoes", bop = true },
+    recipe = { id = 276951, name = "Pattern: Cloudy Stormsewn Shoes", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1100 },
     },
@@ -581,7 +581,7 @@ R({
     kind = "Cloth legs, level 7",
     stats = { "+2 Stamina" },
     reagents = { { 2996, 5 }, { 2320, 2 } },
-    recipe = { id = 276974, name = "Pattern: Azure Stormsewn Leggings", bop = true },
+    recipe = { id = 276974, name = "Pattern: Azure Stormsewn Leggings", bop = true, rep = { 2758, "Nightclaw Druids", 5 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1250 },
     },
@@ -592,7 +592,7 @@ R({
     kind = "Cloth chest, level 7",
     stats = { "+2 Intellect" },
     reagents = { { 2996, 5 }, { 2320, 2 } },
-    recipe = { id = 276970, name = "Pattern: Azure Stormsewn Vest", bop = true },
+    recipe = { id = 276970, name = "Pattern: Azure Stormsewn Vest", bop = true, rep = { 2758, "Nightclaw Druids", 5 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1250 },
     },
@@ -603,7 +603,7 @@ R({
     kind = "Cloth legs, level 7",
     stats = { "+2 Stamina" },
     reagents = { { 2996, 5 }, { 2320, 2 } },
-    recipe = { id = 276950, name = "Pattern: Cloudy Stormsewn Leggings", bop = true },
+    recipe = { id = 276950, name = "Pattern: Cloudy Stormsewn Leggings", bop = true, rep = { 2758, "Nightclaw Druids", 5 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1250 },
     },
@@ -614,7 +614,7 @@ R({
     kind = "Cloth chest, level 7",
     stats = { "+2 Intellect" },
     reagents = { { 2996, 5 }, { 2320, 2 } },
-    recipe = { id = 276946, name = "Pattern: Cloudy Stormsewn Vest", bop = true },
+    recipe = { id = 276946, name = "Pattern: Cloudy Stormsewn Vest", bop = true, rep = { 2758, "Nightclaw Druids", 5 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1250 },
     },
@@ -2511,7 +2511,7 @@ R({
     kind = "Cloth head, level 30",
     stats = { "+9 Intellect", "+9 Stamina" },
     reagents = { { 4305, 7 }, { 11134, 2 }, { 8343, 1 }, { 6260, 4 } },
-    recipe = { id = 276990, name = "Pattern: Azure Stormsewn Cowl", bop = true },
+    recipe = { id = 276990, name = "Pattern: Azure Stormsewn Cowl", bop = true, rep = { 2740, "Kirin Tor", 4 } },
     vendors = {
         { npc = "Archmage Alvareaux", zone = "Alterac Mountains", side = "A", price = 100000 },
     },
@@ -2522,7 +2522,7 @@ R({
     kind = "Cloth shoulder, level 30",
     stats = { "+7 Spirit", "+7 Stamina" },
     reagents = { { 4305, 5 }, { 11134, 1 }, { 8343, 1 }, { 6260, 3 } },
-    recipe = { id = 276991, name = "Pattern: Azure Stormsewn Epaulets", bop = true },
+    recipe = { id = 276991, name = "Pattern: Azure Stormsewn Epaulets", bop = true, rep = { 2740, "Kirin Tor", 4 } },
     vendors = {
         { npc = "Archmage Alvareaux", zone = "Alterac Mountains", side = "A", price = 100000 },
     },
@@ -2541,7 +2541,7 @@ R({
     kind = "Cloth head, level 30",
     stats = { "+9 Intellect", "+9 Stamina" },
     reagents = { { 4305, 7 }, { 11134, 2 }, { 8343, 1 }, { 2324, 8 } },
-    recipe = { id = 276982, name = "Pattern: Cloudy Stormsewn Cowl", bop = true },
+    recipe = { id = 276982, name = "Pattern: Cloudy Stormsewn Cowl", bop = true, rep = { 2787, "Earthen Ring", 4 } },
     vendors = {
         { npc = "Sutara Plainstalker", zone = "Mulgore", side = "H", price = 100000 },
     },
@@ -2552,7 +2552,7 @@ R({
     kind = "Cloth shoulder, level 30",
     stats = { "+7 Spirit", "+7 Stamina" },
     reagents = { { 4305, 5 }, { 11134, 1 }, { 8343, 1 }, { 2324, 6 } },
-    recipe = { id = 276983, name = "Pattern: Cloudy Stormsewn Epaulets", bop = true },
+    recipe = { id = 276983, name = "Pattern: Cloudy Stormsewn Epaulets", bop = true, rep = { 2787, "Earthen Ring", 4 } },
     vendors = {
         { npc = "Sutara Plainstalker", zone = "Mulgore", side = "H", price = 100000 },
     },
@@ -2703,6 +2703,11 @@ R({
     stats = { "+7 Intellect", "+11 Spell Power" },
     reagents = { { 4339, 3 }, { 8343, 2 }, { 4304, 2 } },
     trainer = true, cost = 6000,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 12072, item = 10024, name = "Black Mageweave Headband", icon = "inv_misc_bandana_01",
@@ -2711,6 +2716,11 @@ R({
     stats = { "+12 Intellect", "+13 Spell Power" },
     reagents = { { 4339, 3 }, { 8343, 2 } },
     trainer = true, cost = 6000,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 12074, item = 10027, name = "Black Mageweave Shoulders", icon = "inv_shoulder_25",
@@ -2719,6 +2729,11 @@ R({
     stats = { "+9 Intellect", "+10 Spell Power" },
     reagents = { { 4339, 3 }, { 8343, 2 } },
     trainer = true, cost = 6000,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 12069, item = 10042, name = "Cindercloth Robe", icon = "inv_chest_cloth_25",
@@ -3027,6 +3042,11 @@ R({
     kind = "14 Slot Bag",
     reagents = { { 4339, 5 }, { 2604, 2 }, { 8343, 2 } },
     trainer = true, cost = 6500,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 12078, item = 10029, name = "Red Mageweave Shoulders", icon = "inv_shoulder_23",
@@ -3056,6 +3076,11 @@ R({
     kind = "Chest",
     reagents = { { 4339, 3 }, { 2325, 1 }, { 8343, 1 }, { 2324, 1 } },
     trainer = true, cost = 5000,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 12081, item = 10030, name = "Admiral's Hat", icon = "inv_helmet_29",
@@ -3078,6 +3103,11 @@ R({
     stats = { "+21 Fire Spell Damage" },
     reagents = { { 4339, 5 }, { 7077, 1 }, { 8343, 3 }, { 4304, 2 } },
     trainer = true, cost = 7500,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 12084, item = 10033, name = "Red Mageweave Headband", icon = "inv_misc_bandana_03",
@@ -3154,6 +3184,11 @@ R({
     kind = "Cloth",
     reagents = { { 14047, 5 } },
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 12092, item = 10041, name = "Dreamweave Circlet", icon = "inv_crown_01",
@@ -3163,6 +3198,11 @@ R({
     reagents = { { 4339, 8 }, { 8153, 4 }, { 10286, 2 }, { 8343, 3 }, { 6037, 1 }, { 1529, 1 } },
     station = 279943,
     trainer = true, cost = 7500,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 26403, item = 21154, name = "Festival Dress", icon = "inv_chest_cloth_56",
@@ -3317,6 +3357,11 @@ R({
     stats = { "+12 Intellect", "+8 Spell Power" },
     reagents = { { 14048, 3 }, { 14341, 1 } },
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Daryl Stack", zone = "Hillsbrad Foothills", side = "H", title = "Master Tailor" },
+        { npc = "Timothy Worthington", zone = "Dustwallow Marsh", side = "A", title = "Master Tailor" },
+        { npc = "Meilosh", zone = "Felwood", faction = "Timbermaw Hold" },
+    },
 })
 R({
     spell = 1257469, item = 254087, name = "Black Waistcord", icon = "inv_belt_04",
@@ -3642,7 +3687,7 @@ R({
     learn = 230, yellow = 245, green = 260, grey = 275,
     kind = "26 Slot Herb Bag",
     reagents = { { 14048, 5 }, { 8831, 10 }, { 11040, 8 }, { 14341, 2 } },
-    recipe = { id = 22310, name = "Pattern: Cenarion Herb Bag", bop = true },
+    recipe = { id = 22310, name = "Pattern: Cenarion Herb Bag", bop = true, rep = { 609, "Cenarion Circle", 4 } },
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
     },
@@ -4163,7 +4208,7 @@ R({
     stats = { "+21 Stamina", "+4 Shadow Resistance", "+8 Spell Power" },
     reagents = { { 14048, 6 }, { 12810, 4 }, { 13926, 2 }, { 12809, 2 }, { 14227, 2 } },
     station = 279943,
-    recipe = { id = 19216, name = "Pattern: Argent Boots", bop = true },
+    recipe = { id = 19216, name = "Pattern: Argent Boots", bop = true, rep = { 529, "Argent Dawn", 5 } },
     vendors = {
         { npc = "Quartermaster Miranda Breechlock", zone = "Eastern Plaguelands" },
         { npc = "Argent Quartermaster Hasana", zone = "Tirisfal Glades" },
@@ -4227,7 +4272,7 @@ R({
     learn = 255, yellow = 270, green = 285, grey = 300,
     kind = "32 Slot Herb Bag",
     reagents = { { 14048, 6 }, { 14342, 2 }, { 13468, 1 }, { 14227, 4 } },
-    recipe = { id = 22312, name = "Pattern: Satchel of Cenarius", bop = true },
+    recipe = { id = 22312, name = "Pattern: Satchel of Cenarius", bop = true, rep = { 609, "Cenarion Circle", 6 } },
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
     },
@@ -4240,7 +4285,7 @@ R({
     stats = { "+14 Intellect", "+9 Spirit", "+31 Healing", "+11 Spell Damage" },
     reagents = { { 14048, 8 }, { 7076, 3 }, { 12803, 3 }, { 14227, 2 } },
     station = 279943,
-    recipe = { id = 19215, name = "Pattern: Wisdom of the Timbermaw", bop = true },
+    recipe = { id = 19215, name = "Pattern: Wisdom of the Timbermaw", bop = true, rep = { 576, "Timbermaw Hold", 5 } },
     vendors = {
         { npc = "Meilosh", zone = "Felwood" },
     },
@@ -4509,7 +4554,7 @@ R({
     stats = { "+20 Spirit", "+7 Nature Resistance", "+16 Healing", "+5 Spell Damage" },
     reagents = { { 14048, 4 }, { 14343, 1 }, { 7080, 3 }, { 14341, 6 } },
     station = 279959,
-    recipe = { id = 275583, name = "Pattern: Swarmtender's Gloves", bop = true },
+    recipe = { id = 275583, name = "Pattern: Swarmtender's Gloves", bop = true, rep = { 609, "Cenarion Circle", 4 } },
     via = "Questie",
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
@@ -4522,7 +4567,7 @@ R({
     stats = { "+19 Stamina", "+11 Intellect", "+5 Nature Resistance" },
     reagents = { { 14048, 4 }, { 14343, 1 }, { 7082, 3 }, { 14341, 6 } },
     station = 279959,
-    recipe = { id = 275580, name = "Pattern: Venomspew Gloves", bop = true },
+    recipe = { id = 275580, name = "Pattern: Venomspew Gloves", bop = true, rep = { 609, "Cenarion Circle", 4 } },
     via = "Questie",
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
@@ -4535,7 +4580,7 @@ R({
     stats = { "+7 Spirit", "+5 Shadow Resistance", "+25 Spell Power" },
     reagents = { { 14342, 5 }, { 12809, 2 }, { 14227, 2 } },
     station = 279959,
-    recipe = { id = 19217, name = "Pattern: Argent Shoulders", bop = true },
+    recipe = { id = 19217, name = "Pattern: Argent Shoulders", bop = true, rep = { 529, "Argent Dawn", 6 } },
     vendors = {
         { npc = "Quartermaster Miranda Breechlock", zone = "Eastern Plaguelands" },
         { npc = "Argent Quartermaster Hasana", zone = "Tirisfal Glades" },
@@ -4550,7 +4595,7 @@ R({
     stats = { "+13 Intellect", "+17 Spell Power", "+14 Critical Strike Rating" },
     reagents = { { 14342, 5 }, { 7076, 5 }, { 12803, 5 }, { 14227, 2 } },
     station = 279959,
-    recipe = { id = 19218, name = "Pattern: Mantle of the Timbermaw", bop = true },
+    recipe = { id = 19218, name = "Pattern: Mantle of the Timbermaw", bop = true, rep = { 576, "Timbermaw Hold", 6 } },
     vendors = {
         { npc = "Meilosh", zone = "Felwood" },
     },
@@ -4563,7 +4608,7 @@ R({
     stats = { "+4 Nature Resistance", "+21 Stamina", "+16 Healing", "+5 Spell Damage" },
     reagents = { { 14048, 6 }, { 14343, 1 }, { 7080, 3 }, { 14341, 6 } },
     station = 279959,
-    recipe = { id = 275584, name = "Pattern: Swarmtender's Cord", bop = true },
+    recipe = { id = 275584, name = "Pattern: Swarmtender's Cord", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
@@ -4576,7 +4621,7 @@ R({
     stats = { "+17 Stamina", "+14 Intellect", "+6 Nature Resistance" },
     reagents = { { 14048, 6 }, { 14343, 1 }, { 7082, 3 }, { 14341, 6 } },
     station = 279959,
-    recipe = { id = 275581, name = "Pattern: Venomspew Cord", bop = true },
+    recipe = { id = 275581, name = "Pattern: Venomspew Cord", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
@@ -4647,7 +4692,7 @@ R({
     stats = { "+4 Nature Resistance", "+10 Stamina", "+43 Healing", "+14 Spell Damage" },
     reagents = { { 14048, 5 }, { 14343, 1 }, { 7080, 3 }, { 14341, 6 } },
     station = 279959,
-    recipe = { id = 275585, name = "Pattern: Swarmtender's Footpads", bop = true },
+    recipe = { id = 275585, name = "Pattern: Swarmtender's Footpads", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
@@ -4672,7 +4717,7 @@ R({
     stats = { "+8 Spirit", "+8 Nature Resistance", "+22 Spell Power" },
     reagents = { { 14048, 5 }, { 14343, 1 }, { 7082, 3 }, { 14341, 6 } },
     station = 279959,
-    recipe = { id = 275582, name = "Pattern: Venomspew Footpads", bop = true },
+    recipe = { id = 275582, name = "Pattern: Venomspew Footpads", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
@@ -4684,7 +4729,7 @@ R({
     kind = "Cloth feet, level 60",
     stats = { "+16 Intellect", "+10 Hit Rating", "+19 Spell Power" },
     reagents = { { 14342, 3 }, { 19726, 3 }, { 12810, 4 }, { 14048, 4 }, { 14227, 4 } },
-    recipe = { id = 19766, name = "Pattern: Bloodvine Boots", bop = true },
+    recipe = { id = 19766, name = "Pattern: Bloodvine Boots", bop = true, rep = { 270, "Zandalar Tribe", 4 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4696,7 +4741,7 @@ R({
     kind = "Cloth legs, level 60",
     stats = { "+6 Intellect", "+10 Hit Rating", "+37 Spell Power" },
     reagents = { { 14342, 4 }, { 19726, 4 }, { 12804, 4 }, { 14048, 4 }, { 14227, 2 } },
-    recipe = { id = 19765, name = "Pattern: Bloodvine Leggings", bop = true },
+    recipe = { id = 19765, name = "Pattern: Bloodvine Leggings", bop = true, rep = { 270, "Zandalar Tribe", 5 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4708,7 +4753,7 @@ R({
     kind = "Cloth chest, level 60",
     stats = { "+13 Intellect", "+20 Hit Rating", "+27 Spell Power" },
     reagents = { { 14342, 3 }, { 19726, 5 }, { 12804, 4 }, { 14048, 4 }, { 14227, 2 } },
-    recipe = { id = 19764, name = "Pattern: Bloodvine Vest", bop = true },
+    recipe = { id = 19764, name = "Pattern: Bloodvine Vest", bop = true, rep = { 270, "Zandalar Tribe", 6 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4840,7 +4885,7 @@ R({
     stats = { "+14 Intellect", "+10 Stamina", "+25 Fire Resistance" },
     reagents = { { 14048, 8 }, { 17010, 6 }, { 7078, 4 }, { 12810, 2 }, { 14341, 2 } },
     station = 279959,
-    recipe = { id = 17018, name = "Pattern: Flarecore Gloves", bop = true },
+    recipe = { id = 17018, name = "Pattern: Flarecore Gloves", bop = true, rep = { 59, "Thorium Brotherhood", 4 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4853,7 +4898,7 @@ R({
     stats = { "+21 Stamina", "+16 Fire Resistance", "+43 Spell Power" },
     reagents = { { 14342, 8 }, { 17010, 5 }, { 17011, 3 }, { 7078, 10 }, { 14227, 4 } },
     station = 279959,
-    recipe = { id = 19220, name = "Pattern: Flarecore Leggings", bop = true },
+    recipe = { id = 19220, name = "Pattern: Flarecore Leggings", bop = true, rep = { 59, "Thorium Brotherhood", 6 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4865,7 +4910,7 @@ R({
     kind = "Cloth shoulder, level 56",
     stats = { "+10 Spirit", "+10 Intellect", "+9 Stamina", "+24 Fire Resistance" },
     reagents = { { 14048, 12 }, { 17010, 4 }, { 17011, 4 }, { 12810, 6 }, { 14341, 2 } },
-    recipe = { id = 17017, name = "Pattern: Flarecore Mantle", bop = true },
+    recipe = { id = 17017, name = "Pattern: Flarecore Mantle", bop = true, rep = { 59, "Thorium Brotherhood", 5 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4878,7 +4923,7 @@ R({
     stats = { "+35 Stamina", "+15 Fire Resistance", "+23 Spell Power" },
     reagents = { { 14342, 10 }, { 17010, 2 }, { 17011, 3 }, { 7078, 6 }, { 14227, 4 } },
     station = 279959,
-    recipe = { id = 19219, name = "Pattern: Flarecore Robe", bop = true },
+    recipe = { id = 19219, name = "Pattern: Flarecore Robe", bop = true, rep = { 59, "Thorium Brotherhood", 5 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4903,7 +4948,7 @@ R({
     kind = "Cloth cloak, level 60",
     stats = { "+6 Stamina", "+20 Nature Resistance" },
     reagents = { { 19726, 1 }, { 14342, 2 }, { 12803, 4 }, { 14227, 4 } },
-    recipe = { id = 22683, name = "Pattern: Gaea's Embrace", bop = true },
+    recipe = { id = 22683, name = "Pattern: Gaea's Embrace", bop = true, rep = { 609, "Cenarion Circle", 6 } },
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
     },
@@ -5095,7 +5140,7 @@ R({
     kind = "Cloth head, level 60",
     stats = { "+10 Stamina", "+30 Nature Resistance", "+18 Spell Power" },
     reagents = { { 14048, 4 }, { 14342, 2 }, { 12803, 2 }, { 14227, 2 } },
-    recipe = { id = 22773, name = "Pattern: Sylvan Crown", bop = true },
+    recipe = { id = 22773, name = "Pattern: Sylvan Crown", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
     },
@@ -5107,7 +5152,7 @@ R({
     kind = "Cloth shoulder, level 60",
     stats = { "+18 Stamina", "+20 Nature Resistance", "+7 Spell Power" },
     reagents = { { 14048, 2 }, { 12803, 4 }, { 14227, 2 } },
-    recipe = { id = 22772, name = "Pattern: Sylvan Shoulders", bop = true },
+    recipe = { id = 22772, name = "Pattern: Sylvan Shoulders", bop = true, rep = { 609, "Cenarion Circle", 4 } },
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
     },
@@ -5119,7 +5164,7 @@ R({
     kind = "Cloth chest, level 60",
     stats = { "+15 Stamina", "+30 Nature Resistance", "+12 Spell Power" },
     reagents = { { 14048, 4 }, { 19726, 2 }, { 12803, 2 }, { 14227, 2 } },
-    recipe = { id = 22774, name = "Pattern: Sylvan Vest", bop = true },
+    recipe = { id = 22774, name = "Pattern: Sylvan Vest", bop = true, rep = { 609, "Cenarion Circle", 6 } },
     vendors = {
         { npc = "Mishta", zone = "Silithus" },
     },

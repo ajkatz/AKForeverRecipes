@@ -72,6 +72,49 @@ function Lookup.ItemName(itemID)
     return item and item.name or nil
 end
 
+-- The reputation a recipe ITEM asks for (the game's "Requires Timbermaw Hold - Honored"; the user,
+-- 2026-11-20: "sometimes a BOP vendor recipe requires a rep level and we aren't representing that at
+-- all"): { faction = id, name, standing = 4..7, word = "Friendly".."Exalted" }, or nil. From the client's
+-- own item table (tools/gen_rep.py). Below that standing the item can be neither bought nor used.
+local STANDINGS = { [4] = "Friendly", [5] = "Honored", [6] = "Revered", [7] = "Exalted" }
+
+function Lookup.Rep(recipe)
+    local item = type(recipe) == "table" and recipe.recipe or nil
+    local rep = type(item) == "table" and item.rep or nil
+    if type(rep) ~= "table" or type(rep[2]) ~= "string" or not STANDINGS[rep[3]] then
+        return nil
+    end
+    if not item.need then
+        item.need = { faction = rep[1], name = rep[2], standing = rep[3], word = STANDINGS[rep[3]] }
+    end
+    return item.need
+end
+
+-- "Timbermaw Hold - Honored", as the game writes it
+function Lookup.RepWords(rep)
+    return rep.name .. " - " .. rep.word
+end
+
+-- The factions a recipe item asks a standing of: [faction id] = name. The character's standing is read for
+-- these and no others (Known:ReadStandings). Written here and not gathered from the recipe tables, which
+-- are only built for the professions somebody has; a scenario holds the two together.
+local REP_FACTIONS = {
+    [59] = "Thorium Brotherhood", [270] = "Zandalar Tribe", [529] = "Argent Dawn", [576] = "Timbermaw Hold",
+    [609] = "Cenarion Circle", [749] = "Hydraxian Waterlords", [2740] = "Kirin Tor", [2758] = "Nightclaw Druids",
+    [2787] = "Earthen Ring",
+}
+
+function Lookup.RepFactions()
+    return REP_FACTIONS
+end
+
+-- a standing's word, counted as the item table counts: 0 Hated .. 3 Neutral, 4 Friendly .. 7 Exalted
+local STANDING_WORDS = { [0] = "Hated", "Hostile", "Unfriendly", "Neutral", "Friendly", "Honored", "Revered", "Exalted" }
+
+function Lookup.StandingWord(standing)
+    return STANDING_WORDS[standing]
+end
+
 -- how a profession's skill cap is raised: { ranks = { ... }, specs = { ... } | nil } (Data\Training.lua), or nil
 function Lookup.Training(key)
     return Data.training and Data.training[key] or nil
@@ -186,8 +229,9 @@ end
 local FACTION_NAMES = { A = "Alliance", H = "Horde" }
 
 -- Where a recipe comes from for a character of `side` ("A" | "H" | nil = either):
---   { trainer, unsure, byQuest, taught, vendors, quests, drops, world, trainersSell, capitals, made, favor,
---     classic, any, unknown, otherSide, theirs }
+--   { trainer, unsure, teachers, byQuest, taught, vendors, quests, drops, world, trainersSell, capitals, made,
+--     favor, classic, any, unknown, otherSide, theirs }
+-- teachers  = not every trainer teaches it: the ones of this side who do (nil: any trainer does)
 -- any       = there is a way to get it for this side
 -- unknown   = nobody has written down where it comes from yet
 -- otherSide = every known source belongs to the other faction, and the recipe cannot come across: the recipe
@@ -204,6 +248,8 @@ function Lookup.Sources(recipe, side)
         trainer = recipe.trainer or false,
         unsure = recipe.unsure or false,
         spec = Lookup.SpecName(recipe), -- only this specialization's trainers teach it
+        rep = Lookup.Rep(recipe), -- the standing the recipe item asks for, whichever way it is got
+        teachers = recipe.teachers and filtered(recipe.teachers, side) or nil, -- only these trainers teach it
         cost = nil, costSeen = false, -- the trainer's price: as read at a trainer, else the table's
         byQuest = recipe.byQuest or false,
         taught = recipe.taught,
@@ -282,7 +328,8 @@ function Lookup.Summary(recipe, side)
     if sources.auto then
         return "with the skill"
     elseif sources.trainer then
-        return "trainer"
+        local teacher = sources.teachers and sources.teachers[1]
+        return teacher and ("trainer: " .. (teacher.zone or teacher.npc)) or "trainer"
     elseif sources.taught then
         return sources.taught.zone or sources.taught.npc
     elseif #sources.vendors == 1 then
@@ -335,6 +382,10 @@ function Lookup.Matches(recipe, query, side)
     if recipe.spec and (needle == string.lower(recipe.spec) or needle == string.lower(Lookup.SpecName(recipe))) then
         return true -- "gnomish", "dragonscale", "master swordsmith"
     end
+    local rep = Lookup.Rep(recipe)
+    if rep and (needle == "rep" or needle == "reputation" or needle == string.lower(rep.word) or contains(rep.name, needle)) then
+        return true -- "rep" lists everything that needs a standing; "timbermaw", "honored"
+    end
     -- what it is made of: "linen cloth" lists everything that uses it
     for _, reagent in ipairs(recipe.reagents or {}) do
         local item = Data.items[reagent[1]]
@@ -353,6 +404,11 @@ function Lookup.Matches(recipe, query, side)
     end
     if sources.taught and (contains(sources.taught.npc, needle) or contains(sources.taught.zone, needle)) then
         return true
+    end
+    for _, teacher in ipairs(sources.teachers or {}) do
+        if contains(teacher.npc, needle) or contains(teacher.zone, needle) or contains(teacher.title, needle) or contains(teacher.faction, needle) then
+            return true
+        end
     end
     for _, vendor in ipairs(sources.vendors) do
         if contains(vendor.npc, needle) or contains(vendor.zone, needle) then

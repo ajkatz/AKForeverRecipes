@@ -28,6 +28,14 @@ and Mining - and where every one of them comes from.
 - **Missing / All / Known / Hidden** lists; a search over names, zones, NPCs, quests and reagents (`linen
   cloth` lists everything made of it; `bop`, `quest`, `vendor`, `drop` list by tag).
 - **Hide what you do not care about** with a right-click; the Hidden list brings it back.
+- **Cooldowns of all your characters** in a row of their own under the tabs (a click opens them all):
+  Transmute, Mooncloth, the Salt Shaker's Refined Deeprock
+  Salt - "Ready" or "Ready in 14h 20m", counted down for your alts without logging them in, and one chat
+  line at login when a long one is ready (`/akr cd notice off` silences it).
+- **Recipes that need a reputation say so**, and how far each character is from it: "Cenarion Circle:
+  Mishta, Silithus - 8,800 rep to Revered".
+- **Recipes only some trainers teach name them**: Red Mageweave Bag is the Master Tailors' and Meilosh's,
+  not a city trainer's.
 - A recipe only the other faction sells or is rewarded is listed under that faction's name when its recipe
   item can be traded; one that binds when picked up is left out, so "missing" is a real to-do list.
 

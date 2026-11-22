@@ -63,7 +63,7 @@ R({
     learn = 20, yellow = 20, green = 20, grey = 20, new = true,
     stats = { "Unpacks a first aid kit that allows you and others sitting nearby to gain 56 increased Stamina, mutually exclusive with Power Word: Fortitude. Requires a Campfire nearby. All camping features share a cooldown of 1 hr." },
     reagents = { { 1251, 3 }, { 159, 1 } },
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 3276, item = 2581, name = "Heavy Linen Bandage", icon = "inv_misc_bandage_18",
@@ -77,7 +77,7 @@ R({
     learn = 55, yellow = 55, green = 75, grey = 95, new = true,
     stats = { "Restores 70 to 90 health." },
     reagents = { { 3371, 1 }, { 2678, 1 }, { 2447, 1 } },
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 7934, item = 6452, name = "Anti-Venom", icon = "inv_misc_slime_01",
@@ -99,7 +99,7 @@ R({
     learn = 85, yellow = 85, green = 105, grey = 125, level = 3, new = true,
     stats = { "Restores 140 to 180 health." },
     reagents = { { 3371, 1 }, { 2678, 2 }, { 2450, 1 } },
-    trainer = true, unsure = true, cost = 157,
+    trainer = true, cost = 157,
 })
 R({
     spell = 1259342, item = 255716, name = "Simple Poultice", icon = "inv_10_alchemy2_quenchingfluid_color2",
@@ -107,7 +107,7 @@ R({
     stats = { "Target is cured of diseases up to level 25. Not usable in combat." },
     reagents = { { 3174, 1 }, { 2678, 1 }, { 2723, 1 } },
     makes = 3,
-    trainer = true, unsure = true, cost = 263,
+    trainer = true, cost = 263,
 })
 R({
     spell = 3278, item = 3531, name = "Heavy Wool Bandage", icon = "inv_misc_bandage_17",
@@ -121,7 +121,7 @@ R({
     learn = 120, yellow = 120, green = 155, grey = 190, new = true,
     stats = { "Target is cured of bleeds up to level 30. Not usable in combat." },
     reagents = { { 2592, 2 }, { 2321, 2 } },
-    trainer = true, unsure = true, cost = 1263,
+    trainer = true, cost = 1263,
 })
 R({
     spell = 7935, item = 6453, name = "Strong Anti-Venom", icon = "inv_misc_slime_01",
@@ -146,7 +146,7 @@ R({
     learn = 135, yellow = 135, green = 155, grey = 175, level = 12, new = true,
     stats = { "Restores 280 to 360 health." },
     reagents = { { 3372, 1 }, { 2692, 1 }, { 2453, 1 } },
-    trainer = true, unsure = true, cost = 842,
+    trainer = true, cost = 842,
 })
 R({
     spell = 1259343, item = 255717, name = "Clever Poultice", icon = "inv_10_alchemy2_quenchingfluid_color4",
@@ -256,6 +256,11 @@ R({
     stats = { "Heals 1104 damage over 8 sec." },
     reagents = { { 4338, 2 } },
     trainer = true,
+    teachers = {
+        { npc = "Doctor Gregory Victor", zone = "Arathi Highlands", side = "H", title = "Trauma Surgeon" },
+        { npc = "Doctor Gustaf VanHowzen", zone = "Dustwallow Marsh", side = "A", title = "Trauma Surgeon" },
+    },
+    classic = true,
 })
 R({
     spell = 18629, item = 14529, name = "Runecloth Bandage", icon = "inv_misc_bandage_11",
@@ -263,6 +268,11 @@ R({
     stats = { "Heals 1360 damage over 8 sec." },
     reagents = { { 14047, 1 } },
     trainer = true,
+    teachers = {
+        { npc = "Doctor Gregory Victor", zone = "Arathi Highlands", side = "H", title = "Trauma Surgeon" },
+        { npc = "Doctor Gustaf VanHowzen", zone = "Dustwallow Marsh", side = "A", title = "Trauma Surgeon" },
+    },
+    classic = true,
 })
 R({
     spell = 1259349, item = 255722, name = "Surgical Tourniquet", icon = "inv_misc_bandage_09",
@@ -311,6 +321,11 @@ R({
     stats = { "Heals 2000 damage over 8 sec." },
     reagents = { { 14047, 2 } },
     trainer = true,
+    teachers = {
+        { npc = "Doctor Gregory Victor", zone = "Arathi Highlands", side = "H", title = "Trauma Surgeon" },
+        { npc = "Doctor Gustaf VanHowzen", zone = "Dustwallow Marsh", side = "A", title = "Trauma Surgeon" },
+    },
+    classic = true,
 })
 R({
     spell = 1263001, item = 279951, name = "Plague Doctor's Laboratory", icon = "inv_10_alchemy_incenseholder_color1",
@@ -329,7 +344,7 @@ R({
     stats = { "Target is cured of poisons up to level 65." },
     reagents = { { 19441, 1 } },
     makes = 3,
-    recipe = { id = 19442, name = "Formula: Powerful Anti-Venom", bop = true },
+    recipe = { id = 19442, name = "Formula: Powerful Anti-Venom", bop = true, rep = { 529, "Argent Dawn", 5 } },
     vendors = {
         { npc = "Quartermaster Miranda Breechlock", zone = "Eastern Plaguelands" },
         { npc = "Argent Quartermaster Hasana", zone = "Tirisfal Glades" },

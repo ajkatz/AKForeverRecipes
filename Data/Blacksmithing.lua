@@ -202,7 +202,7 @@ R({
     learn = 20, yellow = 20, green = 20, grey = 20, new = true,
     stats = { "Constructs a sharpening wheel that grants you and others sitting nearby 34 increased Strength, mutually exclusive with Strength of Earth Totem. Requires a Campfire nearby. All camping features share a cooldown of 1 hr." },
     reagents = { { 2835, 1 }, { 2840, 1 } },
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 9983, item = 7955, name = "Copper Claymore", icon = "inv_sword_21",
@@ -439,7 +439,7 @@ R({
     kind = "Mail waist, level 5",
     stats = { "+1 Stamina" },
     reagents = { { 2840, 6 } },
-    recipe = { id = 276955, name = "Plans: Azure Skyforged Chain", bop = true },
+    recipe = { id = 276955, name = "Plans: Azure Skyforged Chain", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 950 },
     },
@@ -450,7 +450,7 @@ R({
     kind = "Mail wrist, level 5",
     stats = { "+1 Strength" },
     reagents = { { 2840, 5 } },
-    recipe = { id = 276953, name = "Plans: Azure Skyforged Wristguards", bop = true },
+    recipe = { id = 276953, name = "Plans: Azure Skyforged Wristguards", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 950 },
     },
@@ -461,7 +461,7 @@ R({
     kind = "Mail waist, level 5",
     stats = { "+1 Stamina" },
     reagents = { { 2840, 6 } },
-    recipe = { id = 276931, name = "Plans: Cloudy Skyforged Chain", bop = true },
+    recipe = { id = 276931, name = "Plans: Cloudy Skyforged Chain", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 950 },
     },
@@ -472,7 +472,7 @@ R({
     kind = "Mail wrist, level 5",
     stats = { "+1 Strength" },
     reagents = { { 2840, 5 } },
-    recipe = { id = 276929, name = "Plans: Cloudy Skyforged Wristguards", bop = true },
+    recipe = { id = 276929, name = "Plans: Cloudy Skyforged Wristguards", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 950 },
     },
@@ -501,7 +501,7 @@ R({
     kind = "Mail hands, level 6",
     stats = { "+1 Agility" },
     reagents = { { 2840, 7 } },
-    recipe = { id = 276954, name = "Plans: Azure Skyforged Gauntlets", bop = true },
+    recipe = { id = 276954, name = "Plans: Azure Skyforged Gauntlets", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1100 },
     },
@@ -512,7 +512,7 @@ R({
     kind = "Mail feet, level 6",
     stats = { "+1 Agility" },
     reagents = { { 2840, 7 } },
-    recipe = { id = 276957, name = "Plans: Azure Skyforged Greaves", bop = true },
+    recipe = { id = 276957, name = "Plans: Azure Skyforged Greaves", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1100 },
     },
@@ -523,7 +523,7 @@ R({
     kind = "Mail hands, level 6",
     stats = { "+1 Agility" },
     reagents = { { 2840, 7 } },
-    recipe = { id = 276930, name = "Plans: Cloudy Skyforged Gauntlets", bop = true },
+    recipe = { id = 276930, name = "Plans: Cloudy Skyforged Gauntlets", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1100 },
     },
@@ -534,7 +534,7 @@ R({
     kind = "Mail feet, level 6",
     stats = { "+1 Agility" },
     reagents = { { 2840, 7 } },
-    recipe = { id = 276933, name = "Plans: Cloudy Skyforged Greaves", bop = true },
+    recipe = { id = 276933, name = "Plans: Cloudy Skyforged Greaves", bop = true, rep = { 2758, "Nightclaw Druids", 4 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1100 },
     },
@@ -563,7 +563,7 @@ R({
     kind = "Mail chest, level 7",
     stats = { "+2 Strength" },
     reagents = { { 2840, 8 }, { 2880, 1 } },
-    recipe = { id = 276952, name = "Plans: Azure Skyforged Chainmail", bop = true },
+    recipe = { id = 276952, name = "Plans: Azure Skyforged Chainmail", bop = true, rep = { 2758, "Nightclaw Druids", 5 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1250 },
     },
@@ -574,7 +574,7 @@ R({
     kind = "Mail legs, level 7",
     stats = { "+2 Stamina" },
     reagents = { { 2840, 8 }, { 2880, 1 } },
-    recipe = { id = 276956, name = "Plans: Azure Skyforged Legguards", bop = true },
+    recipe = { id = 276956, name = "Plans: Azure Skyforged Legguards", bop = true, rep = { 2758, "Nightclaw Druids", 5 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1250 },
     },
@@ -585,7 +585,7 @@ R({
     kind = "Mail chest, level 7",
     stats = { "+2 Strength" },
     reagents = { { 2840, 8 }, { 2880, 1 } },
-    recipe = { id = 276928, name = "Plans: Cloudy Skyforged Chainmail", bop = true },
+    recipe = { id = 276928, name = "Plans: Cloudy Skyforged Chainmail", bop = true, rep = { 2758, "Nightclaw Druids", 5 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1250 },
     },
@@ -596,7 +596,7 @@ R({
     kind = "Mail legs, level 7",
     stats = { "+2 Stamina" },
     reagents = { { 2840, 8 }, { 2880, 1 } },
-    recipe = { id = 276932, name = "Plans: Cloudy Skyforged Legguards", bop = true },
+    recipe = { id = 276932, name = "Plans: Cloudy Skyforged Legguards", bop = true, rep = { 2758, "Nightclaw Druids", 5 } },
     vendors = {
         { npc = "Vayn Moongaze", zone = "Zephras Isle", price = 1250 },
     },
@@ -2155,7 +2155,7 @@ R({
     kind = "Mail head, level 30",
     stats = { "+9 Strength", "+9 Stamina" },
     reagents = { { 3575, 18 }, { 3486, 5 }, { 7909, 1 } },
-    recipe = { id = 276984, name = "Plans: Azure Skyforged Helm", bop = true },
+    recipe = { id = 276984, name = "Plans: Azure Skyforged Helm", bop = true, rep = { 2740, "Kirin Tor", 4 } },
     vendors = {
         { npc = "Archmage Alvareaux", zone = "Alterac Mountains", side = "A", price = 100000 },
     },
@@ -2166,7 +2166,7 @@ R({
     kind = "Mail shoulder, level 30",
     stats = { "+7 Agility", "+7 Stamina" },
     reagents = { { 3575, 14 }, { 3486, 3 }, { 7909, 1 } },
-    recipe = { id = 276985, name = "Plans: Azure Skyforged Pauldrons", bop = true },
+    recipe = { id = 276985, name = "Plans: Azure Skyforged Pauldrons", bop = true, rep = { 2740, "Kirin Tor", 4 } },
     vendors = {
         { npc = "Archmage Alvareaux", zone = "Alterac Mountains", side = "A", price = 100000 },
     },
@@ -2177,7 +2177,7 @@ R({
     kind = "Mail head, level 30",
     stats = { "+9 Strength", "+9 Stamina" },
     reagents = { { 3575, 18 }, { 3486, 5 }, { 5498, 1 } },
-    recipe = { id = 276976, name = "Plans: Cloudy Skyforged Helm", bop = true },
+    recipe = { id = 276976, name = "Plans: Cloudy Skyforged Helm", bop = true, rep = { 2787, "Earthen Ring", 4 } },
     vendors = {
         { npc = "Sutara Plainstalker", zone = "Mulgore", side = "H", price = 100000 },
     },
@@ -2188,7 +2188,7 @@ R({
     kind = "Mail shoulder, level 30",
     stats = { "+7 Agility", "+7 Stamina" },
     reagents = { { 3575, 14 }, { 3486, 3 }, { 5498, 1 } },
-    recipe = { id = 276977, name = "Plans: Cloudy Skyforged Pauldrons", bop = true },
+    recipe = { id = 276977, name = "Plans: Cloudy Skyforged Pauldrons", bop = true, rep = { 2787, "Earthen Ring", 4 } },
     vendors = {
         { npc = "Sutara Plainstalker", zone = "Mulgore", side = "H", price = 100000 },
     },
@@ -2749,6 +2749,9 @@ R({
     stats = { "27.3 damage per second", "+8 Strength" },
     reagents = { { 3860, 16 }, { 7971, 1 }, { 1210, 4 }, { 7966, 1 }, { 4304, 2 } },
     trainer = true, cost = 15000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 9959, item = 7930, name = "Heavy Mithril Breastplate", icon = "inv_chest_plate10",
@@ -2757,6 +2760,9 @@ R({
     stats = { "+15 Stamina", "+90 Armor" },
     reagents = { { 3860, 16 } },
     trainer = true, cost = 15000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 9961, item = 7931, name = "Mithril Coif", icon = "inv_helmet_35",
@@ -2765,6 +2771,9 @@ R({
     stats = { "+13 Spirit", "+12 Stamina" },
     reagents = { { 3860, 10 }, { 4338, 6 } },
     trainer = true, cost = 15000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 9968, item = 7933, name = "Heavy Mithril Boots", icon = "inv_boots_plate_01",
@@ -2773,6 +2782,9 @@ R({
     stats = { "+12 Stamina", "+70 Armor" },
     reagents = { { 3860, 14 }, { 4304, 4 } },
     trainer = true, cost = 20000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 1252329, item = 250580, name = "Justicar's Pauldrons", icon = "inv_shoulder_22",
@@ -3025,6 +3037,9 @@ R({
     learn = 225, yellow = 230, green = 232, grey = 235,
     reagents = { { 12365, 4 } },
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 16641, item = 12404, name = "Dense Sharpening Stone", icon = "inv_stone_sharpeningstone_05",
@@ -3032,6 +3047,9 @@ R({
     stats = { "Increase sharp weapon damage by 8 for 30 minutes." },
     reagents = { { 12365, 1 } },
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 16640, item = 12643, name = "Dense Weightstone", icon = "inv_stone_weightstone_05",
@@ -3039,6 +3057,9 @@ R({
     stats = { "Increase the damage of a blunt weapon by 8 for 30 minutes." },
     reagents = { { 12365, 1 } },
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 1252334, item = 250585, name = "Justicar's Wristguards", icon = "inv_bracer_22a",
@@ -3386,6 +3407,9 @@ R({
     kind = "Enchanting",
     reagents = { { 12360, 3 }, { 12644, 1 } },
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 19669, item = 15872, name = "Arcanite Skeleton Key", icon = "inv_misc_key_08",
@@ -3394,6 +3418,9 @@ R({
     reagents = { { 12360, 1 }, { 12644, 1 } },
     makes = 2,
     trainer = true, cost = 10000,
+    teachers = {
+        { npc = "Brikk Keencraft", zone = "Stranglethorn Vale", title = "Master Blacksmith" },
+    },
 })
 R({
     spell = 15294, item = 11607, name = "Dark Iron Sunderer", icon = "inv_weapon_halberd_02",
@@ -3833,7 +3860,7 @@ R({
     stats = { "+10 Spirit", "+44 Healing", "+15 Spell Damage" },
     reagents = { { 12359, 20 }, { 12360, 4 }, { 12364, 2 }, { 7080, 2 } },
     spec = "Armorsmith",
-    recipe = { id = 12698, name = "Plans: Dawnbringer Shoulders" },
+    recipe = { id = 12698, name = "Plans: Dawnbringer Shoulders", rep = { 529, "Argent Dawn", 6 } },
     via = "Questie",
     drops = {
         { npc = "Hive'Zora Tunneler", zone = "Silithus", min = 58, max = 59 },
@@ -3860,7 +3887,7 @@ R({
     kind = "Plate waist, level 53",
     stats = { "+21 Strength", "+9 Stamina" },
     reagents = { { 12359, 8 }, { 6037, 6 }, { 12811, 1 } },
-    recipe = { id = 19203, name = "Plans: Girdle of the Dawn", bop = true },
+    recipe = { id = 19203, name = "Plans: Girdle of the Dawn", bop = true, rep = { 529, "Argent Dawn", 5 } },
     vendors = {
         { npc = "Quartermaster Miranda Breechlock", zone = "Eastern Plaguelands" },
         { npc = "Argent Quartermaster Hasana", zone = "Tirisfal Glades" },
@@ -3950,7 +3977,7 @@ R({
     stats = { "+7 Stamina", "+18 Fire Resistance", "+100 Armor" },
     reagents = { { 11371, 4 }, { 17010, 2 }, { 17011, 2 } },
     spec = "Armorsmith",
-    recipe = { id = 17051, name = "Plans: Dark Iron Bracers", bop = true },
+    recipe = { id = 17051, name = "Plans: Dark Iron Bracers", bop = true, rep = { 59, "Thorium Brotherhood", 4 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -3963,7 +3990,7 @@ R({
     stats = { "+10 Stamina", "+9 Intellect", "+8 Spirit", "+24 Fire Resistance" },
     reagents = { { 11371, 6 }, { 17010, 3 }, { 17011, 3 } },
     spec = "Armorsmith",
-    recipe = { id = 17049, name = "Plans: Fiery Chain Girdle", bop = true },
+    recipe = { id = 17049, name = "Plans: Fiery Chain Girdle", bop = true, rep = { 59, "Thorium Brotherhood", 5 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4123,7 +4150,7 @@ R({
     stats = { "+20 Stamina", "+7 Nature Resistance", "+7 Strength" },
     reagents = { { 12359, 7 }, { 12655, 5 }, { 7076, 3 }, { 18567, 1 } },
     station = 279955,
-    recipe = { id = 275601, name = "Plans: Clutchlord's Grips", bop = true },
+    recipe = { id = 275601, name = "Plans: Clutchlord's Grips", bop = true, rep = { 609, "Cenarion Circle", 4 } },
     via = "Questie",
     vendors = {
         { npc = "Vargus", zone = "Silithus" },
@@ -4136,7 +4163,7 @@ R({
     stats = { "+19 Stamina", "+11 Strength", "+5 Nature Resistance" },
     reagents = { { 12359, 7 }, { 12655, 5 }, { 7078, 3 }, { 18567, 1 } },
     station = 279955,
-    recipe = { id = 275598, name = "Plans: Goregasher Grips", bop = true },
+    recipe = { id = 275598, name = "Plans: Goregasher Grips", bop = true, rep = { 609, "Cenarion Circle", 4 } },
     via = "Questie",
     vendors = {
         { npc = "Vargus", zone = "Silithus" },
@@ -4173,7 +4200,7 @@ R({
     stats = { "+21 Stamina", "+7 Strength", "+4 Nature Resistance" },
     reagents = { { 12359, 11 }, { 12655, 5 }, { 7076, 3 }, { 18567, 1 } },
     station = 279955,
-    recipe = { id = 275602, name = "Plans: Clutchlord's Support", bop = true },
+    recipe = { id = 275602, name = "Plans: Clutchlord's Support", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Vargus", zone = "Silithus" },
@@ -4186,7 +4213,7 @@ R({
     stats = { "+17 Stamina", "+14 Strength", "+6 Nature Resistance" },
     reagents = { { 12359, 11 }, { 12655, 5 }, { 7078, 3 }, { 18567, 1 } },
     station = 279955,
-    recipe = { id = 275599, name = "Plans: Goregasher Support", bop = true },
+    recipe = { id = 275599, name = "Plans: Goregasher Support", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Vargus", zone = "Silithus" },
@@ -4215,7 +4242,7 @@ R({
     stats = { "+10 Stamina", "+19 Strength", "+4 Nature Resistance" },
     reagents = { { 12359, 9 }, { 12655, 5 }, { 7076, 3 }, { 18567, 1 } },
     station = 279955,
-    recipe = { id = 275603, name = "Plans: Clutchlord's Stompers", bop = true },
+    recipe = { id = 275603, name = "Plans: Clutchlord's Stompers", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Vargus", zone = "Silithus" },
@@ -4228,7 +4255,7 @@ R({
     stats = { "+8 Stamina", "+8 Nature Resistance", "+38 Attack Power" },
     reagents = { { 12359, 9 }, { 12655, 5 }, { 7078, 3 }, { 18567, 1 } },
     station = 279955,
-    recipe = { id = 275600, name = "Plans: Goregasher Stompers", bop = true },
+    recipe = { id = 275600, name = "Plans: Goregasher Stompers", bop = true, rep = { 609, "Cenarion Circle", 5 } },
     via = "Questie",
     vendors = {
         { npc = "Vargus", zone = "Silithus" },
@@ -4291,7 +4318,7 @@ R({
     stats = { "41.5 damage per second", "+13 Agility", "+5 Stamina" },
     reagents = { { 251290, 10 }, { 251291, 10 }, { 249726, 10 }, { 7910, 4 }, { 12361, 4 } },
     station = 279955,
-    recipe = { id = 251470, name = "Plans: Bagh Nakh", bop = true },
+    recipe = { id = 251470, name = "Plans: Bagh Nakh", bop = true, rep = { 576, "Timbermaw Hold", 6 } },
     via = "Wowhead",
     vendors = {
         { npc = "Meilosh", zone = "Felwood" },
@@ -4304,7 +4331,7 @@ R({
     stats = { "47.8 damage per second", "Chance on hit: Reduce your threat to the current target making them less likely to attack you." },
     reagents = { { 17011, 3 }, { 17010, 6 }, { 12360, 12 }, { 11382, 1 }, { 11371, 4 } },
     spec = "Weaponsmith",
-    recipe = { id = 19208, name = "Plans: Black Amnesty", bop = true },
+    recipe = { id = 19208, name = "Plans: Black Amnesty", bop = true, rep = { 59, "Thorium Brotherhood", 6 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4329,7 +4356,7 @@ R({
     stats = { "62.6 damage per second", "+35 Strength", "+15 Stamina", "+10 Fire Resistance", "+14 Critical Strike Rating" },
     reagents = { { 17011, 5 }, { 17010, 2 }, { 12360, 16 }, { 11371, 6 } },
     spec = "Weaponsmith",
-    recipe = { id = 19209, name = "Plans: Blackfury", bop = true },
+    recipe = { id = 19209, name = "Plans: Blackfury", bop = true, rep = { 59, "Thorium Brotherhood", 6 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4342,7 +4369,7 @@ R({
     stats = { "51.7 damage per second", "+12 Stamina", "+15 Parry Rating" },
     reagents = { { 17011, 6 }, { 17010, 6 }, { 12360, 10 }, { 11371, 6 }, { 12809, 12 } },
     spec = "Swordsmith",
-    recipe = { id = 19211, name = "Plans: Blackguard", bop = true },
+    recipe = { id = 19211, name = "Plans: Blackguard", bop = true, rep = { 59, "Thorium Brotherhood", 7 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4363,7 +4390,7 @@ R({
     kind = "Mail chest, level 60",
     stats = { "+13 Stamina", "+9 Agility", "+28 Critical Strike Rating" },
     reagents = { { 12359, 20 }, { 19774, 10 }, { 19726, 2 }, { 7910, 2 } },
-    recipe = { id = 19776, name = "Plans: Bloodsoul Breastplate", bop = true },
+    recipe = { id = 19776, name = "Plans: Bloodsoul Breastplate", bop = true, rep = { 270, "Zandalar Tribe", 6 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4375,7 +4402,7 @@ R({
     kind = "Mail hands, level 60",
     stats = { "+17 Stamina", "+10 Agility", "+14 Critical Strike Rating" },
     reagents = { { 12359, 12 }, { 19774, 6 }, { 19726, 2 }, { 12810, 4 } },
-    recipe = { id = 19778, name = "Plans: Bloodsoul Gauntlets", bop = true },
+    recipe = { id = 19778, name = "Plans: Bloodsoul Gauntlets", bop = true, rep = { 270, "Zandalar Tribe", 4 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4387,7 +4414,7 @@ R({
     kind = "Mail shoulder, level 60",
     stats = { "+24 Agility", "+10 Stamina" },
     reagents = { { 12359, 16 }, { 19774, 8 }, { 19726, 2 }, { 7910, 1 } },
-    recipe = { id = 19777, name = "Plans: Bloodsoul Shoulders", bop = true },
+    recipe = { id = 19777, name = "Plans: Bloodsoul Shoulders", bop = true, rep = { 270, "Zandalar Tribe", 5 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4422,7 +4449,7 @@ R({
     stats = { "+28 Fire Resistance", "+120 Armor" },
     reagents = { { 17011, 3 }, { 17010, 3 }, { 17012, 4 }, { 11371, 6 } },
     spec = "Armorsmith",
-    recipe = { id = 20040, name = "Plans: Dark Iron Boots", bop = true },
+    recipe = { id = 20040, name = "Plans: Dark Iron Boots", bop = true, rep = { 59, "Thorium Brotherhood", 7 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4435,7 +4462,7 @@ R({
     stats = { "42.7 damage per second", "+10 Strength", "+6 Fire Resistance" },
     reagents = { { 11371, 18 }, { 17011, 12 }, { 11382, 2 }, { 12810, 2 } },
     spec = "Axesmith",
-    recipe = { id = 17060, name = "Plans: Dark Iron Destroyer", bop = true },
+    recipe = { id = 17060, name = "Plans: Dark Iron Destroyer", bop = true, rep = { 59, "Thorium Brotherhood", 5 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4448,7 +4475,7 @@ R({
     stats = { "+16 Stamina", "+12 Agility", "+28 Fire Resistance" },
     reagents = { { 17011, 3 }, { 17010, 5 }, { 17012, 4 }, { 11371, 4 }, { 11382, 2 } },
     spec = "Armorsmith",
-    recipe = { id = 19207, name = "Plans: Dark Iron Gauntlets", bop = true },
+    recipe = { id = 19207, name = "Plans: Dark Iron Gauntlets", bop = true, rep = { 59, "Thorium Brotherhood", 6 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4461,7 +4488,7 @@ R({
     stats = { "+20 Stamina", "+35 Fire Resistance", "+150 Armor" },
     reagents = { { 17011, 4 }, { 17010, 2 }, { 11371, 4 } },
     spec = "Armorsmith",
-    recipe = { id = 19206, name = "Plans: Dark Iron Helm", bop = true },
+    recipe = { id = 19206, name = "Plans: Dark Iron Helm", bop = true, rep = { 59, "Thorium Brotherhood", 5 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4474,7 +4501,7 @@ R({
     stats = { "+14 Stamina", "+30 Fire Resistance", "+180 Armor" },
     reagents = { { 11371, 16 }, { 17010, 4 }, { 17011, 6 } },
     spec = "Armorsmith",
-    recipe = { id = 17052, name = "Plans: Dark Iron Leggings", bop = true },
+    recipe = { id = 17052, name = "Plans: Dark Iron Leggings", bop = true, rep = { 59, "Thorium Brotherhood", 6 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4487,7 +4514,7 @@ R({
     stats = { "42.7 damage per second", "+10 Stamina", "+6 Fire Resistance" },
     reagents = { { 11371, 16 }, { 17010, 12 }, { 11382, 2 }, { 12810, 2 } },
     spec = "Swordsmith",
-    recipe = { id = 17059, name = "Plans: Dark Iron Reaver", bop = true },
+    recipe = { id = 17059, name = "Plans: Dark Iron Reaver", bop = true, rep = { 59, "Thorium Brotherhood", 5 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4533,7 +4560,7 @@ R({
     kind = "Plate chest, level 60",
     stats = { "+32 Stamina", "+60 Armor", "+10 Hit Rating" },
     reagents = { { 12359, 20 }, { 19774, 14 }, { 12799, 2 } },
-    recipe = { id = 19779, name = "Plans: Darksoul Breastplate", bop = true },
+    recipe = { id = 19779, name = "Plans: Darksoul Breastplate", bop = true, rep = { 270, "Zandalar Tribe", 6 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4545,7 +4572,7 @@ R({
     kind = "Plate legs, level 60",
     stats = { "+22 Stamina", "+130 Armor", "+20 Hit Rating" },
     reagents = { { 12359, 18 }, { 19774, 12 }, { 12799, 2 } },
-    recipe = { id = 19780, name = "Plans: Darksoul Leggings", bop = true },
+    recipe = { id = 19780, name = "Plans: Darksoul Leggings", bop = true, rep = { 270, "Zandalar Tribe", 5 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4557,7 +4584,7 @@ R({
     kind = "Plate shoulder, level 60",
     stats = { "+24 Stamina", "+10 Hit Rating" },
     reagents = { { 12359, 16 }, { 19774, 10 }, { 12799, 1 } },
-    recipe = { id = 19781, name = "Plans: Darksoul Shoulders", bop = true },
+    recipe = { id = 19781, name = "Plans: Darksoul Shoulders", bop = true, rep = { 270, "Zandalar Tribe", 4 } },
     vendors = {
         { npc = "Rin'wosho the Trader", zone = "Stranglethorn Vale" },
     },
@@ -4588,7 +4615,7 @@ R({
     stats = { "51.6 damage per second", "+9 Stamina", "+7 Fire Resistance", "Chance on hit: Sends a shadowy bolt at the enemy causing 161 to 301 Shadow damage." },
     reagents = { { 17011, 4 }, { 17010, 7 }, { 12360, 12 }, { 11371, 8 }, { 12800, 4 } },
     spec = "Hammersmith",
-    recipe = { id = 19210, name = "Plans: Ebon Hand", bop = true },
+    recipe = { id = 19210, name = "Plans: Ebon Hand", bop = true, rep = { 59, "Thorium Brotherhood", 7 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4706,7 +4733,7 @@ R({
     stats = { "+14 Intellect", "+10 Stamina", "+25 Fire Resistance" },
     reagents = { { 11371, 16 }, { 17010, 4 }, { 17011, 5 } },
     spec = "Armorsmith",
-    recipe = { id = 17053, name = "Plans: Fiery Chain Shoulders", bop = true },
+    recipe = { id = 17053, name = "Plans: Fiery Chain Shoulders", bop = true, rep = { 59, "Thorium Brotherhood", 6 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -4754,7 +4781,7 @@ R({
     stats = { "+21 Strength", "+9 Stamina" },
     reagents = { { 12360, 2 }, { 6037, 10 }, { 12811, 1 } },
     station = 279955,
-    recipe = { id = 19205, name = "Plans: Gloves of the Dawn", bop = true },
+    recipe = { id = 19205, name = "Plans: Gloves of the Dawn", bop = true, rep = { 529, "Argent Dawn", 6 } },
     vendors = {
         { npc = "Quartermaster Miranda Breechlock", zone = "Eastern Plaguelands" },
         { npc = "Argent Quartermaster Hasana", zone = "Tirisfal Glades" },
@@ -4845,7 +4872,7 @@ R({
     kind = "Plate wrist, level 60",
     stats = { "+13 Stamina", "+6 Strength", "+24 Frost Resistance", "+5 Defense Rating" },
     reagents = { { 22682, 4 }, { 12359, 12 }, { 12360, 2 }, { 7080, 2 } },
-    recipe = { id = 22705, name = "Plans: Icebane Bracers", bop = true },
+    recipe = { id = 22705, name = "Plans: Icebane Bracers", bop = true, rep = { 749, "Hydraxian Waterlords", 6 } },
 })
 R({
     spell = 28242, item = 22669, name = "Icebane Breastplate", icon = "inv_chest_chain_11",
@@ -4853,7 +4880,7 @@ R({
     kind = "Plate chest, level 60",
     stats = { "+24 Stamina", "+12 Strength", "+42 Frost Resistance", "+8 Defense Rating" },
     reagents = { { 22682, 7 }, { 12359, 16 }, { 12360, 2 }, { 7080, 4 } },
-    recipe = { id = 22703, name = "Plans: Icebane Breastplate", bop = true },
+    recipe = { id = 22703, name = "Plans: Icebane Breastplate", bop = true, rep = { 529, "Argent Dawn", 7 } },
 })
 R({
     spell = 28243, item = 22670, name = "Icebane Gauntlets", icon = "inv_gauntlets_28",
@@ -4861,7 +4888,7 @@ R({
     kind = "Plate hands, level 60",
     stats = { "+18 Stamina", "+9 Strength", "+32 Frost Resistance", "+5 Defense Rating" },
     reagents = { { 22682, 5 }, { 12359, 12 }, { 12360, 2 }, { 7080, 2 } },
-    recipe = { id = 22704, name = "Plans: Icebane Gauntlets", bop = true },
+    recipe = { id = 22704, name = "Plans: Icebane Gauntlets", bop = true, rep = { 529, "Argent Dawn", 6 } },
 })
 R({
     spell = 1306533, item = 279259, name = "Ironwood Blade", icon = "inv_sword_07",
@@ -4878,7 +4905,7 @@ R({
     kind = "Off-hand shield, level 60",
     stats = { "+10 Block Rating", "+5 Spell Resistance When struck by a harmful spell, the caster of that spell has a 5% chance to be silenced for 3 sec." },
     reagents = { { 22203, 8 }, { 22202, 24 }, { 12655, 8 }, { 7076, 4 } },
-    recipe = { id = 22219, name = "Plans: Jagged Obsidian Shield", bop = true },
+    recipe = { id = 22219, name = "Plans: Jagged Obsidian Shield", bop = true, rep = { 609, "Cenarion Circle", 6 } },
     vendors = {
         { npc = "Lieutenant General Andorov", zone = "Ruins of Ahn'Qiraj" },
     },
@@ -5124,7 +5151,7 @@ R({
     stats = { "67.0 damage per second", "Chance on hit: Spell damage taken by target increased by 15% for 5 sec." },
     reagents = { { 17011, 8 }, { 17010, 5 }, { 12360, 10 }, { 11371, 12 }, { 12364, 4 } },
     spec = "Axesmith",
-    recipe = { id = 19212, name = "Plans: Nightfall", bop = true },
+    recipe = { id = 19212, name = "Plans: Nightfall", bop = true, rep = { 59, "Thorium Brotherhood", 7 } },
     vendors = {
         { npc = "Lokhtos Darkbargainer", zone = "Blackrock Depths" },
     },
@@ -5136,7 +5163,7 @@ R({
     kind = "Mail chest, level 60",
     stats = { "+76 Attack Power", "+14 Critical Strike Rating Spell Damage received is reduced by 10." },
     reagents = { { 22203, 15 }, { 22202, 36 }, { 12810, 12 }, { 12809, 10 }, { 12800, 4 } },
-    recipe = { id = 22221, name = "Plans: Obsidian Mail Tunic", bop = true },
+    recipe = { id = 22221, name = "Plans: Obsidian Mail Tunic", bop = true, rep = { 609, "Cenarion Circle", 7 } },
     vendors = {
         { npc = "Lieutenant General Andorov", zone = "Ruins of Ahn'Qiraj" },
     },
@@ -5235,7 +5262,7 @@ R({
     stats = { "53.9 damage per second", "+11 Stamina", "+15 Strength", "+32 Spell Power" },
     reagents = { { 251290, 20 }, { 249726, 10 }, { 12644, 2 } },
     station = 279955,
-    recipe = { id = 251469, name = "Plans: Stormcarver", bop = true },
+    recipe = { id = 251469, name = "Plans: Stormcarver", bop = true, rep = { 576, "Timbermaw Hold", 6 } },
     via = "Wowhead",
     vendors = {
         { npc = "Meilosh", zone = "Felwood" },

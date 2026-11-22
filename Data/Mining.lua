@@ -46,7 +46,7 @@ R({
     learn = 20, yellow = 20, green = 20, grey = 20, new = true,
     stats = { "Erects a lodestone that allows you and others sitting nearby to gain 90 increased melee Attack Power, mutually exclusive with Blessing of Might. Requires a Campfire nearby. All camping features share a cooldown of 1 hr." },
     reagents = { { 2835, 1 }, { 2840, 1 } },
-    trainer = true, unsure = true, cost = 105,
+    trainer = true, cost = 105,
 })
 R({
     spell = 2659, item = 2841, name = "Bronze Bar", icon = "inv_ingot_bronze",
@@ -123,7 +123,7 @@ R({
     spell = 1249637, item = 249726, name = "Azerothium Bar", icon = "inv_ingot_livingsteel",
     learn = 275, yellow = 275, green = 275, grey = 275, new = true,
     reagents = { { 249426, 2 }, { 3857, 1 } },
-    trainer = true, unsure = true, cost = 52631,
+    trainer = true, cost = 52631,
 })
 R({
     spell = 22967, item = 17771, name = "Elementium Bar", icon = "inv_ingot_thorium",
@@ -136,7 +136,7 @@ R({
     learn = 300, yellow = 300, green = 307, grey = 315, new = true,
     reagents = { { 248815, 1 } },
     station = 279952,
-    trainer = true, unsure = true, cost = 52631,
+    trainer = true, cost = 52631,
 })
 R({
     spell = 1263071, item = 279952, name = "Molten Foundry", icon = "inv_blacksmithingalloys_red",

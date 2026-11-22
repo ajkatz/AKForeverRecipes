@@ -15,8 +15,8 @@ local Mock = {}
 local REAL_PRINT = print
 local ADDON = "AKForeverRecipes"
 local FILES = { "Core.lua", "Data.lua", "Data/Training.lua", "Data/Alchemy.lua", "Data/Blacksmithing.lua", "Data/Enchanting.lua", "Data/Engineering.lua",
-    "Data/Leatherworking.lua", "Data/Tailoring.lua", "Data/Cooking.lua", "Data/FirstAid.lua", "Data/Mining.lua",
-    "Lookup.lua", "Known.lua", "Guild.lua", "Friends.lua", "Locks.lua", "Tooltip.lua", "Window.lua", "Diagnostics.lua" }
+    "Data/Leatherworking.lua", "Data/Tailoring.lua", "Data/Cooking.lua", "Data/FirstAid.lua", "Data/Mining.lua", "Data/Cooldowns.lua",
+    "Lookup.lua", "Known.lua", "Guild.lua", "Friends.lua", "Locks.lua", "Cooldowns.lua", "Tooltip.lua", "Window.lua", "Diagnostics.lua" }
 
 Mock.SECRET = setmetatable({}, { __tostring = function() return "<SECRET>" end })
 
@@ -67,6 +67,8 @@ function methods.SetJustifyV(self) end
 function methods.SetBackdropBorderColor(self, r, g, b) self.__border = { r, g, b } end
 function methods.SetTexture(self, t) self.__texture = t end
 function methods.SetTexCoord(self) end
+function methods.SetAllPoints(self) end
+function methods.SetColorTexture(self, r, g, b, a) self.__colour = { r, g, b, a } end
 function methods.GetStringHeight(self) local _, n = tostring(self.__text or ""):gsub("\n", ""); return 12 * (n + 1) end
 function methods.CreateTexture(self, name) return newWidget("Texture", name, self) end
 function methods.SetScrollChild(self, child) self.__child = child end
@@ -199,7 +201,7 @@ function Mock.install(options)
         return table.concat(texts, " | "), which.__lines
     end
     global("GetRealmName", function() return "Classic Beta PvE" end)
-    global("InCombatLockdown", function() return false end)
+    global("InCombatLockdown", function() return state.combat == true end)
 
     global("UnitName", function(token)
         if token == "player" then return state.first end
@@ -276,6 +278,37 @@ function Mock.install(options)
             return { name = line.name, rank = line.rank, maxRank = line.max, skillID = line.line, isHeader = line.header and true or false }
         end,
     })
+    -- reputation: state.rep[faction id] = { reaction (1 Hated .. 8 Exalted, as the client counts), into }
+    -- (nil: the character never met the faction - the client answers nil); state.repMode = "ok" | "secret"
+    -- (a secret table) | "secretField" (a secret reaction) | "error"; state.repCount = what GetNumFactions
+    -- says (default: how many there are in state.rep); options.noReputation: a client without the calls
+    state.rep, state.repMode, state.calls.rep = {}, "ok", 0
+    local REP_FLOOR = { -42000, -6000, -3000, 0, 3000, 9000, 21000, 42000, 43000 }
+    if not options.noReputation then
+        global("C_Reputation", {
+            GetNumFactions = function()
+                if state.repCount then return state.repCount end
+                local count = 0
+                for _ in pairs(state.rep) do count = count + 1 end
+                return count
+            end,
+            GetFactionDataByID = function(faction)
+                state.calls.rep = state.calls.rep + 1
+                if state.repMode == "secret" then return Mock.SECRET end
+                if state.repMode == "error" then error("reputation is not ready") end
+                local entry = state.rep[faction]
+                if not entry then return nil end
+                -- entry.floor / entry.ceiling: a faction whose standings are not the ordinary size
+                local floor = entry.floor or REP_FLOOR[entry.reaction]
+                return {
+                    factionID = faction, name = "faction " .. faction,
+                    reaction = state.repMode == "secretField" and Mock.SECRET or entry.reaction,
+                    currentReactionThreshold = floor, nextReactionThreshold = entry.ceiling or REP_FLOOR[entry.reaction + 1],
+                    currentStanding = floor + (entry.into or 0),
+                }
+            end,
+        })
+    end
     local function spellKnown(spell)
         state.calls.spell = state.calls.spell + 1
         if state.spellMode == "false" then return false end
@@ -318,7 +351,35 @@ function Mock.install(options)
         end,
         RequestLoadItemDataByID = function(itemID) Mock.loadAsked[#Mock.loadAsked + 1] = itemID end,
     })
-    global("C_Spell", { GetSpellLink = function(spell) return "|cff71d5ff|Hspell:" .. spell .. "|h[spell " .. spell .. "]|h|r" end })
+    -- cooldowns (Mock.cooldown / Mock.itemCooldown set them): state.spellCooldowns[spell] and
+    -- state.itemCooldowns[item] = { start, duration } on the GetTime() clock. state.cooldownMode: "ok" |
+    -- "secret" (the numbers are secret values, as when cooldowns are restricted) | "nil" (no answer);
+    -- options.noCooldowns: a client without these calls
+    state.spellCooldowns, state.itemCooldowns, state.cooldownMode = {}, {}, "ok"
+    state.calls.cooldown = 0
+    local function cooldownOf(list, id)
+        local entry = list[id] or { 0, 0 }
+        if state.cooldownMode == "secret" then
+            return Mock.SECRET, Mock.SECRET
+        end
+        return entry[1], entry[2]
+    end
+    global("C_Spell", {
+        GetSpellLink = function(spell) return "|cff71d5ff|Hspell:" .. spell .. "|h[spell " .. spell .. "]|h|r" end,
+        GetSpellCooldown = not options.noCooldowns and function(spell)
+            state.calls.cooldown = state.calls.cooldown + 1
+            if state.cooldownMode == "nil" then return nil end
+            local start, duration = cooldownOf(state.spellCooldowns, spell)
+            return { startTime = start, duration = duration, isEnabled = true, modRate = 1 }
+        end or nil,
+    })
+    global("C_Container", {
+        GetItemCooldown = not options.noCooldowns and function(item)
+            if state.cooldownMode == "nil" then return nil end
+            local start, duration = cooldownOf(state.itemCooldowns, item)
+            return start, duration, 1
+        end or nil,
+    })
     -- chat links: state.shift = the Shift key is down; state.chatOpen = a chat edit box is open.
     -- Mock.linked = what went into the open edit box; Mock.chatOpened = the texts chat was opened with
     Mock.linked, Mock.chatOpened = {}, {}
@@ -456,11 +517,62 @@ function Mock.advance(seconds)
     end
 end
 
+-- a standing moves (reaction 1 Hated .. 8 Exalted, `into` it): the client says UPDATE_FACTION, and the
+-- addon reads a moment later
+function Mock.standing(faction, reaction, into, floor, ceiling)
+    Mock.state.rep[faction] = reaction and { reaction = reaction, into = into or 0, floor = floor, ceiling = ceiling } or nil
+    Mock.fire("UPDATE_FACTION")
+    Mock.advance(3)
+end
+
 -- the character learns a recipe: the client names it in NEW_RECIPE_LEARNED
 function Mock.learn(spell, silent)
     Mock.state.learned[spell] = true
     if not silent then
         Mock.fire("NEW_RECIPE_LEARNED", spell)
+    end
+end
+
+-- a spell (or an item's use) is on cooldown: `left` seconds of `duration` remain; left 0 = it is over.
+-- The game then says so with SPELL_UPDATE_COOLDOWN / BAG_UPDATE_COOLDOWN (silent: it does not).
+-- As the client's tables have it, a spell of a shared cooldown (a transmute) puts every spell of that
+-- cooldown on it: the game then answers the same for each. Mock.cooldownAlone is a game that answers for
+-- that one spell only (the user, 2026-11-18: Legionite and Arcanite - "Separate cooldowns").
+function Mock.cooldownAlone(spell, left, duration, silent)
+    Mock.state.spellCooldowns[spell] = left > 0 and { Mock.state.now - (duration - left), duration } or nil
+    if not silent then
+        Mock.fire("SPELL_UPDATE_COOLDOWN")
+    end
+end
+
+function Mock.cooldown(spell, left, duration, silent)
+    local together = { spell }
+    for _, group in ipairs(Mock.ns and Mock.ns.CooldownData and Mock.ns.CooldownData.groups or {}) do
+        if group.shared then
+            local found = false
+            for _, entry in ipairs(group.spells) do
+                found = found or entry.spell == spell
+            end
+            if found then
+                together = {}
+                for _, entry in ipairs(group.spells) do
+                    together[#together + 1] = entry.spell
+                end
+            end
+        end
+    end
+    for _, each in ipairs(together) do
+        Mock.cooldownAlone(each, left, duration, true)
+    end
+    if not silent then
+        Mock.fire("SPELL_UPDATE_COOLDOWN")
+    end
+end
+
+function Mock.itemCooldown(item, left, duration, silent)
+    Mock.state.itemCooldowns[item] = left > 0 and { Mock.state.now - (duration - left), duration } or nil
+    if not silent then
+        Mock.fire("BAG_UPDATE_COOLDOWN")
     end
 end
 

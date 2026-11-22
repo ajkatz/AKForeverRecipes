@@ -10,6 +10,7 @@
 --  * NEW_RECIPE_LEARNED names the recipe just learned: written down at once.
 --  * A merchant's window: recipe items of ours on sale are written down with the merchant and the price -
 --    that is how the recipes nobody has a source for yet get one.
+--  * The standing with the nine factions a recipe item can ask one of (see "Reputation" below).
 --
 -- Only the character's own professions are asked about (a hundred to a few hundred calls each), at login,
 -- when a trade skill window opens or its list changes - gathered into one pass half a second later - and
@@ -180,6 +181,176 @@ function Known:ReadSkills()
         Known.skillRaw[key] = raw
     end
     return answered
+end
+
+------------------------------------------------------------------------
+-- Reputation
+------------------------------------------------------------------------
+-- The character's standing with the factions a recipe item can ask one of (asked "Also show each
+-- character's own standing against the requirement?", the user, 2026-11-20: "Yes, add standing"). Asked
+-- by faction id - C_Reputation.GetFactionDataByID, the call Forever's own reputation window is built on -
+-- at login and a moment after the game says a standing moved, and kept on the character:
+--   cdb.rep[faction id] = { s = the standing, v = reputation earned inside it, m = how much it holds,
+--                           a = the reputation itself, as the client counts it (Neutral starts at 0) }
+--                       | false: the client answered, and has nothing on this faction for the character
+--   cdb.repAt           = when they were last read
+-- s counts as the item table does (0 Hated .. 4 Friendly .. 7 Exalted); the client's `reaction` counts
+-- from 1, so s = reaction - 1.
+-- Nothing is written unless the client answered: no such call, secrets, an error, or an empty reputation
+-- list with no faction answering leave what was read before as it was - and an unread character unread.
+Known.repRaw, Known.repReads = {}, 0
+
+function Known:ReadStandings()
+    local api = type(C_Reputation) == "table" and C_Reputation or nil
+    local byID = api and api.GetFactionDataByID
+    if type(byID) ~= "function" then
+        Known.repRaw = { answered = "no such call" }
+        return false
+    end
+    local count = ns.Readable(api.GetNumFactions)
+    count = count and readableNumber(count[1]) or nil
+    local read, raw = {}, { factions = count or "?" }
+    local answered = (count or 0) > 0 -- the list is there: a faction it says nothing of was never met
+    for faction in pairs(Lookup.RepFactions()) do
+        local ok, data = pcall(byID, faction)
+        if not ok then
+            raw[faction] = "error"
+        elseif ns.IsSecret(data) then
+            raw[faction] = "secret"
+        elseif data == nil then
+            raw[faction], read[faction] = "nil", false
+        elseif type(data) ~= "table" then
+            raw[faction] = type(data)
+        else
+            local reaction = readableNumber(data.reaction)
+            if reaction and reaction >= 1 and reaction <= 8 then
+                local entry = { s = reaction - 1 }
+                local floor, ceiling = readableNumber(data.currentReactionThreshold), readableNumber(data.nextReactionThreshold)
+                local value = readableNumber(data.currentStanding)
+                if floor and ceiling and value and ceiling > floor and value >= floor then
+                    entry.v, entry.m, entry.a = value - floor, ceiling - floor, value
+                end
+                read[faction], answered = entry, true
+                raw[faction] = reaction .. (entry.m and (" " .. entry.v .. "/" .. entry.m) or "")
+            else
+                raw[faction] = "unreadable"
+            end
+        end
+    end
+    Known.repRaw = raw
+    Known.repReads = Known.repReads + 1
+    if not answered then
+        return false
+    end
+    local kept = type(ns.cdb.rep) == "table" and ns.cdb.rep or {}
+    local changed = false
+    for faction, entry in pairs(read) do
+        local before = kept[faction]
+        if entry == false then
+            changed = changed or before ~= false
+        else
+            changed = changed or type(before) ~= "table" or before.s ~= entry.s or before.v ~= entry.v or before.m ~= entry.m
+                or before.a ~= entry.a
+        end
+        kept[faction] = entry
+    end
+    ns.cdb.rep, ns.cdb.repAt = kept, now()
+    if changed then
+        ns:Fire("STANDING_CHANGED") -- the window's alone: a standing is no news for the guild or friends
+    end
+    return changed
+end
+
+-- one read, two seconds after the first UPDATE_FACTION of a burst (every kill for a faction says it)
+function Known:QueueStandings()
+    if Known.repPending then
+        return
+    end
+    if C_Timer and type(C_Timer.After) == "function" then
+        Known.repPending = true
+        C_Timer.After(2, function()
+            Known.repPending = nil
+            ns.SafeCall(Known.ReadStandings, Known)
+        end)
+    else
+        self:ReadStandings()
+    end
+end
+
+-- A character against the standing a recipe item asks for (need = Lookup.Rep's):
+--   true / false, and the standing kept ({ s, v, m }, or false: never met the faction)
+--   nil: nothing is known - the character's standings were never read, or the recipe asks for none
+function Known:Meets(profile, need)
+    local rep = type(profile) == "table" and type(profile.rep) == "table" and profile.rep or nil
+    if not rep or type(need) ~= "table" then
+        return nil
+    end
+    local entry = rep[need.faction]
+    if entry == false then
+        return false, false
+    end
+    if type(entry) ~= "table" or type(entry.s) ~= "number" then
+        return nil
+    end
+    return entry.s >= need.standing, entry
+end
+
+-- How much reputation is still to earn to reach a standing (the user, 2026-11-20: "instead of showing
+-- like neutral/honored can we just show exactly how many reputation points you need to earn to get to
+-- that goal?"), or nil when it cannot be said: never met, already there, or the client gave no numbers.
+--  * Into the very next standing: the client's own numbers (what the standing holds, less what is earned).
+--  * Further: over the standings between, on the scale every ordinary faction has - where each standing
+--    starts, below. All nine factions a recipe asks for are ordinary ones in the client's faction table
+--    (no friendship or renown scale, build 70959). It is only summed when the client's own numbers for
+--    the standing the character is in sit on that scale; otherwise nothing is said.
+local STANDING_STARTS = { [0] = -42000, -6000, -3000, 0, 3000, 9000, 21000, 42000 }
+
+function Known.PointsTo(entry, standing)
+    if type(entry) ~= "table" or type(entry.s) ~= "number" or type(standing) ~= "number" or entry.s >= standing then
+        return nil
+    end
+    local earned, holds = entry.v, entry.m
+    if type(earned) ~= "number" or type(holds) ~= "number" then
+        return nil
+    end
+    if entry.s + 1 == standing then
+        return holds - earned
+    end
+    local starts, nextStarts, goal = STANDING_STARTS[entry.s], STANDING_STARTS[entry.s + 1], STANDING_STARTS[standing]
+    if starts and nextStarts and goal and type(entry.a) == "number"
+        and entry.a - earned == starts and holds == nextStarts - starts then
+        return goal - entry.a
+    end
+    return nil
+end
+
+-- 16800 as "16,800"
+function Known.Grouped(number)
+    local digits = tostring(math.floor(number))
+    local grouped = string.reverse((string.gsub(string.reverse(digits), "(%d%d%d)", "%1,")))
+    return (string.gsub(grouped, "^,", ""))
+end
+
+-- "8,800 to go" for a standing short of what is asked - or where it is, in the client's own numbers
+-- ("Friendly 1200/8000"), when the distance cannot be said; nil: never met
+function Known.ToGoText(entry, standing)
+    local points = Known.PointsTo(entry, standing)
+    if points then
+        return Known.Grouped(points) .. " to go", points
+    end
+    return Known.StandingText(entry)
+end
+
+-- "Honored 3200/12000" - or the word alone at Exalted and when the client gave no numbers; nil: never met
+function Known.StandingText(entry)
+    if type(entry) ~= "table" then
+        return nil
+    end
+    local word = Lookup.StandingWord(entry.s) or "?"
+    if entry.s < 7 and entry.v and entry.m then
+        return word .. " " .. entry.v .. "/" .. entry.m
+    end
+    return word
 end
 
 ------------------------------------------------------------------------
@@ -460,9 +631,13 @@ end
 function Known:Describe()
     local chars = {}
     for key, profile in pairs(ns.db and ns.db.chars or {}) do
-        chars[key] = { learned = Known:Count(profile), skills = profile.skills, professions = Known:ProfessionsOf(profile), side = profile.side, scannedAt = profile.scannedAt }
+        chars[key] = { learned = Known:Count(profile), skills = profile.skills, professions = Known:ProfessionsOf(profile), side = profile.side, scannedAt = profile.scannedAt,
+            rep = profile.rep, repAt = profile.repAt }
     end
     return {
+        -- what the client last said of each faction a recipe asks a standing of: "6 3200/12000" (its
+        -- reaction, 1 Hated .. 8 Exalted, and how far into it), "nil", "secret", "unreadable", "error"
+        rep = { raw = Known.repRaw, reads = Known.repReads },
         lastScan = Known.lastScan, scans = Known.scans or 0, skillRaw = Known.skillRaw, merchantReads = Known.merchantReads,
         heardLearned = Known.heardLearned, chars = chars,
         trainerReads = Known.trainerReads, trainerPrices = Known.trainerPrices,
@@ -490,12 +665,18 @@ ns:Listen("LOGIN", function()
     readLevel()
     Known:BuildAccount()
     Known:Scan("auto")
+    ns.SafeCall(Known.ReadStandings, Known)
     -- a cold login: the client may not have the trade skill data yet; once more, a little later
     if C_Timer and type(C_Timer.After) == "function" then
         C_Timer.After(5, function()
             ns.SafeCall(Known.Scan, Known, "auto")
+            ns.SafeCall(Known.ReadStandings, Known)
         end)
     end
+end)
+
+ns:On("UPDATE_FACTION", function()
+    Known:QueueStandings()
 end)
 
 for _, event in ipairs({ "TRADE_SKILL_SHOW", "TRADE_SKILL_LIST_UPDATE", "SKILL_LINES_CHANGED" }) do

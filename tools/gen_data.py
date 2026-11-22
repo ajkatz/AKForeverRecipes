@@ -9,10 +9,14 @@
 # Blacksmithing and Engineering have them; the profession pages only know Engineering's) and
 # tools/wowhead_drops.json (creatures that drop a recipe item the pages only name one faction's vendor or
 # quest for, read 2026-11-15 from Wowhead's Forever item pages - without them the other faction never saw
-# the recipe).
+# the recipe) and tools/trainer_teachers.json (recipes only a profession's Master trainers teach - every
+# profession, read 2026-11-18 from Wowhead's Forever NPC pages; the file says how, and which
+# professions are still unread) and tools/rep_requirements.json (gen_rep.py: the reputation standing a
+# recipe item asks for - the client's own item table).
 #
 #   python tools/fetch_binds.py
 #   python tools/research.py
+#   python tools/gen_rep.py
 #   python tools/gen_data.py
 #
 # What a page leaves open is filled by hand in OVERRIDES below, each marked as taken from Classic.
@@ -133,7 +137,7 @@ def write_profession(prof, binds, today, totals, found):
         trainer = (not has_source) and (not formula) and (not by_quest) and (not comes_with_skill)
         # (a recipe whose item page was read is no longer "as in Classic": the page's sold-by list named the
         # same vendors and its drop was counted on Forever)
-        classic = (bool(over.get("classic")) or src.get("read") == "classic") and not on_wowhead
+        classic = (bool(over.get("classic")) or src.get("read") == "classic" or r["spell"] in CLASSIC_TEACHERS) and not on_wowhead
 
         w("R({")
         w("    spell = %d,%s name = %s, icon = %s," % (r["spell"], (" item = %d," % r["item"]) if r["item"] else "", lua(r["name"]), lua(r["icon"])))
@@ -168,13 +172,30 @@ def write_profession(prof, binds, today, totals, found):
                 bind = "pickup" if formula["bound"] else "none"
             if bind is None:
                 counts["nobind"] += 1
-            w("    recipe = %s," % fields([("id", formula["id"]), ("name", formula["name"]), ("bop", True if bind == "pickup" else None), ("bind", "?" if bind is None else None)]))
+            item_line = fields([("id", formula["id"]), ("name", formula["name"]), ("bop", True if bind == "pickup" else None), ("bind", "?" if bind is None else None)])
+            # "Requires Timbermaw Hold - Honored": { the faction's id, its name, the standing (4 Friendly .. 7 Exalted) }
+            need = REP.get(str(formula["id"]))
+            if need and need.get("name") and 4 <= need["standing"] <= 7:
+                item_line = item_line[:-2] + ", rep = { %d, %s, %d } }" % (need["faction"], lua(need["name"]), need["standing"])
+                counts["rep"] = counts.get("rep", 0) + 1
+            w("    recipe = %s," % item_line)
             counts["bop"] += 1 if bind == "pickup" else 0
         if trainer:
             cost = TRAINER_COSTS.get(str(r["spell"]))
-            w("    trainer = true,%s%s" % (" unsure = true," if r["new"] else "", (" cost = %d," % cost) if cost else ""))
+            guess = r["new"] and r["spell"] not in CONFIRMED  # a trainer's own list had it: no guess
+            w("    trainer = true,%s%s" % (" unsure = true," if guess else "", (" cost = %d," % cost) if cost else ""))
+            counts["confirmed"] = counts.get("confirmed", 0) + (1 if r["new"] and not guess else 0)
             counts["cost"] = counts.get("cost", 0) + (1 if cost else 0)
             counts["trainer"] += 1
+        teachers = TEACHERS.get(r["spell"])
+        if teachers and not trainer:
+            raise SystemExit("%s (%d) has named trainers in trainer_teachers.json but is not a trainer's recipe" % (r["name"], r["spell"]))
+        if teachers:
+            w("    teachers = {")
+            for t in teachers:
+                w("        %s," % fields([("npc", t["npc"]), ("zone", t.get("zone")), ("side", SIDE.get(t.get("side"))), ("title", t.get("title")), ("faction", t.get("faction"))]))
+            w("    },")
+            counts["named trainers"] = counts.get("named trainers", 0) + 1
         if comes_with_skill:
             w("    auto = true,")
             counts["auto"] += 1
@@ -245,10 +266,25 @@ SPEC_WORDS = {
     10656: "Dragonscale", 10658: "Elemental", 10660: "Tribal",
     9788: "Armorsmith", 9787: "Weaponsmith", 17039: "Swordsmith", 17040: "Hammersmith", 17041: "Axesmith",
 }
+_REP = os.path.join(source.HERE, "rep_requirements.json")
+REP = json.load(open(_REP, encoding="utf-8")) if os.path.exists(_REP) else {}
 _DROPS = os.path.join(source.HERE, "wowhead_drops.json")
 WOWHEAD_DROPS = json.load(open(_DROPS, encoding="utf-8")).get("drops", {}) if os.path.exists(_DROPS) else {}
 _COSTS = os.path.join(source.HERE, "trainer_costs.json")
 TRAINER_COSTS = json.load(open(_COSTS, encoding="utf-8")) if os.path.exists(_COSTS) else {}
+# recipes not every trainer teaches: spell id -> the trainers who do (tools/trainer_teachers.json says where
+# each group was read)
+_TEACHERS = os.path.join(source.HERE, "trainer_teachers.json")
+_TEACHERS_FILE = json.load(open(_TEACHERS, encoding="utf-8")) if os.path.exists(_TEACHERS) else {}
+TEACHERS = {}
+CLASSIC_TEACHERS = set()  # recipes whose named trainers are Classic's, not read for Forever
+for _group in _TEACHERS_FILE.get("groups", []):
+    for _spell in _group["spells"]:
+        TEACHERS[int(_spell)] = _group["teachers"]
+        if _group.get("classic"):
+            CLASSIC_TEACHERS.add(int(_spell))
+# recipes new in Forever that a trainer's list was seen to hold: "Any trainer", no longer "Probably"
+CONFIRMED = set(_TEACHERS_FILE.get("confirmed", {}).get("spells", []))
 
 
 def main():

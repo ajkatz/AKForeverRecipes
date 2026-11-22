@@ -1,0 +1,1227 @@
+{
+ "12698": {
+  "faction": 529,
+  "item": "Plans: Dawnbringer Shoulders",
+  "name": "Argent Dawn",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "13482": {
+  "faction": 529,
+  "item": "Recipe: Transmute Air to Fire",
+  "name": "Argent Dawn",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "13484": {
+  "faction": 576,
+  "item": "Recipe: Transmute Earth to Water",
+  "name": "Timbermaw Hold",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "17017": {
+  "faction": 59,
+  "item": "Pattern: Flarecore Mantle",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "17018": {
+  "faction": 59,
+  "item": "Pattern: Flarecore Gloves",
+  "name": "Thorium Brotherhood",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "17022": {
+  "faction": 59,
+  "item": "Pattern: Corehound Boots",
+  "name": "Thorium Brotherhood",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "17023": {
+  "faction": 59,
+  "item": "Pattern: Molten Helm",
+  "name": "Thorium Brotherhood",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "17025": {
+  "faction": 59,
+  "item": "Pattern: Black Dragonscale Boots",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "17049": {
+  "faction": 59,
+  "item": "Plans: Fiery Chain Girdle",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "17051": {
+  "faction": 59,
+  "item": "Plans: Dark Iron Bracers",
+  "name": "Thorium Brotherhood",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "17052": {
+  "faction": 59,
+  "item": "Plans: Dark Iron Leggings",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "17053": {
+  "faction": 59,
+  "item": "Plans: Fiery Chain Shoulders",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "17059": {
+  "faction": 59,
+  "item": "Plans: Dark Iron Reaver",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "17060": {
+  "faction": 59,
+  "item": "Plans: Dark Iron Destroyer",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19202": {
+  "faction": 576,
+  "item": "Pattern: Heavy Timbermaw Belt",
+  "name": "Timbermaw Hold",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19203": {
+  "faction": 529,
+  "item": "Plans: Girdle of the Dawn",
+  "name": "Argent Dawn",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19204": {
+  "faction": 576,
+  "item": "Pattern: Heavy Timbermaw Boots",
+  "name": "Timbermaw Hold",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19205": {
+  "faction": 529,
+  "item": "Plans: Gloves of the Dawn",
+  "name": "Argent Dawn",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19206": {
+  "faction": 59,
+  "item": "Plans: Dark Iron Helm",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19207": {
+  "faction": 59,
+  "item": "Plans: Dark Iron Gauntlets",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19208": {
+  "faction": 59,
+  "item": "Plans: Black Amnesty",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19209": {
+  "faction": 59,
+  "item": "Plans: Blackfury",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19210": {
+  "faction": 59,
+  "item": "Plans: Ebon Hand",
+  "name": "Thorium Brotherhood",
+  "standing": 7,
+  "word": "Exalted"
+ },
+ "19211": {
+  "faction": 59,
+  "item": "Plans: Blackguard",
+  "name": "Thorium Brotherhood",
+  "standing": 7,
+  "word": "Exalted"
+ },
+ "19212": {
+  "faction": 59,
+  "item": "Plans: Nightfall",
+  "name": "Thorium Brotherhood",
+  "standing": 7,
+  "word": "Exalted"
+ },
+ "19215": {
+  "faction": 576,
+  "item": "Pattern: Wisdom of the Timbermaw",
+  "name": "Timbermaw Hold",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19216": {
+  "faction": 529,
+  "item": "Pattern: Argent Boots",
+  "name": "Argent Dawn",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19217": {
+  "faction": 529,
+  "item": "Pattern: Argent Shoulders",
+  "name": "Argent Dawn",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19218": {
+  "faction": 576,
+  "item": "Pattern: Mantle of the Timbermaw",
+  "name": "Timbermaw Hold",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19219": {
+  "faction": 59,
+  "item": "Pattern: Flarecore Robe",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19220": {
+  "faction": 59,
+  "item": "Pattern: Flarecore Leggings",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19326": {
+  "faction": 576,
+  "item": "Pattern: Might of the Timbermaw",
+  "name": "Timbermaw Hold",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19327": {
+  "faction": 576,
+  "item": "Pattern: Timbermaw Brawlers",
+  "name": "Timbermaw Hold",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19328": {
+  "faction": 529,
+  "item": "Pattern: Dawn Treaders",
+  "name": "Argent Dawn",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19329": {
+  "faction": 529,
+  "item": "Pattern: Golden Mantle of the Dawn",
+  "name": "Argent Dawn",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19330": {
+  "faction": 59,
+  "item": "Pattern: Lava Belt",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19331": {
+  "faction": 59,
+  "item": "Pattern: Chromatic Gauntlets",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19332": {
+  "faction": 59,
+  "item": "Pattern: Corehound Belt",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19333": {
+  "faction": 59,
+  "item": "Pattern: Molten Belt",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19442": {
+  "faction": 529,
+  "item": "Formula: Powerful Anti-Venom",
+  "name": "Argent Dawn",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19444": {
+  "faction": 59,
+  "item": "Formula: Enchant Weapon - Strength",
+  "name": "Thorium Brotherhood",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "19445": {
+  "faction": 576,
+  "item": "Formula: Enchant Weapon - Agility",
+  "name": "Timbermaw Hold",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19446": {
+  "faction": 529,
+  "item": "Formula: Enchant Bracer - Mana Regeneration",
+  "name": "Argent Dawn",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19447": {
+  "faction": 529,
+  "item": "Formula: Enchant Bracer - Healing",
+  "name": "Argent Dawn",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19448": {
+  "faction": 59,
+  "item": "Formula: Enchant Weapon - Mighty Spirit",
+  "name": "Thorium Brotherhood",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19449": {
+  "faction": 59,
+  "item": "Formula: Enchant Weapon - Mighty Intellect",
+  "name": "Thorium Brotherhood",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19764": {
+  "faction": 270,
+  "item": "Pattern: Bloodvine Vest",
+  "name": "Zandalar Tribe",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19765": {
+  "faction": 270,
+  "item": "Pattern: Bloodvine Leggings",
+  "name": "Zandalar Tribe",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19766": {
+  "faction": 270,
+  "item": "Pattern: Bloodvine Boots",
+  "name": "Zandalar Tribe",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "19769": {
+  "faction": 270,
+  "item": "Pattern: Primal Batskin Jerkin",
+  "name": "Zandalar Tribe",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19770": {
+  "faction": 270,
+  "item": "Pattern: Primal Batskin Gloves",
+  "name": "Zandalar Tribe",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19771": {
+  "faction": 270,
+  "item": "Pattern: Primal Batskin Bracers",
+  "name": "Zandalar Tribe",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "19772": {
+  "faction": 270,
+  "item": "Pattern: Blood Tiger Breastplate",
+  "name": "Zandalar Tribe",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19773": {
+  "faction": 270,
+  "item": "Pattern: Blood Tiger Shoulders",
+  "name": "Zandalar Tribe",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19776": {
+  "faction": 270,
+  "item": "Plans: Bloodsoul Breastplate",
+  "name": "Zandalar Tribe",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19777": {
+  "faction": 270,
+  "item": "Plans: Bloodsoul Shoulders",
+  "name": "Zandalar Tribe",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19778": {
+  "faction": 270,
+  "item": "Plans: Bloodsoul Gauntlets",
+  "name": "Zandalar Tribe",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "19779": {
+  "faction": 270,
+  "item": "Plans: Darksoul Breastplate",
+  "name": "Zandalar Tribe",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "19780": {
+  "faction": 270,
+  "item": "Plans: Darksoul Leggings",
+  "name": "Zandalar Tribe",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "19781": {
+  "faction": 270,
+  "item": "Plans: Darksoul Shoulders",
+  "name": "Zandalar Tribe",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "20000": {
+  "faction": 270,
+  "item": "Schematic: Bloodvine Goggles",
+  "name": "Zandalar Tribe",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "20001": {
+  "faction": 270,
+  "item": "Schematic: Bloodvine Lens",
+  "name": "Zandalar Tribe",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "20011": {
+  "faction": 270,
+  "item": "Recipe: Mageblood Elixir",
+  "name": "Zandalar Tribe",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "20012": {
+  "faction": 270,
+  "item": "Recipe: Greater Dreamless Sleep",
+  "name": "Zandalar Tribe",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "20013": {
+  "faction": 270,
+  "item": "Recipe: Living Action Potion",
+  "name": "Zandalar Tribe",
+  "standing": 7,
+  "word": "Exalted"
+ },
+ "20014": {
+  "faction": 270,
+  "item": "Recipe: Major Troll's Blood Elixir",
+  "name": "Zandalar Tribe",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "20040": {
+  "faction": 59,
+  "item": "Plans: Dark Iron Boots",
+  "name": "Thorium Brotherhood",
+  "standing": 7,
+  "word": "Exalted"
+ },
+ "20254": {
+  "faction": 576,
+  "item": "Pattern: Warbear Woolies",
+  "name": "Timbermaw Hold",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "20732": {
+  "faction": 609,
+  "item": "Formula: Enchant Cloak - Greater Fire Resistance",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "20733": {
+  "faction": 609,
+  "item": "Formula: Enchant Cloak - Greater Nature Resistance",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "20756": {
+  "faction": 270,
+  "item": "Formula: Brilliant Wizard Oil",
+  "name": "Zandalar Tribe",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "20757": {
+  "faction": 270,
+  "item": "Formula: Brilliant Mana Oil",
+  "name": "Zandalar Tribe",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "20761": {
+  "faction": 59,
+  "item": "Recipe: Transmute Elemental Fire",
+  "name": "Thorium Brotherhood",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "22219": {
+  "faction": 609,
+  "item": "Plans: Jagged Obsidian Shield",
+  "name": "Cenarion Circle",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "22221": {
+  "faction": 609,
+  "item": "Plans: Obsidian Mail Tunic",
+  "name": "Cenarion Circle",
+  "standing": 7,
+  "word": "Exalted"
+ },
+ "22310": {
+  "faction": 609,
+  "item": "Pattern: Cenarion Herb Bag",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "22312": {
+  "faction": 609,
+  "item": "Pattern: Satchel of Cenarius",
+  "name": "Cenarion Circle",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "22392": {
+  "faction": 576,
+  "item": "Formula: Enchant 2H Weapon - Agility",
+  "name": "Timbermaw Hold",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "22683": {
+  "faction": 609,
+  "item": "Pattern: Gaea's Embrace",
+  "name": "Cenarion Circle",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "22703": {
+  "faction": 529,
+  "item": "Plans: Icebane Breastplate",
+  "name": "Argent Dawn",
+  "standing": 7,
+  "word": "Exalted"
+ },
+ "22704": {
+  "faction": 529,
+  "item": "Plans: Icebane Gauntlets",
+  "name": "Argent Dawn",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "22705": {
+  "faction": 749,
+  "item": "Plans: Icebane Bracers",
+  "name": "Hydraxian Waterlords",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "22772": {
+  "faction": 609,
+  "item": "Pattern: Sylvan Shoulders",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "22773": {
+  "faction": 609,
+  "item": "Pattern: Sylvan Crown",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "22774": {
+  "faction": 609,
+  "item": "Pattern: Sylvan Vest",
+  "name": "Cenarion Circle",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "251469": {
+  "faction": 576,
+  "item": "Plans: Stormcarver",
+  "name": "Timbermaw Hold",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "251470": {
+  "faction": 576,
+  "item": "Plans: Bagh Nakh",
+  "name": "Timbermaw Hold",
+  "standing": 6,
+  "word": "Revered"
+ },
+ "275580": {
+  "faction": 609,
+  "item": "Pattern: Venomspew Gloves",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "275581": {
+  "faction": 609,
+  "item": "Pattern: Venomspew Cord",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275582": {
+  "faction": 609,
+  "item": "Pattern: Venomspew Footpads",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275583": {
+  "faction": 609,
+  "item": "Pattern: Swarmtender's Gloves",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "275584": {
+  "faction": 609,
+  "item": "Pattern: Swarmtender's Cord",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275585": {
+  "faction": 609,
+  "item": "Pattern: Swarmtender's Footpads",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275586": {
+  "faction": 609,
+  "item": "Pattern: Bileblister Claws",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "275587": {
+  "faction": 609,
+  "item": "Pattern: Bileblister Girdle",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275588": {
+  "faction": 609,
+  "item": "Pattern: Bileblister Boots",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275589": {
+  "faction": 609,
+  "item": "Pattern: Hivethrasher's Claws",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "275590": {
+  "faction": 609,
+  "item": "Pattern: Hivethrasher's Girdle",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275591": {
+  "faction": 609,
+  "item": "Pattern: Hivethrasher's Boots",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275592": {
+  "faction": 609,
+  "item": "Pattern: Scalegut Clenchers",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "275593": {
+  "faction": 609,
+  "item": "Pattern: Scalegut Belt",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275594": {
+  "faction": 609,
+  "item": "Pattern: Scalegut Treaders",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275595": {
+  "faction": 609,
+  "item": "Pattern: Broodwatcher's Clenchers",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "275596": {
+  "faction": 609,
+  "item": "Pattern: Broodwatcher's Belt",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275597": {
+  "faction": 609,
+  "item": "Pattern: Broodwatcher's Treaders",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275598": {
+  "faction": 609,
+  "item": "Plans: Goregasher Grips",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "275599": {
+  "faction": 609,
+  "item": "Plans: Goregasher Support",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275600": {
+  "faction": 609,
+  "item": "Plans: Goregasher Stompers",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275601": {
+  "faction": 609,
+  "item": "Plans: Clutchlord's Grips",
+  "name": "Cenarion Circle",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "275602": {
+  "faction": 609,
+  "item": "Plans: Clutchlord's Support",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "275603": {
+  "faction": 609,
+  "item": "Plans: Clutchlord's Stompers",
+  "name": "Cenarion Circle",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276928": {
+  "faction": 2758,
+  "item": "Plans: Cloudy Skyforged Chainmail",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276929": {
+  "faction": 2758,
+  "item": "Plans: Cloudy Skyforged Wristguards",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276930": {
+  "faction": 2758,
+  "item": "Plans: Cloudy Skyforged Gauntlets",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276931": {
+  "faction": 2758,
+  "item": "Plans: Cloudy Skyforged Chain",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276932": {
+  "faction": 2758,
+  "item": "Plans: Cloudy Skyforged Legguards",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276933": {
+  "faction": 2758,
+  "item": "Plans: Cloudy Skyforged Greaves",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276934": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Gustwoven Harness",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276935": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Gustwoven Bracers",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276936": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Gustwoven Gloves",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276937": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Gustwoven Belt",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276938": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Gustwoven Trousers",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276939": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Gustwoven Boots",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276940": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Windraveled Jerkin",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276941": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Windraveled Armguards",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276942": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Windraveled Mitts",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276943": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Windraveled Strap",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276944": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Windraveled Pants",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276945": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Windraveled Footwraps",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276946": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Stormsewn Vest",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276947": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Stormsewn Cuffs",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276948": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Stormsewn Handwraps",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276949": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Stormsewn Cord",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276950": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Stormsewn Leggings",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276951": {
+  "faction": 2758,
+  "item": "Pattern: Cloudy Stormsewn Shoes",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276952": {
+  "faction": 2758,
+  "item": "Plans: Azure Skyforged Chainmail",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276953": {
+  "faction": 2758,
+  "item": "Plans: Azure Skyforged Wristguards",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276954": {
+  "faction": 2758,
+  "item": "Plans: Azure Skyforged Gauntlets",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276955": {
+  "faction": 2758,
+  "item": "Plans: Azure Skyforged Chain",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276956": {
+  "faction": 2758,
+  "item": "Plans: Azure Skyforged Legguards",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276957": {
+  "faction": 2758,
+  "item": "Plans: Azure Skyforged Greaves",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276958": {
+  "faction": 2758,
+  "item": "Pattern: Azure Gustwoven Harness",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276959": {
+  "faction": 2758,
+  "item": "Pattern: Azure Gustwoven Bracers",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276960": {
+  "faction": 2758,
+  "item": "Pattern: Azure Gustwoven Gloves",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276961": {
+  "faction": 2758,
+  "item": "Pattern: Azure Gustwoven Belt",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276962": {
+  "faction": 2758,
+  "item": "Pattern: Azure Gustwoven Trousers",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276963": {
+  "faction": 2758,
+  "item": "Pattern: Azure Gustwoven Boots",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276964": {
+  "faction": 2758,
+  "item": "Pattern: Azure Windraveled Jerkin",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276965": {
+  "faction": 2758,
+  "item": "Pattern: Azure Windraveled Armguards",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276966": {
+  "faction": 2758,
+  "item": "Pattern: Azure Windraveled Mitts",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276967": {
+  "faction": 2758,
+  "item": "Pattern: Azure Windraveled Strap",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276968": {
+  "faction": 2758,
+  "item": "Pattern: Azure Windraveled Pants",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276969": {
+  "faction": 2758,
+  "item": "Pattern: Azure Windraveled Footwraps",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276970": {
+  "faction": 2758,
+  "item": "Pattern: Azure Stormsewn Vest",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276971": {
+  "faction": 2758,
+  "item": "Pattern: Azure Stormsewn Cuffs",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276972": {
+  "faction": 2758,
+  "item": "Pattern: Azure Stormsewn Handwraps",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276973": {
+  "faction": 2758,
+  "item": "Pattern: Azure Stormsewn Cord",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276974": {
+  "faction": 2758,
+  "item": "Pattern: Azure Stormsewn Leggings",
+  "name": "Nightclaw Druids",
+  "standing": 5,
+  "word": "Honored"
+ },
+ "276975": {
+  "faction": 2758,
+  "item": "Pattern: Azure Stormsewn Shoes",
+  "name": "Nightclaw Druids",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276976": {
+  "faction": 2787,
+  "item": "Plans: Cloudy Skyforged Helm",
+  "name": "Earthen Ring",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276977": {
+  "faction": 2787,
+  "item": "Plans: Cloudy Skyforged Pauldrons",
+  "name": "Earthen Ring",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276978": {
+  "faction": 2787,
+  "item": "Pattern: Cloudy Gustwoven Hood",
+  "name": "Earthen Ring",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276979": {
+  "faction": 2787,
+  "item": "Pattern: Cloudy Gustwoven Spaulders",
+  "name": "Earthen Ring",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276980": {
+  "faction": 2787,
+  "item": "Pattern: Cloudy Windraveled Cover",
+  "name": "Earthen Ring",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276981": {
+  "faction": 2787,
+  "item": "Pattern: Cloudy Windraveled Drapes",
+  "name": "Earthen Ring",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276982": {
+  "faction": 2787,
+  "item": "Pattern: Cloudy Stormsewn Cowl",
+  "name": "Earthen Ring",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276983": {
+  "faction": 2787,
+  "item": "Pattern: Cloudy Stormsewn Epaulets",
+  "name": "Earthen Ring",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276984": {
+  "faction": 2740,
+  "item": "Plans: Azure Skyforged Helm",
+  "name": "Kirin Tor",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276985": {
+  "faction": 2740,
+  "item": "Plans: Azure Skyforged Pauldrons",
+  "name": "Kirin Tor",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276986": {
+  "faction": 2740,
+  "item": "Pattern: Azure Gustwoven Hood",
+  "name": "Kirin Tor",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276987": {
+  "faction": 2740,
+  "item": "Pattern: Azure Gustwoven Spaulders",
+  "name": "Kirin Tor",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276988": {
+  "faction": 2740,
+  "item": "Pattern: Azure Windraveled Cover",
+  "name": "Kirin Tor",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276989": {
+  "faction": 2740,
+  "item": "Pattern: Azure Windraveled Drapes",
+  "name": "Kirin Tor",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276990": {
+  "faction": 2740,
+  "item": "Pattern: Azure Stormsewn Cowl",
+  "name": "Kirin Tor",
+  "standing": 4,
+  "word": "Friendly"
+ },
+ "276991": {
+  "faction": 2740,
+  "item": "Pattern: Azure Stormsewn Epaulets",
+  "name": "Kirin Tor",
+  "standing": 4,
+  "word": "Friendly"
+ }
+}
